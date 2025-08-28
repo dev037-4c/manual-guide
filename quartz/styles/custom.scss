@@ -2,10 +2,20 @@
 
 // put your custom CSS 
 
-// 2️⃣ 변수 지정
-$codeFont: 'Creepster', cursive;
+// custom.scss
 
-// 3️⃣ 실제 적용
+// 1️⃣ 폰트 파일 불러오기 (fonts 폴더에 Creepster.otf 파일 있다고 가정)
+@font-face {
+  font-family: 'Creepster';
+  src: url('./fonts/Creepster.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+// 2️⃣ 폰트 변수 지정
+$codeFont: 'Creepster', monospace;
+
+// 3️⃣ 적용
 .code-block {
   font-family: $codeFont;
   font-size: 16px;
