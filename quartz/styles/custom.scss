@@ -1,5 +1,19 @@
-@use "./base.scss";
+/* S-CoreDream font-face 선언 */
+@font-face {
+  font-family: "S-CoreDream";
+  font-weight: 100;
+  src: url("./Fonts/S-CoreDream-1Thin.woff") format("woff");
+}
+@font-face {
+  font-family: "S-CoreDream";
+  font-weight: 200;
+  src: url("./Fonts/S-CoreDream-2ExtraLight.woff") format("woff");
+}
+/* 필요하다면 300~900까지 계속 추가 가능 */
 
-// put your custom CSS 
-
-
+/* Quartz 변수 재정의 */
+:root {
+  --bodyFont: "S-CoreDream", sans-serif;
+  --headerFont: "S-CoreDream", sans-serif;
+  --codeFont: "S-CoreDream", monospace; /* 코드 폰트도 바꾸고 싶으면 */
+}
