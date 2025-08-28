@@ -1,3 +1,17 @@
 @use "./base.scss";
 
 // put your custom CSS here!
+@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+
+// 2️⃣ 변수 지정
+$codeFont: 'Creepster', cursive;
+
+// 3️⃣ 실제 적용
+.code-block {
+  font-family: $codeFont;
+  font-size: 16px;
+  color: #ff6f61;
+  background-color: #1a1a1a;
+  padding: 12px;
+  border-radius: 8px;
+}
