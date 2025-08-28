@@ -3,23 +3,30 @@
 @use "./syntax.scss";
 @use "./callouts.scss";
 
-/* === S-CoreDream local font faces (paths use ./Fonts/) === */
+/* ============================= */
+/*  폰트 정의 (S-CoreDream) - 절대 경로(/Fonts/) + woff2/woff 페일백 */
+/* ============================= */
 @font-face {
   font-family: 'S-CoreDream';
-  src: url('./Fonts/S-CoreDream-1Thin.woff') format('woff');
+  src: url('/Fonts/S-CoreDream-1Thin.woff2') format('woff2'),
+       url('/Fonts/S-CoreDream-1Thin.woff') format('woff');
   font-weight: 100;
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: 'S-CoreDream';
-  src: url('./Fonts/S-CoreDream-2ExtraLight.woff') format('woff');
+  src: url('/Fonts/S-CoreDream-2ExtraLight.woff2') format('woff2'),
+       url('/Fonts/S-CoreDream-2ExtraLight.woff') format('woff');
   font-weight: 200;
   font-style: normal;
   font-display: swap;
 }
 
-/* === Override only font custom properties to S-CoreDream === */
+/* ============================= */
+/*  폰트 변수를 S-CoreDream으로 통일 */
+/* ============================= */
 :root {
   --bodyFont: 'S-CoreDream', sans-serif;
   --headerFont: 'S-CoreDream', sans-serif;
