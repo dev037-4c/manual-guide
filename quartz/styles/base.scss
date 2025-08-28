@@ -7,20 +7,24 @@
 @use "./callouts.scss";
 
 /* ============================= */
-/* 2. 폰트 정의 */
+/* 2. 폰트 정의 (경로 수정) */
 /* ============================= */
 @font-face {
   font-family: 'S-CoreDream';
-  src: url('./fonts/S-CoreDream-1Thin.woff') format('woff');
+  src: url('/Fonts/S-CoreDream-1Thin.woff2') format('woff2'),
+       url('/Fonts/S-CoreDream-1Thin.woff') format('woff');
   font-weight: 100;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'S-CoreDream';
-  src: url('./fonts/S-CoreDream-2ExtraLight.woff') format('woff');
+  src: url('/Fonts/S-CoreDream-2ExtraLight.woff2') format('woff2'),
+       url('/Fonts/S-CoreDream-2ExtraLight.woff') format('woff');
   font-weight: 200;
   font-style: normal;
+  font-display: swap;
 }
 
 /* ============================= */
@@ -125,7 +129,6 @@ a {
       }
     }
 
-    /* :has() 제거 → 대신 별도 클래스 활용 */
     &.with-image {
       background-color: transparent;
       border-radius: 0;
@@ -179,15 +182,12 @@ a {
 
   & article {
     & > h1 { font-size: 2rem; }
-
-    /* :has() 제거 → 대신 .with-checkbox 클래스 사용 */
     & li.with-checkbox { list-style-type: none; padding-left: 0; }
     & li.checked {
       text-decoration: line-through;
       text-decoration-color: var(--gray);
       color: var(--gray);
     }
-
     & li > * { margin: 0; }
     p > strong { color: var(--dark); }
   }
@@ -333,7 +333,6 @@ input[type="checkbox"] {
   }
 }
 
-/* blockquote */
 blockquote {
   margin: 1rem 0;
   border-left: 3px solid var(--secondary);
@@ -341,7 +340,6 @@ blockquote {
   transition: border-color 0.2s ease;
 }
 
-/* 헤더 폰트 통일 */
 h1, h2, h3, h4, h5, h6, thead {
   font-family: 'S-CoreDream', sans-serif;
   color: var(--dark);
@@ -353,5 +351,3 @@ h1 { font-size: 1.75rem; margin-top: 2.25rem; margin-bottom: 1rem; }
 h2 { font-size: 1.4rem; margin-top: 1.9rem; margin-bottom: 1rem; }
 h3 { font-size: 1.12rem; margin-top: 1.62rem; margin-bottom: 1rem; }
 h4, h5, h6 { font-size: 1rem; margin-top: 1.5rem; margin-bottom: 1rem; }
-
-/* 코드 블록, 표, 이미지, hr 등은 기존 스타일 유지 */
