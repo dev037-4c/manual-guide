@@ -1,90 +1,29 @@
-/* Thin */
-@font-face {
-  font-family: 'SCDream';
-  src: url('./Fonts/SCDream1.otf') format('opentype');
-  font-weight: 100;
-  font-style: normal;
-}
-
-/* ExtraLight */
-@font-face {
-  font-family: 'SCDream';
-  src: url('./Fonts/SCDream2.otf') format('opentype');
-  font-weight: 200;
-  font-style: normal;
-}
-
-/* Light */
-@font-face {
-  font-family: 'SCDream';
-  src: url('./Fonts/SCDream3.otf') format('opentype');
-  font-weight: 300;
-  font-style: normal;
-}
-
-/* Regular */
-@font-face {
-  font-family: 'SCDream';
-  src: url('./Fonts/SCDream4.otf') format('opentype');
-  font-weight: 400;
-  font-style: normal;
-}
-
-/* Medium */
-@font-face {
-  font-family: 'SCDream';
-  src: url('./Fonts/SCDream5.otf') format('opentype');
-  font-weight: 500;
-  font-style: normal;
-}
-
-/* SemiBold */
-@font-face {
-  font-family: 'SCDream';
-  src: url('./Fonts/SCDream6.otf') format('opentype');
-  font-weight: 600;
-  font-style: normal;
-}
-
-/* Bold */
-@font-face {
-  font-family: 'SCDream';
-  src: url('./Fonts/SCDream7.otf') format('opentype');
-  font-weight: 700;
-  font-style: normal;
-}
-
-/* ExtraBold */
-@font-face {
-  font-family: 'SCDream';
-  src: url('./Fonts/SCDream8.otf') format('opentype');
-  font-weight: 800;
-  font-style: normal;
-}
-
-/* Heavy */
-@font-face {
-  font-family: 'SCDream';
-  src: url('./Fonts/SCDream9.otf') format('opentype');
-  font-weight: 900;
-  font-style: normal;
-}
+/* -------------------------
+   SCDream 폰트 정의
+-------------------------- */
+@font-face { font-family: 'SCDream'; src: url('./Fonts/SCDream1.otf') format('opentype'); font-weight: 100; font-style: normal; }
+@font-face { font-family: 'SCDream'; src: url('./Fonts/SCDream2.otf') format('opentype'); font-weight: 200; font-style: normal; }
+@font-face { font-family: 'SCDream'; src: url('./Fonts/SCDream3.otf') format('opentype'); font-weight: 300; font-style: normal; }
+@font-face { font-family: 'SCDream'; src: url('./Fonts/SCDream4.otf') format('opentype'); font-weight: 400; font-style: normal; }
+@font-face { font-family: 'SCDream'; src: url('./Fonts/SCDream5.otf') format('opentype'); font-weight: 500; font-style: normal; }
+@font-face { font-family: 'SCDream'; src: url('./Fonts/SCDream6.otf') format('opentype'); font-weight: 600; font-style: normal; }
+@font-face { font-family: 'SCDream'; src: url('./Fonts/SCDream7.otf') format('opentype'); font-weight: 700; font-style: normal; }
+@font-face { font-family: 'SCDream'; src: url('./Fonts/SCDream8.otf') format('opentype'); font-weight: 800; font-style: normal; }
+@font-face { font-family: 'SCDream'; src: url('./Fonts/SCDream9.otf') format('opentype'); font-weight: 900; font-style: normal; }
 
 /* -------------------------
    기본 전역 스타일
 -------------------------- */
-
-/* 모든 페이지에 SCDream 적용 */
 html, body {
-  font-family: 'SCDream', sans-serif;
-  font-weight: 400; /* 기본 Regular */
+  font-family: 'SCDream', sans-serif !important;
+  font-weight: 400;
   margin: 0;
   padding: 0;
   line-height: 1.6;
   color: #222;
 }
 
-/* 필요시 제목 계층에 다른 weight 지정 */
+/* 제목/강조 스타일 */
 h1 { font-weight: 700; }
 h2 { font-weight: 600; }
 h3 { font-weight: 500; }
