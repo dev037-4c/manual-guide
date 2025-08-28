@@ -1,7 +1,7 @@
 /* 얇은 두께 (Thin) */
 @font-face {
   font-family: 'SCDream';
-  src: url('./fonts/SCDream1.otf') format('opentype');
+  src: url('./Fonts/SCDream1.otf') format('opentype');
   font-weight: 100;
   font-style: normal;
 }
@@ -9,7 +9,7 @@
 /* ExtraLight */
 @font-face {
   font-family: 'SCDream';
-  src: url('./fonts/SCDream2.otf') format('opentype');
+  src: url('./Fonts/SCDream2.otf') format('opentype');
   font-weight: 200;
   font-style: normal;
 }
@@ -17,7 +17,7 @@
 /* Light */
 @font-face {
   font-family: 'SCDream';
-  src: url('./fonts/SCDream3.otf') format('opentype');
+  src: url('./Fonts/SCDream3.otf') format('opentype');
   font-weight: 300;
   font-style: normal;
 }
@@ -25,7 +25,7 @@
 /* Regular */
 @font-face {
   font-family: 'SCDream';
-  src: url('./fonts/SCDream4.otf') format('opentype');
+  src: url('./Fonts/SCDream4.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
 }
@@ -33,7 +33,7 @@
 /* Medium */
 @font-face {
   font-family: 'SCDream';
-  src: url('./fonts/SCDream5.otf') format('opentype');
+  src: url('./Fonts/SCDream5.otf') format('opentype');
   font-weight: 500;
   font-style: normal;
 }
@@ -41,7 +41,7 @@
 /* SemiBold */
 @font-face {
   font-family: 'SCDream';
-  src: url('./fonts/SCDream6.otf') format('opentype');
+  src: url('./Fonts/SCDream6.otf') format('opentype');
   font-weight: 600;
   font-style: normal;
 }
@@ -49,7 +49,7 @@
 /* Bold */
 @font-face {
   font-family: 'SCDream';
-  src: url('./fonts/SCDream7.otf') format('opentype');
+  src: url('./Fonts/SCDream7.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
 }
@@ -57,7 +57,7 @@
 /* ExtraBold */
 @font-face {
   font-family: 'SCDream';
-  src: url('./fonts/SCDream8.otf') format('opentype');
+  src: url('./Fonts/SCDream8.otf') format('opentype');
   font-weight: 800;
   font-style: normal;
 }
@@ -65,7 +65,7 @@
 /* Heavy */
 @font-face {
   font-family: 'SCDream';
-  src: url('./fonts/SCDream9.otf') format('opentype');
+  src: url('./Fonts/SCDream9.otf') format('opentype');
   font-weight: 900;
   font-style: normal;
 }
