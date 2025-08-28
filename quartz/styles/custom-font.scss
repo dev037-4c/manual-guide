@@ -1,0 +1,29 @@
+// custom-font.scss
+
+// 1️⃣ 폰트 파일 불러오기
+@font-face {
+  font-family: 'SCDream';
+  src: url('./Fonts/S-CoreDream-9Heavy.woff') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+// 2️⃣ SCSS 변수 지정
+$bodyFont: 'SCDream', monospace;
+$headerFont: 'SCDream', monospace;
+$codeFont: 'SCDream', monospace;
+
+// 3️⃣ 본문 글꼴 적용
+body {
+  font-family: $bodyFont;
+}
+
+// 4️⃣ 헤더 글꼴 적용
+h1, h2, h3, h4, h5, h6, thead {
+  font-family: $headerFont;
+}
+
+// 5️⃣ 코드 블록 글꼴 적용
+pre, code {
+  font-family: $codeFont;
+}
