@@ -1,4 +1,4 @@
-/* 얇은 두께 (Thin) */
+/* Thin */
 @font-face {
   font-family: 'SCDream';
   src: url('./Fonts/SCDream1.otf') format('opentype');
@@ -70,7 +70,23 @@
   font-style: normal;
 }
 
-/* 본문 전체 적용 */
+/* -------------------------
+   기본 스타일 적용
+-------------------------- */
+
+/* 전체 문서에 SCDream 적용 */
 body {
   font-family: 'SCDream', sans-serif;
+  margin: 2rem;
+  line-height: 1.6;
+}
+
+/* 테스트용 스타일 */
+h1 {
+  font-weight: 700; /* Bold */
+  margin-bottom: 1rem;
+}
+
+p {
+  margin: 0.3rem 0;
 }
