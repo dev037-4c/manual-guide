@@ -55,6 +55,7 @@ ul,
 .katex,
 .math {
   overflow-wrap: anywhere;
+  font-family: 'SCDream', monospace;
   /* tr and td removed from list of selectors for overflow-wrap, allowing them to use default 'normal' property value */
 }
 
@@ -183,6 +184,7 @@ a {
     & li > * {
       margin-top: 0;
       margin-bottom: 0;
+      font-family: 'SCDream', monospace;
     }
 
     p > strong {
@@ -517,6 +519,7 @@ tbody,
 li,
 p {
   line-height: 1.6rem;
+  font-family: 'SCDream', monospace;
 }
 
 .table-container {
@@ -573,6 +576,7 @@ hr {
   height: 1px;
   border: none;
   background-color: var(--lightgray);
+  font-family: 'SCDream', monospace;
 }
 
 audio,
