@@ -3,14 +3,52 @@
 @font-face {
   font-family: "S-CoreDream";
   font-weight: 100;
-  src: url("/Fonts/S-CoreDream-1Thin.woff") format("woff");
+  src: url("./Fonts/S-CoreDream-1Thin.woff") format("woff");
 }
 
 @font-face {
   font-family: "S-CoreDream";
-  font-weight: 200;
-  src: url("/Fonts/S-CoreDream-2ExtraLight.woff") format("woff");
+  font-weight:200;
+  src: url("./Fonts/S-CoreDream-2ExtraLight.woff") format("woff");
 }
+
+/* 필요한 경우 300~900까지도 추가 */
+@font-face {
+  font-family: "S-CoreDream";
+  font-weight:300;
+  src: url("./Fonts/S-CoreDream-3Light.woff") format("woff");
+}
+@font-face {
+  font-family: "S-CoreDream";
+  font-weight:400;
+  src: url("./Fonts/S-CoreDream-4Regular.woff") format("woff");
+}
+@font-face {
+  font-family: "S-CoreDream";
+  font-weight:500;
+  src: url("./Fonts/S-CoreDream-5Medium.woff") format("woff");
+}
+@font-face {
+  font-family: "S-CoreDream";
+  font-weight:600;
+  src: url("./Fonts/S-CoreDream-6SemiBold.woff") format("woff");
+}
+@font-face {
+  font-family: "S-CoreDream";
+  font-weight:700;
+  src: url("./Fonts/S-CoreDream-7Bold.woff") format("woff");
+}
+@font-face {
+  font-family: "S-CoreDream";
+  font-weight:800;
+  src: url("./Fonts/S-CoreDream-8ExtraBold.woff") format("woff");
+}
+@font-face {
+  font-family: "S-CoreDream";
+  font-weight:900;
+  src: url("./Fonts/S-CoreDream-9Black.woff") format("woff");
+}
+
 
 :root {
   --bodyFont: "S-CoreDream", sans-serif !important;
