@@ -1,6 +1,6 @@
 /* 1. Thin */
 @font-face {
-  font-family: 'SCDream';
+  font-family: 'S-CoreDream';
   src: url('./Fonts/S-CoreDream-1Thin.woff') format('woff');
   font-weight: 100;
   font-style: normal;
@@ -8,7 +8,7 @@
 
 /* 2. ExtraLight */
 @font-face {
-  font-family: 'SCDream';
+  font-family: 'S-CoreDream';
   src: url('./Fonts/S-CoreDream-2ExtraLight.woff') format('woff');
   font-weight: 200;
   font-style: normal;
@@ -16,7 +16,7 @@
 
 /* 3. Light */
 @font-face {
-  font-family: 'SCDream';
+  font-family: 'S-CoreDream';
   src: url('./Fonts/S-CoreDream-3Light.woff') format('woff');
   font-weight: 300;
   font-style: normal;
@@ -24,7 +24,7 @@
 
 /* 4. Regular */
 @font-face {
-  font-family: 'SCDream';
+  font-family: 'S-CoreDream';
   src: url('./Fonts/S-CoreDream-4Regular.woff') format('woff');
   font-weight: 400;
   font-style: normal;
@@ -32,7 +32,7 @@
 
 /* 5. Medium */
 @font-face {
-  font-family: 'SCDream';
+  font-family: 'S-CoreDream';
   src: url('./Fonts/S-CoreDream-5Medium.woff') format('woff');
   font-weight: 500;
   font-style: normal;
@@ -40,7 +40,7 @@
 
 /* 6. SemiBold */
 @font-face {
-  font-family: 'SCDream';
+  font-family: 'S-CoreDream';
   src: url('./Fonts/S-CoreDream-6SemiBold.woff') format('woff');
   font-weight: 600;
   font-style: normal;
@@ -48,7 +48,7 @@
 
 /* 7. Bold */
 @font-face {
-  font-family: 'SCDream';
+  font-family: 'S-CoreDream';
   src: url('./Fonts/S-CoreDream-7Bold.woff') format('woff');
   font-weight: 700;
   font-style: normal;
@@ -56,7 +56,7 @@
 
 /* 8. ExtraBold */
 @font-face {
-  font-family: 'SCDream';
+  font-family: 'S-CoreDream';
   src: url('./Fonts/S-CoreDream-8ExtraBold.woff') format('woff');
   font-weight: 800;
   font-style: normal;
@@ -64,7 +64,7 @@
 
 /* 9. Heavy */
 @font-face {
-  font-family: 'SCDream';
+  font-family: 'S-CoreDream';
   src: url('./Fonts/S-CoreDream-9Heavy.woff') format('woff');
   font-weight: 900;
   font-style: normal;
@@ -74,7 +74,7 @@
    기본 전역 스타일
 -------------------------- */
 html, body {
-  font-family: 'SCDream', sans-serif !important;
+  font-family: 'S-CoreDream', sans-serif !important;
   font-weight: 400;
   margin: 0;
   padding: 0;
