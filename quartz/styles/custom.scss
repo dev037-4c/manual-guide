@@ -1,20 +1,23 @@
 @use "./base.scss";
 
-/* S-CoreDream font-face 선언 */
 @font-face {
   font-family: "S-CoreDream";
   font-weight: 100;
-  src: url("./Fonts/S-CoreDream-1Thin.woff") format("woff");
+  src: url("/Fonts/S-CoreDream-1Thin.woff") format("woff");
 }
+
 @font-face {
   font-family: "S-CoreDream";
   font-weight: 200;
-  src: url("./Fonts/S-CoreDream-2ExtraLight.woff") format("woff");
+  src: url("/Fonts/S-CoreDream-2ExtraLight.woff") format("woff");
 }
 
-/* Quartz 변수 재정의 */
 :root {
   --bodyFont: "S-CoreDream", sans-serif;
   --headerFont: "S-CoreDream", sans-serif;
   --codeFont: "S-CoreDream", monospace;
+}
+
+body {
+  font-family: var(--bodyFont) !important;
 }
