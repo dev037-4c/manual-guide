@@ -1,11 +1,7 @@
 @use "./base.scss";
 
 /* 1. S-Core Dream 폰트 정의 */
-@font-face {
-  font-family: "S-CoreDream";
-  font-weight: 100; 
-  src: url("./Fonts/S-CoreDream-1Thin.woff") format("woff");
-}
+@font-face { font-family: "S-CoreDream"; font-weight: 100; src: url("./Fonts/S-CoreDream-1Thin.woff") format("woff"); }
 @font-face { font-family: "S-CoreDream"; font-weight: 200; src: url("./Fonts/S-CoreDream-2ExtraLight.woff") format("woff"); }
 @font-face { font-family: "S-CoreDream"; font-weight: 300; src: url("./Fonts/S-CoreDream-3Light.woff") format("woff"); }
 @font-face { font-family: "S-CoreDream"; font-weight: 400; src: url("./Fonts/S-CoreDream-4Regular.woff") format("woff"); }
@@ -24,11 +20,25 @@
 
 /* 3. 옵시디언 전체 폰트 강제 적용 */
 body,
+html,
 div,
 span,
 p,
 li,
 a,
+strong,
+em,
+b,
+i,
+blockquote,
+code,
+pre,
+kbd,
+table,
+th,
+td,
+figure,
+figcaption,
 .markdown-preview-view,
 .markdown-preview-view * {
   font-family: var(--bodyFont) !important;
@@ -40,11 +50,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* 5. 코드 블록 및 인라인 코드 폰트 */
-code, pre, kbd {
+code, pre, kbd, .pretty-code, [data-language] {
   font-family: var(--codeFont) !important;
 }
 
-/* 6. 선택 텍스트 색상 유지 */
+/* 6. 수식(MathJax, KaTeX) 폰트 */
+.katex, .math, .math-display, mjx-container {
+  font-family: var(--bodyFont) !important;
+}
+
+/* 7. 선택 텍스트 색상 유지 */
 ::selection {
   background: color-mix(in srgb, var(--tertiary) 60%, #fff0) !important;
   color: var(--darkgray) !important;
