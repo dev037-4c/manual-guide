@@ -64,3 +64,22 @@ code, pre, kbd, .pretty-code, [data-language] {
   background: color-mix(in srgb, var(--tertiary) 60%, #fff0) !important;
   color: var(--darkgray) !important;
 }
+
+
+
+
+
+/*_etc 폴더 숨기기 건들지 말것 */
+
+.explorer .folder-container[data-folderpath="_etc/index"] {
+  display: none !important;
+}
+ 
+.explorer .content li:has(> a[data-for^="_etc/"]) {
+  display: none !important;
+}
+ 
+.explorer a[href^="../_etc/"],
+.explorer a[href*="/_etc/"] {
+  display: none !important;
+}
