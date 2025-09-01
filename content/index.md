@@ -17,6 +17,11 @@ title: 안녕하세요! 이 매뉴얼에서는 관리자 홈페이지의 주요 
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   overflow: hidden;
   padding: 8px;
+  cursor: pointer; /* 카드 전체 클릭 가능 표시 */
+  transition: transform 0.1s ease;
+}
+.book-card:hover {
+  transform: scale(1.03);
 }
 
 .cover-wrap {
@@ -71,60 +76,124 @@ title: 안녕하세요! 이 매뉴얼에서는 관리자 홈페이지의 주요 
 }
 </style>
 
-<div class="book-grid">
+<div id="book-grid" class="book-grid"></div>
 
-  <!-- 책 1 -->
-  <div class="book-card">
-    <div class="cover-wrap">
-      <img src="_etc/books/harrypotter1.jpeg" alt="해리포터와 마법사의 돌" class="cover">
-    </div>
-    <div class="title"><a href="Book/도서목록/해리포터.md">해리포터와 마법사의 돌</a></div>
-    <div class="meta">
-      <div class="meta-left">
-        <div class="meta-number">350</div>
-        <div class="meta-label">페이지</div>
-      </div>
-      <div class="meta-right">
-        <div class="meta-date">8월 28, 2025</div>
-      </div>
-    </div>
-    <div class="status-badge dot"></div>
-  </div>
+<script>
+// ==== 책 데이터 직접 작성 (JSON 없이 코드 안에 포함) ====
+const books = [
+  {
+    title: "해리포터와 마법사의 돌",
+    cover_url: "_etc/books/harrypotter1.jpeg",
+    total_page: 350,
+    finish_read_date: "2025-08-28",
+    status: "plan",
+    file_path: "Book/도서목록/해리포터.md"
+  },
+  {
+    title: "테스트",
+    cover_url: "_etc/books/test.jpg",
+    total_page: 120,
+    finish_read_date: "2025-07-15",
+    status: "dnf",
+    file_path: "Book/도서목록/테스트.md"
+  },
+  {
+    title: "10배의 법칙",
+    cover_url: "_etc/books/10x.jpg",
+    total_page: 200,
+    finish_read_date: "2025-09-01",
+    status: "wish",
+    file_path: "Book/도서목록/10배의 법칙.md"
+  }
+];
 
-  <!-- 책 2 -->
-  <div class="book-card">
-    <div class="cover-wrap">
-      <img src="_etc/books/test.jpg" alt="테스트" class="cover">
-    </div>
-    <div class="title"><a href="Book/도서목록/테스트.md">테스트</a></div>
-    <div class="meta">
-      <div class="meta-left">
-        <div class="meta-number">120</div>
-        <div class="meta-label">페이지</div>
-      </div>
-      <div class="meta-right">
-        <div class="meta-date">7월 15, 2025</div>
-      </div>
-    </div>
-    <div class="status-badge x"></div>
-  </div>
+// ==== 유틸 함수 ====
+const fmtDate = (d) => {
+  if (!d) return "-";
+  const dt = new Date(d);
+  return `${dt.getMonth()+1}월 ${dt.getDate()}, ${dt.getFullYear()}`;
+};
 
-  <!-- 책 3 -->
-  <div class="book-card">
-    <div class="cover-wrap">
-      <img src="_etc/books/10x.jpg" alt="10배의 법칙" class="cover">
-    </div>
-    <div class="title"><a href="Book/도서목록/10배의 법칙.md">10배의 법칙</a></div>
-    <div class="meta">
-      <div class="meta-left">
-        <div class="meta-number">200</div>
-        <div class="meta-label">페이지</div>
-      </div>
-      <div class="meta-right">
-        <div class="meta-date">9월 1, 2025</div>
-      </div>
-    </div>
-    <div class="status-badge dot"></div>
-  </div>
+const statusIcon = (s) => {
+  if (!s) return "";
+  const v = String(s).toLowerCase();
+  if (["plan","todo","wish"].includes(v)) return "dot";
+  if (["dnf","drop","abandon"].includes(v)) return "x";
+  return "";
+};
 
-</div>
+// ==== 카드 렌더링 ====
+const root = document.getElementById("book-grid");
+
+// 정렬 (finish_read_date 기준)
+books.sort((a,b) => new Date(a.finish_read_date) - new Date(b.finish_read_date));
+
+books.forEach(p => {
+  const card = document.createElement("div");
+  card.className = "book-card";
+
+  // 카드 전체 클릭 시 이동
+  card.addEventListener("click", () => {
+    if (p.file_path) window.location.href = p.file_path;
+  });
+
+  // 표지
+  const coverWrap = document.createElement("div");
+  coverWrap.className = "cover-wrap";
+  if (p.cover_url) {
+    const img = document.createElement("img");
+    img.src = p.cover_url;
+    img.alt = p.title;
+    img.className = "cover";
+    coverWrap.appendChild(img);
+  } else {
+    const placeholder = document.createElement("div");
+    placeholder.className = "cover placeholder";
+    placeholder.innerText = "No Cover";
+    coverWrap.appendChild(placeholder);
+  }
+  card.appendChild(coverWrap);
+
+  // 제목
+  const titleWrap = document.createElement("div");
+  titleWrap.className = "title";
+  titleWrap.innerText = p.title;
+  card.appendChild(titleWrap);
+
+  // 메타
+  const meta = document.createElement("div");
+  meta.className = "meta";
+
+  const left = document.createElement("div");
+  left.className = "meta-left";
+  const pagesNum = document.createElement("div");
+  pagesNum.className = "meta-number";
+  pagesNum.innerText = p.total_page ?? "-";
+  const pagesLabel = document.createElement("div");
+  pagesLabel.className = "meta-label";
+  pagesLabel.innerText = "페이지";
+  left.appendChild(pagesNum);
+  left.appendChild(pagesLabel);
+
+  const right = document.createElement("div");
+  right.className = "meta-right";
+  const dateEl = document.createElement("div");
+  dateEl.className = "meta-date";
+  dateEl.innerText = fmtDate(p.finish_read_date);
+  right.appendChild(dateEl);
+
+  meta.appendChild(left);
+  meta.appendChild(right);
+  card.appendChild(meta);
+
+  // 상태 아이콘
+  const s = statusIcon(p.status);
+  if (s) {
+    const badge = document.createElement("div");
+    badge.className = `status-badge ${s}`;
+    card.appendChild(badge);
+  }
+
+  root.appendChild(card);
+});
+</script>
