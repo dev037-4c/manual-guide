@@ -112,7 +112,8 @@ title: 안녕하세요! 이 매뉴얼에서는 관리자 홈페이지의 주요 
   <!-- 책 3 -->
   <div class="book-card">
     <div class="cover-wrap">
-      <img src="_etc/books/10x.jpg" alt="10배의 법칙" class="cover">
+	    <a href="Book/도서목록/10배의 법칙.md">
+      <img src="_etc/books/10x.jpg" alt="10배의 법칙" class="cover"></a>
     </div>
     <div class="title"><a href="Book/도서목록/10배의 법칙.md">10배의 법칙</a></div>
     <div class="meta">
