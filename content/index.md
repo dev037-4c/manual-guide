@@ -13,8 +13,7 @@ title: LX2 매뉴얼 목차
 .book-card {
   width: 200px;
   height: 260px;
-  perspective: 1000px; /* 3D 원근감 */
-  /* margin 삭제 */
+  perspective: 1000px; 
 }
 
 /* 내부 카드 */
@@ -22,15 +21,15 @@ title: LX2 매뉴얼 목차
   position: relative;
   width: 100%;
   height: 100%;
-  transition: transform 0.6s; /* 회전 애니메이션 */
+  transition: transform 0.6s;
   transform-style: preserve-3d;
-  /* transform-origin 삭제, 기본 center 사용 */
-  transform: translate3d(0,0,0); /* 제자리 강제 */
 }
 
 /* hover 시 뒤집기 */
 .book-card:hover .book-card-inner {
   transform: rotateY(180deg);
+  transform: rotateX(0deg);
+  transform: rotateZ(0deg);
 }
 
 /* 앞/뒷면 공통 */
