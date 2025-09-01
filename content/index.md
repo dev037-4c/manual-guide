@@ -1,11 +1,12 @@
 ---
 title: LX2 매뉴얼 목차
 ---
-<style>.book-grid {
+<style>
+.book-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 16px;
-  justify-items: center; /* 카드 중앙 정렬 */
+  justify-items: center;
 }
 
 /* 카드 컨테이너 */
@@ -13,6 +14,7 @@ title: LX2 매뉴얼 목차
   width: 200px;
   height: 260px;
   perspective: 1000px; /* 3D 원근감 */
+  /* margin 삭제 */
 }
 
 /* 내부 카드 */
@@ -20,8 +22,9 @@ title: LX2 매뉴얼 목차
   position: relative;
   width: 100%;
   height: 100%;
-  transition: transform 0.6s ease; /* 회전 애니메이션 */
+  transition: transform 0.6s; /* 회전 애니메이션 */
   transform-style: preserve-3d;
+  /* transform-origin 삭제, 기본 center 사용 */
   transform: translate3d(0,0,0); /* 제자리 강제 */
 }
 
@@ -76,17 +79,10 @@ title: LX2 매뉴얼 목차
   overflow: hidden;
 }
 
-.cover-wrap a {
-  display: block; /* inline 요소 문제 제거 */
-  width: 100%;
-  height: 100%;
-}
-
 .cover {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block; /* 이미지도 inline 문제 제거 */
 }
 
 .cover.placeholder {
@@ -100,12 +96,6 @@ title: LX2 매뉴얼 목차
   font-weight: 600;
   font-size: 14px;
   text-align: center;
-}
-
-.title a {
-  display: block; /* inline 문제 제거 */
-  color: inherit;
-  text-decoration: none;
 }
 
 /* 메타 정보 */
@@ -124,7 +114,6 @@ title: LX2 매뉴얼 목차
 .status-badge.x::before {
   content: "❌";
 }
-
 
 </style>
 
