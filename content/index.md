@@ -28,8 +28,7 @@ title: LX2 매뉴얼 목차
 /* hover 시 뒤집기 */
 .book-card:hover .book-card-inner {
   transform: rotateY(180deg);
-  transform: rotateX(0deg);
-}
+  }
 
 /* 앞/뒷면 공통 */
 .book-card-front,
