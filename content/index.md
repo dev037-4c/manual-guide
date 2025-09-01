@@ -8,27 +8,24 @@ title: LX2 매뉴얼 목차
   gap: 16px;
 }
 
-/* 카드 컨테이너 */
 .book-card {
-  background: transparent;
   width: 200px;
   height: 260px;
-  perspective: 1000px;
-  margin: 0 auto;
+  perspective: 1000px; /* 부모 컨테이너가 시점 관리 */
+  display: flex; /* grid에서도 flex처럼 작용 가능 */
+  justify-content: center;
+  align-items: center;
 }
 
 .book-card-inner {
   position: relative;
   width: 100%;
   height: 100%;
-  transition: transform 0.6s;
+  transition: transform 0.6s ease;
   transform-style: preserve-3d;
-  transform-origin: center center;
-  transform: rotateY(0deg);
+  transform-origin: center center; /* 중심 고정 */
 }
 
-
-/* hover 시 뒤집힘 */
 .book-card:hover .book-card-inner {
   transform: rotateY(180deg);
 }
@@ -38,15 +35,9 @@ title: LX2 매뉴얼 목차
   position: absolute;
   width: 100%;
   height: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0,0,0,.15);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  backface-visibility: hidden; /* 뒷면 가리기 */
+  top: 0;
+  left: 0;
 }
 
 /* 앞면 */
