@@ -75,7 +75,7 @@ title: 안녕하세요! 이 매뉴얼에서는 관리자 홈페이지의 주요 
 <div id="book-grid" class="book-grid"></div>
 
 <script>
-const SOURCE_DATA = "Book/books.json";  // content/index.md 기준
+const SOURCE_DATA = "Book/books.json";
 const LIMIT = 999;
 const SORT_FIELD = "finish_read_date";
 const SORT_ORDER = "asc";
@@ -116,7 +116,7 @@ fetch(SOURCE_DATA)
       coverWrap.className = "cover-wrap";
       if (p.cover_url) {
         const img = document.createElement("img");
-        img.src = p.cover_url;  // JSON에서 _etc/books/xxx.jpeg
+        img.src = p.cover_url;
         img.alt = p.title;
         img.className = "cover";
         coverWrap.appendChild(img);
@@ -131,7 +131,7 @@ fetch(SOURCE_DATA)
       const titleWrap = document.createElement("div");
       titleWrap.className = "title";
       const a = document.createElement("a");
-      a.href = p.file_path || "#";  // Markdown 파일 경로
+      a.href = p.file_path || "#";
       a.innerText = p.title;
       titleWrap.appendChild(a);
       card.appendChild(titleWrap);
