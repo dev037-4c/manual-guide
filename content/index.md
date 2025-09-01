@@ -2,6 +2,7 @@
 title: LX2 매뉴얼 목차
 ---
 <style>
+/*
 .book-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -9,14 +10,12 @@ title: LX2 매뉴얼 목차
   justify-items: center;
 }
 
-/* 카드 컨테이너 */
 .book-card {
   width: 200px;
   height: 260px;
   perspective: 1000px; 
 }
 
-/* 내부 카드 */
 .book-card-inner {
   position: relative;
   width: 100%;
@@ -25,12 +24,12 @@ title: LX2 매뉴얼 목차
   transform-style: preserve-3d;
 }
 
-/* hover 시 뒤집기 */
+
 .book-card:hover .book-card-inner {
   transform: rotateY(180deg);
   }
 
-/* 앞/뒷면 공통 */
+
 .book-card-front,
 .book-card-back {
   position: absolute;
@@ -48,13 +47,13 @@ title: LX2 매뉴얼 목차
   align-items: center;
 }
 
-/* 앞면 */
+
 .book-card-front {
   background: #fff;
   padding: 8px;
 }
 
-/* 뒷면 */
+
 .book-card-back {
   background: linear-gradient(135deg, #4facfe 0%, #7366ff 100%);
   color: #111;
@@ -64,7 +63,7 @@ title: LX2 매뉴얼 목차
   font-size: 14px;
 }
 
-/* 표지 */
+
 .cover-wrap {
   width: 100%;
   aspect-ratio: 3/4;
@@ -87,7 +86,7 @@ title: LX2 매뉴얼 목차
   font-size: 14px;
 }
 
-/* 제목 */
+
 .title {
   margin-top: 6px;
   font-weight: 600;
@@ -95,7 +94,7 @@ title: LX2 매뉴얼 목차
   text-align: center;
 }
 
-/* 메타 정보 */
+
 .meta {
   margin-top: 6px;
   font-size: 12px;
@@ -103,13 +102,101 @@ title: LX2 매뉴얼 목차
   text-align: center;
 }
 
-/* 상태 아이콘 */
+
 .status-badge.dot::before {
   content: "🔴";
 }
 
 .status-badge.x::before {
   content: "❌";
+}
+*/
+/* 카드 컨테이너 */
+
+.book-card {
+
+  background: transparent;
+
+  width: 200px;
+
+  height: 260px;
+
+  perspective: 1000px; /* 원근감 */
+
+  margin: 20px;
+
+}
+
+/* 내부 래퍼 */
+
+.book-card-inner {
+
+  position: relative;
+
+  width: 100%;
+
+  height: 100%;
+
+  transition: transform 0.6s;
+
+  transform-style: preserve-3d;
+
+}
+
+/* hover 시 뒤집힘 */
+
+.book-card:hover .book-card-inner {
+
+  transform: rotateY(180deg);
+
+}
+
+.book-card-front,
+
+.book-card-back {
+
+  position: absolute;
+
+  width: 100%;
+
+  height: 100%;
+
+  -webkit-backface-visibility: hidden;
+
+  backface-visibility: hidden;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 1.2rem;
+
+  font-weight: bold;
+
+  border-radius: 12px;
+
+  box-shadow: 0 6px 18px rgba(0,0,0,.15);
+
+}
+
+.book-card-front {
+
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+
+  color: white;
+
+}
+
+.book-card-back {
+
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+
+  color: #111;
+
+  transform: rotateY(180deg);
+
 }
 
 </style>
