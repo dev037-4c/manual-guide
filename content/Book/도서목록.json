@@ -1,0 +1,26 @@
+[
+  {
+    "title": "해리포터와 마법사의 돌",
+    "cover_url": "_etc/books/harrypotter1.jpeg",
+    "total_page": 350,
+    "finish_read_date": "2025-08-28",
+    "status": "plan",
+    "file_path": "Book/도서목록/해리포터.md"
+  },
+  {
+    "title": "테스트",
+    "cover_url": "_etc/books/test.jpg",
+    "total_page": 120,
+    "finish_read_date": "2025-07-15",
+    "status": "dnf",
+    "file_path": "Book/도서목록/테스트.md"
+  },
+  {
+    "title": "10배의 법칙",
+    "cover_url": "_etc/books/10x.jpg",
+    "total_page": 200,
+    "finish_read_date": "2025-09-01",
+    "status": "wish",
+    "file_path": "Book/도서목록/10배의 법칙.md"
+  }
+]

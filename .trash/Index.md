@@ -1,14 +1,82 @@
+# 책 카드뷰
+
 ```{=html}
+<style>
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
+}
+
+.book-card {
+  position: relative;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  overflow: hidden;
+  padding: 8px;
+}
+
+.cover-wrap {
+  width: 100%;
+  aspect-ratio: 3/4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f0f0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cover.placeholder {
+  color: #aaa;
+  font-size: 14px;
+}
+
+.title {
+  margin-top: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+  font-size: 12px;
+  color: #666;
+}
+
+.status-badge.dot::before {
+  content: "🔴";
+  position: absolute;
+  left: 6px;
+  bottom: 6px;
+}
+
+.status-badge.x::before {
+  content: "❌";
+  position: absolute;
+  left: 6px;
+  bottom: 6px;
+}
+</style>
+
 <div id="book-grid" class="book-grid"></div>
 
 <script>
-// ==== 설정값 ====
-const SOURCE_DATA = "content/Book/도서목록.json"; // JSON 형식으로 변환된 책 데이터
+const SOURCE_DATA = "content/Book/books.json";
 const LIMIT = 999;
 const SORT_FIELD = "finish_read_date";
 const SORT_ORDER = "asc";
 
-// ==== 유틸 ====
 const fmtDate = (d) => {
   if (!d) return "-";
   const dt = new Date(d);
@@ -23,14 +91,9 @@ const statusIcon = (s) => {
   return "";
 };
 
-// ==== 데이터 로드 ====
 fetch(SOURCE_DATA)
   .then(res => res.json())
   .then(pages => {
-    // 현재 페이지 제외 가능 (옵션)
-    // pages = pages.filter(p => p.file_path !== CURRENT_PAGE);
-
-    // 정렬
     pages.sort((a,b) => {
       const va = a[SORT_FIELD] ?? "";
       const vb = b[SORT_FIELD] ?? "";
@@ -46,13 +109,12 @@ fetch(SOURCE_DATA)
       const card = document.createElement("div");
       card.className = "book-card";
 
-      // 표지
       const coverWrap = document.createElement("div");
       coverWrap.className = "cover-wrap";
       if (p.cover_url) {
         const img = document.createElement("img");
         img.src = p.cover_url;
-        img.alt = p.title || p.file_name;
+        img.alt = p.title;
         img.className = "cover";
         coverWrap.appendChild(img);
       } else {
@@ -63,16 +125,14 @@ fetch(SOURCE_DATA)
       }
       card.appendChild(coverWrap);
 
-      // 제목
       const titleWrap = document.createElement("div");
       titleWrap.className = "title";
       const a = document.createElement("a");
       a.href = p.file_path || "#";
-      a.innerText = p.title || p.file_name;
+      a.innerText = p.title;
       titleWrap.appendChild(a);
       card.appendChild(titleWrap);
 
-      // 메타
       const meta = document.createElement("div");
       meta.className = "meta";
 
@@ -98,7 +158,6 @@ fetch(SOURCE_DATA)
       meta.appendChild(right);
       card.appendChild(meta);
 
-      // 상태 아이콘
       const s = statusIcon(p.status);
       if (s) {
         const badge = document.createElement("div");
@@ -111,5 +170,3 @@ fetch(SOURCE_DATA)
   })
   .catch(err => console.error(err));
 </script>
-
-```
