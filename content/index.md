@@ -54,6 +54,7 @@ title: 안녕하세요! 이 매뉴얼에서는 관리자 홈페이지의 주요 
   margin-top: 4px;
   font-size: 12px;
   color: #666;
+  text-align: center;
 }
 
 .status-badge.dot::before {
@@ -76,15 +77,13 @@ title: 안녕하세요! 이 매뉴얼에서는 관리자 홈페이지의 주요 
   <!-- 책 1 -->
   <div class="book-card">
     <div class="cover-wrap">
-	    <a href="Book/도서목록/해리포터.md">
+	    <a href="4.콘텐츠.md">
       <img src="_etc/books/harrypotter1.jpeg" alt="해리포터와 마법사의 돌" class="cover">
       </a>
     </div>
-    <div class="title"><a href="Book/도서목록/해리포터.md">메인메뉴</a></div>
+    <div class="title"><a href="4.콘텐츠.md">메인메뉴</a></div>
     <div class="meta">
-      <div class="meta-left">
         <div class="meta-number">전체 / 소속 / 문자알림 / 이력관리</div>
-      </div>
     </div>
     <div class="status-badge dot"></div>
   </div>
