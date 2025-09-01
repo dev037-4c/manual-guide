@@ -58,7 +58,7 @@ gap: 1px;
   background: linear-gradient(135deg, #4facfe 0%, #7366ff 100%);
   color: #111;
   transform: rotateY(180deg);
-  
+  padding:12px;
   text-align: center;
   font-size: 14px;
 }
