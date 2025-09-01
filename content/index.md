@@ -21,11 +21,11 @@ title: LX2 매뉴얼 목차
   position: relative;
   width: 100%;
   height: 100%;
-  transition: transform 0.6s;
+  transition: transform 0.6s ease;
   transform-style: preserve-3d;
 }
 
-/* hover 시 뒤집힘 */
+/* hover 시 제자리에서 뒤집힘 */
 .book-card:hover .book-card-inner {
   transform: rotateY(180deg);
 }
@@ -101,6 +101,15 @@ title: LX2 매뉴얼 목차
   font-size: 12px;
   color: #111;
   text-align: center;
+}
+
+/* 상태 아이콘 */
+.status-badge.dot::before {
+  content: "🔴";
+}
+
+.status-badge.x::before {
+  content: "❌";
 }
 </style>
 
