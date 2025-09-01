@@ -23,9 +23,10 @@ title: LX2 매뉴얼 목차
   height: 100%;
   transition: transform 0.6s ease;
   transform-style: preserve-3d;
+  transform: translate3d(0,0,0); /* 제자리 강제 */
 }
 
-/* hover 시 제자리에서 뒤집힘 */
+/* hover 시 제자리 뒤집기 */
 .book-card:hover .book-card-inner {
   transform: rotateY(180deg);
 }
@@ -76,6 +77,12 @@ title: LX2 매뉴얼 목차
   overflow: hidden;
 }
 
+.cover-wrap a {
+  display: block; /* inline 요소 문제 해결 */
+  width: 100%;
+  height: 100%;
+}
+
 .cover {
   width: 100%;
   height: 100%;
@@ -93,6 +100,12 @@ title: LX2 매뉴얼 목차
   font-weight: 600;
   font-size: 14px;
   text-align: center;
+}
+
+.title a {
+  display: block; /* inline 요소 문제 해결 */
+  color: inherit;
+  text-decoration: none;
 }
 
 /* 메타 정보 */
