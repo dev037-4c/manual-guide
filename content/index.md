@@ -132,4 +132,117 @@ title: 안녕하세요! 이 매뉴얼에서는 관리자 홈페이지의 주요 
     <div class="status-badge dot"></div>
   </div>
 
+<!-- 책 4 -->
+  <div class="book-card">
+    <div class="cover-wrap">
+	    <a href="Book/도서목록/10배의 법칙.md">
+      <img src="_etc/books/10x.jpg" alt="10배의 법칙" class="cover"></a>
+    </div>
+    <div class="title"><a href="Book/도서목록/10배의 법칙.md">10배의 법칙</a></div>
+    <div class="meta">
+      <div class="meta-left">
+        <div class="meta-number">200</div>
+        <div class="meta-label">페이지</div>
+      </div>
+      <div class="meta-right">
+        <div class="meta-date">9월 1, 2025</div>
+      </div>
+    </div>
+    <div class="status-badge dot"></div>
+  </div>
+
+<!-- 책 5 -->
+  <div class="book-card">
+    <div class="cover-wrap">
+	    <a href="Book/도서목록/10배의 법칙.md">
+      <img src="_etc/books/10x.jpg" alt="10배의 법칙" class="cover"></a>
+    </div>
+    <div class="title"><a href="Book/도서목록/10배의 법칙.md">10배의 법칙</a></div>
+    <div class="meta">
+      <div class="meta-left">
+        <div class="meta-number">200</div>
+        <div class="meta-label">페이지</div>
+      </div>
+      <div class="meta-right">
+        <div class="meta-date">9월 1, 2025</div>
+      </div>
+    </div>
+    <div class="status-badge dot"></div>
+  </div>
+
+<!-- 책 6 -->
+  <div class="book-card">
+    <div class="cover-wrap">
+	    <a href="Book/도서목록/10배의 법칙.md">
+      <img src="_etc/books/10x.jpg" alt="10배의 법칙" class="cover"></a>
+    </div>
+    <div class="title"><a href="Book/도서목록/10배의 법칙.md">10배의 법칙</a></div>
+    <div class="meta">
+      <div class="meta-left">
+        <div class="meta-number">200</div>
+        <div class="meta-label">페이지</div>
+      </div>
+      <div class="meta-right">
+        <div class="meta-date">9월 1, 2025</div>
+      </div>
+    </div>
+    <div class="status-badge dot"></div>
+  </div>
+
+<!-- 책 7 -->
+  <div class="book-card">
+    <div class="cover-wrap">
+	    <a href="Book/도서목록/10배의 법칙.md">
+      <img src="_etc/books/10x.jpg" alt="10배의 법칙" class="cover"></a>
+    </div>
+    <div class="title"><a href="Book/도서목록/10배의 법칙.md">10배의 법칙</a></div>
+    <div class="meta">
+      <div class="meta-left">
+        <div class="meta-number">200</div>
+        <div class="meta-label">페이지</div>
+      </div>
+      <div class="meta-right">
+        <div class="meta-date">9월 1, 2025</div>
+      </div>
+    </div>
+    <div class="status-badge dot"></div>
+  </div>
+
+<!-- 책 8 -->
+  <div class="book-card">
+    <div class="cover-wrap">
+	    <a href="Book/도서목록/10배의 법칙.md">
+      <img src="_etc/books/10x.jpg" alt="10배의 법칙" class="cover"></a>
+    </div>
+    <div class="title"><a href="Book/도서목록/10배의 법칙.md">10배의 법칙</a></div>
+    <div class="meta">
+      <div class="meta-left">
+        <div class="meta-number">200</div>
+        <div class="meta-label">페이지</div>
+      </div>
+      <div class="meta-right">
+        <div class="meta-date">9월 1, 2025</div>
+      </div>
+    </div>
+    <div class="status-badge dot"></div>
+  </div>
+
+<!-- 책 9 -->
+  <div class="book-card">
+    <div class="cover-wrap">
+	    <a href="Book/도서목록/10배의 법칙.md">
+      <img src="_etc/books/10x.jpg" alt="10배의 법칙" class="cover"></a>
+    </div>
+    <div class="title"><a href="Book/도서목록/10배의 법칙.md">10배의 법칙</a></div>
+    <div class="meta">
+      <div class="meta-left">
+        <div class="meta-number">200</div>
+        <div class="meta-label">페이지</div>
+      </div>
+      <div class="meta-right">
+        <div class="meta-date">9월 1, 2025</div>
+      </div>
+    </div>
+    <div class="status-badge dot"></div>
+  </div>
 </div>
