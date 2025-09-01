@@ -13,18 +13,20 @@ title: LX2 매뉴얼 목차
   background: transparent;
   width: 200px;
   height: 260px;
-  perspective: 1000px; /* 원근감 */
+  perspective: 1000px;
   margin: 0 auto;
+  display: inline-block;
 }
 
-/* 내부 래퍼 */
 .book-card-inner {
   position: relative;
   width: 100%;
   height: 100%;
   transition: transform 0.6s;
   transform-style: preserve-3d;
+  transform-origin: center center;
 }
+
 
 /* hover 시 뒤집힘 */
 .book-card:hover .book-card-inner {
@@ -55,7 +57,7 @@ title: LX2 매뉴얼 목차
 
 /* 뒷면 */
 .book-card-back {
-  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+  background: linear-gradient(135deg, #4facfe 0%, #7366ff 100%);
   color: #111;
   transform: rotateY(180deg);
   padding: 12px;
