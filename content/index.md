@@ -1,5 +1,5 @@
 ---
-title: 안녕하세요! 이 매뉴얼에서는 관리자 홈페이지의 주요 기능과 사용법을 단계별로 안내합니다.
+title: 이 매뉴얼에서는 관리자 홈페이지의 주요 기능과 사용법을 단계별로 안내합니다.
 ---
 
 
@@ -79,7 +79,7 @@ title: 안녕하세요! 이 매뉴얼에서는 관리자 홈페이지의 주요 
   <div class="book-card">
     <div class="cover-wrap">
 	    <a href="1.메인메뉴.md">
-      <img src="_etc/books/harrypotter1.jpeg" alt="메인메뉴" class="cover">
+      <img src="_etc/books/mainmenu.png" alt="메인메뉴" class="cover">
       </a>
     </div>
     <div class="title"><a href="1.메인메뉴.md">메인메뉴</a></div>
