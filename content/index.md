@@ -50,7 +50,8 @@ title: 안녕하세요! 이 매뉴얼에서는 관리자 홈페이지의 주요 
 
 .meta {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
   margin-top: 4px;
   font-size: 12px;
   color: #666;
