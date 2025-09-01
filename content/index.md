@@ -2,121 +2,117 @@
 title: LX2 매뉴얼 목차
 ---
 <style>
-
-.book-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-gap: 1px;
-  justify-items: center;
-}
-
-.book-card {
-  width: 200px;
-  height: 260px;
-  perspective: 1000px; 
-}
-
-.book-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-}
-
-
-.book-card:hover .book-card-inner {
-  transform: rotateY(180deg);
+  .book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
   }
 
+  /* 카드 컨테이너 */
+  .book-card {
+    background: transparent;
+    width: 200px;
+    height: 260px;
+    perspective: 1000px; /* 원근감 */
+    margin: 0 auto;
+  }
 
-.book-card-front,
-.book-card-back {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0,0,0,.15);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+  /* 내부 래퍼 */
+  .book-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+  }
 
+  /* hover 시 뒤집힘 */
+  .book-card:hover .book-card-inner {
+    transform: rotateY(180deg);
+  }
 
-.book-card-front {
-  background: #fff;
-  padding: 8px;
-}
+  .book-card-front,
+  .book-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .15);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
+  /* 앞면 */
+  .book-card-front {
+    background: #fff;
+    padding: 8px;
+  }
 
-.book-card-back {
-  background: linear-gradient(135deg, #4facfe 0%, #7366ff 100%);
-  color: #111;
-  transform: rotateY(180deg);
-  padding:12px;
-  text-align: center;
-  font-size: 14px;
-}
+  /* 뒷면 */
+  .book-card-back {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    color: #111;
+    transform: rotateY(180deg);
+    padding: 12px;
+    text-align: center;
+    font-size: 14px;
+  }
 
+  /* 표지 */
+  .cover-wrap {
+    width: 100%;
+    aspect-ratio: 3/4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f0f0f0;
+    border-radius: 8px;
+    overflow: hidden;
+  }
 
-.cover-wrap {
-  width: 100%;
-  aspect-ratio: 3/4;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #f0f0f0;
-  border-radius: 8px;
-  overflow: hidden;
-}
+  .cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
-.cover {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+  .cover.placeholder {
+    color: #aaa;
+    font-size: 14px;
+  }
 
-.cover.placeholder {
-  color: #aaa;
-  font-size: 14px;
-}
+  /* 제목 */
+  .title {
+    margin-top: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: center;
+  }
 
+  /* 메타 정보 */
+  .meta {
+    margin-top: 6px;
+    font-size: 12px;
+    color: #111;
+    text-align: center;
+  }
 
-.title {
-  margin-top: 6px;
-  font-weight: 600;
-  font-size: 14px;
-  text-align: center;
-}
+  /* 상태 아이콘 */
+  .status-badge.dot::before {
+    content: "🔴";
+  }
 
-
-.meta {
-  margin-top: 6px;
-  font-size: 12px;
-  color: #111;
-  text-align: center;
-}
-
-
-.status-badge.dot::before {
-  content: "🔴";
-}
-
-.status-badge.x::before {
-  content: "❌";
-}
-
-
-
+  .status-badge.x::before {
+    content: "❌";
+  }
 </style>
 
 <div class="book-grid">
-
   <!-- 책 1 -->
   <div class="book-card">
     <div class="book-card-inner">
@@ -278,5 +274,4 @@ gap: 1px;
       </div>
     </div>
   </div>
-
 </div>
