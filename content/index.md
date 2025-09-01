@@ -49,8 +49,7 @@ title: LX2 매뉴얼 목차
 
   /* 앞면 */
   .book-card-front {
-    background: #fff;
-    padding: 8px;
+    background: #ffff;
   }
 
   /* 뒷면 */
@@ -58,7 +57,6 @@ title: LX2 매뉴얼 목차
     background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
     color: #111;
     transform: rotateY(180deg);
-    padding: 12px;
     text-align: center;
     font-size: 14px;
   }
