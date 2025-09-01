@@ -82,9 +82,7 @@ title: 안녕하세요! 이 매뉴얼에서는 관리자 홈페이지의 주요 
       </a>
     </div>
     <div class="title"><a href="4.콘텐츠.md">메인메뉴</a></div>
-    <div class="meta">
-        <div class="meta-number">전체 / 소속 / 문자알림 / 이력관리</div>
-    </div>
+    <div class="meta">전체 / 소속 / 문자알림 / 이력관리</div>
     <div class="status-badge dot"></div>
   </div>
 
