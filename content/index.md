@@ -6,7 +6,7 @@ title: LX2 매뉴얼 목차
 .book-grid {
   display: flex;
 
-  gap: 16px;
+  gap: 1px;
   justify-items: center;
 }
 
