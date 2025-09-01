@@ -1,7 +1,7 @@
 ---
 title: 안녕하세요! 이 매뉴얼에서는 관리자 홈페이지의 주요 기능과 사용법을 단계별로 안내합니다.
 ---
-# 책 카드뷰
+
 
 <style>
 .book-grid {
@@ -80,14 +80,10 @@ title: 안녕하세요! 이 매뉴얼에서는 관리자 홈페이지의 주요 
       <img src="_etc/books/harrypotter1.jpeg" alt="해리포터와 마법사의 돌" class="cover">
       </a>
     </div>
-    <div class="title"><a href="Book/도서목록/해리포터.md">해리포터와 마법사의 돌</a></div>
+    <div class="title"><a href="Book/도서목록/해리포터.md">메인메뉴</a></div>
     <div class="meta">
       <div class="meta-left">
-        <div class="meta-number">350</div>
-        <div class="meta-label">페이지</div>
-      </div>
-      <div class="meta-right">
-        <div class="meta-date">8월 28, 2025</div>
+        <div class="meta-number">전체 / 소속 / 문자알림 / 이력관리</div>
       </div>
     </div>
     <div class="status-badge dot"></div>
@@ -100,7 +96,7 @@ title: 안녕하세요! 이 매뉴얼에서는 관리자 홈페이지의 주요 
       <img src="_etc/books/test.jpg" alt="테스트" class="cover">
       </a>
     </div>
-    <div class="title"><a href="Book/도서목록/테스트.md">테스트</a></div>
+    <div class="title"><a href="Book/도서목록/테스트.md">회원</a></div>
     <div class="meta">
       <div class="meta-left">
         <div class="meta-number">120</div>
@@ -119,7 +115,7 @@ title: 안녕하세요! 이 매뉴얼에서는 관리자 홈페이지의 주요 
 	    <a href="Book/도서목록/10배의 법칙.md">
       <img src="_etc/books/10x.jpg" alt="10배의 법칙" class="cover"></a>
     </div>
-    <div class="title"><a href="Book/도서목록/10배의 법칙.md">10배의 법칙</a></div>
+    <div class="title"><a href="Book/도서목록/10배의 법칙.md">과정</a></div>
     <div class="meta">
       <div class="meta-left">
         <div class="meta-number">200</div>
@@ -138,7 +134,7 @@ title: 안녕하세요! 이 매뉴얼에서는 관리자 홈페이지의 주요 
 	    <a href="Book/도서목록/10배의 법칙.md">
       <img src="_etc/books/10x.jpg" alt="10배의 법칙" class="cover"></a>
     </div>
-    <div class="title"><a href="Book/도서목록/10배의 법칙.md">10배의 법칙</a></div>
+    <div class="title"><a href="Book/도서목록/10배의 법칙.md">콘텐츠</a></div>
     <div class="meta">
       <div class="meta-left">
         <div class="meta-number">200</div>
@@ -157,7 +153,7 @@ title: 안녕하세요! 이 매뉴얼에서는 관리자 홈페이지의 주요 
 	    <a href="Book/도서목록/10배의 법칙.md">
       <img src="_etc/books/10x.jpg" alt="10배의 법칙" class="cover"></a>
     </div>
-    <div class="title"><a href="Book/도서목록/10배의 법칙.md">10배의 법칙</a></div>
+    <div class="title"><a href="Book/도서목록/10배의 법칙.md">사이트</a></div>
     <div class="meta">
       <div class="meta-left">
         <div class="meta-number">200</div>
@@ -176,7 +172,7 @@ title: 안녕하세요! 이 매뉴얼에서는 관리자 홈페이지의 주요 
 	    <a href="Book/도서목록/10배의 법칙.md">
       <img src="_etc/books/10x.jpg" alt="10배의 법칙" class="cover"></a>
     </div>
-    <div class="title"><a href="Book/도서목록/10배의 법칙.md">10배의 법칙</a></div>
+    <div class="title"><a href="Book/도서목록/10배의 법칙.md">서비스</a></div>
     <div class="meta">
       <div class="meta-left">
         <div class="meta-number">200</div>
@@ -195,7 +191,7 @@ title: 안녕하세요! 이 매뉴얼에서는 관리자 홈페이지의 주요 
 	    <a href="Book/도서목록/10배의 법칙.md">
       <img src="_etc/books/10x.jpg" alt="10배의 법칙" class="cover"></a>
     </div>
-    <div class="title"><a href="Book/도서목록/10배의 법칙.md">10배의 법칙</a></div>
+    <div class="title"><a href="Book/도서목록/10배의 법칙.md">시설</a></div>
     <div class="meta">
       <div class="meta-left">
         <div class="meta-number">200</div>
@@ -214,7 +210,7 @@ title: 안녕하세요! 이 매뉴얼에서는 관리자 홈페이지의 주요 
 	    <a href="Book/도서목록/10배의 법칙.md">
       <img src="_etc/books/10x.jpg" alt="10배의 법칙" class="cover"></a>
     </div>
-    <div class="title"><a href="Book/도서목록/10배의 법칙.md">10배의 법칙</a></div>
+    <div class="title"><a href="Book/도서목록/10배의 법칙.md">주문결제</a></div>
     <div class="meta">
       <div class="meta-left">
         <div class="meta-number">200</div>
@@ -233,7 +229,7 @@ title: 안녕하세요! 이 매뉴얼에서는 관리자 홈페이지의 주요 
 	    <a href="Book/도서목록/10배의 법칙.md">
       <img src="_etc/books/10x.jpg" alt="10배의 법칙" class="cover"></a>
     </div>
-    <div class="title"><a href="Book/도서목록/10배의 법칙.md">10배의 법칙</a></div>
+    <div class="title"><a href="Book/도서목록/10배의 법칙.md">통계</a></div>
     <div class="meta">
       <div class="meta-left">
         <div class="meta-number">200</div>
