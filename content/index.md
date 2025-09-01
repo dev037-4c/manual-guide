@@ -1,8 +1,6 @@
 ---
 title: 안녕하세요! 이 매뉴얼에서는 관리자 홈페이지의 주요 기능과 사용법을 단계별로 안내합니다.
 ---
-# 책 카드뷰
-
 <style>
 .book-grid {
   display: grid;
@@ -16,12 +14,16 @@ title: 안녕하세요! 이 매뉴얼에서는 관리자 홈페이지의 주요 
   background: #fff;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   overflow: hidden;
-  padding: 8px;
-  cursor: pointer; /* 카드 전체 클릭 가능 표시 */
-  transition: transform 0.1s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.1s;
 }
+
 .book-card:hover {
-  transform: scale(1.03);
+  transform: translateY(-2px);
 }
 
 .cover-wrap {
@@ -79,7 +81,7 @@ title: 안녕하세요! 이 매뉴얼에서는 관리자 홈페이지의 주요 
 <div id="book-grid" class="book-grid"></div>
 
 <script>
-// ==== 책 데이터 직접 작성 (JSON 없이 코드 안에 포함) ====
+// ==== 책 데이터 직접 작성 ====
 const books = [
   {
     title: "해리포터와 마법사의 돌",
@@ -87,7 +89,7 @@ const books = [
     total_page: 350,
     finish_read_date: "2025-08-28",
     status: "plan",
-    file_path: "Book/도서목록/해리포터.md"
+    file_path: "Book/도서목록/해리포터.html"
   },
   {
     title: "테스트",
@@ -95,7 +97,7 @@ const books = [
     total_page: 120,
     finish_read_date: "2025-07-15",
     status: "dnf",
-    file_path: "Book/도서목록/테스트.md"
+    file_path: "Book/도서목록/테스트.html"
   },
   {
     title: "10배의 법칙",
@@ -103,7 +105,7 @@ const books = [
     total_page: 200,
     finish_read_date: "2025-09-01",
     status: "wish",
-    file_path: "Book/도서목록/10배의 법칙.md"
+    file_path: "Book/도서목록/10배의 법칙.html"
   }
 ];
 
@@ -124,18 +126,12 @@ const statusIcon = (s) => {
 
 // ==== 카드 렌더링 ====
 const root = document.getElementById("book-grid");
-
-// 정렬 (finish_read_date 기준)
 books.sort((a,b) => new Date(a.finish_read_date) - new Date(b.finish_read_date));
 
 books.forEach(p => {
-  const card = document.createElement("div");
-  card.className = "book-card";
-
-  // 카드 전체 클릭 시 이동
-  card.addEventListener("click", () => {
-    if (p.file_path) window.location.href = p.file_path;
-  });
+  const link = document.createElement("a");
+  link.href = p.file_path || "#";
+  link.className = "book-card";
 
   // 표지
   const coverWrap = document.createElement("div");
@@ -152,13 +148,13 @@ books.forEach(p => {
     placeholder.innerText = "No Cover";
     coverWrap.appendChild(placeholder);
   }
-  card.appendChild(coverWrap);
+  link.appendChild(coverWrap);
 
   // 제목
   const titleWrap = document.createElement("div");
   titleWrap.className = "title";
   titleWrap.innerText = p.title;
-  card.appendChild(titleWrap);
+  link.appendChild(titleWrap);
 
   // 메타
   const meta = document.createElement("div");
@@ -184,16 +180,16 @@ books.forEach(p => {
 
   meta.appendChild(left);
   meta.appendChild(right);
-  card.appendChild(meta);
+  link.appendChild(meta);
 
   // 상태 아이콘
   const s = statusIcon(p.status);
   if (s) {
     const badge = document.createElement("div");
     badge.className = `status-badge ${s}`;
-    card.appendChild(badge);
+    link.appendChild(badge);
   }
 
-  root.appendChild(card);
+  root.appendChild(link);
 });
 </script>
