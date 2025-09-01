@@ -24,7 +24,7 @@ title: LX2 매뉴얼 목차
   transition: transform 0.6s;
   transform-style: preserve-3d;
   transform-origin: center center;
-  transform: translateZ(0);
+  transform: rotateY(0deg);
 }
 
 
