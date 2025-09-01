@@ -78,165 +78,107 @@ title: 안녕하세요! 이 매뉴얼에서는 관리자 홈페이지의 주요 
   <!-- 책 1 -->
   <div class="book-card">
     <div class="cover-wrap">
-	    <a href="4.콘텐츠.md">
-      <img src="_etc/books/harrypotter1.jpeg" alt="해리포터와 마법사의 돌" class="cover">
+	    <a href="1.메인메뉴.md">
+      <img src="_etc/books/harrypotter1.jpeg" alt="메인메뉴" class="cover">
       </a>
     </div>
-    <div class="title"><a href="4.콘텐츠.md">메인메뉴</a></div>
-    <div class="meta">전체 / 소속 / 문자알림 / 이력관리</div>
+    <div class="title"><a href="1.메인메뉴.md">메인메뉴</a></div>
+    <div class="meta">메인메뉴 삭제 후 index.md로 교체</div>
     <div class="status-badge dot"></div>
   </div>
 
   <!-- 책 2 -->
   <div class="book-card">
     <div class="cover-wrap">
-	    <a href="Book/도서목록/테스트.md">
-      <img src="_etc/books/test.jpg" alt="테스트" class="cover">
+	    <a href="2.회원.md">
+      <img src="_etc/books/harrypotter1.jpeg" alt="회원" class="cover">
       </a>
     </div>
-    <div class="title"><a href="Book/도서목록/테스트.md">회원</a></div>
-    <div class="meta">
-      <div class="meta-left">
-        <div class="meta-number">120</div>
-        <div class="meta-label">페이지</div>
-      </div>
-      <div class="meta-right">
-        <div class="meta-date">7월 15, 2025</div>
-      </div>
-    </div>
-    <div class="status-badge x"></div>
+    <div class="title"><a href="2.회원.md">회원</a></div>
+    <div class="meta">전체 / 소속 / 문자알림 / 이력관리</div>
+    <div class="status-badge dot"></div>
   </div>
 
   <!-- 책 3 -->
   <div class="book-card">
     <div class="cover-wrap">
-	    <a href="Book/도서목록/10배의 법칙.md">
-      <img src="_etc/books/10x.jpg" alt="10배의 법칙" class="cover"></a>
+	    <a href="3.과정.md">
+      <img src="_etc/books/harrypotter1.jpeg" alt="과정" class="cover">
+      </a>
     </div>
-    <div class="title"><a href="Book/도서목록/10배의 법칙.md">과정</a></div>
-    <div class="meta">
-      <div class="meta-left">
-        <div class="meta-number">200</div>
-        <div class="meta-label">페이지</div>
-      </div>
-      <div class="meta-right">
-        <div class="meta-date">9월 1, 2025</div>
-      </div>
-    </div>
+    <div class="title"><a href="3.과정.md">과정</a></div>
+    <div class="meta">분류 / 템플릿 / 운영과정 / 패키지 / 기수 / 현황</div>
     <div class="status-badge dot"></div>
   </div>
 
 <!-- 책 4 -->
   <div class="book-card">
     <div class="cover-wrap">
-	    <a href="Book/도서목록/10배의 법칙.md">
-      <img src="_etc/books/10x.jpg" alt="10배의 법칙" class="cover"></a>
+	    <a href="4.콘텐츠.md">
+      <img src="_etc/books/harrypotter1.jpeg" alt="콘텐츠" class="cover">
+      </a>
     </div>
-    <div class="title"><a href="Book/도서목록/10배의 법칙.md">콘텐츠</a></div>
-    <div class="meta">
-      <div class="meta-left">
-        <div class="meta-number">200</div>
-        <div class="meta-label">페이지</div>
-      </div>
-      <div class="meta-right">
-        <div class="meta-date">9월 1, 2025</div>
-      </div>
-    </div>
+    <div class="title"><a href="4.콘텐츠.md">콘텐츠</a></div>
+    <div class="meta">학습 / 시험 / 과제 / 설문 / 토론</div>
     <div class="status-badge dot"></div>
   </div>
 
 <!-- 책 5 -->
   <div class="book-card">
     <div class="cover-wrap">
-	    <a href="Book/도서목록/10배의 법칙.md">
-      <img src="_etc/books/10x.jpg" alt="10배의 법칙" class="cover"></a>
+	    <a href="5.사이트.md">
+      <img src="_etc/books/harrypotter1.jpeg" alt="사이트" class="cover">
+      </a>
     </div>
-    <div class="title"><a href="Book/도서목록/10배의 법칙.md">사이트</a></div>
-    <div class="meta">
-      <div class="meta-left">
-        <div class="meta-number">200</div>
-        <div class="meta-label">페이지</div>
-      </div>
-      <div class="meta-right">
-        <div class="meta-date">9월 1, 2025</div>
-      </div>
-    </div>
+    <div class="title"><a href="5.사이트.md">사이트</a></div>
+    <div class="meta">메뉴관리 / 팝업 / 배너 / 게시판 / 템플릿 / 메인화면 표시 / 분석</div>
     <div class="status-badge dot"></div>
   </div>
 
 <!-- 책 6 -->
   <div class="book-card">
     <div class="cover-wrap">
-	    <a href="Book/도서목록/10배의 법칙.md">
-      <img src="_etc/books/10x.jpg" alt="10배의 법칙" class="cover"></a>
+	    <a href="6.서비스.md">
+      <img src="_etc/books/harrypotter1.jpeg" alt="서비스" class="cover">
+      </a>
     </div>
-    <div class="title"><a href="Book/도서목록/10배의 법칙.md">서비스</a></div>
-    <div class="meta">
-      <div class="meta-left">
-        <div class="meta-number">200</div>
-        <div class="meta-label">페이지</div>
-      </div>
-      <div class="meta-right">
-        <div class="meta-date">9월 1, 2025</div>
-      </div>
-    </div>
+    <div class="title"><a href="6.서비스.md">서비스</a></div>
+    <div class="meta">커뮤니티 / 포인트 / 이벤트 / 쿠폰 / 일반설문 / 일반시험 / 마이크로러닝</div>
     <div class="status-badge dot"></div>
   </div>
 
 <!-- 책 7 -->
   <div class="book-card">
     <div class="cover-wrap">
-	    <a href="Book/도서목록/10배의 법칙.md">
-      <img src="_etc/books/10x.jpg" alt="10배의 법칙" class="cover"></a>
+	    <a href="7.시설.md">
+      <img src="_etc/books/harrypotter1.jpeg" alt="시설" class="cover">
+      </a>
     </div>
-    <div class="title"><a href="Book/도서목록/10배의 법칙.md">시설</a></div>
-    <div class="meta">
-      <div class="meta-left">
-        <div class="meta-number">200</div>
-        <div class="meta-label">페이지</div>
-      </div>
-      <div class="meta-right">
-        <div class="meta-date">9월 1, 2025</div>
-      </div>
-    </div>
+    <div class="title"><a href="7.시설.md">시설</a></div>
+    <div class="meta">강의동 / 강의동 예약 / 스튜디오 / 스튜디오 예약</div>
     <div class="status-badge dot"></div>
   </div>
 
 <!-- 책 8 -->
   <div class="book-card">
     <div class="cover-wrap">
-	    <a href="Book/도서목록/10배의 법칙.md">
-      <img src="_etc/books/10x.jpg" alt="10배의 법칙" class="cover"></a>
+	    <a href="8.주문결제.md">
+      <img src="_etc/books/harrypotter1.jpeg" alt="주문결제" class="cover">
+      </a>
     </div>
-    <div class="title"><a href="Book/도서목록/10배의 법칙.md">주문결제</a></div>
-    <div class="meta">
-      <div class="meta-left">
-        <div class="meta-number">200</div>
-        <div class="meta-label">페이지</div>
-      </div>
-      <div class="meta-right">
-        <div class="meta-date">9월 1, 2025</div>
-      </div>
-    </div>
+    <div class="title"><a href="8.주문결제.md">주문결제</a></div>
+    <div class="meta">결제현황 / 환불취소</div>
     <div class="status-badge dot"></div>
   </div>
 
 <!-- 책 9 -->
   <div class="book-card">
     <div class="cover-wrap">
-	    <a href="Book/도서목록/10배의 법칙.md">
-      <img src="_etc/books/10x.jpg" alt="10배의 법칙" class="cover"></a>
+	    <a href="9.통계.md">
+      <img src="_etc/books/harrypotter1.jpeg" alt="통계" class="cover">
+      </a>
     </div>
-    <div class="title"><a href="Book/도서목록/10배의 법칙.md">통계</a></div>
-    <div class="meta">
-      <div class="meta-left">
-        <div class="meta-number">200</div>
-        <div class="meta-label">페이지</div>
-      </div>
-      <div class="meta-right">
-        <div class="meta-date">9월 1, 2025</div>
-      </div>
-    </div>
+    <div class="title"><a href="9.통계.md">통계</a></div>
+    <div class="meta">대시보드 / 학습현황 / 운영현황 / 수료현황 / 이메일발송 / SMS발송 / 설문현황 / 검색 키워드 / 분석</div>
     <div class="status-badge dot"></div>
   </div>
-</div>
