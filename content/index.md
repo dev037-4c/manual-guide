@@ -2,10 +2,10 @@
 title: LX2 매뉴얼 목차
 ---
 <style>
-/*
+
 .book-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  display: flex;
+
   gap: 16px;
   justify-items: center;
 }
@@ -110,94 +110,8 @@ title: LX2 매뉴얼 목차
 .status-badge.x::before {
   content: "❌";
 }
-*/
-/* 카드 컨테이너 */
 
-.book-card {
 
-  background: transparent;
-
-  width: 200px;
-
-  height: 260px;
-
-  perspective: 1000px; /* 원근감 */
-
-  margin: 20px;
-
-}
-
-/* 내부 래퍼 */
-
-.book-card-inner {
-
-  position: relative;
-
-  width: 100%;
-
-  height: 100%;
-
-  transition: transform 0.6s;
-
-  transform-style: preserve-3d;
-
-}
-
-/* hover 시 뒤집힘 */
-
-.book-card:hover .book-card-inner {
-
-  transform: rotateY(180deg);
-
-}
-
-.book-card-front,
-
-.book-card-back {
-
-  position: absolute;
-
-  width: 100%;
-
-  height: 100%;
-
-  -webkit-backface-visibility: hidden;
-
-  backface-visibility: hidden;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  font-size: 1.2rem;
-
-  font-weight: bold;
-
-  border-radius: 12px;
-
-  box-shadow: 0 6px 18px rgba(0,0,0,.15);
-
-}
-
-.book-card-front {
-
-  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-
-  color: white;
-
-}
-
-.book-card-back {
-
-  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
-
-  color: #111;
-
-  transform: rotateY(180deg);
-
-}
 
 </style>
 
