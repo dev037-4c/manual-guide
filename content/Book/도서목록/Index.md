@@ -1,69 +1,115 @@
-```dataviewjs
-/***** 설정값 *****/
-const SOURCE_FOLDER = "content/Book/도서목록";      // 책 노트 폴더
-const LIMIT = 999;                           // 표기 최대 개수
-const SORT = { field: "finish_read_date", order: "asc" }; // 정렬 기준
+```{=html}
+<div id="book-grid" class="book-grid"></div>
 
-/***** 유틸 *****/
-const getCoverPath = (p) => {
-  let c = p.cover ?? p.cover_url ?? null;
-  if (!c) return null;
-  if (typeof c === "string") return c;
-  if (c?.path) return c.path;
-  if (Array.isArray(c) && c[0]?.path) return c[0].path;
-  return null;
+<script>
+// ==== 설정값 ====
+const SOURCE_DATA = "content/Book/도서목록.json"; // JSON 형식으로 변환된 책 데이터
+const LIMIT = 999;
+const SORT_FIELD = "finish_read_date";
+const SORT_ORDER = "asc";
+
+// ==== 유틸 ====
+const fmtDate = (d) => {
+  if (!d) return "-";
+  const dt = new Date(d);
+  return `${dt.getMonth()+1}월 ${dt.getDate()}, ${dt.getFullYear()}`;
 };
-const fmtDate = (d) => d ? dv.date(d).toFormat("M월 d, yyyy") : "-";
+
 const statusIcon = (s) => {
   if (!s) return "";
   const v = String(s).toLowerCase();
-  if (v === "plan" || v === "todo" || v === "wish") return "dot";
-  if (v === "dnf" || v === "drop" || v === "abandon") return "x";
+  if (["plan","todo","wish"].includes(v)) return "dot";
+  if (["dnf","drop","abandon"].includes(v)) return "x";
   return "";
 };
 
-/***** 데이터 가져오기 *****/
-let pages = dv.pages(`"${SOURCE_FOLDER}"`)
-  .where(p => p.file && p.file.path !== dv.current().file.path);
+// ==== 데이터 로드 ====
+fetch(SOURCE_DATA)
+  .then(res => res.json())
+  .then(pages => {
+    // 현재 페이지 제외 가능 (옵션)
+    // pages = pages.filter(p => p.file_path !== CURRENT_PAGE);
 
-if (SORT?.field) {
-  pages = pages.sort(p => p[SORT.field] ?? null, SORT.order === "desc" ? "desc" : "asc");
-}
-if (LIMIT) pages = pages.limit(LIMIT);
+    // 정렬
+    pages.sort((a,b) => {
+      const va = a[SORT_FIELD] ?? "";
+      const vb = b[SORT_FIELD] ?? "";
+      if (SORT_ORDER === "asc") return va > vb ? 1 : -1;
+      else return va < vb ? 1 : -1;
+    });
 
-/***** 루트 컨테이너 생성 *****/
-const root = dv.el("div", "", { cls: "book-grid" });
+    if (LIMIT) pages = pages.slice(0, LIMIT);
 
-/***** 카드 렌더링 *****/
-for (const p of pages) {
-  const card = root.createEl("div", { cls: "book-card" });
+    const root = document.getElementById("book-grid");
 
-  // 표지
-  const coverPath = getCoverPath(p);
-  const coverEl = card.createEl("div", { cls: "cover-wrap" });
-  if (coverPath) {
-    coverEl.createEl("img", { attr: { src: coverPath, alt: p.title ?? p.file.name }, cls: "cover" });
-  } else {
-    coverEl.createEl("div", { text: "No Cover", cls: "cover placeholder" });
-  }
+    pages.forEach(p => {
+      const card = document.createElement("div");
+      card.className = "book-card";
 
-  // 제목
-  const titleWrap = card.createEl("div", { cls: "title" });
-  titleWrap.append(dv.fileLink(p.file.path, p.title ?? p.file.name));
+      // 표지
+      const coverWrap = document.createElement("div");
+      coverWrap.className = "cover-wrap";
+      if (p.cover_url) {
+        const img = document.createElement("img");
+        img.src = p.cover_url;
+        img.alt = p.title || p.file_name;
+        img.className = "cover";
+        coverWrap.appendChild(img);
+      } else {
+        const placeholder = document.createElement("div");
+        placeholder.className = "cover placeholder";
+        placeholder.innerText = "No Cover";
+        coverWrap.appendChild(placeholder);
+      }
+      card.appendChild(coverWrap);
 
-  // 메타
-  const meta = card.createEl("div", { cls: "meta" });
-  const left = meta.createEl("div", { cls: "meta-left" });
-  left.createEl("div", { text: p.total_page ? String(p.total_page) : "-", cls: "meta-number" });
-  left.createEl("div", { text: "페이지", cls: "meta-label" });
+      // 제목
+      const titleWrap = document.createElement("div");
+      titleWrap.className = "title";
+      const a = document.createElement("a");
+      a.href = p.file_path || "#";
+      a.innerText = p.title || p.file_name;
+      titleWrap.appendChild(a);
+      card.appendChild(titleWrap);
 
-  const right = meta.createEl("div", { cls: "meta-right" });
-  right.createEl("div", { text: fmtDate(p.finish_read_date), cls: "meta-date" });
+      // 메타
+      const meta = document.createElement("div");
+      meta.className = "meta";
 
-  // 상태 아이콘
-  const s = statusIcon(p.status);
-  if (s) {
-    const badge = card.createEl("div", { cls: `status-badge ${s}` });
-  }
-}
+      const left = document.createElement("div");
+      left.className = "meta-left";
+      const pagesNum = document.createElement("div");
+      pagesNum.className = "meta-number";
+      pagesNum.innerText = p.total_page ?? "-";
+      const pagesLabel = document.createElement("div");
+      pagesLabel.className = "meta-label";
+      pagesLabel.innerText = "페이지";
+      left.appendChild(pagesNum);
+      left.appendChild(pagesLabel);
+
+      const right = document.createElement("div");
+      right.className = "meta-right";
+      const dateEl = document.createElement("div");
+      dateEl.className = "meta-date";
+      dateEl.innerText = fmtDate(p.finish_read_date);
+      right.appendChild(dateEl);
+
+      meta.appendChild(left);
+      meta.appendChild(right);
+      card.appendChild(meta);
+
+      // 상태 아이콘
+      const s = statusIcon(p.status);
+      if (s) {
+        const badge = document.createElement("div");
+        badge.className = `status-badge ${s}`;
+        card.appendChild(badge);
+      }
+
+      root.appendChild(card);
+    });
+  })
+  .catch(err => console.error(err));
+</script>
+
 ```
