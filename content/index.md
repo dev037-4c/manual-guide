@@ -15,7 +15,6 @@ title: LX2 매뉴얼 목차
   height: 260px;
   perspective: 1000px;
   margin: 0 auto;
-  display: inline-block;
 }
 
 .book-card-inner {
