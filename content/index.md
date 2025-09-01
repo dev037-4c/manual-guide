@@ -103,7 +103,7 @@ title: LX2 매뉴얼 목차
   <div class="book-card">
     <div class="cover-wrap">
 	    <a href="3.과정.md">
-      <img src="_etc/books/harrypotter1.jpeg" alt="과정" class="cover">
+      <img src="_etc/books/process.png" alt="과정" class="cover">
       </a>
     </div>
     <div class="title"><a href="3.과정.md">과정</a></div>
@@ -163,7 +163,7 @@ title: LX2 매뉴얼 목차
   <div class="book-card">
     <div class="cover-wrap">
 	    <a href="8.주문결제.md">
-      <img src="_etc/books/harrypotter1.jpeg" alt="주문결제" class="cover">
+      <img src="_etc/books/orderpayment.png" alt="주문결제" class="cover">
       </a>
     </div>
     <div class="title"><a href="8.주문결제.md">주문결제</a></div>
@@ -175,7 +175,7 @@ title: LX2 매뉴얼 목차
   <div class="book-card">
     <div class="cover-wrap">
 	    <a href="9.통계.md">
-      <img src="_etc/books/harrypotter1.jpeg" alt="통계" class="cover">
+      <img src="_etc/books/statistice.png" alt="통계" class="cover">
       </a>
     </div>
     <div class="title"><a href="9.통계.md">통계</a></div>
