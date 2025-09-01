@@ -3,7 +3,6 @@ title: 안녕하세요! 이 매뉴얼에서는 관리자 홈페이지의 주요 
 ---
 # 책 카드뷰
 
-```{=html}
 <style>
 .book-grid {
   display: grid;
@@ -18,7 +17,6 @@ title: 안녕하세요! 이 매뉴얼에서는 관리자 홈페이지의 주요 
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   overflow: hidden;
   padding: 8px;
-  text-align: center;
 }
 
 .cover-wrap {
@@ -47,6 +45,7 @@ title: 안녕하세요! 이 매뉴얼에서는 관리자 홈페이지의 주요 
   margin-top: 6px;
   font-weight: 600;
   font-size: 14px;
+  text-align: center;
 }
 
 .meta {
@@ -75,11 +74,11 @@ title: 안녕하세요! 이 매뉴얼에서는 관리자 홈페이지의 주요 
 <div id="book-grid" class="book-grid"></div>
 
 <script>
-// ===== 책 데이터 직접 작성 =====
+// ==== 책 데이터 직접 작성 (JSON 대신 코드 안에 포함) ====
 const books = [
   {
     title: "해리포터와 마법사의 돌",
-    cover: "_etc/books/harrypotter1.jpeg",
+    cover_url: "_etc/books/harrypotter1.jpeg",
     total_page: 350,
     finish_read_date: "2025-08-28",
     status: "plan",
@@ -87,7 +86,7 @@ const books = [
   },
   {
     title: "테스트",
-    cover: "_etc/books/test.jpg",
+    cover_url: "_etc/books/test.jpg",
     total_page: 120,
     finish_read_date: "2025-07-15",
     status: "dnf",
@@ -95,7 +94,7 @@ const books = [
   },
   {
     title: "10배의 법칙",
-    cover: "_etc/books/10x.jpg",
+    cover_url: "_etc/books/10x.jpg",
     total_page: 200,
     finish_read_date: "2025-09-01",
     status: "wish",
@@ -103,7 +102,7 @@ const books = [
   }
 ];
 
-// ===== 유틸 함수 =====
+// ==== 유틸 함수 ====
 const fmtDate = (d) => {
   if (!d) return "-";
   const dt = new Date(d);
@@ -118,11 +117,11 @@ const statusIcon = (s) => {
   return "";
 };
 
-// ===== 카드뷰 렌더링 =====
+// ==== 카드 렌더링 ====
 const root = document.getElementById("book-grid");
 
-// 날짜 기준 오름차순 정렬
-books.sort((a,b) => (a.finish_read_date > b.finish_read_date ? 1 : -1));
+// 정렬 (finish_read_date 기준)
+books.sort((a,b) => new Date(a.finish_read_date) - new Date(b.finish_read_date));
 
 books.forEach(p => {
   const card = document.createElement("div");
@@ -131,9 +130,9 @@ books.forEach(p => {
   // 표지
   const coverWrap = document.createElement("div");
   coverWrap.className = "cover-wrap";
-  if (p.cover) {
+  if (p.cover_url) {
     const img = document.createElement("img");
-    img.src = p.cover;
+    img.src = p.cover_url;
     img.alt = p.title;
     img.className = "cover";
     coverWrap.appendChild(img);
