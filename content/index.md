@@ -18,6 +18,7 @@ title: 안녕하세요! 이 매뉴얼에서는 관리자 홈페이지의 주요 
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   overflow: hidden;
   padding: 8px;
+  text-align: center;
 }
 
 .cover-wrap {
@@ -46,7 +47,6 @@ title: 안녕하세요! 이 매뉴얼에서는 관리자 홈페이지의 주요 
   margin-top: 6px;
   font-weight: 600;
   font-size: 14px;
-  text-align: center;
 }
 
 .meta {
@@ -75,11 +75,35 @@ title: 안녕하세요! 이 매뉴얼에서는 관리자 홈페이지의 주요 
 <div id="book-grid" class="book-grid"></div>
 
 <script>
-const SOURCE_DATA = "Book/books.json";
-const LIMIT = 999;
-const SORT_FIELD = "finish_read_date";
-const SORT_ORDER = "asc";
+// ===== 책 데이터 직접 작성 =====
+const books = [
+  {
+    title: "해리포터와 마법사의 돌",
+    cover: "_etc/books/harrypotter1.jpeg",
+    total_page: 350,
+    finish_read_date: "2025-08-28",
+    status: "plan",
+    file_path: "Book/도서목록/해리포터.md"
+  },
+  {
+    title: "테스트",
+    cover: "_etc/books/test.jpg",
+    total_page: 120,
+    finish_read_date: "2025-07-15",
+    status: "dnf",
+    file_path: "Book/도서목록/테스트.md"
+  },
+  {
+    title: "10배의 법칙",
+    cover: "_etc/books/10x.jpg",
+    total_page: 200,
+    finish_read_date: "2025-09-01",
+    status: "wish",
+    file_path: "Book/도서목록/10배의 법칙.md"
+  }
+];
 
+// ===== 유틸 함수 =====
 const fmtDate = (d) => {
   if (!d) return "-";
   const dt = new Date(d);
@@ -94,82 +118,76 @@ const statusIcon = (s) => {
   return "";
 };
 
-fetch(SOURCE_DATA)
-  .then(res => res.json())
-  .then(pages => {
-    pages.sort((a,b) => {
-      const va = a[SORT_FIELD] ?? "";
-      const vb = b[SORT_FIELD] ?? "";
-      if (SORT_ORDER === "asc") return va > vb ? 1 : -1;
-      else return va < vb ? 1 : -1;
-    });
+// ===== 카드뷰 렌더링 =====
+const root = document.getElementById("book-grid");
 
-    if (LIMIT) pages = pages.slice(0, LIMIT);
+// 날짜 기준 오름차순 정렬
+books.sort((a,b) => (a.finish_read_date > b.finish_read_date ? 1 : -1));
 
-    const root = document.getElementById("book-grid");
+books.forEach(p => {
+  const card = document.createElement("div");
+  card.className = "book-card";
 
-    pages.forEach(p => {
-      const card = document.createElement("div");
-      card.className = "book-card";
+  // 표지
+  const coverWrap = document.createElement("div");
+  coverWrap.className = "cover-wrap";
+  if (p.cover) {
+    const img = document.createElement("img");
+    img.src = p.cover;
+    img.alt = p.title;
+    img.className = "cover";
+    coverWrap.appendChild(img);
+  } else {
+    const placeholder = document.createElement("div");
+    placeholder.className = "cover placeholder";
+    placeholder.innerText = "No Cover";
+    coverWrap.appendChild(placeholder);
+  }
+  card.appendChild(coverWrap);
 
-      const coverWrap = document.createElement("div");
-      coverWrap.className = "cover-wrap";
-      if (p.cover_url) {
-        const img = document.createElement("img");
-        img.src = p.cover_url;
-        img.alt = p.title;
-        img.className = "cover";
-        coverWrap.appendChild(img);
-      } else {
-        const placeholder = document.createElement("div");
-        placeholder.className = "cover placeholder";
-        placeholder.innerText = "No Cover";
-        coverWrap.appendChild(placeholder);
-      }
-      card.appendChild(coverWrap);
+  // 제목
+  const titleWrap = document.createElement("div");
+  titleWrap.className = "title";
+  const a = document.createElement("a");
+  a.href = p.file_path || "#";
+  a.innerText = p.title;
+  titleWrap.appendChild(a);
+  card.appendChild(titleWrap);
 
-      const titleWrap = document.createElement("div");
-      titleWrap.className = "title";
-      const a = document.createElement("a");
-      a.href = p.file_path || "#";
-      a.innerText = p.title;
-      titleWrap.appendChild(a);
-      card.appendChild(titleWrap);
+  // 메타
+  const meta = document.createElement("div");
+  meta.className = "meta";
 
-      const meta = document.createElement("div");
-      meta.className = "meta";
+  const left = document.createElement("div");
+  left.className = "meta-left";
+  const pagesNum = document.createElement("div");
+  pagesNum.className = "meta-number";
+  pagesNum.innerText = p.total_page ?? "-";
+  const pagesLabel = document.createElement("div");
+  pagesLabel.className = "meta-label";
+  pagesLabel.innerText = "페이지";
+  left.appendChild(pagesNum);
+  left.appendChild(pagesLabel);
 
-      const left = document.createElement("div");
-      left.className = "meta-left";
-      const pagesNum = document.createElement("div");
-      pagesNum.className = "meta-number";
-      pagesNum.innerText = p.total_page ?? "-";
-      const pagesLabel = document.createElement("div");
-      pagesLabel.className = "meta-label";
-      pagesLabel.innerText = "페이지";
-      left.appendChild(pagesNum);
-      left.appendChild(pagesLabel);
+  const right = document.createElement("div");
+  right.className = "meta-right";
+  const dateEl = document.createElement("div");
+  dateEl.className = "meta-date";
+  dateEl.innerText = fmtDate(p.finish_read_date);
+  right.appendChild(dateEl);
 
-      const right = document.createElement("div");
-      right.className = "meta-right";
-      const dateEl = document.createElement("div");
-      dateEl.className = "meta-date";
-      dateEl.innerText = fmtDate(p.finish_read_date);
-      right.appendChild(dateEl);
+  meta.appendChild(left);
+  meta.appendChild(right);
+  card.appendChild(meta);
 
-      meta.appendChild(left);
-      meta.appendChild(right);
-      card.appendChild(meta);
+  // 상태 아이콘
+  const s = statusIcon(p.status);
+  if (s) {
+    const badge = document.createElement("div");
+    badge.className = `status-badge ${s}`;
+    card.appendChild(badge);
+  }
 
-      const s = statusIcon(p.status);
-      if (s) {
-        const badge = document.createElement("div");
-        badge.className = `status-badge ${s}`;
-        card.appendChild(badge);
-      }
-
-      root.appendChild(card);
-    });
-  })
-  .catch(err => console.error(err));
+  root.appendChild(card);
+});
 </script>
