@@ -76,7 +76,9 @@ title: 안녕하세요! 이 매뉴얼에서는 관리자 홈페이지의 주요 
   <!-- 책 1 -->
   <div class="book-card">
     <div class="cover-wrap">
+	    <a href="Book/도서목록/해리포터.md">
       <img src="_etc/books/harrypotter1.jpeg" alt="해리포터와 마법사의 돌" class="cover">
+      </a>
     </div>
     <div class="title"><a href="Book/도서목록/해리포터.md">해리포터와 마법사의 돌</a></div>
     <div class="meta">
@@ -94,7 +96,9 @@ title: 안녕하세요! 이 매뉴얼에서는 관리자 홈페이지의 주요 
   <!-- 책 2 -->
   <div class="book-card">
     <div class="cover-wrap">
+	    <a href="Book/도서목록/테스트.md">
       <img src="_etc/books/test.jpg" alt="테스트" class="cover">
+      </a>
     </div>
     <div class="title"><a href="Book/도서목록/테스트.md">테스트</a></div>
     <div class="meta">
