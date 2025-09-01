@@ -28,7 +28,6 @@ title: LX2 매뉴얼 목차
 /* hover 시 뒤집기 */
 .book-card:hover .book-card-inner {
   transform: rotateY(180deg);
-  transform: rotateX(0deg);
   transform: rotateZ(0deg);
 }
 
