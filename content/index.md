@@ -118,7 +118,6 @@ title: LX2 매뉴얼 목차
       <div class="book-card-front">
         <div class="cover-wrap">
             <img src="_etc/books/member.png" alt="회원" class="cover">
-          </a>
         </div>
         <div class="title">회원</div>
       </div>
