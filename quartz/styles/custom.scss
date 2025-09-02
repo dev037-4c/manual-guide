@@ -12,3 +12,81 @@
 .explorer a[href^="../_etc/"] {
   display: none !important;
 }
+
+/* ------------------------------- */
+/* 📱 iOS 스타일 카드뷰 (노트 컨텐츠) */
+/* ------------------------------- */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+/* 개별 카드 */
+.card {
+  background: rgba(255, 255, 255, 0.15); /* 반투명 */
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border-radius: 26px; /* 둥글둥글한 모서리 */
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15),
+              0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25),
+              0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+/* 카드 안의 이미지 */
+.card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-top-left-radius: 26px;
+  border-top-right-radius: 26px;
+}
+
+/* 카드 내용 */
+.card-content {
+  padding: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+  color: #111;
+}
+
+/* 제목 */
+.card-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  color: #000;
+}
+
+/* 부가정보 */
+.card-meta {
+  font-size: 14px;
+  color: #555;
+  margin: 3px 0;
+}
+
+/* 상태표시 (아이폰 스타일 색상) */
+.card-status {
+  font-size: 14px;
+  margin-top: 8px;
+  font-weight: 500;
+}
+
+.card-status.red {
+  color: #ff3b30; /* iOS 빨강 */
+}
+.card-status.green {
+  color: #34c759; /* iOS 초록 */
+}
+.card-status.blue {
+  color: #007aff; /* iOS 파랑 */
+}
