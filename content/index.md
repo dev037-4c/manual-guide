@@ -61,6 +61,13 @@ title: LX2 매뉴얼 목차
     font-size: 14px;
   }
 
+  .book-card a {
+    display: block;          /* a태그를 블록화 → 카드 전체 클릭 가능 */
+    text-decoration: none;   /* 밑줄 제거 */
+    color: inherit;          /* 글자 색상 상속 */
+  }
+
+
   /* 표지 */
   .cover-wrap {
     width: 100%;
@@ -113,9 +120,9 @@ title: LX2 매뉴얼 목차
 <div class="book-grid">
 
   <!-- 책 2 -->
-<div class="book-card">
-<a href="2.회원.md">
-<div class="book-card-inner">
+  <div class="book-card">
+  <a href="2.회원.md">
+    <div class="book-card-inner">
       <div class="book-card-front">
         <div class="cover-wrap">
           <img src="_etc/books/member.png" alt="회원" class="cover">
@@ -127,7 +134,7 @@ title: LX2 매뉴얼 목차
         <div class="status-badge dot"></div>
       </div>
     </div>
-</a>
+  </a>
 </div>
 
 
