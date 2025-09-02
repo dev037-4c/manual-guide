@@ -171,6 +171,11 @@ title: LX2 매뉴얼 목차
         <!-- 소속 카테고리 -->
         <div class="category">소속</div>
         <a href="소속관리.md">소속관리</a>
+        <!-- 문자알림 카테고리 -->
+        <div class="category">문자알림</div>
+        <a href="문자알림-발송하기.md">문자알림-발송하기</a>
+        <a href="문자알림-발송내역.md">문자알림-발송내역</a>
+        <a href="문자알림-자주쓰는메시지.md">문자알림-자주 쓰는 메시지</a>
       </div>
       <div class="status-badge dot"></div>
     </div>
