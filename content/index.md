@@ -113,6 +113,18 @@ title: LX2 매뉴얼 목차
     text-align: center;
   }
 
+ . .book-card-back .meta a {
+	color: inherit;       /* 글씨 색 유지 */
+	  text-decoration: none; /* 밑줄 제거 */
+	  margin: 0 4px;         /* 링크 사이 간격 */
+	  font-weight: 500;
+  }
+
+ . .book-card-back .meta a:hover {
+	text-decoration: underline;
+ . }
+
+
   /* 상태 아이콘 */
   .status-badge.dot::before {
     content: "🔴";
@@ -125,25 +137,29 @@ title: LX2 매뉴얼 목차
 
 <div class="book-grid">
 
-  <!-- 책 2 -->
-  <div class="book-card">
-    <div class="book-card-inner">
-      <div class="book-card-front">
-        <div class="cover-wrap">
-          <a href="2.회원.md">
-            <img src="_etc/books/member.png" alt="회원" class="cover">
-          </a>
-        </div>
-        <div class="title"><a href="2.회원.md">회원</a></div>
-      </div>
-      <div class="book-card-back">
-        <a href="2.회원.md" class="card-back-link">
-          <div class="meta">전체 / 소속 / 문자알림 / 이력관리</div>
-          <div class="status-badge dot"></div>
+<!-- 책 2 -->
+<div class="book-card">
+  <div class="book-card-inner">
+    <div class="book-card-front">
+      <div class="cover-wrap">
+        <a href="2.회원.md">
+          <img src="_etc/books/member.png" alt="회원" class="cover">
         </a>
       </div>
+      <div class="title"><a href="2.회원.md">회원</a></div>
+    </div>
+    <div class="book-card-back">
+      <div class="meta">
+        <a href="2-전체.md">전체</a> / 
+        <a href="2-소속.md">소속</a> / 
+        <a href="2-문자알림.md">문자알림</a> / 
+        <a href="2-이력관리.md">이력관리</a>
+      </div>
+      <div class="status-badge dot"></div>
     </div>
   </div>
+</div>
+
 
   <!-- 책 3 -->
   <div class="book-card">
