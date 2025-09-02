@@ -1,7 +1,6 @@
 ---
 title: LX2 매뉴얼 목차
 ---
-![[메인메뉴.png]]
 <style>
   .book-grid {
     display: grid;
@@ -150,7 +149,27 @@ title: LX2 매뉴얼 목차
   .status-badge.x::before {
     content: "❌";
   }
+
+.page-banner {
+  width: 100%;
+  max-width: 1200px;  /* 카드 그리드와 동일 폭 제한 */
+  margin: 0 auto 20px; /* 가운데 정렬 + 아래 간격 */
+  border-radius: 12px; /* 모서리 둥글게 */
+  overflow: hidden;
+}
+
+.page-banner img {
+  width: 100%;
+  height: auto;      /* 원본 비율 유지 */
+  display: block;
+  object-fit: cover; /* 잘림 없이 꽉 차게 */
+}
+
 </style>
+<!-- 페이지 상단 큰 이미지 -->
+<div class="page-banner">
+  <img src="_etc/books/메인메뉴.png" alt="메인 배너">
+</div>
 
 <div class="book-grid">
 
