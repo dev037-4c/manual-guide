@@ -54,7 +54,7 @@ title: LX2 매뉴얼 목차
 
   /* 뒷면 */
   .book-card-back {
-    background: linear-gradient(135deg, #fffff);
+    background: linear-gradient(135deg, #ffffff, #38f9d7);
     color: #111;
     transform: rotateY(180deg);
     text-align: center;
@@ -117,8 +117,16 @@ title: LX2 매뉴얼 목차
   display: block;         /* 한 줄씩 배치 */
   color: inherit;         /* 글씨 색 유지 */
   text-decoration: none;  /* 밑줄 제거 */
-  margin-bottom: 6px;     /* 줄 간격 */
+  margin-bottom: 4px;     /* 줄 간격 */
   font-weight: 500;
+}
+
+.book-card-back .meta strong {
+  display: block;
+  margin-top: 8px;
+  margin-bottom: 4px;
+  font-size: 13px;
+  text-decoration: underline;
 }
 
 .book-card-back .meta a:last-child {
@@ -146,6 +154,7 @@ title: LX2 매뉴얼 목차
 <!-- 회원 카드 -->
 <div class="book-card">
   <div class="book-card-inner">
+
     <!-- 앞면 -->
     <div class="book-card-front">
       <div class="cover-wrap">
@@ -190,8 +199,10 @@ title: LX2 매뉴얼 목차
       </div>
       <div class="status-badge dot"></div>
     </div>
+
   </div>
 </div>
+
 
 
 
