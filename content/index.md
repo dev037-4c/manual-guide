@@ -162,8 +162,6 @@ title: LX2 매뉴얼 목차
     </div>
     <div class="book-card-back">
       <div class="meta">
-      
-      <div class="flex-column">
         <div class="category">전체</div>
         <a href="회원-학습자.md">회원-학습자</a>
         <a href="회원-교수자.md">회원-교수자</a>
@@ -173,12 +171,10 @@ title: LX2 매뉴얼 목차
         <!-- 소속 카테고리 -->
         <div class="category">소속</div>
         <a href="소속관리.md">소속관리</a>
-        <!-- 문자알림 카테고리 -->
-	    <div class="flex-column">
         <div class="category">문자알림</div>
-        <a href="문자알림-발송하기.md">문자알림-발송하기</a>
-        <a href="문자알림-발송내역.md">문자알림-발송내역</a>
-        <a href="문자알림-자주쓰는메시지.md">문자알림-자주 쓰는 메시지</a>
+          <a href="문자알림-발송하기.md">문자알림-발송하기</a>
+          <a href="문자알림-발송내역.md">문자알림-발송내역</a>
+          <a href="문자알림-자주쓰는메시지.md">문자알림-자주 쓰는 메시지</a>
       </div>
       <div class="status-badge dot"></div>
     </div>
