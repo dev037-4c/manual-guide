@@ -61,13 +61,6 @@ title: LX2 매뉴얼 목차
     font-size: 14px;
   }
 
-  .book-card a {
-    display: block;          /* a태그를 블록화 → 카드 전체 클릭 가능 */
-    text-decoration: none;   /* 밑줄 제거 */
-    color: inherit;          /* 글자 색상 상속 */
-  }
-
-
   /* 표지 */
   .cover-wrap {
     width: 100%;
@@ -117,15 +110,14 @@ title: LX2 매뉴얼 목차
   }
 </style>
 
-<div class="book-grid">
-
   <!-- 책 2 -->
   <div class="book-card">
   <a href="2.회원.md">
     <div class="book-card-inner">
       <div class="book-card-front">
         <div class="cover-wrap">
-          <img src="_etc/books/member.png" alt="회원" class="cover">
+            <img src="_etc/books/member.png" alt="회원" class="cover">
+          </a>
         </div>
         <div class="title">회원</div>
       </div>
@@ -134,13 +126,11 @@ title: LX2 매뉴얼 목차
         <div class="status-badge dot"></div>
       </div>
     </div>
-  </a>
-</div>
-
+    </a>
+  </div>
 
   <!-- 책 3 -->
   <div class="book-card">
-  <a href="3.과정.md">
     <div class="book-card-inner">
       <div class="book-card-front">
         <div class="cover-wrap">
@@ -148,14 +138,13 @@ title: LX2 매뉴얼 목차
             <img src="_etc/books/process.png" alt="과정" class="cover">
           </a>
         </div>
-        <div class="title">과정</div>
+        <div class="title"><a href="3.과정.md">과정</a></div>
       </div>
       <div class="book-card-back">
         <div class="meta">분류 / 템플릿 / 운영과정 / 패키지 / 기수 / 현황</div>
         <div class="status-badge dot"></div>
       </div>
     </div>
-    </a>
   </div>
 
   <!-- 책 4 -->
