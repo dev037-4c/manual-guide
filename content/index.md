@@ -1,6 +1,7 @@
 ---
 title: LX2 매뉴얼 목차
 ---
+![[메인메뉴.png]]
 <style>
   .book-grid {
     display: grid;
