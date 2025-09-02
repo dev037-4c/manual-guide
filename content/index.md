@@ -122,7 +122,7 @@ title: LX2 매뉴얼 목차
         <div class="title">회원</div>
       </div>
       <div class="book-card-back">
-        <a href="2.회원.md">
+        <a href="2.회원.md"></a>
         <div class="meta">전체 / 소속 / 문자알림 / 이력관리</div>
             <div class="status-badge dot"></div>
       </div>
