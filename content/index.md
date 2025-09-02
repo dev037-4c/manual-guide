@@ -61,11 +61,18 @@ title: LX2 매뉴얼 목차
     font-size: 14px;
   }
 
-  .book-card a {  
+  .book-card-back a.card-back-link {
 	  display: block;
-	  text-decoration: none;
-	  color: inherit;         
+	  width: 100%;
+	  height: 100%;
+	  color: inherit; /* 글씨 색 유지 */
+	  text-decoration: none; /* 밑줄 제거 */
+	  display: flex;
+	  flex-direction: column;
+	  justify-content: center;
+	  align-items: center;
   }
+
   
   /* 표지 */
   .cover-wrap {
@@ -118,25 +125,25 @@ title: LX2 매뉴얼 목차
 
 <div class="book-grid">
 
-  <!-- 책 2 -->
-  <div class="book-card">
-  <a href="2.회원.md">
-    <div class="book-card-inner">
-      <div class="book-card-front">
-        <div class="cover-wrap">
-          <a href="2.회원.md">
-            <img src="_etc/books/member.png" alt="회원" class="cover">
-          </a>
-        </div>
-        <div class="title">회원</div>
+<!-- 책 2 -->
+<div class="book-card">
+  <div class="book-card-inner">
+    <div class="book-card-front">
+      <div class="cover-wrap">
+        <a href="2.회원.md">
+          <img src="_etc/books/member.png" alt="회원" class="cover">
+        </a>
       </div>
-      <div class="book-card-back">
+      <div class="title"><a href="2.회원.md">회원</a></div>
+    </div>
+    <div class="book-card-back">
+      <a href="2.회원.md" class="card-back-link">
         <div class="meta">전체 / 소속 / 문자알림 / 이력관리</div>
         <div class="status-badge dot"></div>
-      </div>
+      </a>
     </div>
-    </a>
   </div>
+</div>
 
   <!-- 책 3 -->
   <div class="book-card">
