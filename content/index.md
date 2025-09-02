@@ -177,10 +177,12 @@ title: LX2 매뉴얼 목차
         <a href="엑셀다운로드이력.md">엑셀 다운로드 이력</a>
         <a href="수정이력관리.md">수정이력 관리</a>
       </div>
+      <div class="status-badge dot"></div>
     </div>
 
   </div>
 </div>
+
 
 
 
