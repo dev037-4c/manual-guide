@@ -136,7 +136,17 @@ title: LX2 매뉴얼 목차
   font-size: 13px;
 }
 
+.book-card-back .meta.flex-container {
+  display: flex;
+  justify-content: center; /* 중앙 정렬 */
+  gap: 20px; /* 왼쪽/오른쪽 간격 */
+  text-align: left; /* 텍스트 왼쪽 정렬 */
+}
 
+.book-card-back .meta.flex-column {
+  display: flex;
+  flex-direction: column;
+}
 
 
   /* 상태 아이콘 */
@@ -161,24 +171,31 @@ title: LX2 매뉴얼 목차
       <div class="title">회원</div>
     </div>
     <div class="book-card-back">
-      <div class="meta">
-        <div class="category">전체</div>
-        <a href="회원-학습자.md">회원-학습자</a>
-        <a href="회원-교수자.md">회원-교수자</a>
-        <a href="회원-조교.md">회원-조교</a>
-        <a href="회원-소속담당자.md">회원-소속 담당자</a>
-        <a href="회원-운영관리자.md">회원-운영관리자</a>
-        <!-- 소속 카테고리 -->
-        <div class="category">소속</div>
-        <a href="소속관리.md">소속관리</a>
-        <!-- 문자알림 카테고리 -->
-        <div class="category">문자알림</div>
-        <a href="문자알림-발송하기.md">문자알림-발송하기</a>
-        <a href="문자알림-발송내역.md">문자알림-발송내역</a>
-        <a href="문자알림-자주쓰는메시지.md">문자알림-자주 쓰는 메시지</a>
-      </div>
-      <div class="status-badge dot"></div>
+  <div class="meta flex-container">
+    <!-- 왼쪽 영역 -->
+    <div class="flex-column">
+      <div class="category">전체</div>
+      <a href="회원-학습자.md">회원-학습자</a>
+      <a href="회원-교수자.md">회원-교수자</a>
+      <a href="회원-조교.md">회원-조교</a>
+      <a href="회원-소속담당자.md">회원-소속 담당자</a>
+      <a href="회원-운영관리자.md">회원-운영관리자</a>
+
+      <div class="category">소속</div>
+      <a href="소속관리.md">소속관리</a>
     </div>
+
+    <!-- 오른쪽 영역 -->
+    <div class="flex-column">
+      <div class="category">문자알림</div>
+      <a href="문자알림-발송하기.md">문자알림-발송하기</a>
+      <a href="문자알림-발송내역.md">문자알림-발송내역</a>
+      <a href="문자알림-자주쓰는메시지.md">문자알림-자주 쓰는 메시지</a>
+    </div>
+  </div>
+  <div class="status-badge dot"></div>
+</div>
+
   </div>
 </div>
 
