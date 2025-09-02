@@ -111,23 +111,6 @@ title: LX2 매뉴얼 목차
 </style>
 
 <div class="book-grid">
-  <!-- 책 1 -->
-  <div class="book-card">
-    <div class="book-card-inner">
-      <div class="book-card-front">
-        <div class="cover-wrap">
-          <a href="1.메인메뉴.md">
-            <img src="_etc/books/mainmenu.png" alt="메인메뉴" class="cover">
-          </a>
-        </div>
-        <div class="title"><a href="1.메인메뉴.md">메인메뉴</a></div>
-      </div>
-      <div class="book-card-back">
-        <div class="meta">메인메뉴 삭제 후 index.md로 교체</div>
-        <div class="status-badge dot"></div>
-      </div>
-    </div>
-  </div>
 
   <!-- 책 2 -->
   <div class="book-card">
