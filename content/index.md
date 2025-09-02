@@ -133,6 +133,7 @@ title: LX2 매뉴얼 목차
 
   <!-- 책 3 -->
   <div class="book-card">
+  <a href="3.과정.md">
     <div class="book-card-inner">
       <div class="book-card-front">
         <div class="cover-wrap">
@@ -140,13 +141,14 @@ title: LX2 매뉴얼 목차
             <img src="_etc/books/process.png" alt="과정" class="cover">
           </a>
         </div>
-        <div class="title"><a href="3.과정.md">과정</a></div>
+        <div class="title">과정</div>
       </div>
       <div class="book-card-back">
         <div class="meta">분류 / 템플릿 / 운영과정 / 패키지 / 기수 / 현황</div>
         <div class="status-badge dot"></div>
       </div>
     </div>
+    </a>
   </div>
 
   <!-- 책 4 -->
