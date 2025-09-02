@@ -61,6 +61,12 @@ title: LX2 매뉴얼 목차
     font-size: 14px;
   }
 
+  .book-card a {  
+	  display: block;
+	  text-decoration: none;
+	  color: inherit;         
+  }
+  
   /* 표지 */
   .cover-wrap {
     width: 100%;
