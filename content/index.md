@@ -114,6 +114,7 @@ title: LX2 매뉴얼 목차
 
   <!-- 책 2 -->
   <div class="book-card">
+  <a href="2.회원.md">
     <div class="book-card-inner">
       <div class="book-card-front">
         <div class="cover-wrap">
@@ -121,13 +122,14 @@ title: LX2 매뉴얼 목차
             <img src="_etc/books/member.png" alt="회원" class="cover">
           </a>
         </div>
-        <div class="title"><a href="2.회원.md">회원</a></div>
+        <div class="title">회원</div>
       </div>
       <div class="book-card-back">
         <div class="meta">전체 / 소속 / 문자알림 / 이력관리</div>
         <div class="status-badge dot"></div>
       </div>
     </div>
+    </a>
   </div>
 
   <!-- 책 3 -->
