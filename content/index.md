@@ -49,18 +49,31 @@ title: LX2 매뉴얼 목차
 
   /* 앞면 */
   .book-card-front {
-    background: #fff;
+    background: #ffff;
   }
 
   /* 뒷면 */
   .book-card-back {
-    background: linear-gradient(135deg, #ffffff, #f7f7f7);
+    background: linear-gradient(135deg, #fffff);
     color: #111;
     transform: rotateY(180deg);
+    text-align: center;
     font-size: 14px;
-    padding: 12px;
   }
 
+  .book-card-back a.card-back-link {
+	  display: block;
+	  width: 100%;
+	  height: 100%;
+	  color: inherit; /* 글씨 색 유지 */
+	  text-decoration: none; /* 밑줄 제거 */
+	  display: flex;
+	  flex-direction: column;
+	  justify-content: center;
+	  align-items: center;
+  }
+
+  
   /* 표지 */
   .cover-wrap {
     width: 100%;
@@ -94,47 +107,37 @@ title: LX2 매뉴얼 목차
 
   /* 메타 정보 */
   .meta {
+    margin-top: 6px;
     font-size: 12px;
     color: #111;
-    width: 100%;
+    text-align: center;
   }
 
-  .meta a {
-    display: block;
-    color: inherit;
-    text-decoration: none;
-    margin-bottom: 6px;
-    font-weight: 500;
-  }
+.book-card-back .meta a {
+  display: block;         /* 한 줄씩 배치 */
+  color: inherit;         /* 글씨 색 유지 */
+  text-decoration: none;  /* 밑줄 제거 */
+  margin-bottom: 6px;     /* 줄 간격 */
+  font-weight: 500;
+}
 
-  .meta a:last-child {
-    margin-bottom: 0;
-  }
+.book-card-back .meta a:last-child {
+  margin-bottom: 0;       /* 마지막 항목은 margin 제거 */
+}
 
-  .meta a:hover {
-    text-decoration: underline;
-  }
+.book-card-back .meta a:hover {
+  text-decoration: underline;
+}
 
-  .meta .category {
-    font-weight: 600;
-    margin-top: 10px;
-    margin-bottom: 4px;
-    font-size: 13px;
-  }
+.book-card-back .meta .category {
+  font-weight: 600;
+  margin-top: 10px;
+  margin-bottom: 4px;
+  font-size: 13px;
+}
 
-  .flex-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px; /* 좌우 영역 간격 */
-    text-align: left;
-    width: 100%;
-  }
 
-  .flex-column {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
+
 
   /* 상태 아이콘 */
   .status-badge.dot::before {
@@ -148,42 +151,40 @@ title: LX2 매뉴얼 목차
 
 <div class="book-grid">
 
-  <!-- 책 2 -->
-  <div class="book-card">
-    <div class="book-card-inner">
-      <div class="book-card-front">
-        <div class="cover-wrap">
-          <img src="_etc/books/member.png" alt="회원" class="cover">
-        </div>
-        <div class="title">회원</div>
+<!-- 책 2 -->
+<div class="book-card">
+  <div class="book-card-inner">
+    <div class="book-card-front">
+      <div class="cover-wrap">
+        <img src="_etc/books/member.png" alt="회원" class="cover">
       </div>
-      <div class="book-card-back">
-        <div class="meta flex-container">
-          <!-- 왼쪽 영역 -->
-          <div class="flex-column">
-            <div class="category">전체</div>
-            <a href="회원-학습자.md">회원-학습자</a>
-            <a href="회원-교수자.md">회원-교수자</a>
-            <a href="회원-조교.md">회원-조교</a>
-            <a href="회원-소속담당자.md">회원-소속 담당자</a>
-            <a href="회원-운영관리자.md">회원-운영관리자</a>
-
-            <div class="category">소속</div>
-            <a href="소속관리.md">소속관리</a>
-          </div>
-
-          <!-- 오른쪽 영역 -->
-          <div class="flex-column">
-            <div class="category">문자알림</div>
-            <a href="문자알림-발송하기.md">문자알림-발송하기</a>
-            <a href="문자알림-발송내역.md">문자알림-발송내역</a>
-            <a href="문자알림-자주쓰는메시지.md">문자알림-자주 쓰는 메시지</a>
-          </div>
-        </div>
-        <div class="status-badge dot"></div>
+      <div class="title">회원</div>
+    </div>
+    <div class="book-card-back">
+      <div class="meta">
+      
+      <div class="flex-column">
+        <div class="category">전체</div>
+        <a href="회원-학습자.md">회원-학습자</a>
+        <a href="회원-교수자.md">회원-교수자</a>
+        <a href="회원-조교.md">회원-조교</a>
+        <a href="회원-소속담당자.md">회원-소속 담당자</a>
+        <a href="회원-운영관리자.md">회원-운영관리자</a>
+        <!-- 소속 카테고리 -->
+        <div class="category">소속</div>
+        <a href="소속관리.md">소속관리</a>
+        <!-- 문자알림 카테고리 -->
+	    <div class="flex-column">
+        <div class="category">문자알림</div>
+        <a href="문자알림-발송하기.md">문자알림-발송하기</a>
+        <a href="문자알림-발송내역.md">문자알림-발송내역</a>
+        <a href="문자알림-자주쓰는메시지.md">문자알림-자주 쓰는 메시지</a>
       </div>
+      <div class="status-badge dot"></div>
     </div>
   </div>
+</div>
+
 
   <!-- 책 3 -->
   <div class="book-card">
