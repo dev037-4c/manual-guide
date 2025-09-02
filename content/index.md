@@ -113,16 +113,22 @@ title: LX2 매뉴얼 목차
     text-align: center;
   }
 
- . .book-card-back .meta a {
-	color: inherit;       /* 글씨 색 유지 */
-	  text-decoration: none; /* 밑줄 제거 */
-	  margin: 0 4px;         /* 링크 사이 간격 */
-	  font-weight: 500;
-  }
+.book-card-back .meta a {
+  display: block;         /* 한 줄씩 배치 */
+  color: inherit;         /* 글씨 색 유지 */
+  text-decoration: none;  /* 밑줄 제거 */
+  margin-bottom: 6px;     /* 줄 간격 */
+  font-weight: 500;
+}
 
- . .book-card-back .meta a:hover {
-	text-decoration: underline;
- . }
+.book-card-back .meta a:last-child {
+  margin-bottom: 0;       /* 마지막 항목은 margin 제거 */
+}
+
+.book-card-back .meta a:hover {
+  text-decoration: underline;
+}
+
 
 
   /* 상태 아이콘 */
