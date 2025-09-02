@@ -162,10 +162,15 @@ title: LX2 매뉴얼 목차
     </div>
     <div class="book-card-back">
       <div class="meta">
-        <a href="2-전체.md">전체</a>
-        <a href="2-소속.md">소속</a>
-        <a href="2-문자알림.md">문자알림</a>
-        <a href="2-이력관리.md">이력관리</a>
+        <div class="category">전체</div>
+        <a href="회원-학습자.md">회원-학습자</a>
+        <a href="회원-교수자.md">회원-교수자</a>
+        <a href="회원-조교.md">회원-조교</a>
+        <a href="회원-소속담당자.md">회원-소속 담당자</a>
+        <a href="회원-운영관리자.md">회원-운영관리자</a>
+        <!-- 소속 카테고리 -->
+        <div class="category">소속</div>
+        <a href="소속관리.md">소속관리</a>
       </div>
       <div class="status-badge dot"></div>
     </div>
