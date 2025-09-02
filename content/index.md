@@ -125,25 +125,25 @@ title: LX2 매뉴얼 목차
 
 <div class="book-grid">
 
-<!-- 책 2 -->
-<div class="book-card">
-  <div class="book-card-inner">
-    <div class="book-card-front">
-      <div class="cover-wrap">
-        <a href="2.회원.md">
-          <img src="_etc/books/member.png" alt="회원" class="cover">
+  <!-- 책 2 -->
+  <div class="book-card">
+    <div class="book-card-inner">
+      <div class="book-card-front">
+        <div class="cover-wrap">
+          <a href="2.회원.md">
+            <img src="_etc/books/member.png" alt="회원" class="cover">
+          </a>
+        </div>
+        <div class="title"><a href="2.회원.md">회원</a></div>
+      </div>
+      <div class="book-card-back">
+        <a href="2.회원.md" class="card-back-link">
+          <div class="meta">전체 / 소속 / 문자알림 / 이력관리</div>
+          <div class="status-badge dot"></div>
         </a>
       </div>
-      <div class="title"><a href="2.회원.md">회원</a></div>
-    </div>
-    <div class="book-card-back">
-      <a href="2.회원.md" class="card-back-link">
-        <div class="meta">전체 / 소속 / 문자알림 / 이력관리</div>
-        <div class="status-badge dot"></div>
-      </a>
     </div>
   </div>
-</div>
 
   <!-- 책 3 -->
   <div class="book-card">
@@ -157,8 +157,10 @@ title: LX2 매뉴얼 목차
         <div class="title"><a href="3.과정.md">과정</a></div>
       </div>
       <div class="book-card-back">
-        <div class="meta">분류 / 템플릿 / 운영과정 / 패키지 / 기수 / 현황</div>
-        <div class="status-badge dot"></div>
+        <a href="3.과정.md" class="card-back-link">
+          <div class="meta">분류 / 템플릿 / 운영과정 / 패키지 / 기수 / 현황</div>
+          <div class="status-badge dot"></div>
+        </a>
       </div>
     </div>
   </div>
@@ -175,8 +177,10 @@ title: LX2 매뉴얼 목차
         <div class="title"><a href="4.콘텐츠.md">콘텐츠</a></div>
       </div>
       <div class="book-card-back">
-        <div class="meta">학습 / 시험 / 과제 / 설문 / 토론</div>
-        <div class="status-badge dot"></div>
+        <a href="4.콘텐츠.md" class="card-back-link">
+          <div class="meta">학습 / 시험 / 과제 / 설문 / 토론</div>
+          <div class="status-badge dot"></div>
+        </a>
       </div>
     </div>
   </div>
@@ -193,8 +197,10 @@ title: LX2 매뉴얼 목차
         <div class="title"><a href="5.사이트.md">사이트</a></div>
       </div>
       <div class="book-card-back">
-        <div class="meta">메뉴관리 / 팝업 / 배너 / 게시판 / 템플릿 / 메인화면 표시 / 분석</div>
-        <div class="status-badge dot"></div>
+        <a href="5.사이트.md" class="card-back-link">
+          <div class="meta">메뉴관리 / 팝업 / 배너 / 게시판 / 템플릿 / 메인화면 표시 / 분석</div>
+          <div class="status-badge dot"></div>
+        </a>
       </div>
     </div>
   </div>
@@ -211,8 +217,10 @@ title: LX2 매뉴얼 목차
         <div class="title"><a href="6.서비스.md">서비스</a></div>
       </div>
       <div class="book-card-back">
-        <div class="meta">커뮤니티 / 포인트 / 이벤트 / 쿠폰 / 일반설문 / 일반시험 / 마이크로러닝</div>
-        <div class="status-badge dot"></div>
+        <a href="6.서비스.md" class="card-back-link">
+          <div class="meta">커뮤니티 / 포인트 / 이벤트 / 쿠폰 / 일반설문 / 일반시험 / 마이크로러닝</div>
+          <div class="status-badge dot"></div>
+        </a>
       </div>
     </div>
   </div>
@@ -229,8 +237,10 @@ title: LX2 매뉴얼 목차
         <div class="title"><a href="7.시설.md">시설</a></div>
       </div>
       <div class="book-card-back">
-        <div class="meta">강의동 / 강의동 예약 / 스튜디오 / 스튜디오 예약</div>
-        <div class="status-badge dot"></div>
+        <a href="7.시설.md" class="card-back-link">
+          <div class="meta">강의동 / 강의동 예약 / 스튜디오 / 스튜디오 예약</div>
+          <div class="status-badge dot"></div>
+        </a>
       </div>
     </div>
   </div>
@@ -247,8 +257,10 @@ title: LX2 매뉴얼 목차
         <div class="title"><a href="8.주문결제.md">주문결제</a></div>
       </div>
       <div class="book-card-back">
-        <div class="meta">결제현황 / 환불취소</div>
-        <div class="status-badge dot"></div>
+        <a href="8.주문결제.md" class="card-back-link">
+          <div class="meta">결제현황 / 환불취소</div>
+          <div class="status-badge dot"></div>
+        </a>
       </div>
     </div>
   </div>
@@ -265,9 +277,12 @@ title: LX2 매뉴얼 목차
         <div class="title"><a href="9.통계.md">통계</a></div>
       </div>
       <div class="book-card-back">
-        <div class="meta">대시보드 / 학습현황 / 운영현황 / 수료현황 / 이메일발송 / SMS발송 / 설문현황 / 검색 키워드 / 분석</div>
-        <div class="status-badge dot"></div>
+        <a href="9.통계.md" class="card-back-link">
+          <div class="meta">대시보드 / 학습현황 / 운영현황 / 수료현황 / 이메일발송 / SMS발송 / 설문현황 / 검색 키워드 / 분석</div>
+          <div class="status-badge dot"></div>
+        </a>
       </div>
     </div>
   </div>
+
 </div>
