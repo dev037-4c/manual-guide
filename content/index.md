@@ -195,7 +195,6 @@ title: LX2 매뉴얼 목차
   </div>
   <div class="status-badge dot"></div>
 </div>
-
   </div>
 </div>
 
