@@ -54,7 +54,7 @@ title: LX2 매뉴얼 목차
 
   /* 뒷면 */
   .book-card-back {
-    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    background: linear-gradient(135deg, #fffff);
     color: #111;
     transform: rotateY(180deg);
     text-align: center;
@@ -156,9 +156,9 @@ title: LX2 매뉴얼 목차
     </div>
     <div class="book-card-back">
       <div class="meta">
-        <a href="2-전체.md">전체</a> / 
-        <a href="2-소속.md">소속</a> / 
-        <a href="2-문자알림.md">문자알림</a> / 
+        <a href="2-전체.md">전체</a>
+        <a href="2-소속.md">소속</a>
+        <a href="2-문자알림.md">문자알림</a>
         <a href="2-이력관리.md">이력관리</a>
       </div>
       <div class="status-badge dot"></div>
