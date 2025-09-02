@@ -14,7 +14,7 @@
 }
 
 /* ------------------------------- */
-/* 📱 iOS 스타일 카드뷰 (노트 컨텐츠) */
+/* 🍏 iOS 스타일 카드뷰 (둥글둥글 디자인) */
 /* ------------------------------- */
 .cards-grid {
   display: grid;
@@ -25,64 +25,68 @@
 
 /* 개별 카드 */
 .card {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(12px) saturate(180%);
-  -webkit-backdrop-filter: blur(12px) saturate(180%);
-  border-radius: 22px; /* 조금 더 컴팩트 */
+  background: rgba(255, 255, 255, 0.25); /* 더 밝게 → iOS 글래스 느낌 */
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  border-radius: 28px; /* 더 둥글둥글 */
   overflow: hidden;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12),
-              0 2px 5px rgba(0, 0, 0, 0.08);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15),
+              0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
   display: flex;
   flex-direction: column;
-  cursor: pointer; /* 클릭 가능 */
-  text-decoration: none; /* 링크처럼 쓰일 때 밑줄 제거 */
-  height: 320px; /* 카드 전체 높이 제한 */
+  cursor: pointer;
+  text-decoration: none;
+  height: 230px; /* 카드 전체 높이 */
 }
 
 .card:hover {
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2),
-              0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.22),
+              0 6px 16px rgba(0, 0, 0, 0.1);
 }
 
 /* 카드 안의 이미지 */
 .card img {
   width: 100%;
-  height: 130px; /* 기존 240px → 줄임 */
+  height: 120px; /* 더 콤팩트 */
   object-fit: cover;
-  border-top-left-radius: 22px;
-  border-top-right-radius: 22px;
+  border-top-left-radius: 28px;
+  border-top-right-radius: 28px;
 }
 
 /* 카드 내용 */
 .card-content {
-  padding: 12px;
+  padding: 14px;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
   color: #111;
-  flex: 1; /* 공간 균형 */
+  flex: 1;
 }
 
 /* 제목 */
 .card-title {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
-  margin: 0 0 6px 0;
+  margin: 0 0 8px 0;
   color: #000;
 }
 
 /* 부가정보 */
 .card-meta {
   font-size: 13px;
-  color: #555;
+  color: #666;
   margin: 2px 0;
 }
 
-/* 상태표시 (아이폰 스타일 색상) */
+/* 상태표시 (아이폰 컬러 팔레트) */
 .card-status {
   font-size: 13px;
-  margin-top: 6px;
+  margin-top: 8px;
   font-weight: 500;
+  border-radius: 12px;
+  padding: 2px 8px;
+  display: inline-block;
+  background: rgba(255,255,255,0.2);
 }
 
 .card-status.red {
