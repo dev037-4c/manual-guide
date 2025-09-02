@@ -151,23 +151,18 @@ title: LX2 매뉴얼 목차
 
 <div class="book-grid">
 
-  <!-- 회원 카드 -->
-  <div class="book-card">
-    <div class="book-card-inner">
-
-      <!-- 앞면 -->
-      <div class="book-card-front">
-        <div class="cover-wrap">
-          <img src="_etc/books/member.png" alt="회원" class="cover">
-        </div>
-        <div class="title">회원</div>
+<!-- 책 2 -->
+<div class="book-card">
+  <div class="book-card-inner">
+    <div class="book-card-front">
+      <div class="cover-wrap">
+        <img src="_etc/books/member.png" alt="회원" class="cover">
       </div>
-
-      <!-- 뒷면 -->
-      <div class="book-card-back">
-        <div class="meta">
-          <!-- 전체 -->
-          <div class="category">전체</div>
+      <div class="title">회원</div>
+    </div>
+    <div class="book-card-back">
+      <div class="meta">
+        <strong>전체</strong>
           <a href="회원-학습자.md">회원-학습자</a>
           <a href="회원-교수자.md">회원-교수자</a>
           <a href="회원-조교.md">회원-조교</a>
@@ -175,17 +170,17 @@ title: LX2 매뉴얼 목차
           <a href="회원-운영관리자.md">회원-운영관리자</a>
 
           <!-- 소속 -->
-          <div class="category">소속/div>
+          <strong>소속</strong>
           <a href="소속관리.md">소속관리</a>
 
           <!-- 문자알림 -->
-          <div class="category">문자알림</div>
+          <strong>문자알림</strong>
           <a href="문자알림-발송하기.md">문자알림-발송하기</a>
           <a href="문자알림-발송내역.md">문자알림-발송내역</a>
           <a href="문자알림-자주쓰는메시지.md">문자알림-자주 쓰는 메시지</a>
 
           <!-- 이력관리 -->
-          <div class="category">이력관리</div>
+          <strong>이력관리</strong>
           <a href="휴면탈퇴.md">휴면, 탈퇴</a>
           <a href="개인정보변경이력.md">개인정보 변경 이력</a>
           <a href="개인정보열람이력.md">개인정보 열람 이력</a>
@@ -196,13 +191,11 @@ title: LX2 매뉴얼 목차
           <a href="사용자로그인이력.md">사용자 로그인 이력</a>
           <a href="엑셀다운로드이력.md">엑셀 다운로드 이력</a>
           <a href="수정이력관리.md">수정이력 관리</a>
-        </div>
-        <div class="status-badge dot"></div>
       </div>
-
+      <div class="status-badge dot"></div>
     </div>
   </div>
-
+</div>
 
 
   <!-- 책 3 -->
