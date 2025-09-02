@@ -54,7 +54,7 @@ title: LX2 매뉴얼 목차
 
   /* 뒷면 */
   .book-card-back {
-    background: linear-gradient(135deg, #ffffff, #38f9d7);
+    background: linear-gradient(135deg, #fffff);
     color: #111;
     transform: rotateY(180deg);
     text-align: center;
@@ -117,16 +117,8 @@ title: LX2 매뉴얼 목차
   display: block;         /* 한 줄씩 배치 */
   color: inherit;         /* 글씨 색 유지 */
   text-decoration: none;  /* 밑줄 제거 */
-  margin-bottom: 4px;     /* 줄 간격 */
+  margin-bottom: 6px;     /* 줄 간격 */
   font-weight: 500;
-}
-
-.book-card-back .meta strong {
-  display: block;
-  margin-top: 8px;
-  margin-bottom: 4px;
-  font-size: 13px;
-  text-decoration: underline;
 }
 
 .book-card-back .meta a:last-child {
@@ -155,14 +147,13 @@ title: LX2 매뉴얼 목차
 <div class="book-card">
   <div class="book-card-inner">
 
-    <!-- 앞면 -->
+    <!-- 앞면 (디자인용) -->
     <div class="book-card-front">
       <div class="cover-wrap">
         <img src="_etc/books/member.png" alt="회원" class="cover">
       </div>
       <div class="title">회원</div>
     </div>
-
     <!-- 뒷면 -->
     <div class="book-card-back">
       <div class="meta">
@@ -173,17 +164,14 @@ title: LX2 매뉴얼 목차
         <a href="회원-조교.md">회원-조교</a>
         <a href="회원-소속담당자.md">회원-소속 담당자</a>
         <a href="회원-운영관리자.md">회원-운영관리자</a>
-
         <!-- 소속 -->
         <strong>소속</strong>
         <a href="소속관리.md">소속관리</a>
-
         <!-- 문자알림 -->
         <strong>문자알림</strong>
         <a href="문자알림-발송하기.md">문자알림-발송하기</a>
         <a href="문자알림-발송내역.md">문자알림-발송내역</a>
         <a href="문자알림-자주쓰는메시지.md">문자알림-자주 쓰는 메시지</a>
-
         <!-- 이력관리 -->
         <strong>이력관리</strong>
         <a href="휴면탈퇴.md">휴면, 탈퇴</a>
@@ -199,10 +187,8 @@ title: LX2 매뉴얼 목차
       </div>
       <div class="status-badge dot"></div>
     </div>
-
   </div>
 </div>
-
 
 
 
