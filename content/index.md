@@ -6,6 +6,8 @@ title: LX2 매뉴얼 목차
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 16px;
+    max-width: 1200px; /* 본문 폭 제한 → 너무 넓어지지 않게 */
+	margin: 0 auto; /* 가운데 정렬 */
   }
 
   /* 카드 컨테이너 */
