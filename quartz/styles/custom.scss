@@ -25,68 +25,72 @@
 
 /* 개별 카드 */
 .card {
-  background: rgba(255, 255, 255, 0.15); /* 반투명 */
+  background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(12px) saturate(180%);
   -webkit-backdrop-filter: blur(12px) saturate(180%);
-  border-radius: 26px; /* 둥글둥글한 모서리 */
+  border-radius: 22px; /* 조금 더 컴팩트 */
   overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15),
-              0 2px 6px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12),
+              0 2px 5px rgba(0, 0, 0, 0.08);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   display: flex;
   flex-direction: column;
+  cursor: pointer; /* 클릭 가능 */
+  text-decoration: none; /* 링크처럼 쓰일 때 밑줄 제거 */
+  height: 320px; /* 카드 전체 높이 제한 */
 }
 
 .card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25),
-              0 4px 10px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2),
+              0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* 카드 안의 이미지 */
 .card img {
   width: 100%;
-  height: 240px;
+  height: 180px; /* 기존 240px → 줄임 */
   object-fit: cover;
-  border-top-left-radius: 26px;
-  border-top-right-radius: 26px;
+  border-top-left-radius: 22px;
+  border-top-right-radius: 22px;
 }
 
 /* 카드 내용 */
 .card-content {
-  padding: 16px;
+  padding: 12px;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
   color: #111;
+  flex: 1; /* 공간 균형 */
 }
 
 /* 제목 */
 .card-title {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
-  margin: 0 0 8px 0;
+  margin: 0 0 6px 0;
   color: #000;
 }
 
 /* 부가정보 */
 .card-meta {
-  font-size: 14px;
+  font-size: 13px;
   color: #555;
-  margin: 3px 0;
+  margin: 2px 0;
 }
 
 /* 상태표시 (아이폰 스타일 색상) */
 .card-status {
-  font-size: 14px;
-  margin-top: 8px;
+  font-size: 13px;
+  margin-top: 6px;
   font-weight: 500;
 }
 
 .card-status.red {
-  color: #ff3b30; /* iOS 빨강 */
+  color: #ff3b30;
 }
 .card-status.green {
-  color: #34c759; /* iOS 초록 */
+  color: #34c759;
 }
 .card-status.blue {
-  color: #007aff; /* iOS 파랑 */
+  color: #007aff;
 }
