@@ -8,16 +8,14 @@ title: LX2 매뉴얼 목차
     gap: 16px;
   }
 
-  /* 카드 컨테이너 */
   .book-card {
     background: transparent;
     width: 200px;
     height: 260px;
-    perspective: 1000px; /* 원근감 */
+    perspective: 1000px;
     margin: 0 auto;
   }
 
-  /* 내부 래퍼 */
   .book-card-inner {
     position: relative;
     width: 100%;
@@ -26,7 +24,6 @@ title: LX2 매뉴얼 목차
     transform-style: preserve-3d;
   }
 
-  /* hover 시 뒤집힘 */
   .book-card:hover .book-card-inner {
     transform: rotateY(180deg);
   }
@@ -47,12 +44,10 @@ title: LX2 매뉴얼 목차
     align-items: center;
   }
 
-  /* 앞면 */
   .book-card-front {
     background: #ffff;
   }
 
-  /* 뒷면 */
   .book-card-back {
     background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
     color: #111;
@@ -61,7 +56,6 @@ title: LX2 매뉴얼 목차
     font-size: 14px;
   }
 
-  /* 표지 */
   .cover-wrap {
     width: 100%;
     aspect-ratio: 3/4;
@@ -84,7 +78,6 @@ title: LX2 매뉴얼 목차
     font-size: 14px;
   }
 
-  /* 제목 */
   .title {
     margin-top: 6px;
     font-weight: 600;
@@ -92,7 +85,6 @@ title: LX2 매뉴얼 목차
     text-align: center;
   }
 
-  /* 메타 정보 */
   .meta {
     margin-top: 6px;
     font-size: 12px;
@@ -100,7 +92,6 @@ title: LX2 매뉴얼 목차
     text-align: center;
   }
 
-  /* 상태 아이콘 */
   .status-badge.dot::before {
     content: "🔴";
   }
@@ -110,147 +101,138 @@ title: LX2 매뉴얼 목차
   }
 </style>
 
-  <!-- 책 2 -->
-  <div class="book-card">
-  <a href="2.회원.md">
-    <div class="book-card-inner">
-      <div class="book-card-front">
-        <div class="cover-wrap">
+<div class="book-card">
+  <div class="book-card-inner">
+    <div class="book-card-front">
+      <div class="cover-wrap">
+        <a href="2.회원.md">
           <img src="_etc/books/member.png" alt="회원" class="cover">
-        </div>
-        <div class="title">회원</div>
+        </a>
       </div>
-      <div class="book-card-back">
-        <div class="meta">전체 / 소속 / 문자알림 / 이력관리</div>
-        <div class="status-badge dot"></div>
-      </div>
+      <div class="title"><a href="2.회원.md">회원</a></div>
     </div>
-  </a>
+    <div class="book-card-back">
+      <div class="meta">전체 / 소속 / 문자알림 / 이력관리</div>
+      <div class="status-badge dot"></div>
+    </div>
+  </div>
 </div>
 
-  <!-- 책 3 -->
-  <div class="book-card">
-    <div class="book-card-inner">
-      <div class="book-card-front">
-        <div class="cover-wrap">
-          <a href="3.과정.md">
-            <img src="_etc/books/process.png" alt="과정" class="cover">
-          </a>
-        </div>
-        <div class="title"><a href="3.과정.md">과정</a></div>
+<div class="book-card">
+  <div class="book-card-inner">
+    <div class="book-card-front">
+      <div class="cover-wrap">
+        <a href="3.과정.md">
+          <img src="_etc/books/process.png" alt="과정" class="cover">
+        </a>
       </div>
-      <div class="book-card-back">
-        <div class="meta">분류 / 템플릿 / 운영과정 / 패키지 / 기수 / 현황</div>
-        <div class="status-badge dot"></div>
-      </div>
+      <div class="title"><a href="3.과정.md">과정</a></div>
+    </div>
+    <div class="book-card-back">
+      <div class="meta">분류 / 템플릿 / 운영과정 / 패키지 / 기수 / 현황</div>
+      <div class="status-badge dot"></div>
     </div>
   </div>
+</div>
 
-  <!-- 책 4 -->
-  <div class="book-card">
-    <div class="book-card-inner">
-      <div class="book-card-front">
-        <div class="cover-wrap">
-          <a href="4.콘텐츠.md">
-            <img src="_etc/books/content.png" alt="콘텐츠" class="cover">
-          </a>
-        </div>
-        <div class="title"><a href="4.콘텐츠.md">콘텐츠</a></div>
+<div class="book-card">
+  <div class="book-card-inner">
+    <div class="book-card-front">
+      <div class="cover-wrap">
+        <a href="4.콘텐츠.md">
+          <img src="_etc/books/content.png" alt="콘텐츠" class="cover">
+        </a>
       </div>
-      <div class="book-card-back">
-        <div class="meta">학습 / 시험 / 과제 / 설문 / 토론</div>
-        <div class="status-badge dot"></div>
-      </div>
+      <div class="title"><a href="4.콘텐츠.md">콘텐츠</a></div>
+    </div>
+    <div class="book-card-back">
+      <div class="meta">학습 / 시험 / 과제 / 설문 / 토론</div>
+      <div class="status-badge dot"></div>
     </div>
   </div>
+</div>
 
-  <!-- 책 5 -->
-  <div class="book-card">
-    <div class="book-card-inner">
-      <div class="book-card-front">
-        <div class="cover-wrap">
-          <a href="5.사이트.md">
-            <img src="_etc/books/site.png" alt="사이트" class="cover">
-          </a>
-        </div>
-        <div class="title"><a href="5.사이트.md">사이트</a></div>
+<div class="book-card">
+  <div class="book-card-inner">
+    <div class="book-card-front">
+      <div class="cover-wrap">
+        <a href="5.사이트.md">
+          <img src="_etc/books/site.png" alt="사이트" class="cover">
+        </a>
       </div>
-      <div class="book-card-back">
-        <div class="meta">메뉴관리 / 팝업 / 배너 / 게시판 / 템플릿 / 메인화면 표시 / 분석</div>
-        <div class="status-badge dot"></div>
-      </div>
+      <div class="title"><a href="5.사이트.md">사이트</a></div>
+    </div>
+    <div class="book-card-back">
+      <div class="meta">메뉴관리 / 팝업 / 배너 / 게시판 / 템플릿 / 메인화면 표시 / 분석</div>
+      <div class="status-badge dot"></div>
     </div>
   </div>
+</div>
 
-  <!-- 책 6 -->
-  <div class="book-card">
-    <div class="book-card-inner">
-      <div class="book-card-front">
-        <div class="cover-wrap">
-          <a href="6.서비스.md">
-            <img src="_etc/books/service.png" alt="서비스" class="cover">
-          </a>
-        </div>
-        <div class="title"><a href="6.서비스.md">서비스</a></div>
+<div class="book-card">
+  <div class="book-card-inner">
+    <div class="book-card-front">
+      <div class="cover-wrap">
+        <a href="6.서비스.md">
+          <img src="_etc/books/service.png" alt="서비스" class="cover">
+        </a>
       </div>
-      <div class="book-card-back">
-        <div class="meta">커뮤니티 / 포인트 / 이벤트 / 쿠폰 / 일반설문 / 일반시험 / 마이크로러닝</div>
-        <div class="status-badge dot"></div>
-      </div>
+      <div class="title"><a href="6.서비스.md">서비스</a></div>
+    </div>
+    <div class="book-card-back">
+      <div class="meta">커뮤니티 / 포인트 / 이벤트 / 쿠폰 / 일반설문 / 일반시험 / 마이크로러닝</div>
+      <div class="status-badge dot"></div>
     </div>
   </div>
+</div>
 
-  <!-- 책 7 -->
-  <div class="book-card">
-    <div class="book-card-inner">
-      <div class="book-card-front">
-        <div class="cover-wrap">
-          <a href="7.시설.md">
-            <img src="_etc/books/facility.png" alt="시설" class="cover">
-          </a>
-        </div>
-        <div class="title"><a href="7.시설.md">시설</a></div>
+<div class="book-card">
+  <div class="book-card-inner">
+    <div class="book-card-front">
+      <div class="cover-wrap">
+        <a href="7.시설.md">
+          <img src="_etc/books/facility.png" alt="시설" class="cover">
+        </a>
       </div>
-      <div class="book-card-back">
-        <div class="meta">강의동 / 강의동 예약 / 스튜디오 / 스튜디오 예약</div>
-        <div class="status-badge dot"></div>
-      </div>
+      <div class="title"><a href="7.시설.md">시설</a></div>
+    </div>
+    <div class="book-card-back">
+      <div class="meta">강의동 / 강의동 예약 / 스튜디오 / 스튜디오 예약</div>
+      <div class="status-badge dot"></div>
     </div>
   </div>
+</div>
 
-  <!-- 책 8 -->
-  <div class="book-card">
-    <div class="book-card-inner">
-      <div class="book-card-front">
-        <div class="cover-wrap">
-          <a href="8.주문결제.md">
-            <img src="_etc/books/orderpayment.png" alt="주문결제" class="cover">
-          </a>
-        </div>
-        <div class="title"><a href="8.주문결제.md">주문결제</a></div>
+<div class="book-card">
+  <div class="book-card-inner">
+    <div class="book-card-front">
+      <div class="cover-wrap">
+        <a href="8.주문결제.md">
+          <img src="_etc/books/orderpayment.png" alt="주문결제" class="cover">
+        </a>
       </div>
-      <div class="book-card-back">
-        <div class="meta">결제현황 / 환불취소</div>
-        <div class="status-badge dot"></div>
-      </div>
+      <div class="title"><a href="8.주문결제.md">주문결제</a></div>
+    </div>
+    <div class="book-card-back">
+      <div class="meta">결제현황 / 환불취소</div>
+      <div class="status-badge dot"></div>
     </div>
   </div>
+</div>
 
-  <!-- 책 9 -->
-  <div class="book-card">
-    <div class="book-card-inner">
-      <div class="book-card-front">
-        <div class="cover-wrap">
-          <a href="9.통계.md">
-            <img src="_etc/books/statistice.png" alt="통계" class="cover">
-          </a>
-        </div>
-        <div class="title"><a href="9.통계.md">통계</a></div>
+<div class="book-card">
+  <div class="book-card-inner">
+    <div class="book-card-front">
+      <div class="cover-wrap">
+        <a href="9.통계.md">
+          <img src="_etc/books/statistice.png" alt="통계" class="cover">
+        </a>
       </div>
-      <div class="book-card-back">
-        <div class="meta">대시보드 / 학습현황 / 운영현황 / 수료현황 / 이메일발송 / SMS발송 / 설문현황 / 검색 키워드 / 분석</div>
-        <div class="status-badge dot"></div>
-      </div>
+      <div class="title"><a href="9.통계.md">통계</a></div>
+    </div>
+    <div class="book-card-back">
+      <div class="meta">대시보드 / 학습현황 / 운영현황 / 수료현황 / 이메일발송 / SMS발송 / 설문현황 / 검색 키워드 / 분석</div>
+      <div class="status-badge dot"></div>
     </div>
   </div>
 </div>
