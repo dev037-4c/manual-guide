@@ -169,6 +169,9 @@ title: LX2 매뉴얼 목차
     content: none; /* 기존 화살표 제거 */
 }
 
+.folder-container svg.folder-icon {
+    display: none;  /* HTML 안의 기존 SVG 아이콘 제거 */
+}
 
 </style>
 <!-- 페이지 상단 큰 이미지 -->
