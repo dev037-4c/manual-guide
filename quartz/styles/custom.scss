@@ -66,6 +66,13 @@ code, pre, kbd, .pretty-code, [data-language] {
 }
 
 
+.folder-container::before {
+    content: none;  /* 가상요소 제거 */
+}
+
+.folder-container svg.folder-icon {
+    display: none;  /* HTML 안의 기존 SVG 아이콘 제거 */
+}
 
 
 
