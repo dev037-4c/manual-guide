@@ -165,6 +165,11 @@ title: LX2 매뉴얼 목차
   object-fit: cover; /* 잘림 없이 꽉 차게 */
 }
 
+.folder-container::before {
+    content: none; /* 기존 화살표 제거 */
+}
+
+
 </style>
 <!-- 페이지 상단 큰 이미지 -->
 <div class="page-banner">
