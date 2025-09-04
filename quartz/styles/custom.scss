@@ -51,6 +51,7 @@
   width: 100%;
   height: 120px; /* 더 콤팩트 */
   object-fit: cover;
+  object-position: top; /* 이미지 위에서부터 채우기 */
   border-top-left-radius: 28px;
   border-top-right-radius: 28px;
 }
