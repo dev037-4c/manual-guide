@@ -358,7 +358,7 @@ title: LX2 매뉴얼 목차
           </div>
           <div class="column">
             <div class="category">템플릿</div>
-            <a href="템플릿-수료증.md">수료증</a>
+            <a href="템플릿-수료증.md">  수료증  </a>
             <a href="템플릿-수강신청서.md">수강신청서</a>
             <a href="템플릿-썸네일.md">썸네일</a>
             <a href="템플릿-자동알림.md">자동알림</a>
