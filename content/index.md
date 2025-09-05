@@ -20,7 +20,7 @@ title: LX2
   </a>
 
 <a class="card" href="https://manual-guide01-e4s.pages.dev/7.-%ED%86%B5%EA%B3%84">
-  <img src="통계.gif" alt="통계" style="width:172px; height:auto; margin:0 auto; display:block;">
+  <img src="통계.gif" alt="통계" style="width:175px; height:auto; margin:0 auto; display:block;">
   <div class="card-content">
     <div class="card-title">통계</div>
     <div class="card-meta">학습 분석 데이터</div>
