@@ -168,22 +168,20 @@ title: LX2 매뉴얼 목차
 /* 두 컬럼 정렬 */
 .meta.two-column {
   display: flex;
-  justify-content: space-between;
-  gap: 20px; /* 컬럼 사이 간격 */
+  gap: 20px;           /* 컬럼 사이 간격 */
 }
 
 .meta.two-column .column {
-  flex: 1 1 45%; /* 두 컬럼, 화면 좁으면 자동 줄바꿈 */
+  flex: 1;              /* 두 컬럼 동일 너비 */
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 4px;             /* 항목 간 간격 */
 }
 
 .meta .category {
   font-weight: bold;
   margin-top: 8px;
 }
-
 
 </style>
 <!-- 페이지 상단 큰 이미지 -->
