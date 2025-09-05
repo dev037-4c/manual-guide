@@ -201,7 +201,7 @@ title: LX2 매뉴얼 목차
     </div>
     <div class="book-card-back">
     <div class="meta two-column">
-      <div class="meta">
+    
       <div class="column">
         <div class="category">전체</div>
         <a href="회원-학습자.md">회원-학습자</a>
@@ -220,7 +220,7 @@ title: LX2 매뉴얼 목차
           <a href="문자알림-자주쓰는메시지.md">문자알림-자주 쓰는 메시지</a>
           </div>
       </div>
-      </div>
+    
       <div class="status-badge dot"></div>
     </div>
   </div>
