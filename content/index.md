@@ -275,42 +275,14 @@ title: LX2 매뉴얼 목차
   </div>
 </div>
 
-  <div class="book-card">
+
+<div class="book-card">
   <div class="book-card-inner">
     <div class="book-card-front">
       <div class="cover-wrap">
         <img src="_etc/books/사이트.gif" alt="사이트" class="cover">
       </div>
       <div class="title">사이트</div>
-    </div>
-    <div class="book-card-back">
-      <div class="meta">
-        <div class="category">-</div>
-        <a href="회원-학습자.md">-</a>
-        <a href="회원-교수자.md">-</a>
-        <a href="회원-조교.md">-</a>
-        <a href="회원-소속담당자.md">-</a>
-        <a href="회원-운영관리자.md">-</a>
-        <!-- 소속 카테고리 -->
-        <div class="category">-</div>
-        <a href="소속관리.md">-</a>
-        <div class="category">-</div>
-          <a href="문자알림-발송하기.md">-</a>
-          <a href="문자알림-발송내역.md">-a>
-          <a href="문자알림-자주쓰는메시지.md">-</a>
-      </div>
-      <div class="status-badge dot"></div>
-    </div>
-  </div>
-</div>
-
-<div class="book-card">
-  <div class="book-card-inner">
-    <div class="book-card-front">
-      <div class="cover-wrap">
-        <img src="_etc/books/서비스.gif" alt="서비스" class="cover">
-      </div>
-      <div class="title">서비스</div>
     </div>
     <div class="book-card-back">
       <div class="meta">
@@ -351,6 +323,7 @@ title: LX2 매뉴얼 목차
     </div>
     <div class="book-card-back">
       <div class="meta">
+    
       </div>
       <div class="status-badge dot"></div>
     </div>
