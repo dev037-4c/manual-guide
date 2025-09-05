@@ -203,20 +203,20 @@ title: LX2 매뉴얼 목차
     <div class="meta two-column">
       <div class="column">
         <div class="category">전체</div>
-        <a href="회원-학습자.md">회원-학습자</a>
-        <a href="회원-교수자.md">회원-교수자</a>
-        <a href="회원-조교.md">회원-조교</a>
-        <a href="회원-소속담당자.md">회원-소속 담당자</a>
-        <a href="회원-운영관리자.md">회원-운영관리자</a>
+        <a href="회원-학습자.md">학습자</a>
+        <a href="회원-교수자.md">교수자</a>
+        <a href="회원-조교.md">조교</a>
+        <a href="회원-소속담당자.md">소속 담당자</a>
+        <a href="회원-운영관리자.md">운영관리자</a>
+        <div class="category">소속</div>
+        <a href="소속관리.md">소속관리</a>
         </div>
         <!-- 소속 카테고리 -->
         <div class="column">
-        <div class="category">소속</div>
-        <a href="소속관리.md">소속관리</a>
         <div class="category">문자알림</div>
-          <a href="문자알림-발송하기.md">문자알림-발송하기</a>
-          <a href="문자알림-발송내역.md">문자알림-발송내역</a>
-          <a href="문자알림-자주쓰는메시지.md">문자알림-자주 쓰는 메시지</a>
+          <a href="문자알림-발송하기.md">발송하기</a>
+          <a href="문자알림-발송내역.md">발송내역</a>
+          <a href="문자알림-자주쓰는메시지.md">자주 쓰는 메시지</a>
           </div>
       </div>
       <div class="status-badge dot"></div>
