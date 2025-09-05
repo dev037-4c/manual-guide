@@ -302,8 +302,7 @@ title: LX2 매뉴얼 목차
       <div class="title">시설</div>
     </div>
     <div class="book-card-back">
-      <div class="meta two-column">
-    
+    <div class="meta two-column">
       </div>
       <div class="status-badge dot"></div>
     </div>
@@ -319,8 +318,7 @@ title: LX2 매뉴얼 목차
       <div class="title">주문결제</div>
     </div>
     <div class="book-card-back">
-      <div class="meta two-column">
-    
+    <div class="meta two-column">
       </div>
       <div class="status-badge dot"></div>
     </div>
