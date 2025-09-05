@@ -8,8 +8,7 @@
 
 /* --- _etc 폴더 안의 파일 숨기기 --- */
 .explorer a[href^="_etc/"],
-.explorer a[href*="/_etc/"]0,
+.explorer a[href*="/_etc/"],
 .explorer a[href^="../_etc/"] {
   display: none !important;
 }
-
