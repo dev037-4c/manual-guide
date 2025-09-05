@@ -234,19 +234,19 @@ title: LX2 매뉴얼 목차
     </div>
     <div class="book-card-back">
       <div class="meta">
-        <div class="category">전체</div>
-        <a href="회원-학습자.md">회원-학습자</a>
-        <a href="회원-교수자.md">회원-교수자</a>
-        <a href="회원-조교.md">회원-조교</a>
-        <a href="회원-소속담당자.md">회원-소속 담당자</a>
-        <a href="회원-운영관리자.md">회원-운영관리자</a>
+        <div class="category">-</div>
+        <a href="회원-학습자.md">-</a>
+        <a href="회원-교수자.md">-</a>
+        <a href="회원-조교.md">-</a>
+        <a href="회원-소속담당자.md">-</a>
+        <a href="회원-운영관리자.md">-</a>
         <!-- 소속 카테고리 -->
-        <div class="category">소속</div>
-        <a href="소속관리.md">소속관리</a>
-        <div class="category">문자알림</div>
-          <a href="문자알림-발송하기.md">문자알림-발송하기</a>
-          <a href="문자알림-발송내역.md">문자알림-발송내역</a>
-          <a href="문자알림-자주쓰는메시지.md">문자알림-자주 쓰는 메시지</a>
+        <div class="category">-</div>
+        <a href="소속관리.md">-</a>
+        <div class="category">-</div>
+          <a href="문자알림-발송하기.md">-</a>
+          <a href="문자알림-발송내역.md">-</a>
+          <a href="문자알림-자주쓰는메시지.md">-</a>
       </div>
       <div class="status-badge dot"></div>
     </div>
@@ -257,30 +257,29 @@ title: LX2 매뉴얼 목차
   <div class="book-card-inner">
     <div class="book-card-front">
       <div class="cover-wrap">
-        <img src="_etc/books/회원.gif" alt="회원" class="cover">
+        <img src="_etc/books/콘텐츠.gif" alt="콘텐츠" class="cover">
       </div>
-      <div class="title">회원</div>
+      <div class="title">콘텐츠</div>
     </div>
     <div class="book-card-back">
     <div class="meta two-column">
       <div class="column">
         <div class="category">학습</div>
-        <a href="회원-학습자.md">그룹</a>
-        <a href="회원-교수자.md">콘텐츠</a>
+        <a href="학습-그룹.md">그룹</a>
+        <a href="학습-콘텐츠.md">콘텐츠</a>
         <div class="category">시험</div>
-        <a href="회원-소속담당자.md">출제그룹</a>
-        <a href="회원-운영관리자.md">시험지</a>
-        <a href="회원-운영관리자.md">문항</a>
+        <a href="시험-출제그룹.md">출제그룹</a>
+        <a href="시험-시험지.md">시험지</a>
+        <a href="시험-문항.md">문항</a>
         </div>
-        <!-- 소속 카테고리 -->
         <div class="column">
         <div class="category">과제</div>
-        <a href="소속관리.md">과제관리</a>
+        <a href="과제.md">과제관리</a>
         <div class="category">설문</div>
-          <a href="문자알림-발송하기.md">설문지</a>
-          <a href="문자알림-발송내역.md">문항</a>
+          <a href="설문-설문지.md">설문지</a>
+          <a href="설문-문항.md">문항</a>
           <div class="category">토론</div>
-          <a href="문자알림-자주쓰는메시지.md">토론관리</a>
+          <a href="토론.md">토론관리</a>
           </div>
       </div>
       <div class="status-badge dot"></div>
@@ -298,19 +297,19 @@ title: LX2 매뉴얼 목차
     </div>
     <div class="book-card-back">
       <div class="meta">
-        <div class="category">전체</div>
-        <a href="회원-학습자.md">회원-학습자</a>
-        <a href="회원-교수자.md">회원-교수자</a>
-        <a href="회원-조교.md">회원-조교</a>
-        <a href="회원-소속담당자.md">회원-소속 담당자</a>
-        <a href="회원-운영관리자.md">회원-운영관리자</a>
+        <div class="category">-</div>
+        <a href="회원-학습자.md">-</a>
+        <a href="회원-교수자.md">-</a>
+        <a href="회원-조교.md">-</a>
+        <a href="회원-소속담당자.md">-</a>
+        <a href="회원-운영관리자.md">-</a>
         <!-- 소속 카테고리 -->
-        <div class="category">소속</div>
-        <a href="소속관리.md">소속관리</a>
-        <div class="category">문자알림</div>
-          <a href="문자알림-발송하기.md">문자알림-발송하기</a>
-          <a href="문자알림-발송내역.md">문자알림-발송내역</a>
-          <a href="문자알림-자주쓰는메시지.md">문자알림-자주 쓰는 메시지</a>
+        <div class="category">-</div>
+        <a href="소속관리.md">-</a>
+        <div class="category">-</div>
+          <a href="문자알림-발송하기.md">-</a>
+          <a href="문자알림-발송내역.md">-a>
+          <a href="문자알림-자주쓰는메시지.md">-</a>
       </div>
       <div class="status-badge dot"></div>
     </div>
@@ -327,19 +326,19 @@ title: LX2 매뉴얼 목차
     </div>
     <div class="book-card-back">
       <div class="meta">
-        <div class="category">전체</div>
-        <a href="회원-학습자.md">회원-학습자</a>
-        <a href="회원-교수자.md">회원-교수자</a>
-        <a href="회원-조교.md">회원-조교</a>
-        <a href="회원-소속담당자.md">회원-소속 담당자</a>
-        <a href="회원-운영관리자.md">회원-운영관리자</a>
+        <div class="category">-</div>
+        <a href="회원-학습자.md">-</a>
+        <a href="회원-교수자.md">-</a>
+        <a href="회원-조교.md">-</a>
+        <a href="회원-소속담당자.md">-</a>
+        <a href="회원-운영관리자.md">-</a>
         <!-- 소속 카테고리 -->
-        <div class="category">소속</div>
-        <a href="소속관리.md">소속관리</a>
-        <div class="category">문자알림</div>
-          <a href="문자알림-발송하기.md">문자알림-발송하기</a>
-          <a href="문자알림-발송내역.md">문자알림-발송내역</a>
-          <a href="문자알림-자주쓰는메시지.md">문자알림-자주 쓰는 메시지</a>
+        <div class="category">-</div>
+        <a href="소속관리.md">-</a>
+        <div class="category">-</div>
+          <a href="문자알림-발송하기.md">-</a>
+          <a href="문자알림-발송내역.md">-</a>
+          <a href="문자알림-자주쓰는메시지.md">-</a>
       </div>
       <div class="status-badge dot"></div>
     </div>
@@ -356,19 +355,10 @@ title: LX2 매뉴얼 목차
     </div>
     <div class="book-card-back">
       <div class="meta">
-        <div class="category">전체</div>
-        <a href="회원-학습자.md">회원-학습자</a>
-        <a href="회원-교수자.md">회원-교수자</a>
-        <a href="회원-조교.md">회원-조교</a>
-        <a href="회원-소속담당자.md">회원-소속 담당자</a>
-        <a href="회원-운영관리자.md">회원-운영관리자</a>
-        <!-- 소속 카테고리 -->
-        <div class="category">소속</div>
-        <a href="소속관리.md">소속관리</a>
-        <div class="category">문자알림</div>
-          <a href="문자알림-발송하기.md">문자알림-발송하기</a>
-          <a href="문자알림-발송내역.md">문자알림-발송내역</a>
-          <a href="문자알림-자주쓰는메시지.md">문자알림-자주 쓰는 메시지</a>
+        <a href="강의동.md">강의동</a>
+        <a href="강의실예약.md">강의실 예약</a>
+        <a href="스튜디오.md">스튜디오</a>
+        <a href="스튜디오예약.md">스튜디오 예약</a>
       </div>
       <div class="status-badge dot"></div>
     </div>
@@ -385,19 +375,19 @@ title: LX2 매뉴얼 목차
     </div>
     <div class="book-card-back">
       <div class="meta">
-        <div class="category">전체</div>
-        <a href="회원-학습자.md">회원-학습자</a>
-        <a href="회원-교수자.md">회원-교수자</a>
-        <a href="회원-조교.md">회원-조교</a>
-        <a href="회원-소속담당자.md">회원-소속 담당자</a>
-        <a href="회원-운영관리자.md">회원-운영관리자</a>
+        <div class="category">-</div>
+        <a href="회원-학습자.md">-</a>
+        <a href="회원-교수자.md">-</a>
+        <a href="회원-조교.md">-</a>
+        <a href="회원-소속담당자.md">-</a>
+        <a href="회원-운영관리자.md">-</a>
         <!-- 소속 카테고리 -->
-        <div class="category">소속</div>
-        <a href="소속관리.md">소속관리</a>
-        <div class="category">문자알림</div>
-          <a href="문자알림-발송하기.md">문자알림-발송하기</a>
-          <a href="문자알림-발송내역.md">문자알림-발송내역</a>
-          <a href="문자알림-자주쓰는메시지.md">문자알림-자주 쓰는 메시지</a>
+        <div class="category">-</div>
+        <a href="소속관리.md">-</a>
+        <div class="category">-</div>
+          <a href="문자알림-발송하기.md">-</a>
+          <a href="문자알림-발송내역.md">-</a>
+          <a href="문자알림-자주쓰는메시지.md">-</a>
       </div>
       <div class="status-badge dot"></div>
     </div>
@@ -414,19 +404,19 @@ title: LX2 매뉴얼 목차
     </div>
     <div class="book-card-back">
       <div class="meta">
-        <div class="category">전체</div>
-        <a href="회원-학습자.md">회원-학습자</a>
-        <a href="회원-교수자.md">회원-교수자</a>
-        <a href="회원-조교.md">회원-조교</a>
-        <a href="회원-소속담당자.md">회원-소속 담당자</a>
-        <a href="회원-운영관리자.md">회원-운영관리자</a>
+        <div class="category">-</div>
+        <a href="회원-학습자.md">-</a>
+        <a href="회원-교수자.md">-</a>
+        <a href="회원-조교.md">-</a>
+        <a href="회원-소속담당자.md">-</a>
+        <a href="회원-운영관리자.md">-</a>
         <!-- 소속 카테고리 -->
-        <div class="category">소속</div>
-        <a href="소속관리.md">소속관리</a>
-        <div class="category">문자알림</div>
-          <a href="문자알림-발송하기.md">문자알림-발송하기</a>
-          <a href="문자알림-발송내역.md">문자알림-발송내역</a>
-          <a href="문자알림-자주쓰는메시지.md">문자알림-자주 쓰는 메시지</a>
+        <div class="category">-</div>
+        <a href="소속관리.md">-</a>
+        <div class="category">-</div>
+          <a href="문자알림-발송하기.md">-</a>
+          <a href="문자알림-발송내역.md">-</a>
+          <a href="문자알림-자주쓰는메시지.md">-</a>
       </div>
       <div class="status-badge dot"></div>
     </div>
@@ -437,25 +427,31 @@ title: LX2 매뉴얼 목차
   <div class="book-card-inner">
     <div class="book-card-front">
       <div class="cover-wrap">
-        <img src="_etc/books/설정.gif" alt="설정" class="cover">
+        <img src="_etc/books/설정_.gif" alt="설정" class="cover">
       </div>
       <div class="title">설정</div>
     </div>
     <div class="book-card-back">
-      <div class="meta">
-        <div class="category">전체</div>
-        <a href="회원-학습자.md">회원-학습자</a>
-        <a href="회원-교수자.md">회원-교수자</a>
-        <a href="회원-조교.md">회원-조교</a>
-        <a href="회원-소속담당자.md">회원-소속 담당자</a>
-        <a href="회원-운영관리자.md">회원-운영관리자</a>
-        <!-- 소속 카테고리 -->
-        <div class="category">소속</div>
-        <a href="소속관리.md">소속관리</a>
-        <div class="category">문자알림</div>
-          <a href="문자알림-발송하기.md">문자알림-발송하기</a>
-          <a href="문자알림-발송내역.md">문자알림-발송내역</a>
-          <a href="문자알림-자주쓰는메시지.md">문자알림-자주 쓰는 메시지</a>
+    <div class="meta two-column">
+      <div class="column">
+        <a href="기본.md">기본</a>
+        <a href="과정.md">과정</a>
+        <div class="category">보안</div>
+        <a href="보안-기본.md">기본</a>
+        <a href="보안-API.md">API</a>
+        <a href="메뉴.md">메뉴</a>
+        </div>
+        <div class="column">
+        <div class="category">템플릿</div>
+        <a href="템플릿-수료증.md">수료증</a>
+          <a href="템플릿-수강신청서.md">수강신청서</a>
+          <a href="템플릿-썸네일.md">썸네일</a>
+           <a href="템플릿-자동알림.md">자동알림</a>
+          <a href="게시판.md">게시판</a>
+          <a href="약관관리.md">약관 관리</a>
+          <a href="그리드.md">그리드</a>
+          <a href="언어.md">언어</a>
+          </div>
       </div>
       <div class="status-badge dot"></div>
     </div>
@@ -472,19 +468,19 @@ title: LX2 매뉴얼 목차
     </div>
     <div class="book-card-back">
       <div class="meta">
-        <div class="category">전체</div>
-        <a href="회원-학습자.md">회원-학습자</a>
-        <a href="회원-교수자.md">회원-교수자</a>
-        <a href="회원-조교.md">회원-조교</a>
-        <a href="회원-소속담당자.md">회원-소속 담당자</a>
-        <a href="회원-운영관리자.md">회원-운영관리자</a>
+        <div class="category">-</div>
+        <a href="회원-학습자.md">-</a>
+        <a href="회원-교수자.md">-</a>
+        <a href="회원-조교.md">-</a>
+        <a href="회원-소속담당자.md">-</a>
+        <a href="회원-운영관리자.md">-</a>
         <!-- 소속 카테고리 -->
-        <div class="category">소속</div>
-        <a href="소속관리.md">소속관리</a>
-        <div class="category">문자알림</div>
-          <a href="문자알림-발송하기.md">문자알림-발송하기</a>
-          <a href="문자알림-발송내역.md">문자알림-발송내역</a>
-          <a href="문자알림-자주쓰는메시지.md">문자알림-자주 쓰는 메시지</a>
+        <div class="category">-</div>
+        <a href="소속관리.md">-</a>
+        <div class="category">-</div>
+          <a href="문자알림-발송하기.md">-</a>
+          <a href="문자알림-발송내역.md">-</a>
+          <a href="문자알림-자주쓰는메시지.md">-</a>
       </div>
       <div class="status-badge dot"></div>
     </div>
