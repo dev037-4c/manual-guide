@@ -182,6 +182,14 @@ title: LX2 매뉴얼 목차
   margin-top: 8px;
 }
 
+.meta.two-column > .column a {
+  display: block;       /* 전체 줄을 클릭 가능하게 */
+  padding: 4px 8px;     /* 글씨 주변 여백 */
+  text-decoration: none; /* 밑줄 제거 */
+  color: inherit;        /* 글자색 유지 */
+  border-radius: 4px;    /* 선택 느낌을 부드럽게 */
+}
+
 
 </style>
 <!-- 페이지 상단 큰 이미지 -->
