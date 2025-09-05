@@ -165,6 +165,25 @@ title: LX2 매뉴얼 목차
   object-fit: cover; /* 잘림 없이 꽉 차게 */
 }
 
+/* 두 컬럼 정렬 */
+.meta.two-column {
+  display: flex;
+  gap: 20px; /* 컬럼 사이 간격 */
+}
+
+.meta.two-column .column {
+  flex: 1; /* 두 컬럼 동일 너비 */
+  display: flex;
+  flex-direction: column;
+  gap: 4px; /* 항목 사이 간격 */
+}
+
+.meta .category {
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+
 </style>
 <!-- 페이지 상단 큰 이미지 -->
 <div class="page-banner">
@@ -173,34 +192,36 @@ title: LX2 매뉴얼 목차
 
 <div class="book-grid">
 
-<!-- 책 2 -->
-<div class="book-card">
-  <div class="book-card-inner">
-    <div class="book-card-front">
-      <div class="cover-wrap">
+	<div class="book-card">
+	  <div class="book-card-inner">
+	    <div class="book-card-front">
+	      <div class="cover-wrap">
         <img src="_etc/books/회원.gif" alt="회원" class="cover">
       </div>
       <div class="title">회원</div>
     </div>
     <div class="book-card-back">
-      <div class="meta">
-        <div class="category">전체</div>
-        <a href="회원-학습자.md">회원-학습자</a>
-        <a href="회원-교수자.md">회원-교수자</a>
-        <a href="회원-조교.md">회원-조교</a>
-        <a href="회원-소속담당자.md">회원-소속 담당자</a>
-        <a href="회원-운영관리자.md">회원-운영관리자</a>
-        <!-- 소속 카테고리 -->
-        <div class="category">소속</div>
-        <a href="소속관리.md">소속관리</a>
-        <div class="category">문자알림</div>
-          <a href="문자알림-발송하기.md">문자알림-발송하기</a>
-          <a href="문자알림-발송내역.md">문자알림-발송내역</a>
-          <a href="문자알림-자주쓰는메시지.md">문자알림-자주 쓰는 메시지</a>
-      </div>
-      <div class="status-badge dot"></div>
+	  <div class="meta two-column">
+    <div class="column">
+      <div class="category">전체</div>
+      <a href="회원-학습자.md">회원-학습자</a>
+      <a href="회원-교수자.md">회원-교수자</a>
+      <a href="회원-조교.md">회원-조교</a>
+      <a href="회원-소속담당자.md">회원-소속 담당자</a>
+      <a href="회원-운영관리자.md">회원-운영관리자</a>
     </div>
-  </div>
+    <div class="column">
+      <div class="category">소속</div>
+      <a href="소속관리.md">소속관리</a>
+      <div class="category">문자알림</div>
+      <a href="문자알림-발송하기.md">문자알림-발송하기</a>
+      <a href="문자알림-발송내역.md">문자알림-발송내역</a>
+      <a href="문자알림-자주쓰는메시지.md">문자알림-자주 쓰는 메시지</a>
+    </div>
+	  </div>
+	  <div class="status-badge dot"></div>
+	</div>
+	</div>
 </div>
 
 <div class="book-card">
