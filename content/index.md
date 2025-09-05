@@ -311,12 +311,13 @@ title: LX2 매뉴얼 목차
         <div class="title">시설</div>
       </div>
       <div class="book-card-back">
-        <div class="meta"></div>
+        <div class="meta">
         <div class="column">
             <a href="강의동.md">강의동</a>
             <a href="강의실예약.md">강의실 예약</a>
             <a href="스튜디오.md">스튜디오</a>
             <a href="스튜디오예약.md">스튜디오 예약</a>
+          </div>
           </div>
         <div class="status-badge dot"></div>
       </div>
@@ -372,7 +373,7 @@ title: LX2 매뉴얼 목차
             <a href="메뉴.md">메뉴</a>
           </div>
           <div class="column">
-            <div class="category">--템플릿--</div>
+            <div class="category">템플릿</div>
             <a href="템플릿-수료증.md">수료증</a>
             <a href="템플릿-수강신청서.md">수강신청서</a>
             <a href="템플릿-썸네일.md">썸네일</a>
