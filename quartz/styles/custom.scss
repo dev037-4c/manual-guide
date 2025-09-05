@@ -20,11 +20,10 @@
 /* 카드들을 담는 그리드 레이아웃 */
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* 기존 220px → 200px */
-  gap: 12px; /* 기존 16px → 12px */
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
   margin: 20px 0;
 }
-
 
 /* 카드 기본 스타일 */
 .card {
