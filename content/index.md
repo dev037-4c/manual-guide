@@ -181,6 +181,16 @@ title: LX2 매뉴얼 목차
   font-weight: bold;
   margin-top: 8px;
 }
+.book-card-back .meta.two-column > .column a {
+  display: flex;             /* 가로 전체 사용 */
+  align-items: center;       /* 세로 중앙 정렬 */
+  justify-content: flex-start; /* 왼쪽 정렬 */
+  width: 100%;               /* 컬럼 폭 전체 */
+  padding: 4px 6px;          /* 클릭 영역 확보 */
+  text-decoration: none;
+  color: inherit;
+  white-space: nowrap;       /* 한 줄로 유지 */
+}
 
 
 </style>
