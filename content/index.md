@@ -213,7 +213,7 @@ title: LX2 매뉴얼 목차
         </div>
         <!-- 소속 카테고리 -->
         <div class="column">
-        <div class="category">문자알림</div>
+        <div class="category">  문자알림  </div>
           <a href="문자알림-발송하기.md">발송하기</a>
           <a href="문자알림-발송내역.md">발송내역</a>
           <a href="문자알림-자주쓰는메시지.md">자주 쓰는 메시지</a>
@@ -442,7 +442,7 @@ title: LX2 매뉴얼 목차
         <a href="메뉴.md">메뉴</a>
         </div>
         <div class="column">
-        <div class="category">템플릿</div>
+        <div class="category">  템플릿  </div>
         <a href="템플릿-수료증.md">수료증</a>
           <a href="템플릿-수강신청서.md">수강신청서</a>
           <a href="템플릿-썸네일.md">썸네일</a>
