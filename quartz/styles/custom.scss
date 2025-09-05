@@ -1,4 +1,4 @@
-*l,@import "./base.scss";
+@import "./base.scss";
 
 /* --- _etc 폴더 자체 숨기기 --- */
 .explorer .folder-container[data-folderpath^="_etc"],
@@ -8,7 +8,8 @@
 
 /* --- _etc 폴더 안의 파일 숨기기 --- */
 .explorer a[href^="_etc/"],
-.explorer a[href*="/_etc/"],
+.explorer a[href*="/_etc/"]0,
 .explorer a[href^="../_etc/"] {
   display: none !important;
 }
+
