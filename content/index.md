@@ -165,23 +165,23 @@ title: LX2 매뉴얼 목차
   object-fit: cover; /* 잘림 없이 꽉 차게 */
 }
 
-/* 두 컬럼 정렬 */
 .meta.two-column {
   display: flex;
   gap: 20px;           /* 컬럼 사이 간격 */
 }
 
-.meta.two-column .column {
-  flex: 1;              /* 두 컬럼 동일 너비 */
+.meta.two-column > .column {
+  flex: 1;             /* 두 컬럼 동일 너비 */
   display: flex;
   flex-direction: column;
-  gap: 4px;             /* 항목 간 간격 */
+  gap: 4px;            /* 항목 간 간격 */
 }
 
 .meta .category {
   font-weight: bold;
   margin-top: 8px;
 }
+
 
 </style>
 <!-- 페이지 상단 큰 이미지 -->
@@ -201,7 +201,6 @@ title: LX2 매뉴얼 목차
     </div>
     <div class="book-card-back">
     <div class="meta two-column">
-    
       <div class="column">
         <div class="category">전체</div>
         <a href="회원-학습자.md">회원-학습자</a>
@@ -220,7 +219,6 @@ title: LX2 매뉴얼 목차
           <a href="문자알림-자주쓰는메시지.md">문자알림-자주 쓰는 메시지</a>
           </div>
       </div>
-    
       <div class="status-badge dot"></div>
     </div>
   </div>
