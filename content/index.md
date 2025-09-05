@@ -210,7 +210,7 @@ title: LX2 매뉴얼 목차
       <div class="book-card-front">
         <div class="cover-wrap">
           <a href="3.과정.md">
-            <img src="_etc/books/process.png" alt="과정" class="cover">
+            <img src="_etc/books/과정.gif" alt="과정" class="cover">
           </a>
         </div>
         <div class="title"><a href="3.과정.md">과정</a></div>
@@ -230,7 +230,7 @@ title: LX2 매뉴얼 목차
       <div class="book-card-front">
         <div class="cover-wrap">
           <a href="4.콘텐츠.md">
-            <img src="_etc/books/content.png" alt="콘텐츠" class="cover">
+            <img src="_etc/books/콘텐츠.gif" alt="콘텐츠" class="cover">
           </a>
         </div>
         <div class="title"><a href="4.콘텐츠.md">콘텐츠</a></div>
@@ -250,7 +250,7 @@ title: LX2 매뉴얼 목차
       <div class="book-card-front">
         <div class="cover-wrap">
           <a href="5.사이트.md">
-            <img src="_etc/books/site.png" alt="사이트" class="cover">
+            <img src="_etc/books/사이트.gif" alt="사이트" class="cover">
           </a>
         </div>
         <div class="title"><a href="5.사이트.md">사이트</a></div>
@@ -270,7 +270,7 @@ title: LX2 매뉴얼 목차
       <div class="book-card-front">
         <div class="cover-wrap">
           <a href="6.서비스.md">
-            <img src="_etc/books/service.png" alt="서비스" class="cover">
+            <img src="_etc/books/서비스.gif" alt="서비스" class="cover">
           </a>
         </div>
         <div class="title"><a href="6.서비스.md">서비스</a></div>
@@ -290,7 +290,7 @@ title: LX2 매뉴얼 목차
       <div class="book-card-front">
         <div class="cover-wrap">
           <a href="7.시설.md">
-            <img src="_etc/books/facility.png" alt="시설" class="cover">
+            <img src="_etc/books/시설.gif" alt="시설" class="cover">
           </a>
         </div>
         <div class="title"><a href="7.시설.md">시설</a></div>
@@ -310,7 +310,7 @@ title: LX2 매뉴얼 목차
       <div class="book-card-front">
         <div class="cover-wrap">
           <a href="8.주문결제.md">
-            <img src="_etc/books/orderpayment.png" alt="주문결제" class="cover">
+            <img src="_etc/books/주문결제.gif" alt="주문결제" class="cover">
           </a>
         </div>
         <div class="title"><a href="8.주문결제.md">주문결제</a></div>
@@ -330,10 +330,49 @@ title: LX2 매뉴얼 목차
       <div class="book-card-front">
         <div class="cover-wrap">
           <a href="9.통계.md">
-            <img src="_etc/books/statistice.png" alt="통계" class="cover">
+            <img src="_etc/books/통계.gif" alt="통계" class="cover">
           </a>
         </div>
         <div class="title"><a href="9.통계.md">통계</a></div>
+      </div>
+      <div class="book-card-back">
+        <a href="9.통계.md" class="card-back-link">
+          <div class="meta">대시보드 / 학습현황 / 운영현황 / 수료현황 / 이메일발송 / SMS발송 / 설문현황 / 검색 키워드 / 분석</div>
+          <div class="status-badge dot"></div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- 책 9 -->
+  <div class="book-card">
+    <div class="book-card-inner">
+      <div class="book-card-front">
+        <div class="cover-wrap">
+          <a href="9.통계.md">
+            <img src="_etc/books/설정.gif" alt="설정" class="cover">
+          </a>
+        </div>
+        <div class="title"><a href="10.설정.md">설정</a></div>
+      </div>
+      <div class="book-card-back">
+        <a href="9.통계.md" class="card-back-link">
+          <div class="meta">대시보드 / 학습현황 / 운영현황 / 수료현황 / 이메일발송 / SMS발송 / 설문현황 / 검색 키워드 / 분석</div>
+          <div class="status-badge dot"></div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 책 9 -->
+  <div class="book-card">
+    <div class="book-card-inner">
+      <div class="book-card-front">
+        <div class="cover-wrap">
+          <a href="9.통계.md">
+            <img src="_etc/books/시스템.gif" alt="시스템" class="cover">
+          </a>
+        </div>
+        <div class="title"><a href="11.시스템.md">시스템</a></div>
       </div>
       <div class="book-card-back">
         <a href="9.통계.md" class="card-back-link">
