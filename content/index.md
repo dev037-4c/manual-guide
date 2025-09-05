@@ -8,7 +8,7 @@ title: LX2
     <div class="card-content">
       <div class="card-title">과정</div>
 
-    </div>
+
   </a>
 
   <a class="card" href="https://manual-guide01-e4s.pages.dev/4.-%EC%84%9C%EB%B9%84%EC%8A%A4">
@@ -16,7 +16,7 @@ title: LX2
     <div class="card-content">
       <div class="card-title">서비스</div>
 
-    </div>
+    
   </a>
 
 <a class="card" href="https://manual-guide01-e4s.pages.dev/7.-%ED%86%B5%EA%B3%84">
