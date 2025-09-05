@@ -291,6 +291,21 @@ title: LX2 매뉴얼 목차
     <div class="book-card-inner">
       <div class="book-card-front">
         <div class="cover-wrap">
+          <img src="_etc/books/서비스.gif" alt="서비스" class="cover">
+        </div>
+        <div class="title">서비스</div>
+      </div>
+      <div class="book-card-back">
+        <div class="meta two-column"></div>
+        <div class="status-badge dot"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="book-card">
+    <div class="book-card-inner">
+      <div class="book-card-front">
+        <div class="cover-wrap">
           <img src="_etc/books/시설.gif" alt="시설" class="cover">
         </div>
         <div class="title">시설</div>
@@ -357,7 +372,7 @@ title: LX2 매뉴얼 목차
             <a href="메뉴.md">메뉴</a>
           </div>
           <div class="column">
-            <div class="category">      템플릿      </div>
+            <div class="category">--템플릿--</div>
             <a href="템플릿-수료증.md">수료증</a>
             <a href="템플릿-수강신청서.md">수강신청서</a>
             <a href="템플릿-썸네일.md">썸네일</a>
