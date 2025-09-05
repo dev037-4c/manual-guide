@@ -19,9 +19,9 @@
 /* 카드들을 담는 그리드 레이아웃 */
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 16px;
-  margin: 20px 0;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* 기존 220px → 180px */
+  gap: 14px; /* 간격도 살짝 줄임 */
+  margin: 16px 0;
 }
 
 /* 카드 기본 스타일 */
@@ -51,7 +51,7 @@
 /* 카드 이미지 */
 .card img {
   width: 100%;
-  height: 140px;
+  height: 120px; /* 기존 140px → 120px */
   object-fit: cover;
   border-bottom: 1px solid color-mix(in oklab, var(--background-modifier-border) 60%, transparent 40%);
 }
