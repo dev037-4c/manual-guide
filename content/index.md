@@ -297,6 +297,12 @@ title: LX2 매뉴얼 목차
       </div>
       <div class="book-card-back">
         <div class="meta two-column"></div>
+        <div class="column">
+            <a href="강의동.md">강의동</a>
+            <a href="강의실예약.md">강의실 예약</a>
+            <a href="스튜디오.md">스튜디오</a>
+            <a href="스튜디오예약.md">스튜디오 예약</a>
+          </div>
         <div class="status-badge dot"></div>
       </div>
     </div>
