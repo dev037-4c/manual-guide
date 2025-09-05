@@ -285,8 +285,7 @@ title: LX2 매뉴얼 목차
       <div class="title">사이트</div>
     </div>
     <div class="book-card-back">
-      <div class="meta">
-    
+    <div class="meta two-column">
       </div>
       <div class="status-badge dot"></div>
     </div>
