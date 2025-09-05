@@ -12,7 +12,6 @@
 .explorer a[href^="../_etc/"] {
   display: none !important;
 }
-
 /* ===============================
    Obsidian iOS-style Card View
    =============================== */
@@ -30,7 +29,7 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  border-radius: 20px;
+  border-radius: 20px; /* 둥글둥글한 모서리 */
   background: color-mix(in oklab, var(--background-primary) 92%, white 8%);
   border: 1px solid color-mix(in oklab, var(--background-modifier-border) 70%, transparent 30%);
   box-shadow:
@@ -41,6 +40,7 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+/* hover 시 살짝 뜨는 효과 */
 .card:hover {
   transform: translateY(-4px);
   box-shadow:
@@ -72,23 +72,3 @@
   color: var(--text-muted);
 }
 
-/* ===============================
-   다크 모드 전용 스타일
-   =============================== */
-.theme-dark .card {
-  background: color-mix(in oklab, var(--background-primary) 94%, black 6%);
-  border: 1px solid color-mix(in oklab, var(--background-modifier-border) 80%, transparent 20%);
-  box-shadow:
-    0 2px 6px rgba(0, 0, 0, 0.4),
-    0 8px 16px rgba(0, 0, 0, 0.3);
-}
-
-.theme-dark .card:hover {
-  box-shadow:
-    0 4px 10px rgba(0, 0, 0, 0.5),
-    0 12px 24px rgba(0, 0, 0, 0.4);
-}
-
-.theme-dark .card-meta {
-  color: var(--text-faint);
-}
