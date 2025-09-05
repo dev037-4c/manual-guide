@@ -167,11 +167,11 @@ title: LX2 매뉴얼 목차
 
 .meta.two-column {
   display: flex;
-  gap: 20px;           /* 컬럼 사이 간격 */
+  gap: 10px;           /* 컬럼 사이 간격 */
 }
 
 .meta.two-column > .column {
-  flex: 1;             /* 두 컬럼 동일 너비 */
+  flex: 1.5;             /* 두 컬럼 동일 너비 */
   display: flex;
   flex-direction: column;
   gap: 4px;            /* 항목 간 간격 */
@@ -180,14 +180,6 @@ title: LX2 매뉴얼 목차
 .meta .category {
   font-weight: bold;
   margin-top: 8px;
-}
-
-.meta.two-column > .column a {
-  display: block;       /* 전체 줄을 클릭 가능하게 */
-  padding: 4px 8px;     /* 글씨 주변 여백 */
-  text-decoration: none; /* 밑줄 제거 */
-  color: inherit;        /* 글자색 유지 */
-  border-radius: 4px;    /* 선택 느낌을 부드럽게 */
 }
 
 
