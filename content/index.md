@@ -97,10 +97,16 @@ title: LX2 매뉴얼 목차
 
 .book-card-back .meta a {
   display: block;
-  color: inherit;
-  text-decoration: none;
+  padding: 6px 10px;
   margin-bottom: 6px;
   font-weight: 500;
+  text-decoration: none;
+  color: #111;
+  background: #f5f5f5;  /* 연한 회색 배경 */
+  border-radius: 6px;
+  text-align: center;
+  transition: background 0.2s, color 0.2s;
+  word-break: keep-all; /* 글자 줄 바꿈 시 단어 유지 */
 }
 
 .book-card-back .meta a:last-child {
@@ -108,12 +114,13 @@ title: LX2 매뉴얼 목차
 }
 
 .book-card-back .meta a:hover {
-  text-decoration: underline;
+  background: #e0e0e0;
+  color: #000;
 }
 
 .book-card-back .meta .category {
   font-weight: 600;
-  margin: 10px 0 4px;
+  margin: 10px 0 6px;
   font-size: 13px;
 }
 
@@ -127,7 +134,7 @@ title: LX2 매뉴얼 목차
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
 }
 
 /* ===== 배너 ===== */
