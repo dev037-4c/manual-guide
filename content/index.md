@@ -51,12 +51,12 @@ title: LX2 매뉴얼 목차
 
   /* 앞면 */
   .book-card-front {
-    background: #ffff;
+    background: #ffffff;
   }
 
   /* 뒷면 */
   .book-card-back {
-    background: linear-gradient(135deg, #fffff);
+    background: linear-gradient(135deg, #ffffff);
     color: #111;
     transform: rotateY(180deg);
     text-align: center;
