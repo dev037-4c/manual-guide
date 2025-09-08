@@ -78,7 +78,7 @@ title: LX2 매뉴얼 목차
   
   /* 표지 */
   .cover-wrap {
-    width: 50%;
+    width: 100%;
     aspect-ratio: 3/4;
     display: flex;
     align-items: center;
@@ -91,7 +91,8 @@ title: LX2 매뉴얼 목차
   .cover {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    background-color: #fff;
   }
 
   .cover.placeholder {
