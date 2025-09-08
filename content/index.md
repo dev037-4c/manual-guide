@@ -77,7 +77,7 @@ title: LX2 매뉴얼 목차
   height: 100%;
   object-fit: contain;   /* 이미지 잘림 방지 */
   background-color: #fff;
-  transform: scale(0.8); /* 살짝 축소 */
+  transform: scale(0.85); /* 살짝 축소 */
 }
 
 /* ===== 제목 & 메타 ===== */
