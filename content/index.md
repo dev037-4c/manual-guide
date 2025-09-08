@@ -44,7 +44,6 @@ title: LX2 매뉴얼 목차
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding: 10px;
 }
 
 /* 앞면 */
