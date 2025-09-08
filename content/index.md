@@ -78,7 +78,7 @@ title: LX2 매뉴얼 목차
   
   /* 표지 */
   .cover-wrap {
-    width: 80%;
+    width: 50%;
     aspect-ratio: 3/4;
     display: flex;
     align-items: center;
