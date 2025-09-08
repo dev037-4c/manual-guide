@@ -93,6 +93,7 @@ title: LX2 매뉴얼 목차
     height: 100%;
     object-fit: contain;
     background-color: #fff;
+    transform: scale(0.8);
   }
 
   .cover.placeholder {
