@@ -13,7 +13,7 @@ title: LX2 매뉴얼 목차
 
 /* ===== 카드 기본 ===== */
 .book-card {
-  width: 250px;       /* 가로 확대 */
+  width: 250px;
   height: 300px;
   perspective: 1000px;
   margin: 0 auto;
@@ -58,6 +58,7 @@ title: LX2 매뉴얼 목차
   transform: rotateY(180deg);
   text-align: center;
   font-size: 14px;
+  padding-top: 10px;
 }
 
 /* ===== 표지 이미지 ===== */
@@ -90,7 +91,6 @@ title: LX2 매뉴얼 목차
 /* ===== 뒷면 링크 ===== */
 .meta {
   width: 100%;
-  margin-top: 10px;
   font-size: 13px;
   display: flex;
   flex-direction: column;
@@ -129,7 +129,7 @@ title: LX2 매뉴얼 목차
 }
 
 .meta.two-column .column {
-  flex: 1 1 45%; /* 한 줄에 2컬럼 배치 */
+  flex: 1 1 45%;
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -196,7 +196,20 @@ title: LX2 매뉴얼 목차
         <div class="title">과정</div>
       </div>
       <div class="book-card-back">
-        <div class="meta two-column"></div>
+        <div class="meta two-column">
+          <div class="column">
+            <div class="category">과정 관리</div>
+            <a href="과정-과정등록.md">과정등록</a>
+            <a href="과정-과정조회.md">과정조회</a>
+          </div>
+          <div class="column">
+            <div class="category">시험 / 과제</div>
+            <a href="시험-출제그룹.md">출제그룹</a>
+            <a href="시험-시험지.md">시험지</a>
+            <a href="시험-문항.md">문항</a>
+            <a href="과제.md">과제관리</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -214,18 +227,11 @@ title: LX2 매뉴얼 목차
             <div class="category">학습</div>
             <a href="학습-그룹.md">그룹</a>
             <a href="학습-콘텐츠.md">콘텐츠</a>
-            <div class="category">시험</div>
-            <a href="시험-출제그룹.md">출제그룹</a>
-            <a href="시험-시험지.md">시험지</a>
-            <a href="시험-문항.md">문항</a>
           </div>
           <div class="column">
-            <div class="category">과제</div>
-            <a href="과제.md">과제관리</a>
-            <div class="category">설문</div>
+            <div class="category">설문 / 토론</div>
             <a href="설문-설문지.md">설문지</a>
             <a href="설문-문항.md">문항</a>
-            <div class="category">토론</div>
             <a href="토론.md">토론관리</a>
           </div>
         </div>
@@ -317,16 +323,15 @@ title: LX2 매뉴얼 목차
       <div class="book-card-back">
         <div class="meta two-column">
           <div class="column">
-            <div class="category">기본</div>
+            <div class="category">기본 / 보안</div>
             <a href="기본.md">기본</a>
             <a href="과정.md">과정</a>
-            <div class="category">보안</div>
-            <a href="보안-기본.md">기본</a>
+            <a href="보안-기본.md">보안기본</a>
             <a href="보안-API.md">API</a>
             <a href="메뉴.md">메뉴</a>
           </div>
           <div class="column">
-            <div class="category">템플릿</div>
+            <div class="category">템플릿 / 기타</div>
             <a href="템플릿-수료증.md">수료증</a>
             <a href="템플릿-수강신청서.md">수강신청서</a>
             <a href="템플릿-썸네일.md">썸네일</a>
