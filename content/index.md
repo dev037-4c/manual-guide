@@ -5,17 +5,17 @@ title: LX2 매뉴얼 목차
 /* ===== 레이아웃 ===== */
 .book-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 16px;
   max-width: 1200px;
-  margin: 0 auto; /* 가운데 정렬 */
+  margin: 0 auto;
 }
 
 /* ===== 카드 기본 ===== */
 .book-card {
-  width: 200px;
+  width: 250px;       /* 가로 확대 */
   height: 300px;
-  perspective: 1000px; /* 3D 원근감 */
+  perspective: 1000px;
   margin: 0 auto;
 }
 
@@ -38,12 +38,13 @@ title: LX2 매뉴얼 목차
   height: 100%;
   backface-visibility: hidden;
   border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, .15);
+  box-shadow: 0 6px 18px rgba(0,0,0,.15);
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  padding: 10px;
 }
 
 /* 앞면 */
@@ -75,12 +76,11 @@ title: LX2 매뉴얼 목차
 .cover {
   width: 100%;
   height: 100%;
-  object-fit: contain;   /* 이미지 잘림 방지 */
-  background-color: #fff;
-  transform: scale(0.85); /* 살짝 축소 */
+  object-fit: contain;
+  transform: scale(0.85);
 }
 
-/* ===== 제목 & 메타 ===== */
+/* ===== 제목 ===== */
 .title {
   margin-top: 8px;
   font-weight: 700;
@@ -88,51 +88,49 @@ title: LX2 매뉴얼 목차
   text-align: center;
 }
 
+/* ===== 뒷면 링크 ===== */
 .meta {
-  margin-top: 6px;
-  font-size: 12px;
-  color: #111;
-  text-align: center;
+  width: 100%;
+  margin-top: 10px;
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.book-card-back .meta a {
-  display: block;
-  padding: 8px 10px;
+.meta .category {
+  font-weight: 600;
   margin-bottom: 6px;
-  font-weight: 500;
+}
+
+.meta a {
+  display: block;
+  padding: 6px 8px;
+  background: #f5f5f5;
+  border-radius: 6px;
   text-decoration: none;
   color: #111;
   font-size: 13px;
-  background: #f5f5f5;  /* 연한 회색 배경 */
-  border-radius: 6px;
-  text-align: center;
+  word-break: keep-all;
   transition: background 0.2s, color 0.2s;
-  word-break: keep-all; /* 글자 줄 바꿈 시 단어 유지 */
+  text-align: center;
 }
 
-.book-card-back .meta a:last-child {
-  margin-bottom: 0;
-}
-
-.book-card-back .meta a:hover {
+.meta a:hover {
   background: #e0e0e0;
   color: #000;
 }
 
-.book-card-back .meta .category {
-  font-weight: 600;
-  margin: 10px 0 6px;
-  font-size: 13px;
-}
-
-/* 두 칼럼 레이아웃 */
+/* 두 컬럼 배치 */
 .meta.two-column {
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   gap: 10px;
 }
 
-.meta.two-column > .column {
-  flex: 1;
+.meta.two-column .column {
+  flex: 1 1 45%; /* 한 줄에 2컬럼 배치 */
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -155,20 +153,17 @@ title: LX2 매뉴얼 목차
 }
 </style>
 
-
-
 <div class="page-banner">
   <img src="_etc/books/메인메뉴.png" alt="메인 배너">
 </div>
 
 <div class="book-grid">
 
+  <!-- 회원 -->
   <div class="book-card">
     <div class="book-card-inner">
       <div class="book-card-front">
-        <div class="cover-wrap">
-          <img src="_etc/books/회원.png" alt="회원" class="cover">
-        </div>
+        <div class="cover-wrap"><img src="_etc/books/회원.png" alt="회원" class="cover"></div>
         <div class="title">회원</div>
       </div>
       <div class="book-card-back">
@@ -190,32 +185,28 @@ title: LX2 매뉴얼 목차
             <a href="문자알림-자주쓰는메시지.md">자주 쓰는 메시지</a>
           </div>
         </div>
-        <div class="status-badge dot"></div>
       </div>
     </div>
   </div>
 
+  <!-- 과정 -->
   <div class="book-card">
     <div class="book-card-inner">
       <div class="book-card-front">
-        <div class="cover-wrap">
-          <img src="_etc/books/과정.png" alt="과정" class="cover">
-        </div>
+        <div class="cover-wrap"><img src="_etc/books/과정.png" alt="과정" class="cover"></div>
         <div class="title">과정</div>
       </div>
       <div class="book-card-back">
         <div class="meta two-column"></div>
-        <div class="status-badge dot"></div>
       </div>
     </div>
   </div>
 
+  <!-- 콘텐츠 -->
   <div class="book-card">
     <div class="book-card-inner">
       <div class="book-card-front">
-        <div class="cover-wrap">
-          <img src="_etc/books/콘텐츠.png" alt="콘텐츠" class="cover">
-        </div>
+        <div class="cover-wrap"><img src="_etc/books/콘텐츠.png" alt="콘텐츠" class="cover"></div>
         <div class="title">콘텐츠</div>
       </div>
       <div class="book-card-back">
@@ -239,104 +230,95 @@ title: LX2 매뉴얼 목차
             <a href="토론.md">토론관리</a>
           </div>
         </div>
-        <div class="status-badge dot"></div>
       </div>
     </div>
   </div>
 
+  <!-- 사이트 -->
   <div class="book-card">
     <div class="book-card-inner">
       <div class="book-card-front">
-        <div class="cover-wrap">
-          <img src="_etc/books/사이트.png" alt="사이트" class="cover">
-        </div>
+        <div class="cover-wrap"><img src="_etc/books/사이트.png" alt="사이트" class="cover"></div>
         <div class="title">사이트</div>
       </div>
       <div class="book-card-back">
         <div class="meta two-column"></div>
-        <div class="status-badge dot"></div>
       </div>
     </div>
   </div>
 
+  <!-- 서비스 -->
   <div class="book-card">
     <div class="book-card-inner">
       <div class="book-card-front">
-        <div class="cover-wrap">
-          <img src="_etc/books/서비스.png" alt="서비스" class="cover">
-        </div>
+        <div class="cover-wrap"><img src="_etc/books/서비스.png" alt="서비스" class="cover"></div>
         <div class="title">서비스</div>
       </div>
       <div class="book-card-back">
         <div class="meta two-column"></div>
-        <div class="status-badge dot"></div>
       </div>
     </div>
   </div>
 
+  <!-- 시설 -->
   <div class="book-card">
     <div class="book-card-inner">
       <div class="book-card-front">
-        <div class="cover-wrap">
-          <img src="_etc/books/시설.png" alt="시설" class="cover">
-        </div>
+        <div class="cover-wrap"><img src="_etc/books/시설.png" alt="시설" class="cover"></div>
         <div class="title">시설</div>
       </div>
       <div class="book-card-back">
-        <div class="meta">
-        <div class="column">
+        <div class="meta two-column">
+          <div class="column">
+            <div class="category">건물</div>
             <a href="강의동.md">강의동</a>
             <a href="강의실예약.md">강의실 예약</a>
             <a href="스튜디오.md">스튜디오</a>
             <a href="스튜디오예약.md">스튜디오 예약</a>
           </div>
-          </div>
-        <div class="status-badge dot"></div>
+          <div class="column"></div>
+        </div>
       </div>
     </div>
   </div>
 
+  <!-- 주문결제 -->
   <div class="book-card">
     <div class="book-card-inner">
       <div class="book-card-front">
-        <div class="cover-wrap">
-          <img src="_etc/books/주문결제.png" alt="주문결제" class="cover">
-        </div>
+        <div class="cover-wrap"><img src="_etc/books/주문결제.png" alt="주문결제" class="cover"></div>
         <div class="title">주문결제</div>
       </div>
       <div class="book-card-back">
         <div class="meta two-column"></div>
-        <div class="status-badge dot"></div>
       </div>
     </div>
   </div>
 
+  <!-- 통계 -->
   <div class="book-card">
     <div class="book-card-inner">
       <div class="book-card-front">
-        <div class="cover-wrap">
-          <img src="_etc/books/통계.png" alt="통계" class="cover">
-        </div>
+        <div class="cover-wrap"><img src="_etc/books/통계.png" alt="통계" class="cover"></div>
         <div class="title">통계</div>
       </div>
       <div class="book-card-back">
         <div class="meta two-column"></div>
-        <div class="status-badge dot"></div>
       </div>
     </div>
   </div>
 
+  <!-- 설정 -->
   <div class="book-card">
     <div class="book-card-inner">
       <div class="book-card-front">
-        <div class="cover-wrap">
-          <img src="_etc/books/설정_.png" alt="설정" class="cover">
-        </div>
+        <div class="cover-wrap"><img src="_etc/books/설정_.png" alt="설정" class="cover"></div>
         <div class="title">설정</div>
       </div>
       <div class="book-card-back">
         <div class="meta two-column">
           <div class="column">
+            <div class="category">기본</div>
             <a href="기본.md">기본</a>
             <a href="과정.md">과정</a>
             <div class="category">보안</div>
@@ -356,25 +338,21 @@ title: LX2 매뉴얼 목차
             <a href="언어.md">언어</a>
           </div>
         </div>
-        <div class="status-badge dot"></div>
       </div>
     </div>
   </div>
 
+  <!-- 시스템 -->
   <div class="book-card">
     <div class="book-card-inner">
       <div class="book-card-front">
-        <div class="cover-wrap">
-          <img src="_etc/books/시스템.png" alt="시스템" class="cover">
-        </div>
+        <div class="cover-wrap"><img src="_etc/books/시스템.png" alt="시스템" class="cover"></div>
         <div class="title">시스템</div>
       </div>
       <div class="book-card-back">
         <div class="meta two-column"></div>
-        <div class="status-badge dot"></div>
       </div>
     </div>
   </div>
 
 </div>
-
