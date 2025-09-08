@@ -2,131 +2,109 @@
 title: LX2 매뉴얼 목차
 ---
 <style>
-  .book-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 16px;
-    max-width: 1200px; /* 본문 폭 제한 → 너무 넓어지지 않게 */
-	margin: 0 auto; /* 가운데 정렬 */
-  }
+/* ===== 레이아웃 ===== */
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  max-width: 1200px;
+  margin: 0 auto; /* 가운데 정렬 */
+}
 
-  /* 카드 컨테이너 */
-  .book-card {
-    background: transparent;
-    width: 200px;
-    height: 260px;
-    perspective: 1000px; /* 원근감 */
-    margin: 0 auto;
-  }
+/* ===== 카드 기본 ===== */
+.book-card {
+  width: 200px;
+  height: 260px;
+  perspective: 1000px; /* 3D 원근감 */
+  margin: 0 auto;
+}
 
-  /* 내부 래퍼 */
-  .book-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-  }
+.book-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
 
-  /* hover 시 뒤집힘 */
-  .book-card:hover .book-card-inner {
-    transform: rotateY(180deg);
-  }
+.book-card:hover .book-card-inner {
+  transform: rotateY(180deg);
+}
 
-  .book-card-front,
-  .book-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    border-radius: 12px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, .15);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+.book-card-front,
+.book-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .15);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-  /* 앞면 */
-  .book-card-front {
-    background: #ffffff;
-  }
+/* 앞면 */
+.book-card-front {
+  background: #fff;
+}
 
-  /* 뒷면 */
-  .book-card-back {
-    background: linear-gradient(135deg, #ffffff);
-    color: #111;
-    transform: rotateY(180deg);
-    text-align: center;
-    font-size: 14px;
-  }
+/* 뒷면 */
+.book-card-back {
+  background: #fff;
+  color: #111;
+  transform: rotateY(180deg);
+  text-align: center;
+  font-size: 14px;
+}
 
-  .book-card-back a.card-back-link {
-	  display: block;
-	  width: 100%;
-	  height: 100%;
-	  color: inherit; /* 글씨 색 유지 */
-	  text-decoration: none; /* 밑줄 제거 */
-	  display: flex;
-	  flex-direction: column;
-	  justify-content: center;
-	  align-items: center;
-  }
+/* ===== 표지 이미지 ===== */
+.cover-wrap {
+  width: 100%;
+  aspect-ratio: 3/4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
 
-  
-  /* 표지 */
-  .cover-wrap {
-    width: 100%;
-    aspect-ratio: 3/4;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #ffffff;
-    border-radius: 8px;
-    overflow: hidden;
-  }
+.cover {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;   /* 이미지 잘림 방지 */
+  background-color: #fff;
+  transform: scale(0.8); /* 살짝 축소 */
+}
 
-  .cover {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    background-color: #fff;
-    transform: scale(0.8);
-  }
+/* ===== 제목 & 메타 ===== */
+.title {
+  margin-top: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+}
 
-  .cover.placeholder {
-    color: #aaa;
-    font-size: 14px;
-  }
-
-  /* 제목 */
-  .title {
-    margin-top: 6px;
-    font-weight: 600;
-    font-size: 14px;
-    text-align: center;
-  }
-
-  /* 메타 정보 */
-  .meta {
-    margin-top: 6px;
-    font-size: 12px;
-    color: #111;
-    text-align: center;
-  }
+.meta {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #111;
+  text-align: center;
+}
 
 .book-card-back .meta a {
-  display: block;         /* 한 줄씩 배치 */
-  color: inherit;         /* 글씨 색 유지 */
-  text-decoration: none;  /* 밑줄 제거 */
-  margin-bottom: 6px;     /* 줄 간격 */
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  margin-bottom: 6px;
   font-weight: 500;
 }
 
 .book-card-back .meta a:last-child {
-  margin-bottom: 0;       /* 마지막 항목은 margin 제거 */
+  margin-bottom: 0;
 }
 
 .book-card-back .meta a:hover {
@@ -135,58 +113,42 @@ title: LX2 매뉴얼 목차
 
 .book-card-back .meta .category {
   font-weight: 600;
-  margin-top: 10px;
-  margin-bottom: 4px;
+  margin: 10px 0 4px;
   font-size: 13px;
 }
 
+/* 두 칼럼 레이아웃 */
+.meta.two-column {
+  display: flex;
+  gap: 10px;
+}
 
+.meta.two-column > .column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
 
-
-  /* 상태 아이콘 */
-  .status-badge.dot::before {
-    content: "🔴";
-  }
-
-  .status-badge.x::before {
-    content: "❌";
-  }
-
+/* ===== 배너 ===== */
 .page-banner {
   width: 100%;
-  max-width: 1200px;  /* 카드 그리드와 동일 폭 제한 */
-  margin: 0 auto 20px; /* 가운데 정렬 + 아래 간격 */
-  border-radius: 12px; /* 모서리 둥글게 */
+  max-width: 1200px;
+  margin: 0 auto 20px;
+  border-radius: 12px;
   overflow: hidden;
 }
 
 .page-banner img {
   width: 100%;
-  height: auto;      /* 원본 비율 유지 */
+  height: auto;
   display: block;
-  object-fit: cover; /* 잘림 없이 꽉 차게 */
+  object-fit: cover;
 }
-
-.meta.two-column {
-  display: flex;
-  gap: 10px;           /* 컬럼 사이 간격 */
-}
-
-.meta.two-column > .column {
-  flex: 1.5;             /* 두 컬럼 동일 너비 */
-  display: flex;
-  flex-direction: column;
-  gap: 4px;            /* 항목 간 간격 */
-}
-
-.meta .category {
-  font-weight: bold;
-  margin-top: 8px;
-}
-
-
-
 </style>
+
+
+
 <div class="page-banner">
   <img src="_etc/books/메인메뉴.png" alt="메인 배너">
 </div>
