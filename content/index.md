@@ -13,7 +13,7 @@ title: LX2 매뉴얼 목차
 
 /* ===== 카드 기본 ===== */
 .book-card {
-  width: 220px;
+  width: 200px;
   height: 300px;
   perspective: 1000px; /* 3D 원근감 */
   margin: 0 auto;
