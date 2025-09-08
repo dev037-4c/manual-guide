@@ -78,12 +78,12 @@ title: LX2 매뉴얼 목차
   
   /* 표지 */
   .cover-wrap {
-    width: 100%;
+    width: 80%;
     aspect-ratio: 3/4;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #f0f0f0;
+    background: #ffffff;
     border-radius: 8px;
     overflow: hidden;
   }
