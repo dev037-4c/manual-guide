@@ -82,9 +82,9 @@ title: LX2 매뉴얼 목차
 
 /* ===== 제목 & 메타 ===== */
 .title {
-  margin-top: 6px;
-  font-weight: 600;
-  font-size: 14px;
+  margin-top: 8px;
+  font-weight: 700;
+  font-size: 20px;
   text-align: center;
 }
 
