@@ -195,7 +195,7 @@ title: LX2 매뉴얼 목차
     <div class="book-card-inner">
       <div class="book-card-front">
         <div class="cover-wrap">
-          <img src="_etc/books/회원.gif" alt="회원" class="cover">
+          <img src="_etc/books/회원.png" alt="회원" class="cover">
         </div>
         <div class="title">회원</div>
       </div>
@@ -227,7 +227,7 @@ title: LX2 매뉴얼 목차
     <div class="book-card-inner">
       <div class="book-card-front">
         <div class="cover-wrap">
-          <img src="_etc/books/과정.gif" alt="과정" class="cover">
+          <img src="_etc/books/과정.png" alt="과정" class="cover">
         </div>
         <div class="title">과정</div>
       </div>
@@ -242,7 +242,7 @@ title: LX2 매뉴얼 목차
     <div class="book-card-inner">
       <div class="book-card-front">
         <div class="cover-wrap">
-          <img src="_etc/books/콘텐츠.gif" alt="콘텐츠" class="cover">
+          <img src="_etc/books/콘텐츠.png" alt="콘텐츠" class="cover">
         </div>
         <div class="title">콘텐츠</div>
       </div>
@@ -276,7 +276,7 @@ title: LX2 매뉴얼 목차
     <div class="book-card-inner">
       <div class="book-card-front">
         <div class="cover-wrap">
-          <img src="_etc/books/사이트.gif" alt="사이트" class="cover">
+          <img src="_etc/books/사이트.png" alt="사이트" class="cover">
         </div>
         <div class="title">사이트</div>
       </div>
@@ -291,7 +291,7 @@ title: LX2 매뉴얼 목차
     <div class="book-card-inner">
       <div class="book-card-front">
         <div class="cover-wrap">
-          <img src="_etc/books/서비스.gif" alt="서비스" class="cover">
+          <img src="_etc/books/서비스.png" alt="서비스" class="cover">
         </div>
         <div class="title">서비스</div>
       </div>
@@ -306,7 +306,7 @@ title: LX2 매뉴얼 목차
     <div class="book-card-inner">
       <div class="book-card-front">
         <div class="cover-wrap">
-          <img src="_etc/books/시설.gif" alt="시설" class="cover">
+          <img src="_etc/books/시설.png" alt="시설" class="cover">
         </div>
         <div class="title">시설</div>
       </div>
@@ -328,7 +328,7 @@ title: LX2 매뉴얼 목차
     <div class="book-card-inner">
       <div class="book-card-front">
         <div class="cover-wrap">
-          <img src="_etc/books/주문결제.gif" alt="주문결제" class="cover">
+          <img src="_etc/books/주문결제.png" alt="주문결제" class="cover">
         </div>
         <div class="title">주문결제</div>
       </div>
@@ -343,7 +343,7 @@ title: LX2 매뉴얼 목차
     <div class="book-card-inner">
       <div class="book-card-front">
         <div class="cover-wrap">
-          <img src="_etc/books/통계.gif" alt="통계" class="cover">
+          <img src="_etc/books/통계.png" alt="통계" class="cover">
         </div>
         <div class="title">통계</div>
       </div>
@@ -358,7 +358,7 @@ title: LX2 매뉴얼 목차
     <div class="book-card-inner">
       <div class="book-card-front">
         <div class="cover-wrap">
-          <img src="_etc/books/설정_.gif" alt="설정" class="cover">
+          <img src="_etc/books/설정_.png" alt="설정" class="cover">
         </div>
         <div class="title">설정</div>
       </div>
@@ -393,7 +393,7 @@ title: LX2 매뉴얼 목차
     <div class="book-card-inner">
       <div class="book-card-front">
         <div class="cover-wrap">
-          <img src="_etc/books/시스템.gif" alt="시스템" class="cover">
+          <img src="_etc/books/시스템.png" alt="시스템" class="cover">
         </div>
         <div class="title">시스템</div>
       </div>
