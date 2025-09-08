@@ -13,8 +13,8 @@ title: LX2 매뉴얼 목차
 
 /* ===== 카드 기본 ===== */
 .book-card {
-  width: 200px;
-  height: 260px;
+  width: 220px;
+  height: 300px;
   perspective: 1000px; /* 3D 원근감 */
   margin: 0 auto;
 }
@@ -62,7 +62,7 @@ title: LX2 매뉴얼 목차
 
 /* ===== 표지 이미지 ===== */
 .cover-wrap {
-  width: 100%;
+  width: 90%;
   aspect-ratio: 3/4;
   display: flex;
   align-items: center;
@@ -97,11 +97,12 @@ title: LX2 매뉴얼 목차
 
 .book-card-back .meta a {
   display: block;
-  padding: 6px 10px;
+  padding: 8px 10px;
   margin-bottom: 6px;
   font-weight: 500;
   text-decoration: none;
   color: #111;
+  font-size: 13px;
   background: #f5f5f5;  /* 연한 회색 배경 */
   border-radius: 6px;
   text-align: center;
