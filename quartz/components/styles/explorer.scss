@@ -14,7 +14,7 @@
 html, body, .page, #quartz-body { overflow-x: hidden !important; }
  
 /* 패널 */
-.sidebar.left { overflow: visible !important; margin-top: 90px; }
+.sidebar.left { overflow: visible !important; }
 .sidebar.left .explorer{
   background:var(--x-bg); color:var(--x-text);
   border:1px solid var(--x-border); border-radius:18px;
@@ -75,7 +75,7 @@ html, body, .page, #quartz-body { overflow-x: hidden !important; }
   justify-content: flex-start;
   padding: 6px 10px;       /* 세로 padding 줄이기 */
   margin: 2px 0;
-  min-height: 32px;        /* 박스 고정 높이 (짧게) */
+  min-height: 36px;        /* 박스 고정 높이 (짧게) */
   line-height: 1.2;        /* 텍스트 줄 높이 줄이기 */
   border-radius: 6px;      /* 둥글기 조금만 */
   transition: background .15s ease, color .15s ease;
@@ -224,7 +224,3 @@ body[data-theme="dark"] .sidebar.left .explorer .explorer-content:hover::-webkit
 .page main.content {
   margin-top: 0 !important;       /* 불필요한 위쪽 여백 제거 */
 }
- 
- 
- 
- 
