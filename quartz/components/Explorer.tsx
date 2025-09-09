@@ -18,7 +18,8 @@ export interface Options {
   useSavedState: boolean
   sortFn: (a: FileTrieNode, b: FileTrieNode) => number
   filterFn: (node: FileTrieNode) => boolean
-  mapFn: (node: FileTrieNode) => void
+  // map 단계에서 변환 결과를 넘겨주기 위함
+  mapFn: (node: FileTrieNode) => FileTrieNode
   order: OrderEntries[]
 }
 
@@ -26,20 +27,16 @@ const defaultOptions: Options = {
   folderDefaultState: "collapsed",
   folderClickBehavior: "link",
   useSavedState: true,
-  mapFn: (node) => {
-    return node
-  },
+  // identity map — 들어온 노드를 그대로 반환
+  mapFn: (node) => node,
   sortFn: (a, b) => {
-    // Sort order: folders first, then files. Sort folders and files alphabeticall
+    // Sort order: folders first, then files. Sort folders and files alphabetically
     if ((!a.isFolder && !b.isFolder) || (a.isFolder && b.isFolder)) {
-      // numeric: true: Whether numeric collation should be used, such that "1" < "2" < "10"
-      // sensitivity: "base": Only strings that differ in base letters compare as unequal. Examples: a ≠ b, a = á, a = A
       return a.displayName.localeCompare(b.displayName, undefined, {
         numeric: true,
         sensitivity: "base",
       })
     }
-
     if (!a.isFolder && b.isFolder) {
       return 1
     } else {
@@ -101,7 +98,7 @@ export default ((userOpts?: Partial<Options>) => {
           type="button"
           class="title-button explorer-toggle desktop-explorer"
           data-mobile={false}
-          aria-expanded={true}
+          aria-expanded={"true"}  // 문자열로 지정(권장)
         >
           <h2>{opts.title ?? i18n(cfg.locale).components.explorer.title}</h2>
           <svg
@@ -119,7 +116,7 @@ export default ((userOpts?: Partial<Options>) => {
             <polyline points="6 9 12 15 18 9"></polyline>
           </svg>
         </button>
-        <div id={id} class="explorer-content" aria-expanded={false} role="group">
+        <div id={id} class="explorer-content" aria-expanded={"false"} role="group">
           <OverflowList class="explorer-ul" />
         </div>
         <template id="template-file">
