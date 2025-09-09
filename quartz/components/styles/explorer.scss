@@ -2,17 +2,17 @@
 
 @media all and ($mobile) {
   .page > #quartz-body {
-    // Shift page position when toggling Explorer on mobile.
-    & > :not(.sidebar.left:has(.explorer)) {
+    // Shift page position when toggling Menu on mobile.
+    & > :not(.sidebar.left:has(.menu)) {
       transition: transform 300ms ease-in-out;
     }
-    &.lock-scroll > :not(.sidebar.left:has(.explorer)) {
+    &.lock-scroll > :not(.sidebar.left:has(.menu)) {
       transform: translateX(100dvw);
       transition: transform 300ms ease-in-out;
     }
 
     // Sticky top bar (stays in place when scrolling down on mobile).
-    .sidebar.left:has(.explorer) {
+    .sidebar.left:has(.menu) {
       box-sizing: border-box;
       position: sticky;
       background-color: var(--light);
@@ -20,13 +20,13 @@
       margin: 0;
     }
 
-    .hide-until-loaded ~ .explorer-content {
+    .hide-until-loaded ~ .menu-content {
       display: none;
     }
   }
 }
 
-.explorer {
+.menu {
   display: flex;
   flex-direction: column;
   overflow-y: hidden;
@@ -56,20 +56,20 @@
     margin-bottom: auto;
   }
 
-  button.mobile-explorer {
+  button.mobile-menu {
     display: none;
   }
 
-  button.desktop-explorer {
+  button.desktop-menu {
     display: flex;
   }
 
   @media all and ($mobile) {
-    button.mobile-explorer {
+    button.mobile-menu {
       display: flex;
     }
 
-    button.desktop-explorer {
+    button.desktop-menu {
       display: none;
     }
   }
@@ -90,8 +90,8 @@
   }
 }
 
-button.mobile-explorer,
-button.desktop-explorer {
+button.mobile-menu,
+button.desktop-menu {
   background-color: transparent;
   border: none;
   text-align: left;
@@ -108,7 +108,7 @@ button.desktop-explorer {
   }
 }
 
-.explorer-content {
+.menu-content {
   list-style: none;
   overflow: hidden;
   overflow-y: auto;
@@ -210,12 +210,12 @@ li:has(> .folder-outer:not(.open)) > .folder-container > svg {
   color: var(--tertiary);
 }
 
-.explorer {
+.menu {
   @media all and ($mobile) {
     &.collapsed {
       flex: 0 0 34px;
 
-      & > .explorer-content {
+      & > .menu-content {
         transform: translateX(-100vw);
         visibility: hidden;
       }
@@ -224,13 +224,13 @@ li:has(> .folder-outer:not(.open)) > .folder-container > svg {
     &:not(.collapsed) {
       flex: 0 0 34px;
 
-      & > .explorer-content {
+      & > .menu-content {
         transform: translateX(0);
         visibility: visible;
       }
     }
 
-    .explorer-content {
+    .menu-content {
       box-sizing: border-box;
       z-index: 100;
       position: absolute;
@@ -251,7 +251,7 @@ li:has(> .folder-outer:not(.open)) > .folder-container > svg {
       visibility: hidden;
     }
 
-    .mobile-explorer {
+    .mobile-menu {
       margin: 0;
       padding: 5px;
       z-index: 101;
