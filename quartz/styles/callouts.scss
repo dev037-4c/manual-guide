@@ -179,7 +179,7 @@
       /* #### 제목 (= h4) */
       h4 {
         font-weight: bold;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         line-height: 1.35;
         margin: 0.6rem 0 0.4rem;
         color: black;
@@ -199,6 +199,23 @@
       /* 첫 요소가 h4면 위 여백 제거 (위에서 이미 처리했지만 안전망) */
       & > :first-child {
       }
+    }
+  }
+}
+
+
+/*다크모드*/ 
+
+
+body.theme-dark {
+  .callout > .callout-content > .callout-content-inner {
+    h4 {
+      color: white; /* 제목 흰색 */
+    }
+    strong {
+      color: white; /* 강조 텍스트 흰색 */
+      background: var(--bg-dark, #333); /* 다크모드용 배경 */
+      box-shadow: inset 0 -0.2em 0 var(--bg-dark, #333);
     }
   }
 }
