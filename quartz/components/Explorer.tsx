@@ -75,7 +75,7 @@ html, body, .page, #quartz-body { overflow-x: hidden !important; }
   justify-content: flex-start;
   padding: 6px 10px;       /* 세로 padding 줄이기 */
   margin: 2px 0;
-  min-height: 10px;        /* 박스 고정 높이 (짧게) */
+  min-height: 50px;        /* 박스 고정 높이 (짧게) */
   line-height: 1.2;        /* 텍스트 줄 높이 줄이기 */
   border-radius: 6px;      /* 둥글기 조금만 */
   transition: background .15s ease, color .15s ease;
