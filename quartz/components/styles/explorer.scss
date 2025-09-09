@@ -18,7 +18,7 @@ html, body, .page, #quartz-body { overflow-x: hidden !important; }
 .sidebar.left .explorer{
   background:var(--x-bg); color:var(--x-text);
   border:1px solid var(--x-border); border-radius:18px;
-  padding:10px; box-shadow:0 8px 24px rgba(218, 49, 49, 0.06);
+  padding:10px; box-shadow:0 8px 24px rgba(0, 0, 0, 0.06);
 }
  
 /* 헤더: 카드/아이콘/토글 제거 + 제목 교체 */
