@@ -1,162 +1,229 @@
-import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
-import style from "./styles/explorer.scss"
-
-// @ts-ignore
-import script from "./scripts/explorer.inline"
-import { classNames } from "../util/lang"
-import { i18n } from "../i18n"
-import { FileTrieNode } from "../util/fileTrie"
-import OverflowListFactory from "./OverflowList"
-import { concatenateResources } from "../util/resources"
-
-type OrderEntries = "sort" | "filter" | "map"
-
-export interface Options {
-  title?: string
-  folderDefaultState: "collapsed" | "open"
-  folderClickBehavior: "collapse" | "link"
-  useSavedState: boolean
-  sortFn: (a: FileTrieNode, b: FileTrieNode) => number
-  filterFn: (node: FileTrieNode) => boolean
-  // map 단계에서 변환 결과를 넘겨주기 위함
-  mapFn: (node: FileTrieNode) => FileTrieNode
-  order: OrderEntries[]
+:root{
+  --x-row: 44px; --x-visible: 6;                    /* 보이는 줄 수 */
+  --x-bg:#fff; --x-text:#0f1116;
+  --x-border:#e7eaf2; --x-sep:#eef1f6;
+  --x-hover:#f5f7fe; --x-active:#eaf1ff; --x-accent:#2563eb;
 }
-
-const defaultOptions: Options = {
-  folderDefaultState: "collapsed",
-  folderClickBehavior: "link",
-  useSavedState: true,
-  // identity map — 들어온 노드를 그대로 반환
-  mapFn: (node) => node,
-  sortFn: (a, b) => {
-    // Sort order: folders first, then files. Sort folders and files alphabetically
-    if ((!a.isFolder && !b.isFolder) || (a.isFolder && b.isFolder)) {
-      return a.displayName.localeCompare(b.displayName, undefined, {
-        numeric: true,
-        sensitivity: "base",
-      })
-    }
-    if (!a.isFolder && b.isFolder) {
-      return 1
-    } else {
-      return -1
-    }
-  },
-  filterFn: (node) => node.slugSegment !== "tags",
-  order: ["filter", "map", "sort"],
+[data-theme="dark"]{
+  --x-bg:#0f131a; --x-text:#eef2f6;
+  --x-border:#2a3240; --x-sep:#1c2432;
+  --x-hover:#162031; --x-active:#182642; --x-accent:#60a5fa;
 }
-
-export type FolderState = {
-  path: string
-  collapsed: boolean
+ 
+/* 가로 스크롤 전역 차단 */
+html, body, .page, #quartz-body { overflow-x: hidden !important; }
+ 
+/* 패널 */
+.sidebar.left { overflow: visible !important; }
+.sidebar.left .explorer{
+  background:var(--x-bg); color:var(--x-text);
+  border:1px solid var(--x-border); border-radius:18px;
+  padding:10px; box-shadow:0 8px 24px rgba(16,24,40,.06);
 }
-
-let numExplorers = 0
-export default ((userOpts?: Partial<Options>) => {
-  const opts: Options = { ...defaultOptions, ...userOpts }
-  const { OverflowList, overflowListAfterDOMLoaded } = OverflowListFactory()
-
-  const Explorer: QuartzComponent = ({ cfg, displayClass }: QuartzComponentProps) => {
-    const id = `explorer-${numExplorers++}`
-
-    return (
-      <div
-        class={classNames(displayClass, "explorer")}
-        data-behavior={opts.folderClickBehavior}
-        data-collapsed={opts.folderDefaultState}
-        data-savestate={opts.useSavedState}
-        data-data-fns={JSON.stringify({
-          order: opts.order,
-          sortFn: opts.sortFn.toString(),
-          filterFn: opts.filterFn.toString(),
-          mapFn: opts.mapFn.toString(),
-        })}
-      >
-        <button
-          type="button"
-          class="explorer-toggle mobile-explorer hide-until-loaded"
-          data-mobile={true}
-          aria-controls={id}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="lucide-menu"
-          >
-            <line x1="4" x2="20" y1="12" y2="12" />
-            <line x1="4" x2="20" y1="6" y2="6" />
-            <line x1="4" x2="20" y1="18" y2="18" />
-          </svg>
-        </button>
-        <button
-          type="button"
-          class="title-button explorer-toggle desktop-explorer"
-          data-mobile={false}
-          aria-expanded={"true"}  // 문자열로 지정(권장)
-        >
-          <h2>{opts.title ?? i18n(cfg.locale).components.explorer.title}</h2>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="14"
-            height="14"
-            viewBox="5 8 14 8"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="fold"
-          >
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </button>
-        <div id={id} class="explorer-content" aria-expanded={"false"} role="group">
-          <OverflowList class="explorer-ul" />
-        </div>
-        <template id="template-file">
-          <li>
-            <a href="#"></a>
-          </li>
-        </template>
-        <template id="template-folder">
-          <li>
-            <div class="folder-container">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="12"
-                height="12"
-                viewBox="5 8 14 8"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="folder-icon"
-              >
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
-              <div>
-                <button class="folder-button">
-                  <span class="folder-title"></span>
-                </button>
-              </div>
-            </div>
-            <div class="folder-outer">
-              <ul class="content"></ul>
-            </div>
-          </li>
-        </template>
-      </div>
-    )
+ 
+/* 헤더: 카드/아이콘/토글 제거 + 제목 교체 */
+:root { --explorer-label: "메뉴"; }  /* ← 여기만 바꾸면 제목 변경 */
+.sidebar.left:has(.explorer) { padding-top: 0 !important; }
+.sidebar.left .explorer :where(h1,h2,h3){
+  margin:0 !important; padding:0 !important; background:transparent !important; box-shadow:none !important;
+}
+.sidebar.left .explorer .fold,
+.sidebar.left .explorer :is(.desktop-explorer,.mobile-explorer) svg,
+.sidebar.left .explorer .lucide-chevron-down { display:none !important; }
+.sidebar.left .explorer :is(.desktop-explorer,.mobile-explorer){
+  background:transparent !important; border:0 !important; padding:0 !important;
+  cursor:default !important; pointer-events:none; color:var(--x-text) !important;
+}
+.sidebar.left .explorer :is(.desktop-explorer,.mobile-explorer) h2{
+  position:relative; color:transparent !important;
+}
+.sidebar.left .explorer :is(.desktop-explorer,.mobile-explorer) h2::after{
+  content: var(--explorer-label); position:absolute; inset:0;
+  color:var(--x-text); font-weight:800; letter-spacing:-.01em;
+}
+ 
+ 
+/* 들여쓰기/마커 완전 제거 */
+.sidebar.left .explorer .explorer-content ul,
+.sidebar.left .explorer .explorer-content li{
+  list-style:none !important; padding-inline-start:0 !important; margin-inline-start:0 !important;
+}
+.sidebar.left .explorer .explorer-content li::marker{ content:"" !important; font-size:0 !important; }
+.sidebar.left .explorer .explorer-content li{ display:block; }
+ 
+/* 폴더/트리 */
+.sidebar.left .explorer .folder-container{
+  display:flex; align-items:center; gap:8px; padding:8px 10px; border-radius:12px; user-select:none;
+}
+.sidebar.left .explorer .folder-container:hover{ background:var(--x-hover); }
+.sidebar.left .explorer .folder-icon{
+  width:18px; height:18px; color:#6b7280; transition:transform .25s ease, color .15s ease; flex-shrink:0;
+}
+/* (기존 회전 로직 유지: li:has(>.folder-outer:not(.open)) ... ) */
+.sidebar.left .explorer .folder-outer{ display:grid; grid-template-rows:0fr; transition:grid-template-rows .25s ease; }
+.sidebar.left .explorer .folder-outer.open{ grid-template-rows:1fr; }
+.sidebar.left .explorer .folder-outer > ul{ margin-left:8px; padding-left:12px; border-left:1px solid var(--x-border); }
+ 
+/* 파일 링크(흐릿 제거 포함) */
+.sidebar.left .explorer a{
+  text-decoration:none !important; background:transparent !important; box-shadow:none !important;
+  border:0 !important; filter:none !important; opacity:1 !important; color:inherit !important;
+}
+.sidebar.left .explorer .explorer-content li > a {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 6px 10px;       /* 세로 padding 줄이기 */
+  margin: 2px 0;
+  min-height: 32px;        /* 박스 고정 높이 (짧게) */
+  line-height: 1.2;        /* 텍스트 줄 높이 줄이기 */
+  border-radius: 6px;      /* 둥글기 조금만 */
+  transition: background .15s ease, color .15s ease;
+}
+ 
+/* 활성화 상태 (파란박스) */
+.sidebar.left .explorer .explorer-content li > a.active {
+  background: var(--x-active);
+  color: var(--x-accent) !important;
+  border-radius: 6px;      /* 둥글둥글 → 살짝 네모 */
+  box-shadow: inset 0 0 0 2px var(--x-accent);
+  font-weight: 700;
+}
+.sidebar.left .explorer .explorer-content li > a.active::before{
+  content:none; position:absolute; left:6px; top:22%; bottom:22%; width:3px; border-radius:2px; background:var(--x-accent);
+}
+ 
+/* 모바일: 원본 드로어 토글 동작 유지(위치/transform 건드리지 않음) */
+@media (max-width: 900px){
+  .sidebar.left .explorer .explorer-content{
+    overflow-y:auto !important; overflow-x:clip !important; padding-right:12px;
   }
-
-  Explorer.css = style
-  Explorer.afterDOMLoaded = concatenateResources(script, overflowListAfterDOMLoaded)
-  return Explorer
-}) satisfies QuartzComponentConstructor
+}
+ 
+/* 슬림 스크롤바 (Explorer 전용) */
+.sidebar.left .explorer .explorer-content{
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--x-text) 30%, transparent) transparent;
+}
+.sidebar.left .explorer .explorer-content::-webkit-scrollbar{ width:10px; }
+.sidebar.left .explorer .explorer-content:hover::-webkit-scrollbar{ width:12px; }
+.sidebar.left .explorer .explorer-content::-webkit-scrollbar-track{
+  background:transparent; margin:6px 0;
+}
+.sidebar.left .explorer .explorer-content::-webkit-scrollbar-thumb{
+  border-radius:999px; border:3px solid transparent; background-clip:padding-box;
+  background-color: color-mix(in srgb, var(--x-text) 28%, transparent);
+  transition: background-color .15s ease, border-color .15s ease;
+}
+.sidebar.left .explorer .explorer-content:hover::-webkit-scrollbar-thumb{
+  background-color: color-mix(in srgb, var(--x-text) 40%, transparent);
+}
+.sidebar.left .explorer .explorer-content::-webkit-scrollbar-thumb:active{
+  background-color: color-mix(in srgb, var(--x-accent) 70%, transparent);
+}
+.sidebar.left .explorer .explorer-content::-webkit-scrollbar-corner{ background:transparent; }
+ 
+/* === FIX: 변수 통일(—exp-* -> —x-*) & 다크모드 강제 === */
+ 
+/* 0) 라벨(제목) 색이 안 바뀌던 원인 제거: exp -> x */
+.sidebar.left .explorer :is(.desktop-explorer,.mobile-explorer) h2::after{
+  color: var(--x-text) !important;   /* 이전: var(--exp-text, #0f1116) */
+}
+ 
+/* 1) 기본 색상도 변수로 강제 */
+.sidebar.left .explorer{
+  background: var(--x-bg) !important;
+  color: var(--x-text) !important;
+  border-color: var(--x-border) !important;
+}
+ 
+/* 2) hover/active도 모두 x-변수 사용 */
+.sidebar.left .explorer .folder-container:hover,
+.sidebar.left .explorer .explorer-content li > a:hover{
+  background: var(--x-hover) !important;
+}
+.sidebar.left .explorer .explorer-content li > a.active{
+  background: var(--x-active) !important;
+  color: var(--x-accent) !important; /* 이전에 고정색(#2563eb) 쓰지 않기 */
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--x-accent) 36%, transparent) !important;
+}
+.sidebar.left .explorer .explorer-content li > a.active::before{
+  background: var(--x-accent) !important;
+}
+ 
+/* 3) 다크모드 셀렉터를 폭넓게(어디에 달려 있어도 적용) */
+html[data-theme="dark"] .sidebar.left .explorer,
+body[data-theme="dark"] .sidebar.left .explorer,
+:root[data-theme="dark"] .sidebar.left .explorer{
+  background: var(--x-bg) !important;   /* #0f131a */
+  color: var(--x-text) !important;      /* #eef2f6 */
+  border-color: var(--x-border) !important; /* #2a3240 */
+  box-shadow: 0 12px 30px rgba(0,0,0,.55) !important;
+}
+html[data-theme="dark"] .sidebar.left .explorer .explorer-content,
+body[data-theme="dark"] .sidebar.left .explorer .explorer-content,
+:root[data-theme="dark"] .sidebar.left .explorer .explorer-content{
+  border-top-color: var(--x-sep) !important; /* #1c2432 */
+}
+html[data-theme="dark"] .sidebar.left .explorer .folder-container:hover,
+body[data-theme="dark"] .sidebar.left .explorer .folder-container:hover,
+:root[data-theme="dark"] .sidebar.left .explorer .folder-container:hover,
+html[data-theme="dark"] .sidebar.left .explorer .explorer-content li > a:hover,
+body[data-theme="dark"] .sidebar.left .explorer .explorer-content li > a:hover,
+:root[data-theme="dark"] .sidebar.left .explorer .explorer-content li > a:hover{
+  background: var(--x-hover) !important; /* #162031 */
+}
+html[data-theme="dark"] .sidebar.left .explorer .explorer-content li > a.active,
+body[data-theme="dark"] .sidebar.left .explorer .explorer-content li > a.active,
+:root[data-theme="dark"] .sidebar.left .explorer .explorer-content li > a.active{
+  background: var(--x-active) !important; /* #182642 */
+  color: var(--x-accent) !important;      /* #60a5fa */
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--x-accent) 40%, transparent) !important;
+}
+html[data-theme="dark"] .sidebar.left .explorer .explorer-content li > a.active::before,
+body[data-theme="dark"] .sidebar.left .explorer .explorer-content li > a.active::before,
+:root[data-theme="dark"] .sidebar.left .explorer .explorer-content li > a.active::before{
+  background: var(--x-accent) !important;
+}
+ 
+/* 4) 수평 스크롤 재차단(혹시 다시 생기면…) */
+.sidebar.left,
+.sidebar.left .explorer,
+.sidebar.left .explorer .explorer-content{
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+.sidebar.left .explorer .explorer-content::-webkit-scrollbar:horizontal{ height:0 !important; }
+ 
+/* 5) 다크 전용 스크롤바(쨍하지 않게) */
+html[data-theme="dark"] .sidebar.left .explorer .explorer-content,
+body[data-theme="dark"] .sidebar.left .explorer .explorer-content,
+:root[data-theme="dark"] .sidebar.left .explorer .explorer-content{
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--x-text) 45%, transparent) transparent;
+}
+html[data-theme="dark"] .sidebar.left .explorer .explorer-content::-webkit-scrollbar-thumb,
+body[data-theme="dark"] .sidebar.left .explorer .explorer-content::-webkit-scrollbar-thumb,
+:root[data-theme="dark"] .sidebar.left .explorer .explorer-content::-webkit-scrollbar-thumb{
+  border-radius: 999px;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  background-color: color-mix(in srgb, var(--x-text) 45%, transparent);
+}
+html[data-theme="dark"] .sidebar.left .explorer .explorer-content:hover::-webkit-scrollbar-thumb,
+body[data-theme="dark"] .sidebar.left .explorer .explorer-content:hover::-webkit-scrollbar-thumb,
+:root[data-theme="dark"] .sidebar.left .explorer .explorer-content:hover::-webkit-scrollbar-thumb{
+  background-color: color-mix(in srgb, var(--x-text) 65%, transparent);
+}
+ 
+/* 사이드바랑 본문 정렬 맞추기 */
+.sidebar.left {
+  padding-top: 24px !important;   /* 카드 위쪽 여백만큼 맞춰줌 */
+}
+ 
+.page main.content {
+  margin-top: 0 !important;       /* 불필요한 위쪽 여백 제거 */
+}
+ 
+ 
+ 
