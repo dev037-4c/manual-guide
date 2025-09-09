@@ -168,3 +168,37 @@
     font-weight: $semiBoldWeight;
   }
 }
+
+
+/*테스트*/
+
+/* --- Callout 내부 Markdown 스타일 (####, **강조**) --- */
+.callout {
+  & > .callout-content {
+    & > .callout-content-inner {
+      /* #### 제목 (= h4) */
+      h4 {
+        font-weight: $semiBoldWeight;
+        font-size: 1.05rem;
+        line-height: 1.35;
+        margin: 0.6rem 0 0.4rem;
+        color: var(--color);
+      }
+
+      /* **강조** */
+      strong {
+        font-weight: 700;
+        color: var(--color);
+        background: var(--bg);
+        padding: 0 0.25em;
+        border-radius: 0.25rem;
+        /* 강조 가독성 살짝 업 */
+        box-shadow: inset 0 -0.2em 0 var(--bg);
+      }
+
+      /* 첫 요소가 h4면 위 여백 제거 (위에서 이미 처리했지만 안전망) */
+      & > :first-child {
+      }
+    }
+  }
+}
