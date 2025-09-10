@@ -15,7 +15,7 @@ export default ((opts?: Options) => {
       <footer class={`${displayClass ?? ""}`}>
         <p>
           
-          <a href="https://lx2.kr/xmg/index.jsp">Quartz v{version}</a> © {year}
+          <a href="https://lx2.kr/xmg/index.jsp">LX2{version}</a> © {year}
         </p>
         <ul>
           {Object.entries(links).map(([text, link]) => (
