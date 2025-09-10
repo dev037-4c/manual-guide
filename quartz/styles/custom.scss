@@ -90,3 +90,185 @@ code, pre, kbd, .pretty-code, [data-language] {
 .explorer a[href*="/_etc/"] {
   display: none !important;
 }
+
+
+
+
+
+/*카드메뉴*/
+
+/* ==== Neo Icon Cards (contrast tuned + blue hover) ==== */
+:root{
+  --neo-bg:#fff; --neo-text:#0e1116; --neo-muted:#5f6b7a;
+  --neo-border:#e6e8ee; --neo-ring:rgba(59,130,246,.12);
+  --neo-shadow:0 8px 24px rgba(0,0,0,.06);
+  --neo-shadow-hover:0 14px 42px rgba(0,0,0,.12);
+  --neo-r:20px; --neo-gap:18px;
+  --neo-icon-bg:linear-gradient(180deg,#f7f9ff,#f2f6ff);
+  --neo-icon-stroke:#375ef6;
+  --neo-blue:#3b82f6;            /* 링크 hover 파란색(Light) */
+}
+[data-theme="dark"]{
+  --neo-bg:#0f131a;              /* 더 어두운 배경으로 대비↑ */
+  --neo-text:#f4f6fb;            /* 본문 텍스트 밝기↑ */
+  --neo-muted:#c0c7d1;           /* 부제목 채도↑ */
+  --neo-border:#2a3240;          /* 경계 명확히 */
+  --neo-ring:rgba(96,165,250,.18);/* 파랑 링 투명도↑ */
+  --neo-shadow:0 12px 30px rgba(0,0,0,.55);
+  --neo-shadow-hover:0 18px 50px rgba(0,0,0,.65);
+  --neo-icon-bg:linear-gradient(180deg,#1a2130,#121722);
+  --neo-icon-stroke:#9ec3ff;      /* 아이콘 선명도↑ */
+  --neo-blue:#60a5fa;             /* 링크 hover 파란색(Dark) */
+}
+ 
+/* 컨테이너 */
+.neo-cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+  gap:26px;
+}
+ 
+/* 카드 */
+.neo-card{
+  background:var(--neo-bg); color:var(--neo-text);
+  border:1px solid var(--neo-border);
+  border-radius:var(--neo-r);
+  box-shadow:var(--neo-shadow);
+  padding:22px;
+  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  position:relative; isolation:isolate; overflow:hidden;
+}
+.neo-card::after{
+  content:none; position:absolute; inset:-1px; border-radius:inherit;
+  pointer-events:none; box-shadow:0 0 0 0 rgba(0,0,0,0);
+  transition:box-shadow .2s ease;
+}
+.neo-card:hover{
+  transform:translateY(-3px);
+  box-shadow:var(--neo-shadow-hover);
+  border-color:transparent;
+}
+.neo-card:hover::after{
+  box-shadow:0 0 0 6px var(--neo-ring) inset;
+}
+ 
+/* 헤더 */
+.neo-head{ display:flex; align-items:center; gap:14px; margin-bottom:10px; }
+.neo-icon{
+  width:56px; height:56px; border-radius:14px;
+  display:flex; align-items:center; justify-content:center;
+  background:var(--neo-icon-bg); border:1px solid var(--neo-border);
+}
+.neo-icon svg{ width:32px; height:32px; stroke:var(--neo-icon-stroke); fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+ 
+/* 타이틀/부제 */
+.neo-title{ margin:0; font-weight:800; letter-spacing:-.01em; font-size:1.2rem; line-height:1.25; }
+.neo-title a{ color:inherit; text-decoration:none; transition:color .15s ease; }
+.neo-title a:hover,
+.neo-title a:focus-visible{ color:var(--neo-blue); text-decoration:underline; outline:none; }
+.neo-sub{ margin:.15rem 0 0; color:var(--neo-muted); font-weight:600; font-size:.98rem; }
+ 
+/* 링크 리스트 */
+.neo-links{ margin:12px 0 0; padding:0; list-style:none; display:grid; gap:8px; }
+.neo-links.two-col{ grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px 14px; }
+.neo-links a{
+  display:inline-flex; align-items:center; gap:8px;
+  color:inherit; text-decoration:none; font-weight:700; font-size:.98rem;
+  transition:color .15s ease, text-decoration-color .15s ease;
+}
+.neo-links a::after{ content:"→"; opacity:0.65; transition:transform .15s ease, opacity 0.15s ease, color .15s ease; }
+.neo-links a:hover,
+.neo-links a:focus-visible{
+  color:var(--neo-blue);
+  text-decoration:underline;
+  outline:none;
+}
+.neo-links a:hover::after,
+.neo-links a:focus-visible::after{
+  transform:translateX(2px);
+  opacity:0.95;
+  color:var(--neo-blue);
+}
+ 
+/* 악센트(선택) */
+.neo-card.accent-blue   { --neo-icon-bg:linear-gradient(180deg,#eef3ff,#e8efff); --neo-icon-stroke:#375ef6; }
+.neo-card.accent-emerald{ --neo-icon-bg:linear-gradient(180deg,#e9fff6,#e6fbef); --neo-icon-stroke:#0ea569; }
+.neo-card.accent-amber  { --neo-icon-bg:linear-gradient(180deg,#fff7e7,#fff1db); --neo-icon-stroke:#d97706; }
+.neo-card.accent-rose   { --neo-icon-bg:linear-gradient(180deg,#ffe8ee,#ffe9f2); --neo-icon-stroke:#e11d48; }
+ 
+/* 다크에서 악센트 대비 조금 더 */
+[data-theme="dark"] .neo-card.accent-blue   { --neo-icon-bg:linear-gradient(180deg,#1c2740,#141c2e); --neo-icon-stroke:#9ec3ff; }
+[data-theme="dark"] .neo-card.accent-emerald{ --neo-icon-bg:linear-gradient(180deg,#0f2a22,#0b1f19); --neo-icon-stroke:#53d39e; }
+[data-theme="dark"] .neo-card.accent-amber  { --neo-icon-bg:linear-gradient(180deg,#2a2212,#1e190f); --neo-icon-stroke:#f2b35c; }
+[data-theme="dark"] .neo-card.accent-rose   { --neo-icon-bg:linear-gradient(180deg,#2a1620,#1b0f15); --neo-icon-stroke:#ff86a3; }
+ 
+/* 모바일 */
+@media (max-width:900px){
+  .neo-cards{ gap:20px; }
+  .neo-card{ padding:18px; }
+  .neo-icon{ width:52px; height:52px; }
+}
+ 
+/* 안전장치: Quartz 기본 규칙과 충돌 방지 */
+.neo-cards *{ box-sizing:border-box; }
+ 
+ 
+/* === Quartz 기본 링크/뱃지 스타일 리셋 (카드 내부 전용) === */
+.neo-cards a,
+.neo-cards a.internal-link,
+.neo-cards a.external-link {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  filter: none !important;
+  opacity: 1 !important;
+  color: var(--neo-text) !important; /* 기본 글자색 강제 */
+}
+ 
+/* Quartz가 붙이는 링크 꼬리표/아이콘 제거 */
+.neo-cards a.internal-link::after,
+.neo-cards a.external-link::after {
+  content: none !important;
+}
+ 
+/* 제목/메뉴 링크: 호버 시 파란색으로 */
+.neo-cards .neo-title a,
+.neo-cards .neo-links a { transition: color .15s ease, text-decoration-color .15s ease; }
+ 
+.neo-cards .neo-title a:hover,
+.neo-cards .neo-title a:focus-visible,
+.neo-cards .neo-links a:hover,
+.neo-cards .neo-links a:focus-visible {
+  color: var(--neo-blue) !important;
+  text-decoration: underline;
+  outline: none;
+}
+ 
+/* 다크모드에서 부제/보조 텍스트 가독성 ↑ */
+[data-theme="dark"] .neo-card .neo-sub { color: #d5dbe6; }     /* 부제 */
+[data-theme="dark"] .neo-card { border-color: #2c3646; }       /* 카드 테두리 선명 */
+[data-theme="dark"] .neo-icon { border-color: #2c3646; }       /* 아이콘 박스 테두리 */
+[data-theme="dark"] .neo-icon svg { stroke: var(--neo-icon-stroke); }
+ 
+/* 리스트 화살표도 파란색으로 동기화 */
+.neo-cards .neo-links a::after { content: ""; opacity: 0.75; transition: transform .15s ease, opacity 0.15s ease, color .15s ease; }
+.neo-cards .neo-links a:hover::after,
+.neo-cards .neo-links a:focus-visible::after { transform: translateX(2px); opacity: 0.95; color: var(--neo-blue); }
+ 
+/* (옵션) 카드 안의 모든 링크는 항상 굵게 */
+.neo-cards .neo-links a { font-weight: 700; }
+.neo-cards .neo-title a { font-weight: 800; }
+ 
+/* 일부 테마에서 앵커가 블록/뱃지로 강제되는 경우 대비 */
+.neo-cards .neo-links a, .neo-cards .neo-title a { display: inline; }
+ 
+ 
+/* 주문결제 카드만 크기 맞춤 */
+.neo-card.small {
+  min-width: 340px;   /* 다른 카드들과 최소 크기 맞추기 */
+  max-width: 400px;
+  height: 250px;   /* 필요 시 최대 폭 제한 */
+}
+ 
