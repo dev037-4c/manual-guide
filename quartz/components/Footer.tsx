@@ -18,11 +18,7 @@ export default ((opts?: Options) => {
           <a href="https://lx2.kr/xmg/index.jsp">LX2</a>
         </p>
         <ul>
-          {Object.entries(links).map(([text, link]) => (
-            <li>
-              <a href={link}>{text}</a>
-            </li>
-          ))}
+          
         </ul>
       </footer>
     )
