@@ -6,6 +6,7 @@ import { i18n } from "../i18n"
 interface Options {
   links: Record<string, string>
 }
+
  
 export default ((opts?: Options) => {
   const Footer: QuartzComponent = ({ displayClass, cfg }: QuartzComponentProps) => {
