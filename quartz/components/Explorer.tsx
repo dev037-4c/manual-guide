@@ -1,167 +1,269 @@
-import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
-import style from "./styles/explorer.scss"
- 
-// @ts-ignore
-import script from "./scripts/explorer.inline"
-import { classNames } from "../util/lang"
-import { i18n } from "../i18n"
-import { FileTrieNode } from "../util/fileTrie"
-import OverflowListFactory from "./OverflowList"
-import { concatenateResources } from "../util/resources"
- 
-type OrderEntries = "sort" | "filter" | "map"
- 
-export interface Options {
-  title?: string
-  folderDefaultState: "collapsed" | "open"
-  folderClickBehavior: "collapse" | "link"
-  useSavedState: boolean
-  sortFn: (a: FileTrieNode, b: FileTrieNode) => number
-  filterFn: (node: FileTrieNode) => boolean
-  mapFn: (node: FileTrieNode) => void
-  order: OrderEntries[]
-}
- 
-const defaultOptions: Options = {
-  folderDefaultState: "collapsed",
-  folderClickBehavior: "link",
-  useSavedState: true,
-  mapFn: (node) => {
-    return node
-  },
-  sortFn: (a, b) => {
-    // Sort order: folders first, then files. Sort folders and files alphabeticall
-    if ((!a.isFolder && !b.isFolder) || (a.isFolder && b.isFolder)) {
-      // numeric: true: Whether numeric collation should be used, such that "1" < "2" < "10"
-      // sensitivity: "base": Only strings that differ in base letters compare as unequal. Examples: a ≠ b, a = á, a = A
-      return a.displayName.localeCompare(b.displayName, undefined, {
-        numeric: true,
-        sensitivity: "base",
-      })
+@media all and ($mobile) {
+  .page > #quartz-body {
+    // Shift page position when toggling Explorer on mobile.
+    & > :not(.sidebar.left:has(.explorer)) {
+      transition: transform 300ms ease-in-out;
+    }
+    &.lock-scroll > :not(.sidebar.left:has(.explorer)) {
+      transform: translateX(100dvw);
+      transition: transform 300ms ease-in-out;
     }
  
-    if (!a.isFolder && b.isFolder) {
-      return 1
-    } else {
-      return -1
+    // Sticky top bar (stays in place when scrolling down on mobile).
+    .sidebar.left:has(.explorer) {
+      box-sizing: border-box;
+      position: sticky;
+      background-color: var(--light);
+      padding: 1rem 0 1rem 0;
+      margin: 0;
     }
-  },
-  filterFn: (node) => node.slugSegment !== "tags",
-  order: ["filter", "map", "sort"],
+ 
+    .hide-until-loaded ~ .explorer-content {
+      display: none;
+    }
+  }
 }
  
-export type FolderState = {
-  path: string
-  collapsed: boolean
-}
+.explorer {
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
  
-let numExplorers = 0
-export default ((userOpts?: Partial<Options>) => {
-  const opts: Options = { ...defaultOptions, ...userOpts }
-  const { OverflowList, overflowListAfterDOMLoaded } = OverflowListFactory()
- 
-  const Explorer: QuartzComponent = ({ cfg, displayClass }: QuartzComponentProps) => {
-    const id = `explorer-${numExplorers++}`
- 
-    return (
-      <div
-        class={classNames(displayClass, "explorer")}
-        data-behavior={opts.folderClickBehavior}
-        data-collapsed={opts.folderDefaultState}
-        data-savestate={opts.useSavedState}
-        data-data-fns={JSON.stringify({
-          order: opts.order,
-          sortFn: opts.sortFn.toString(),
-          filterFn: opts.filterFn.toString(),
-          mapFn: opts.mapFn.toString(),
-        })}
-      >
-        <button
-          type="button"
-          class="explorer-toggle mobile-explorer hide-until-loaded"
-          data-mobile={true}
-          aria-controls={id}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="lucide-menu"
-          >
-            <line x1="4" x2="20" y1="12" y2="12" />
-            <line x1="4" x2="20" y1="6" y2="6" />
-            <line x1="4" x2="20" y1="18" y2="18" />
-          </svg>
-        </button>
-        <button
-          type="button"
-          class="title-button explorer-toggle desktop-explorer"
-          data-mobile={false}
-          aria-expanded={true}
-        >
-          <h2>{opts.title ?? i18n(cfg.locale).components.explorer.title}</h2>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="14"
-            height="14"
-            viewBox="5 8 14 8"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="fold"
-          >
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </button>
-        <div id={id} class="explorer-content" aria-expanded={false} role="group">
-          <OverflowList class="explorer-ul" />
-        </div>
-        <template id="template-file">
-          <li>
-            <a href="#"></a>
-          </li>
-        </template>
-        <template id="template-folder">
-          <li>
-            <div class="folder-container">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="12"
-                height="12"
-                viewBox="5 8 14 8"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="folder-icon"
-              >
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
-              <div>
-                <button class="folder-button">
-                  <span class="folder-title"></span>
-                </button>
-              </div>
-            </div>
-            <div class="folder-outer">
-              <ul class="content"></ul>
-            </div>
-          </li>
-        </template>
-      </div>
-    )
+  min-height: 1.2rem;
+  flex: 0 1 auto;
+  &.collapsed {
+    flex: 0 1 1.2rem;
+    & .fold {
+      transform: rotateZ(-90deg);
+    }
   }
  
-  Explorer.css = style
-  Explorer.afterDOMLoaded = concatenateResources(script, overflowListAfterDOMLoaded)
-  return Explorer
-}) satisfies QuartzComponentConstructor
+  & .fold {
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease;
+    opacity: 0.8;
+  }
  
+  @media all and ($mobile) {
+    order: -1;
+    height: initial;
+    overflow: hidden;
+    flex-shrink: 0;
+    align-self: flex-start;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+ 
+  button.mobile-explorer {
+    display: none;
+  }
+ 
+  button.desktop-explorer {
+    display: flex;
+  }
+ 
+  @media all and ($mobile) {
+    button.mobile-explorer {
+      display: flex;
+    }
+ 
+    button.desktop-explorer {
+      display: none;
+    }
+  }
+ 
+  &.desktop-only {
+    @media all and not ($mobile) {
+      display: flex;
+    }
+  }
+ 
+  svg {
+    pointer-events: all;
+    transition: transform 0.35s ease;
+ 
+    & > polyline {
+      pointer-events: none;
+    }
+  }
+}
+ 
+button.mobile-explorer,
+button.desktop-explorer {
+  background-color: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  padding: 0;
+  color: var(--dark);
+  display: flex;
+  align-items: center;
+ 
+  & h2 {
+    font-size: 1rem;
+    display: inline-block;
+    margin: 0;
+  }
+}
+ 
+.explorer-content {
+  list-style: none;
+  overflow: hidden;
+  overflow-y: auto;
+  margin-top: 0.5rem;
+ 
+  & ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overscroll-behavior: contain;
+ 
+    & li > a {
+      color: var(--dark);
+      opacity: 0.75;
+      pointer-events: all;
+ 
+      &.active {
+        opacity: 1;
+        color: var(--tertiary);
+      }
+    }
+  }
+ 
+  .folder-outer {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s ease-in-out;
+  }
+ 
+  .folder-outer.open {
+    grid-template-rows: 1fr;
+  }
+ 
+  .folder-outer > ul {
+    overflow: hidden;
+    margin-left: 6px;
+    padding-left: 0.8rem;
+    border-left: 1px solid var(--lightgray);
+  }
+}
+ 
+.folder-container {
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  user-select: none;
+ 
+  & div > a {
+    color: var(--secondary);
+    font-family: var(--headerFont);
+    font-size: 0.95rem;
+    font-weight: $semiBoldWeight;
+    line-height: 1.5rem;
+    display: inline-block;
+  }
+ 
+  & div > a:hover {
+    color: var(--tertiary);
+  }
+ 
+  & div > button {
+    color: var(--dark);
+    background-color: transparent;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    padding-left: 0;
+    padding-right: 0;
+    display: flex;
+    align-items: center;
+    font-family: var(--headerFont);
+ 
+    & span {
+      font-size: 0.95rem;
+      display: inline-block;
+      color: var(--secondary);
+      font-weight: $semiBoldWeight;
+      margin: 0;
+      line-height: 1.5rem;
+      pointer-events: none;
+    }
+  }
+}
+ 
+.folder-icon {
+  margin-right: 5px;
+  color: var(--secondary);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  backface-visibility: visible;
+  flex-shrink: 0;
+}
+ 
+li:has(> .folder-outer:not(.open)) > .folder-container > svg {
+  transform: rotate(-90deg);
+}
+ 
+.folder-icon:hover {
+  color: var(--tertiary);
+}
+ 
+.explorer {
+  @media all and ($mobile) {
+    &.collapsed {
+      flex: 0 0 34px;
+ 
+      & > .explorer-content {
+        transform: translateX(-100vw);
+        visibility: hidden;
+      }
+    }
+ 
+    &:not(.collapsed) {
+      flex: 0 0 34px;
+ 
+      & > .explorer-content {
+        transform: translateX(0);
+        visibility: visible;
+      }
+    }
+ 
+    .explorer-content {
+      box-sizing: border-box;
+      z-index: 100;
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin-top: 0;
+      background-color: var(--light);
+      max-width: 100vw;
+      width: 100vw;
+      transform: translateX(-100vw);
+      transition:
+        transform 200ms ease,
+        visibility 200ms ease;
+      overflow: hidden;
+      padding: 4rem 0 2rem 0;
+      height: 100dvh;
+      max-height: 100dvh;
+      visibility: hidden;
+    }
+ 
+    .mobile-explorer {
+      margin: 0;
+      padding: 5px;
+      z-index: 101;
+ 
+      .lucide-menu {
+        stroke: var(--darkgray);
+      }
+    }
+  }
+}
+ 
+.mobile-no-scroll {
+  @media all and ($mobile) {
+    overscroll-behavior: none;
+  }
+}
  
