@@ -10,7 +10,7 @@ cssclass: lx2-hero-page
 <div class="lx2-hero__content">
 <h1 class="lx2-hero__title" style="color:#fff !important;-webkit-text-fill-color:#fff !important">통합학습관리시스템 <span class="lx2-title-accent" style="color:#fff !important;-webkit-text-fill-color:#fff !important">LX2</span>  
 </h1>
-<p class="lx2-hero__desc">수많은 기관에 적용되어 운영중인 가장 안정적인 통합 교육시스템</p>
+<p class="lx2-hero__desc" style="color:#fff !important;-webkit-text-fill-color:#fff !imoportant">수많은 기관에 적용되어 운영중인 가장 안정적인<br> 통합 교육시스템</p>
 <a class="lx2-hero__cta" href="https://lx2.kr/xmg/">운영페이지로 이동</a>
 </div>
 <div class="lx2-hero__cards">
