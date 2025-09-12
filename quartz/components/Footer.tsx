@@ -17,7 +17,7 @@ export default ((opts?: Options) => {
         <p>
  
           <a href="https://lx2.kr/xmg/">
-            <img src="/_etc/lx2.png" alt="LX2 로고" height="30" />
+            <img src="/_etc/lx2_logo.png" alt="LX2 로고" height="30" />
           </a>
         </p>
         <ul>
