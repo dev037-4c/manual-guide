@@ -14,23 +14,23 @@ cssclass: lx2-hero-page
 <a class="lx2-hero__cta" href="https://lx2.kr/xmg/">운영페이지로 이동</a>
 </div>
 <div class="lx2-hero__cards">
-<a class="lx2-card edu" href="https://www.4csoft.com/">
+<a class="lx2-card edu" href="/lx2/education">
 <span class="lx2-card__icon" aria-hidden="true">
 <svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M8 12h8M12 8v8"/></svg>
 </span>
-<span class="lx2-card__text"><b>홈페이지</b></span>
+<span class="lx2-card__text"><b>최적의 학습 경험</b></span>
 </a>
-<a class="lx2-card tech" href="https://lx2.kr/common/greeting.do">
+<a class="lx2-card tech" href="/lx2/technology">
 <span class="lx2-card__icon" aria-hidden="true">
 <svg viewBox="0 0 24 24"><path d="M2 8a20 20 0 0 1 20 0"/><path d="M5 12a14 14 0 0 1 14 0"/><path d="M8.5 16a8 8 0 0 1 7 0"/><circle cx="12" cy="19" r="1.6"/></svg>
 </span>
-<span class="lx2-card__text"><b>체험하기</b></span>
+<span class="lx2-card__text"><b>검증된 기술</b></span>
 </a>
-<a class="lx2-card eff" href="https://www.instagram.com/4csoft_lx2/">
+<a class="lx2-card eff" href="/lx2/efficiency">
 <span class="lx2-card__icon" aria-hidden="true">
 <svg viewBox="0 0 24 24"><path d="M4 6l2.5 12L9 6l2.5 12L14 6l2.5 12L20 6"/><path d="M3 9h18M3 13h18"/></svg>
 </span>
-<span class="lx2-card__text"><b>인스타그램</b></span>
+<span class="lx2-card__text"><b>압도적 가성비</b></span>
 </a>
 <a class="lx2-card sec" href="/lx2/security">
 <span class="lx2-card__icon" aria-hidden="true">
