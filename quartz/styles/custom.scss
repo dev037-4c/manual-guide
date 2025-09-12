@@ -701,3 +701,17 @@ code, pre, kbd, .pretty-code, [data-language] {
  
 /* (옵션) 카드 그리드가 폭을 꽉 채우게 미세 조정 */
 .lx2-hero__cards{ gap: clamp(10px, 1.8vw, 16px); min-width: 0; }
+
+
+
+
+
+
+
+
+/* 모든 페이지에서 ContentMeta 숨김 */
+.page .content-meta {
+  display: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
