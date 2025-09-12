@@ -13,3 +13,12 @@ footer {
     margin-top: -1rem;
   }
 }
+
+footer img {
+  transform: none !important;
+  filter: none !important;
+  opacity: 1 !important;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
