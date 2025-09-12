@@ -748,4 +748,11 @@ code, pre, kbd, .pretty-code, [data-language] {
     display: none !important;
   }
 }
- 
+
+footer img {
+  transform: none !important;
+  filter: none !important;
+  opacity: 1 !important;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
