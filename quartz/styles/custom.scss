@@ -714,3 +714,38 @@ code, pre, kbd, .pretty-code, [data-language] {
   margin: 0 !important;
   padding: 0 !important;
 }
+
+
+
+/* ===== Explorer: _etc 폴더/파일 전부 숨김 ===== */
+.sidebar.left .explorer {
+  /* 1) 폴더 자체(행) 숨김 + 공간까지 제거 */
+  li:has(> .folder-container[data-folderpath^="_etc"]),
+  li:has(> .folder-container[data-folderpath*="/_etc"]) {
+    display: none !important;
+  }
+  /* 폴더 컨테이너가 남더라도 바로 접힘 */
+  .folder-container[data-folderpath^="_etc"],
+  .folder-container[data-folderpath*="/_etc"] {
+    display: none !important;
+  }
+  /* 폴더 내용 블록(형제)도 제거 */
+  .folder-container[data-folderpath^="_etc"] + .folder-outer,
+  .folder-container[data-folderpath*="/_etc"] + .folder-outer {
+    display: none !important;
+  }
+ 
+  /* 2) 파일 링크가 _etc 경로를 가리키면 항목(li)ごと 제거 */
+  li:has(> a[data-for^="_etc/"]),
+  li:has(> a[href^="../_etc/"]),
+  li:has(> a[href*="/_etc/"]) {
+    display: none !important;
+  }
+  /* 앵커 자체도 보이지 않게(혹시 li:has 미지원 브라우저 대비) */
+  a[data-for^="_etc/"],
+  a[href^="../_etc/"],
+  a[href*="/_etc/"] {
+    display: none !important;
+  }
+}
+ 
