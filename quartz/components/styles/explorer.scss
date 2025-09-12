@@ -226,3 +226,12 @@ body[data-theme="dark"] .sidebar.left .explorer .explorer-content:hover::-webkit
 .page main.content {
   margin-top: 24px !important;       /* 불필요한 위쪽 여백 제거 */
 }
+
+.sidebar.left .explorer .folder-outer{
+  display:grid; grid-template-rows:0fr; overflow:hidden; /* 접힘 상태에서 밖으로 안 새게 */
+}
+.sidebar.left .explorer .folder-outer.open{ grid-template-rows:1fr; } /* 펼침 */
+.sidebar.left .explorer .folder-outer > ul{
+  margin-block: 0;            /* ← 기본 ul 상하 1em 마진 제거(병합 차단 핵심) */
+  min-height: 0;              /* 0fr 계산 시 내부 높이 0 허용 */
+}
