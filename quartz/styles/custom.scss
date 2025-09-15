@@ -673,8 +673,9 @@ code, pre, kbd, .pretty-code, [data-language] {
   --timing: cubic-bezier(.25,.8,.25,1);
  
   position: relative;
-  max-width: 1080px;
+  max-width: 850px;
   margin: 24px auto;
+  height: auto;
   border-radius: 14px;
   box-shadow: 0 6px 24px rgba(0,0,0,.10);
   isolation: isolate;
@@ -685,9 +686,9 @@ code, pre, kbd, .pretty-code, [data-language] {
 .obs-slider > input[type="radio"]{ position:absolute; opacity:0; pointer-events:none; }
  
 /* 뷰포트/트랙 */
-.obs-slider .viewport{ position:relative; height: var(--h); overflow:hidden; }
+.obs-slider .viewport{ position:relative; height: auto; overflow:hidden; }
 .obs-slider .track{
-  display:flex; gap:0; height:100%;
+  display:flex; gap:0; height:auto;
   transform: translate3d(0,0,0);
   transition: transform var(--dur) var(--timing);
   will-change: transform;
@@ -697,12 +698,12 @@ code, pre, kbd, .pretty-code, [data-language] {
 /* 패널: 정확히 100% 폭 */
 .obs-slider .panel{
   flex: 0 0 100%;
-  height: 100%;
+  height: auto;
   display:grid; place-items:center;
   background:#f6f7f9;
   margin:0;           /* figure 기본 여백 제거 */
 }
-.obs-slider .panel img{ width:100%; height:100%; object-fit:cover; display:block; } /* 하단 공백 제거 */
+.obs-slider .panel img{ width:100%; height:100%; object-fit:contain; display:block; } /* 하단 공백 제거 */
  
 /* 네비게이션 버튼 (흰 원 + 검정 >, 호버 반전) — 자리 유지, 투명도만 토글 */
 .obs-slider .nav{
