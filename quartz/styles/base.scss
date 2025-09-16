@@ -1,16 +1,34 @@
 @use "sass:map";
-
+ 
 @use "./variables.scss" as *;
 @use "./syntax.scss";
 @use "./callouts.scss";
 
+ /* 1. S-Core Dream 폰트 정의 */
+@font-face { font-family: "S-CoreDream"; font-weight: 100; src: url("./Fonts/S-CoreDream-1Thin.woff") format("woff"); }
+@font-face { font-family: "S-CoreDream"; font-weight: 200; src: url("./Fonts/S-CoreDream-2ExtraLight.woff") format("woff"); }
+@font-face { font-family: "S-CoreDream"; font-weight: 300; src: url("./Fonts/S-CoreDream-3Light.woff") format("woff"); }
+@font-face { font-family: "S-CoreDream"; font-weight: 400; src: url("./Fonts/S-CoreDream-4Regular.woff") format("woff"); }
+@font-face { font-family: "S-CoreDream"; font-weight: 500; src: url("./Fonts/S-CoreDream-5Medium.woff") format("woff"); }
+@font-face { font-family: "S-CoreDream"; font-weight: 600; src: url("./Fonts/S-CoreDream-6SemiBold.woff") format("woff"); }
+@font-face { font-family: "S-CoreDream"; font-weight: 700; src: url("./Fonts/S-CoreDream-7Bold.woff") format("woff"); }
+@font-face { font-family: "S-CoreDream"; font-weight: 800; src: url("./Fonts/S-CoreDream-8ExtraBold.woff") format("woff"); }
+@font-face { font-family: "S-CoreDream"; font-weight: 900; src: url("./Fonts/S-CoreDream-9Black.woff") format("woff"); }
+
+
+:root {
+  --bodyFont: "S-CoreDream", sans-serif !important;
+  --headerFont: "S-CoreDream", sans-serif !important;
+  --codeFont: "S-CoreDream", monospace !important;
+}
+/*. */
 html {
   scroll-behavior: smooth;
   text-size-adjust: none;
   overflow-x: hidden;
   width: 100vw;
 }
-
+ 
 body {
   margin: 0;
   box-sizing: border-box;
@@ -18,7 +36,7 @@ body {
   font-family: var(--bodyFont);
   color: var(--darkgray);
 }
-
+ 
 .text-highlight {
   background-color: var(--textHighlight);
   padding: 0 0.1rem;
@@ -28,7 +46,7 @@ body {
   background: color-mix(in srgb, var(--tertiary) 60%, rgba(255, 255, 255, 0));
   color: var(--darkgray);
 }
-
+ 
 p,
 ul,
 text,
@@ -44,7 +62,7 @@ ul,
   fill: var(--darkgray);
   hyphens: auto;
 }
-
+ 
 p,
 ul,
 text,
@@ -57,13 +75,13 @@ ul,
   overflow-wrap: anywhere;
   /* tr and td removed from list of selectors for overflow-wrap, allowing them to use default 'normal' property value */
 }
-
+ 
 .math {
   &.math-display {
     text-align: center;
   }
 }
-
+ 
 article {
   > mjx-container.MathJax,
   blockquote > div > mjx-container.MathJax {
@@ -78,28 +96,28 @@ article {
     margin-bottom: 1rem;
   }
 }
-
+ 
 strong {
   font-weight: $semiBoldWeight;
 }
-
+ 
 a {
   font-weight: $semiBoldWeight;
   text-decoration: none;
   transition: color 0.2s ease;
   color: var(--secondary);
-
+ 
   &:hover {
     color: var(--tertiary);
   }
-
+ 
   &.internal {
     text-decoration: none;
     background-color: var(--highlight);
     padding: 0 0.1rem;
     border-radius: 5px;
     line-height: 1.4rem;
-
+ 
     &.broken {
       color: var(--secondary);
       opacity: 0.5;
@@ -108,7 +126,7 @@ a {
         opacity: 0.8;
       }
     }
-
+ 
     &:has(> img) {
       background-color: transparent;
       border-radius: 0;
@@ -120,21 +138,21 @@ a {
       }
     }
   }
-
+ 
   &.external .external-icon {
     height: 1ex;
     margin: 0 0.15em;
-
+ 
     > path {
       fill: var(--dark);
     }
   }
 }
-
+ 
 .flex-component {
   display: flex;
 }
-
+ 
 .desktop-only {
   display: initial;
   &.flex-component {
@@ -147,7 +165,7 @@ a {
     display: none;
   }
 }
-
+ 
 .mobile-only {
   display: none;
   &.flex-component {
@@ -160,7 +178,7 @@ a {
     display: initial;
   }
 }
-
+ 
 .page {
   max-width: calc(#{map.get($breakpoints, desktop)} + 300px);
   margin: 0 auto;
@@ -168,28 +186,28 @@ a {
     & > h1 {
       font-size: 2rem;
     }
-
+ 
     & li:has(> input[type="checkbox"]) {
       list-style-type: none;
       padding-left: 0;
     }
-
+ 
     & li:has(> input[type="checkbox"]:checked) {
       text-decoration: line-through;
       text-decoration-color: var(--gray);
       color: var(--gray);
     }
-
+ 
     & li > * {
       margin-top: 0;
       margin-bottom: 0;
     }
-
+ 
     p > strong {
       color: var(--dark);
     }
   }
-
+ 
   & > #quartz-body {
     display: grid;
     grid-template-columns: #{map.get($desktopGrid, templateColumns)};
@@ -197,7 +215,7 @@ a {
     column-gap: #{map.get($desktopGrid, columnGap)};
     row-gap: #{map.get($desktopGrid, rowGap)};
     grid-template-areas: #{map.get($desktopGrid, templateAreas)};
-
+ 
     @media all and ($tablet) {
       grid-template-columns: #{map.get($tabletGrid, templateColumns)};
       grid-template-rows: #{map.get($tabletGrid, templateRows)};
@@ -212,14 +230,14 @@ a {
       row-gap: #{map.get($mobileGrid, rowGap)};
       grid-template-areas: #{map.get($mobileGrid, templateAreas)};
     }
-
+ 
     @media all and not ($desktop) {
       padding: 0 1rem;
     }
     @media all and ($mobile) {
       margin: 0 auto;
     }
-
+ 
     & .sidebar {
       gap: 2rem;
       top: 0;
@@ -229,7 +247,7 @@ a {
       height: 100vh;
       position: sticky;
     }
-
+ 
     & .sidebar.left {
       z-index: 1;
       grid-area: grid-sidebar-left;
@@ -245,7 +263,7 @@ a {
         padding-top: 2rem;
       }
     }
-
+ 
     & .sidebar.right {
       grid-area: grid-sidebar-right;
       margin-right: 0;
@@ -273,7 +291,7 @@ a {
     & .page-footer {
       margin-top: 1rem;
     }
-
+ 
     & .page-header {
       grid-area: grid-header;
       margin: $topSpacing 0 0 0;
@@ -282,15 +300,15 @@ a {
         padding: 0;
       }
     }
-
+ 
     & .center > article {
       grid-area: grid-center;
     }
-
+ 
     & footer {
       grid-area: grid-footer;
     }
-
+ 
     & .center,
     & footer {
       max-width: 100%;
@@ -310,12 +328,12 @@ a {
     }
   }
 }
-
+ 
 .footnotes {
   margin-top: 2rem;
   border-top: 1px solid var(--lightgray);
 }
-
+ 
 input[type="checkbox"] {
   transform: translateY(2px);
   color: var(--secondary);
@@ -328,11 +346,11 @@ input[type="checkbox"] {
   appearance: none;
   width: 16px;
   height: 16px;
-
+ 
   &:checked {
     border-color: var(--secondary);
     background-color: var(--secondary);
-
+ 
     &::after {
       content: "";
       position: absolute;
@@ -347,14 +365,14 @@ input[type="checkbox"] {
     }
   }
 }
-
+ 
 blockquote {
   margin: 1rem 0;
   border-left: 3px solid var(--secondary);
   padding-left: 1rem;
   transition: border-color 0.2s ease;
 }
-
+ 
 h1,
 h2,
 h3,
@@ -366,13 +384,13 @@ thead {
   color: var(--dark);
   font-weight: revert;
   margin-bottom: 0;
-
+ 
   article > & > a[role="anchor"] {
     color: var(--dark);
     background-color: transparent;
   }
 }
-
+ 
 h1,
 h2,
 h3,
@@ -387,35 +405,35 @@ h6 {
     font-family: var(--codeFont);
     user-select: none;
   }
-
+ 
   &[id]:hover > a {
     opacity: 1;
   }
-
+ 
   &:not([id]) > a[role="anchor"] {
     display: none;
   }
 }
-
+ 
 // typography improvements
 h1 {
   font-size: 1.75rem;
   margin-top: 2.25rem;
   margin-bottom: 1rem;
 }
-
+ 
 h2 {
   font-size: 1.4rem;
   margin-top: 1.9rem;
   margin-bottom: 1rem;
 }
-
+ 
 h3 {
   font-size: 1.12rem;
   margin-top: 1.62rem;
   margin-bottom: 1rem;
 }
-
+ 
 h4,
 h5,
 h6 {
@@ -423,13 +441,13 @@ h6 {
   margin-top: 1.5rem;
   margin-bottom: 1rem;
 }
-
+ 
 figure[data-rehype-pretty-code-figure] {
   margin: 0;
   position: relative;
   line-height: 1.6rem;
   position: relative;
-
+ 
   & > [data-rehype-pretty-code-title] {
     font-family: var(--codeFont);
     font-size: 0.9rem;
@@ -440,12 +458,12 @@ figure[data-rehype-pretty-code-figure] {
     margin-bottom: -0.5rem;
     color: var(--darkgray);
   }
-
+ 
   & > pre {
     padding: 0;
   }
 }
-
+ 
 pre {
   font-family: var(--codeFont);
   padding: 0 0.5rem;
@@ -453,11 +471,11 @@ pre {
   overflow-x: auto;
   border: 1px solid var(--lightgray);
   position: relative;
-
+ 
   &:has(> code.mermaid) {
     border: none;
   }
-
+ 
   & > code {
     background: none;
     padding: 0;
@@ -467,22 +485,22 @@ pre {
     display: grid;
     padding: 0.5rem 0;
     overflow-x: auto;
-
+ 
     & [data-highlighted-chars] {
       background-color: var(--highlight);
       border-radius: 5px;
     }
-
+ 
     & > [data-line] {
       padding: 0 0.25rem;
       box-sizing: border-box;
       border-left: 3px solid transparent;
-
+ 
       &[data-highlighted-line] {
         background-color: var(--highlight);
         border-left: 3px solid var(--secondary);
       }
-
+ 
       &::before {
         content: counter(line);
         counter-increment: line;
@@ -493,17 +511,17 @@ pre {
         color: rgba(115, 138, 148, 0.6);
       }
     }
-
+ 
     &[data-line-numbers-max-digits="2"] > [data-line]::before {
       width: 2rem;
     }
-
+ 
     &[data-line-numbers-max-digits="3"] > [data-line]::before {
       width: 3rem;
     }
   }
 }
-
+ 
 code {
   font-size: 0.9em;
   color: var(--dark);
@@ -512,61 +530,61 @@ code {
   padding: 0.1rem 0.2rem;
   background: var(--lightgray);
 }
-
+ 
 tbody,
 li,
 p {
   line-height: 1.6rem;
 }
-
+ 
 .table-container {
   overflow-x: auto;
-
+ 
   & > table {
     margin: 1rem;
     padding: 1.5rem;
     border-collapse: collapse;
-
+ 
     th,
     td {
       min-width: 75px;
     }
-
+ 
     & > * {
       line-height: 2rem;
     }
   }
 }
-
+ 
 th {
   text-align: left;
   padding: 0.4rem 0.7rem;
   border-bottom: 2px solid var(--gray);
 }
-
+ 
 td {
   padding: 0.2rem 0.7rem;
 }
-
+ 
 tr {
   border-bottom: 1px solid var(--lightgray);
   &:last-child {
     border-bottom: none;
   }
 }
-
+ 
 img {
   max-width: 100%;
   border-radius: 5px;
   margin: 1rem 0;
   content-visibility: auto;
 }
-
+ 
 p > img + em {
   display: block;
   transform: translateY(-1rem);
 }
-
+ 
 hr {
   width: 100%;
   margin: 2rem auto;
@@ -574,55 +592,55 @@ hr {
   border: none;
   background-color: var(--lightgray);
 }
-
+ 
 audio,
 video {
   width: 100%;
   border-radius: 5px;
 }
-
+ 
 .spacer {
   flex: 2 1 auto;
 }
-
+ 
 div:has(> .overflow) {
   max-height: 100%;
   overflow-y: hidden;
 }
-
+ 
 ul.overflow,
 ol.overflow {
   max-height: 100%;
   overflow-y: auto;
   width: 100%;
   margin-bottom: 0;
-
+ 
   // clearfix
   content: "";
   clear: both;
-
+ 
   & > li.overflow-end {
     height: 0.5rem;
     margin: 0;
   }
-
+ 
   &.gradient-active {
     mask-image: linear-gradient(to bottom, black calc(100% - 50px), transparent 100%);
   }
 }
-
+ 
 .transclude {
   ul {
     padding-left: 1rem;
   }
 }
-
+ 
 .katex-display {
   display: initial;
   overflow-x: auto;
   overflow-y: hidden;
 }
-
+ 
 .external-embed.youtube,
 iframe.pdf {
   aspect-ratio: 16 / 9;
@@ -630,7 +648,7 @@ iframe.pdf {
   width: 100%;
   border-radius: 5px;
 }
-
+ 
 .navigation-progress {
   position: fixed;
   top: 0;

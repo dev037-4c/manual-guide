@@ -1,190 +1,160 @@
-/* ============================
-   Backlinks: Explorer 스타일 카드
-   ============================ */
+@use "../../styles/variables.scss" as *;
 
-/* (선택) 제목 라벨만 바꾸고 싶다면 여기서 override */
-:root { --backlinks-label: "목록"; }
-
-/* 카드 래퍼 */
-.backlinks {
-  /* 레이아웃 */
+/* 보이는 줄 수 가볍게 조절하고 싶으면 여기 숫자만 */
+:root { --bl-row: 42px; --bl-visible: 6; }
+ 
+.backlinks{
   display: flex;
   flex-direction: column;
-  gap: 8px;
-
-  /* 카드 비주얼 (explorer와 톤 일치) */
-  background: var(--x-bg) !important;
-  color: var(--x-text) !important;
-  border: 1px solid var(--x-border) !important;
-  border-radius: 18px !important;
-  padding: 12px !important;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-
-  /* 가로 스크롤 방지 */
-  max-width: 100% !important;
+  background: var(--x-bg);
+  color: var(--x-text);
+  border: 1px solid var(--x-border);
+  border-radius: 18px;
+  padding: 12px;
+  box-shadow: 0 8px 24px rgba(16,24,40,.06);
+}
+ 
+/* 제목은 텍스트만 담백하게 */
+.backlinks > h3{
+  font-size: .95rem;
+  font-weight: 800;
+  letter-spacing: -.01em;
+  margin: 0 0 6px 0;
+  padding: 0;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: var(--x-text);
+}
+ 
+/* 목록 컨테이너: 세로 스크롤만, 가로는 차단 */
+.backlinks > ul,
+.backlinks > ul.overflow{
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 6px 6px 10px;
+  border-top: 1px solid var(--x-sep);
+  box-sizing: border-box;
+  max-height: calc(var(--bl-row) * var(--bl-visible));
+  overflow-y: auto !important;
   overflow-x: hidden !important;
-
-  /* 상단 제목: 기존 텍스트 숨기고 커스텀 라벨 노출 */
-  & > h3 {
-    font-size: 0;            /* 실제 텍스트 시각적 숨김 */
-    line-height: 0;
-    margin: 0;
-    position: relative;
-    height: 1.4rem;          /* 라벨 줄높이 확보 */
-
-    &::after {
-      content: var(--backlinks-label);
-      position: absolute;
-      inset: 0;
-      font-size: 0.95rem;
-      line-height: 1.4rem;
-      font-weight: 800;
-      letter-spacing: -0.01em;
-      color: var(--x-text);
-    }
-  }
-
-  /* 목록 컨테이너 (overflow 스크롤 영역) */
-  & > ul.overflow {
-    list-style: none;
-    padding: 4px 4px 4px 0;
-    margin: 0;
-    border-top: 1px solid var(--x-sep);
-    max-height: calc(var(--x-row) * var(--x-visible));
-    overflow-y: auto;
-    overflow-x: clip;
-    overscroll-behavior: contain;
-
-    /* 들여쓰기/마커 제거 (explorer와 동일 철학) */
-    &,
-    & li {
-      list-style: none !important;
-      padding-inline-start: 0 !important;
-      margin-inline-start: 0 !important;
-    }
-    & li::marker { content: "" !important; font-size: 0 !important; }
-
-    /* 각 항목 */
-    & > li {
-      /* 링크 */
-      & > a {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        text-decoration: none !important;
-        color: inherit !important;
-
-        /* 카드형 아이템 패딩/높이 (explorer 기준 맞춤) */
-        padding: 6px 10px;
-        margin: 2px 0;
-        min-height: 36px;
-        line-height: 1.2;
-        border-radius: 8px;
-        background: transparent !important;
-        box-shadow: none !important;
-        border: 0 !important;
-        filter: none !important;
-        opacity: 1 !important;
-        transition: background 0.15s ease, color 0.15s ease;
-
-        /* hover */
-        &:hover {
-          background: var(--x-hover) !important;
-        }
-
-        /* active (현재 문서로 연결된 백링크에 .active를 붙이면 강조) */
-        &.active {
-          background: var(--x-active) !important;
-          color: var(--x-accent) !important;
-          font-weight: 700;
-          border-radius: 8px;
-          box-shadow: inset 0 0 0 1px
-            color-mix(in srgb, var(--x-accent) 36%, transparent) !important;
-          position: relative;
-        }
-
-        /* 좌측 보조바 (선호 시 사용, 기본은 비노출) */
-        &.active::before {
-          content: "";
-          position: absolute;
-          left: 6px;
-          top: 22%;
-          bottom: 22%;
-          width: 3px;
-          border-radius: 2px;
-          background: var(--x-accent) !important;
-        }
-      }
-    }
-
-    /* 슬림 스크롤바 (Explorer 전용과 톤 맞춤) */
-    scrollbar-width: thin;
-    scrollbar-color: color-mix(in srgb, var(--x-text) 30%, transparent) transparent;
-
-    &::-webkit-scrollbar { width: 10px; }
-    &:hover::-webkit-scrollbar { width: 12px; }
-
-    &::-webkit-scrollbar-track {
-      background: transparent;
-      margin: 6px 0;
-    }
-    &::-webkit-scrollbar-thumb {
-      border-radius: 999px;
-      border: 3px solid transparent;
-      background-clip: padding-box;
-      background-color: color-mix(in srgb, var(--x-text) 28%, transparent);
-      transition: background-color 0.15s ease, border-color 0.15s ease;
-    }
-    &:hover::-webkit-scrollbar-thumb {
-      background-color: color-mix(in srgb, var(--x-text) 40%, transparent);
-    }
-    &::-webkit-scrollbar-thumb:active {
-      background-color: color-mix(in srgb, var(--x-accent) 70%, transparent);
-    }
-  }
+  scrollbar-gutter: stable both-edges;
 }
-
-/* 다크 모드 강화(어디에 붙어도 적용) */
-html[data-theme="dark"] .backlinks,
-body[data-theme="dark"] .backlinks,
-:root[data-theme="dark"] .backlinks {
-  background: var(--x-bg) !important;
+ 
+/* 아이템(줄) */
+.backlinks > ul li{
+  margin: 0;
+  padding: 0;
+}
+ 
+/* 링크(Explorer와 동일한 pill 스타일) */
+.backlinks > ul li > a{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 8px 10px;
+  margin: 2px 0;
+  border-radius: 12px;
+ 
   color: var(--x-text) !important;
-  border-color: var(--x-border) !important;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55) !important;
+  background: transparent !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  filter: none !important;
+  opacity: .95;
+ 
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+ 
+  transition: background .15s ease, color .15s ease, opacity .15s ease;
 }
-
-html[data-theme="dark"] .backlinks > ul.overflow,
-body[data-theme="dark"] .backlinks > ul.overflow,
-:root[data-theme="dark"] .backlinks > ul.overflow {
-  border-top-color: var(--x-sep) !important;
-  scrollbar-width: thin;
-  scrollbar-color: color-mix(in srgb, var(--x-text) 45%, transparent) transparent;
+.backlinks > ul li > a:hover{
+  background: var(--x-hover);
+  opacity: 1;
 }
-
-html[data-theme="dark"] .backlinks > ul.overflow::-webkit-scrollbar-thumb,
-body[data-theme="dark"] .backlinks > ul.overflow::-webkit-scrollbar-thumb,
-:root[data-theme="dark"] .backlinks > ul.overflow::-webkit-scrollbar-thumb {
+ 
+/* (옵션) 왼쪽에 작은 점 — Explorer 톤과 맞춤 */
+.backlinks > ul li > a::before{
+  content: "";
+  width: 6px; height: 6px; flex: 0 0 6px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--x-text) 28%, transparent);
+}
+.backlinks > ul li > a:hover::before{
+  background: var(--x-accent);
+}
+ 
+/* 현재 문서와 일치 표시가 필요하면 active 클래스 사용 */
+.backlinks > ul li > a.active,
+.backlinks > ul li > a[aria-current="page"]{
+  background: var(--x-active) !important;
+  color: var(--x-accent) !important;
+  position: relative;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--x-accent) 36%, transparent);
+}
+.backlinks > ul li > a.active::after,
+.backlinks > ul li > a[aria-current="page"]::after{
+  content: "↗";
+  margin-left: auto;
+  opacity: .8;
+}
+ 
+/* 요약/프리뷰 텍스트가 있으면(작은 글씨) */
+.backlinks .preview,
+.backlinks small,
+.backlinks .desc{
+  display: block;
+  font-size: .85rem;
+  margin-top: 2px;
+  color: color-mix(in srgb, var(--x-text) 55%, transparent);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+ 
+/* 기본 마커/들여쓰기 제거(브라우저별 안전장치) */
+.backlinks ul, .backlinks li{ list-style: none !important; padding-inline-start: 0; margin-inline-start: 0; }
+.backlinks li::marker, .backlinks li::before{ content: none !important; }
+.backlinks li{ display: block; }
+ 
+/* 링크가 폭을 밀지 않도록 전역 안전장치 */
+.backlinks, .backlinks *{ max-width: 100%; min-width: 0; }
+ 
+/* —— 스크롤바(라이트/다크 모두 변수 기반) —— */
+.backlinks > ul,
+.backlinks > ul.overflow{
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: color-mix(in srgb, var(--x-text) 30%, transparent) transparent;
+}
+.backlinks > ul::-webkit-scrollbar,
+.backlinks > ul.overflow::-webkit-scrollbar{ width: 10px; }
+.backlinks > ul:hover::-webkit-scrollbar,
+.backlinks > ul.overflow:hover::-webkit-scrollbar{ width: 12px; }
+.backlinks > ul::-webkit-scrollbar-track,
+.backlinks > ul.overflow::-webkit-scrollbar-track{
+  background: transparent;
+  margin: 6px 0;
+}
+.backlinks > ul::-webkit-scrollbar-thumb,
+.backlinks > ul.overflow::-webkit-scrollbar-thumb{
   border-radius: 999px;
   border: 3px solid transparent;
   background-clip: padding-box;
-  background-color: color-mix(in srgb, var(--x-text) 45%, transparent);
+  background-color: color-mix(in srgb, var(--x-text) 28%, transparent);
+  transition: background-color .15s ease, border-color .15s ease;
 }
-
-html[data-theme="dark"] .backlinks > ul.overflow:hover::-webkit-scrollbar-thumb,
-body[data-theme="dark"] .backlinks > ul.overflow:hover::-webkit-scrollbar-thumb,
-:root[data-theme="dark"] .backlinks > ul.overflow:hover::-webkit-scrollbar-thumb {
-  background-color: color-mix(in srgb, var(--x-text) 65%, transparent);
+.backlinks > ul:hover::-webkit-scrollbar-thumb,
+.backlinks > ul.overflow:hover::-webkit-scrollbar-thumb{
+  background-color: color-mix(in srgb, var(--x-text) 40%, transparent);
 }
-
-/* 반응형: 모바일에서 좌우 스크롤 방지 및 패딩 최적화 */
-@media (max-width: 900px) {
-  .backlinks {
-    padding: 10px !important;
-  }
-  .backlinks > ul.overflow {
-    padding-right: 10px;
-    overflow-y: auto !important;
-    overflow-x: clip !important;
-  }
+ 
+/* 다크모드 그림자만 톤 업(색은 이미 var(--x-*)로 자동 전환) */
+html[data-theme="dark"] .backlinks,
+body[data-theme="dark"] .backlinks,
+:root[data-theme="dark"] .backlinks{
+  box-shadow: 0 12px 30px rgba(0,0,0,.55);
 }
+ 
