@@ -302,7 +302,7 @@ code, pre, kbd, .pretty-code, [data-language] {
   /* 카드 사이즈(적당히 크게, 글씨 안 잘리게) */
   --card-min-h: 88px;         /* 72 → 88 */
   --card-pad-y: 16px;         /* 12 → 16 */
-  --card-pad-x: 28px;         /* 14 → 28 (과도하지 않게) */
+  --card-pad-x: 20px;         /* 14 → 28 (과도하지 않게) */
   --card-gap: 10px;           /* 아이콘-텍스트 간격 */
   --card-icon: 36px;          /* 아이콘 크기는 그대로 */
   --card-icon-radius: 10px;
