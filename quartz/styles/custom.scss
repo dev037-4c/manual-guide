@@ -477,13 +477,22 @@ code, pre, kbd, .pretty-code, [data-language] {
     --cards-col-min: 200px; /* 모바일에서 과도한 최소폭 완화 */
   }
 }
-/* 데스크톱에서 카드 묶음을 더 안쪽으로: 오른쪽 여백 확장 */
+/* 1) 우측 세이프존 + 컨테이너 우측 패딩 토큰 추가/확대 */
 @media (min-width: 981px){
   .lx2-hero-page{
-    /* 값이 클수록 카드 영역이 더 왼쪽으로 들어옵니다 */
-    --cards-safe-right: clamp(32px, 5vw, 80px); /* 기존보다 넉넉하게 */
+    /* 값이 클수록 카드 묶음이 더 왼쪽으로 들어옵니다 */
+    --cards-safe-right: clamp(64px, 8vw, 160px); /* 기존 8~24px → 넉넉히 확대 */
+    --cards-pad-right: clamp(20px, 3.5vw, 48px); /* 컨테이너 내부 우측 패딩 */
   }
 }
+
+/* 2) 카드 컨테이너에 패딩 적용 + 최대폭 제한 */
+.lx2-hero__cards{
+  padding-right: var(--cards-pad-right, 0);
+  max-width: calc(100% - var(--cards-safe-right));
+}
+
+
 
 
 
@@ -660,21 +669,8 @@ code, pre, kbd, .pretty-code, [data-language] {
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
  
-/* 1) 우측 세이프존 + 컨테이너 우측 패딩 토큰 추가/확대 */
-@media (min-width: 981px){
-  .lx2-hero-page{
-    /* 값이 클수록 카드 묶음이 더 왼쪽으로 들어옵니다 */
-    --cards-safe-right: clamp(64px, 8vw, 160px); /* 기존 8~24px → 넉넉히 확대 */
-    --cards-pad-right: clamp(20px, 3.5vw, 48px); /* 컨테이너 내부 우측 패딩 */
-  }
-}
-
-/* 2) 카드 컨테이너에 패딩 적용 + 최대폭 제한 */
-.lx2-hero__cards{
-  padding-right: var(--cards-pad-right, 0);
-  max-width: calc(100% - var(--cards-safe-right));
-}
-
+/* (옵션) 카드 그리드가 폭을 꽉 채우게 미세 조정 */
+.lx2-hero__cards{ gap: clamp(10px, 1.8vw, 16px); min-width: 0; }
 
 
 
