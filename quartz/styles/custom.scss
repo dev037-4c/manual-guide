@@ -468,6 +468,17 @@ code, pre, kbd, .pretty-code, [data-language] {
   white-space: normal;
   overflow-wrap: anywhere;
 }
+/* 왼쪽 열(1번, 3번) 카드만 살짝 왼쪽으로 당기기 */
+.lx2-hero-page .lx2-hero .lx2-hero__cards > .lx2-card:nth-child(odd){
+  margin-left: clamp(-16px, -1.2vw, -8px);  /* 수치 조절: -8 ~ -16px 권장 */
+}
+
+/* 좁은 화면에서는 정렬 무너짐 방지(1열일 때는 보정 해제) */
+@media (max-width: 540px){
+  .lx2-hero-page .lx2-hero .lx2-hero__cards > .lx2-card:nth-child(odd){
+    margin-left: 0;
+  }
+}
 
  
  
