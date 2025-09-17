@@ -278,202 +278,268 @@ code, pre, kbd, .pretty-code, [data-language] {
 
 /*인덱스 화면*/
 
-/* =========================================================
-   LX2 Hero — Maintainable Single Source of Truth (SOT)
-   · HTML 변경 없음
-   · !important 미사용
-   · 중복/충돌 제거, 변수화, 반응형 변수로 관리
-   ========================================================= */
-
-/* ---------- 0) 페이지 스코프 & 토큰 ---------- */
+/* ===== Scope to this page only ===== */
 .lx2-hero-page {
-  /* Design tokens (필요시 한 곳에서만 조정) */
-  --hero-wrap: 1080px;
-  --hero-pad-x: clamp(16px, 4vw, 36px);
-  --hero-pad-y: clamp(20px, 6vh, 56px);
-  --hero-radius: 24px;
-  --hero-min-h: clamp(420px, 66dvh, 640px);
-
-  --col-gap: clamp(16px, 3.5vw, 32px);
-  --col-left: 1.1fr;
-  --col-right: 0.9fr;
-
-  /* 카드 사이즈(적당히 크게, 글씨 안 잘리게) */
-  --card-min-h: 88px;         /* 72 → 88 */
-  --card-pad-y: 16px;         /* 12 → 16 */
-  --card-pad-x: 18px;         /* 14 → 28 (과도하지 않게) */
-  --card-gap: 10px;           /* 아이콘-텍스트 간격 */
-  --card-icon: 50px;          /* 아이콘 크기는 그대로 */
-  --card-icon-radius: 10px;
-
-  --cards-grid-gap: clamp(14px, 2vw, 20px);
-  --cards-cols-desktop: 2;            /* 데스크탑 2×2 */
-  --cards-cols-mobile: 1;             /* 모바일 1열 */
-  --cards-col-min: 260px;             /* 각 칼럼 최소폭: 텍스트 잘림 방지 */
-  --cards-safe-right: clamp(40px, 2vw, 140px);  /* 우측 라운드 경계 여유 */
-  --cards-odd-shift: clamp(-12px, -0.9vw, -6px); /* 왼쪽 열만 살짝 당김 */
-
-  --txt-size: clamp(14px, 1.1vw, 16.5px);
-  --desc-size: clamp(15px,1.4vw,18px);
+  .page,
+  .content {
+    max-width: unset;
+  }
 }
 
-/* ---------- 1) 히어로 래퍼 ---------- */
+/* ===== Hero Wrapper ===== */
 .lx2-hero {
+  --wrap: 1200px;
+  --pad-x: clamp(16px, 4vw, 48px);
+  --pad-y: clamp(24px, 8vh, 80px);
+  --radius: 24px;
+
   position: relative;
   display: grid;
   place-items: center;
 
-  width: min(92vw, var(--hero-wrap));
+  width: min(92vw, var(--wrap));
   margin: 0 auto;
-  padding: var(--hero-pad-y) var(--hero-pad-x);
-  min-height: var(--hero-min-h);
-  border-radius: var(--hero-radius);
+  padding: var(--pad-y) var(--pad-x);
+  min-height: min(82dvh, 820px);
 
   background:
-    radial-gradient(1200px 1200px at 70% 62%, rgba(255,255,255,.06) 0%, transparent 60%),
-    radial-gradient(900px 900px at 70% 62%, rgba(255,255,255,.04) 0%, transparent 60%),
-    linear-gradient(180deg,#0a2a6b,#061a44);
-  box-shadow: 0 12px 36px rgba(0,0,0,.28);
-  overflow: clip;   /* 라운드 경계 이탈 방지 */
-  z-index: 0;      /* 그래프뷰 등 위젯보다 낮음 */
-  isolation: initial;
+    radial-gradient(1200px 1200px at 70% 62%, rgba(255, 255, 255, .06) 0%, transparent 60%),
+    radial-gradient(900px 900px at 70% 62%, rgba(255, 255, 255, .04) 0%, transparent 60%),
+    linear-gradient(180deg, #0a2a6b, #061a44);
+
+  border-radius: var(--radius);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, .28);
+  overflow: clip;
+}
+
+/* ===== Left/Right Columns ===== */
+.lx2-hero__inner {
+  width: 100%;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1.15fr 1fr;
+  column-gap: clamp(20px, 5vw, 48px);
+}
+
+@media (max-width: 980px) {
+  .lx2-hero__inner {
+    grid-template-columns: 1fr;
+    row-gap: 28px;
+  }
+}
+
+/* ===== Left: Title/Desc/CTA ===== */
+.lx2-hero__content {
+  color: #fff;
+  text-align: left;
+}
+
+.lx2-hero__title {
+  margin: 0 0 .25em;
+  font-size: clamp(32px, 4.4vw, 60px);
+  line-height: 1.05;
+  letter-spacing: -.02em;
+}
+
+.lx2-hero__desc {
+  margin: 0 0 1.1em;
+  font-size: clamp(15px, 1.4vw, 18px);
+  opacity: .9;
+}
+
+.lx2-hero__cta {
+  display: inline-block;
+  padding: .85em 1.5em;
+  border-radius: 999px;
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, .32);
+  backdrop-filter: blur(6px);
+  transition: transform .15s ease, background .15s ease, border-color .15s ease;
+}
+
+.lx2-hero__cta:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, .6);
+  background: rgba(255, 255, 255, .06);
+}
+
+/* ===== Right: 2×2 Card Grid ===== */
+.lx2-hero__cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(12px, 2vw, 16px);
+}
+
+@media (max-width: 540px) {
+  .lx2-hero__cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== Card ===== */
+.lx2-card {
+  --accent: #8ab6ff; /* default */
+
+  display: flex;
+  align-items: center;
+  gap: 10px; /* 아이콘-텍스트 촘촘하게 */
+  padding: 14px 16px;
+  border-radius: 18px;
+
+  background: linear-gradient(180deg, rgba(255, 255, 255, .07), rgba(255, 255, 255, .03));
+  border: 1px solid rgba(255, 255, 255, .14);
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .25);
+  min-height: 84px;
+
+  transition: transform .12s ease, border-color .12s ease, background .12s ease;
+}
+
+.lx2-card:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, .28);
+  background: rgba(255, 255, 255, .08);
+}
+
+/* 색상 버전 */
+.lx2-card.edu { --accent: #86c5ff; }
+.lx2-card.tech { --accent: #b9a7ff; }
+.lx2-card.eff { --accent: #a7e57d; }
+.lx2-card.sec { --accent: #9db8ff; }
+
+/* 아이콘: 한 줄, 크기 고정, 강조색 */
+.lx2-card__icon {
+  flex: 0 0 40px;
+  height: 40px;
+  width: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: color-mix(in oklab, var(--accent) 18%, transparent);
+  outline: 1px solid color-mix(in oklab, var(--accent) 40%, transparent);
+}
+
+.lx2-card__icon svg {
+  width: 22px;
+  height: 22px;
+  stroke: var(--accent);
+  fill: none;
+  stroke-width: 1.8;
+}
+
+/* 텍스트: '한 줄' + 아이콘과 가깝게 */
+.lx2-card__text {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap; /* 글자 일렬 유지 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: clamp(14px, 1.1vw, 16px);
+}
+
+.lx2-card__text b {
+  font-weight: 700;
+  letter-spacing: -.01em;
+}
+
+.lx2-card__text i {
+  font-style: normal;
+  opacity: .85;
+  font-weight: 600;
 }
 
 /* 라이트 모드 */
 .theme-light .lx2-hero {
   background:
-    radial-gradient(1200px 1200px at 70% 62%, rgba(0,0,0,.03) 0%, transparent 60%),
-    radial-gradient(900px 900px at 70% 62%, rgba(0,0,0,.025) 0%, transparent 60%),
+    radial-gradient(1200px 1200px at 70% 62%, rgba(0, 0, 0, .03) 0%, transparent 60%),
+    radial-gradient(900px 900px at 70% 62%, rgba(0, 0, 0, .025) 0%, transparent 60%),
     linear-gradient(180deg, #0c3a9c, #072d7a);
   color: #fff;
 }
 
-/* ---------- 2) 좌/우 컬럼 레이아웃 ---------- */
-.lx2-hero__inner {
-  width: 100%;
-  display: grid;
-  align-items: center;
-  column-gap: var(--col-gap);
-  /* minmax(0, …)로 오버플로 연쇄 차단 */
-  grid-template-columns: minmax(0, var(--col-left)) minmax(0, var(--col-right));
+.theme-light .lx2-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, .66), rgba(255, 255, 255, .4));
+  color: #fff;
+  border-color: rgba(7, 22, 46, .14);
+  box-shadow: 0 8px 18px rgba(8, 26, 64, .15);
 }
 
-@media (max-width: 980px) {
-  .lx2-hero__inner { grid-template-columns: 1fr; row-gap: 28px; }
-}
-
-/* ---------- 3) 좌측: 타이틀/설명/CTA ---------- */
-.lx2-hero__content { color:#fff; text-align:left; }
-.lx2-hero__title {
-  margin: 0 0 .3em 0;
-  font-size: clamp(28px, 3.9vw, 54px);
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-}
-.lx2-title-accent {
-  display: block;      /* ‘LX2’ 줄바꿈 */
-  margin-top: .18em;
-  font-size: 1.18em;
-  line-height: 1;
-  letter-spacing: -0.01em;
-}
-.lx2-hero__desc { margin: 0 0 1.1em; font-size: var(--desc-size); opacity: .9; }
-.lx2-hero__cta{
-  display:inline-block; padding:.85em 1.5em; border-radius:999px; color:#fff; text-decoration:none;
-  border:1px solid rgba(255,255,255,.32); backdrop-filter: blur(6px);
-  transition: transform .15s ease, background .15s ease, border-color .15s ease;
-}
-.lx2-hero__cta:hover{ transform: translateY(-1px); border-color: rgba(255,255,255,.6); background: rgba(255,255,255,.06); }
-.theme-light .lx2-hero__cta{ color:#fff; }
-
-/* ---------- 4) 우측: 카드 그리드(2×2) ---------- */
-.lx2-hero__cards{
-  display: grid;
-  grid-template-columns: repeat(var(--cards-cols-desktop), minmax(var(--cards-col-min), 1fr));
-  gap: var(--cards-grid-gap);
-  /* 우측 라운드 경계와 겹치지 않게 세이프 마진 */
-  max-width: calc(100% - var(--cards-safe-right));
-  justify-self: start;
-  min-width: 0;
-  box-sizing: border-box;
-}
-@media (max-width: 450px){
-  .lx2-hero__cards{ grid-template-columns: repeat(var(--cards-cols-mobile), 1fr); }
-}
-
-/* 왼쪽 열(1·3번)만 살짝 왼쪽으로 당김 */
-
-@media (max-width: 450px){
-  .lx2-hero__cards > .lx2-card:nth-child(odd){ margin-left: 0; } /* 1열일 때 보정 해제 */
-}
-
-/* ---------- 5) 카드 공통 ---------- */
-.lx2-card{
-  --accent: #8ab6ff; /* 기본 색 */
-  display:flex; align-items:center; gap: var(--card-gap);
-  padding: var(--card-pad-y) var(--card-pad-x);
-  min-height: var(--card-min-h);
-  color:#fff; text-decoration:none; box-sizing: border-box;
-
-  background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
-  border: 1px solid rgba(255,255,255,.14);
-  box-shadow: 0 8px 20px rgba(0,0,0,.25);
-  border-radius: 18px;
-
-  transition: transform .12s ease, border-color .12s ease, background .12s ease;
-}
-.lx2-card:hover{ transform: translateY(-1px); border-color: rgba(255,255,255,.28); background: rgba(255,255,255,.08); }
-
-/* 색상 버전 */
-.lx2-card.edu{ --accent:#86c5ff; }
-.lx2-card.tech{ --accent:#b9a7ff; }
-.lx2-card.eff{ --accent:#a7e57d; }
-.lx2-card.sec{ --accent:#9db8ff; }
-
-/* 아이콘 */
-.lx2-card__icon{
-  flex: 0 0 var(--card-icon);
-  width: var(--card-icon); height: var(--card-icon);
-  display:grid; place-items:center; border-radius: var(--card-icon-radius);
-  background: color-mix(in oklab, var(--accent) 18%, transparent);
-  outline: 1px solid color-mix(in oklab, var(--accent) 40%, transparent);
-}
-.lx2-card__icon svg{ width: 20px; height: 20px; stroke: var(--accent); fill: none; stroke-width: 1.8; }
-
-/* 텍스트: 줄바꿈 허용 + 수축 방지(글씨 안 사라지게) */
-.lx2-card__text{
-  display:flex; align-items:center; gap: 0px;
-  font-size: var(--txt-size);
-  line-height: 1.28;
-  white-space: normal;          /* nowrap 해제 */
-  overflow-wrap: anywhere;      /* 긴 단어 강제 줄바꿈 */
-  flex: 1 1 auto;               /* 남은 공간 차지 */
-  min-width: 0;                 /* flex 수축 시 0 미만 방지 */
-}
-.lx2-card__text b{ font-weight:700; letter-spacing:-.01em; }
-.lx2-card__text i{ font-style:normal; opacity:.85; font-weight:600; }
-
-/* ---------- 6) 라이트 모드 카드 보정 ---------- */
-.theme-light .lx2-card{
-  background: linear-gradient(180deg, rgba(255,255,255,.66), rgba(255,255,255,.4));
-  color:#fff; border-color: rgba(7,22,46,.14);
-  box-shadow: 0 8px 18px rgba(8,26,64,.15);
-}
-.theme-light .lx2-card__icon{
+.theme-light .lx2-card__icon {
   background: color-mix(in oklab, var(--accent) 16%, white);
   outline-color: color-mix(in oklab, var(--accent) 38%, white);
 }
 
-/* ---------- 7) 모바일 보정(선택) ---------- */
-@media (max-width: 540px){
-  .lx2-hero-page{
-    --card-min-h: 82px;
-    --card-pad-y: 14px;
-    --card-pad-x: 22px;
-    --txt-size: clamp(14px, 3.6vw, 16px);
-    --cards-col-min: 200px; /* 모바일에서 과도한 최소폭 완화 */
+.theme-light .lx2-hero__cta { color: #fff; }
+
+/* ===== PATCH: 헤더 줄바꿈 + 크기/레이아웃 축소 + 그래프뷰 미가림 ===== */
+
+/* 히어로 전체 스케일 다운 & 레이어 조정(그래프뷰 가리지 않도록) */
+.lx2-hero {
+  --wrap: 1080px; /* 1200 → 1080: 전체 폭 소폭 축소 */
+  min-height: clamp(420px, 66dvh, 640px); /* 82dvh → 66dvh: 높이 낮춤 */
+  padding: clamp(20px, 6vh, 56px) clamp(16px, 4vw, 36px);
+  z-index: 0;            /* 페이지 위젯(그래프뷰)보다 낮게 */
+  isolation: initial;     /* 스태킹 컨텍스트 해제 */
+  overflow: visible;      /* 주변 위젯 겹침 이슈 방지 */
+}
+
+/* 좌/우 칼럼 간격과 비율도 한 단계 줄이기 */
+.lx2-hero__inner {
+  grid-template-columns: 1.1fr 0.9fr;     /* 왼쪽(텍스트) 조금 더 넓게 */
+  column-gap: clamp(16px, 3.5vw, 32px);   /* 5vw → 3.5vw */
+}
+
+/* 제목: 기본 크기는 약간 줄이고, LX2만 한 줄 아래로 더 크게 */
+.lx2-hero__title {
+  font-size: clamp(28px, 3.9vw, 54px);    /* 전체 타이틀 살짝 축소 */
+  line-height: 1.05;
+  margin: 0 0 .3em 0;
+  letter-spacing: -0.02em;
+}
+
+.lx2-title-accent {
+  display: block;          /* 줄바꿈(아래 줄로) */
+  margin-top: .18em;       /* ‘한 칸’ 느낌의 여백 */
+  font-size: 1.18em;       /* LX2만 살짝 키움 */
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+
+/* 카드도 살짝 컴팩트하게(아이콘과 텍스트는 가깝게 유지) */
+.lx2-card {
+  min-height: 72px;        /* 84px → 72px */
+  padding: 12px 14px;      /* 14/16 → 12/14 */
+  gap: 8px;                /* 아이콘-텍스트 거리 촘촘 */
+}
+
+.lx2-card__icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+}
+
+.lx2-card__icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.lx2-card__text {
+  gap: 6px;
+  font-size: clamp(13px, 1.05vw, 15px);
+  white-space: nowrap;
+}
+
+/* 작은 화면 최적화(한 번 더 줄이기) */
+@media (max-width: 980px) {
+  .lx2-hero {
+    min-height: clamp(380px, 60dvh, 560px);
+    padding: clamp(18px, 6vh, 48px) clamp(12px, 4vw, 24px);
   }
 }
+
 
 
 
