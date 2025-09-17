@@ -489,6 +489,18 @@ code, pre, kbd, .pretty-code, [data-language] {
   }
 }
 
+/* 카드(버튼) 실제 크기만 키움 — 아이콘은 그대로 */
+.lx2-hero-page .lx2-card{
+  min-height: 92px;
+  padding: 18px 62px;   /* 세로(Y)=18px, 가로(X)=62px */
+}
+
+/* 카드 간격(gap)도 변수값으로 맞추고 싶다면 */
+.lx2-hero-page .lx2-hero__cards{
+  gap: clamp(14px, 2.2vw, 20px);
+}
+
+
  
  
  
