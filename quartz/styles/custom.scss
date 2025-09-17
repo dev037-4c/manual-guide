@@ -277,6 +277,7 @@ code, pre, kbd, .pretty-code, [data-language] {
 
 
 /*인덱스 화면*/
+/*인덱스 화면*/
 
 /* =========================================================
    LX2 Hero — Maintainable Single Source of Truth (SOT)
@@ -287,8 +288,6 @@ code, pre, kbd, .pretty-code, [data-language] {
 
 /* ---------- 0) 페이지 스코프 & 토큰 ---------- */
 .lx2-hero-page {
-  /* 페이지 폭 해제 (필요시 주석 처리) */
-  /* .page, .content { max-width: unset; } */
   /* Design tokens (필요시 한 곳에서만 조정) */
   --hero-wrap: 1080px;
   --hero-pad-x: clamp(16px, 4vw, 36px);
@@ -300,20 +299,22 @@ code, pre, kbd, .pretty-code, [data-language] {
   --col-left: 1.1fr;
   --col-right: 0.9fr;
 
-  --card-min-h: 72px;
-  --card-pad-x: 14px;
-  --card-pad-y: 12px;
-  --card-gap: 8px;
-  --card-icon: 36px;
+  /* 카드 사이즈(적당히 크게, 글씨 안 잘리게) */
+  --card-min-h: 88px;         /* 72 → 88 */
+  --card-pad-y: 16px;         /* 12 → 16 */
+  --card-pad-x: 28px;         /* 14 → 28 (과도하지 않게) */
+  --card-gap: 10px;           /* 아이콘-텍스트 간격 */
+  --card-icon: 36px;          /* 아이콘 크기는 그대로 */
   --card-icon-radius: 10px;
 
-  --cards-grid-gap: clamp(12px, 2vw, 16px);
-  --cards-cols-desktop: 2;     /* 데스크탑 2×2 */
-  --cards-cols-mobile: 1;      /* 모바일 1열 */
-  --cards-safe-right: clamp(8px, 2vw, 24px); /* 우측 세이프 마진 */
-  --cards-odd-shift: clamp(-16px, -1.2vw, -8px); /* 왼쪽 열만 살짝 당김 */
+  --cards-grid-gap: clamp(14px, 2vw, 20px);
+  --cards-cols-desktop: 2;            /* 데스크탑 2×2 */
+  --cards-cols-mobile: 1;             /* 모바일 1열 */
+  --cards-col-min: 260px;             /* 각 칼럼 최소폭: 텍스트 잘림 방지 */
+  --cards-safe-right: clamp(8px, 2vw, 24px);  /* 우측 라운드 경계 여유 */
+  --cards-odd-shift: clamp(-12px, -0.9vw, -6px); /* 왼쪽 열만 살짝 당김 */
 
-  --txt-size: clamp(13px, 1.05vw, 15px);
+  --txt-size: clamp(14px, 1.1vw, 16.5px);
   --desc-size: clamp(15px,1.4vw,18px);
 }
 
@@ -389,7 +390,7 @@ code, pre, kbd, .pretty-code, [data-language] {
 /* ---------- 4) 우측: 카드 그리드(2×2) ---------- */
 .lx2-hero__cards{
   display: grid;
-  grid-template-columns: repeat(var(--cards-cols-desktop), minmax(0, 1fr));
+  grid-template-columns: repeat(var(--cards-cols-desktop), minmax(var(--cards-col-min), 1fr));
   gap: var(--cards-grid-gap);
   /* 우측 라운드 경계와 겹치지 않게 세이프 마진 */
   max-width: calc(100% - var(--cards-safe-right));
@@ -442,12 +443,15 @@ code, pre, kbd, .pretty-code, [data-language] {
 }
 .lx2-card__icon svg{ width: 20px; height: 20px; stroke: var(--accent); fill: none; stroke-width: 1.8; }
 
-/* 텍스트: 길어도 레이아웃 밀지 않도록 줄바꿈 허용 */
+/* 텍스트: 줄바꿈 허용 + 수축 방지(글씨 안 사라지게) */
 .lx2-card__text{
   display:flex; align-items:center; gap: 6px;
   font-size: var(--txt-size);
+  line-height: 1.28;
   white-space: normal;          /* nowrap 해제 */
   overflow-wrap: anywhere;      /* 긴 단어 강제 줄바꿈 */
+  flex: 1 1 auto;               /* 남은 공간 차지 */
+  min-width: 0;                 /* flex 수축 시 0 미만 방지 */
 }
 .lx2-card__text b{ font-weight:700; letter-spacing:-.01em; }
 .lx2-card__text i{ font-style:normal; opacity:.85; font-weight:600; }
@@ -462,42 +466,16 @@ code, pre, kbd, .pretty-code, [data-language] {
   background: color-mix(in oklab, var(--accent) 16%, white);
   outline-color: color-mix(in oklab, var(--accent) 38%, white);
 }
-/* === PATCH: 카드(버튼) 사이즈 업 === */
-.lx2-hero-page{
-  /* 카드 높이/여백/아이콘/글자 크기만 키움 */
-  --card-min-h: 92px;                /* 72 → 88 */
-  --card-pad-y: 18px;                /* 12 → 16 */
-  --card-pad-x: 62px;                /* 14 → 18 */
-  --card-icon: 44px;                 /* 36 → 44 */
-  --txt-size: clamp(14px, 1.15vw, 17px); /* 본문 폰트 살짝 업 */
-  --cards-grid-gap: clamp(14px, 2.2vw, 20px); /* 카드 간격 약간 확대 */
-  --cards-safe-right: clamp(10px, 2.8vw, 30px); /* 오른쪽 경계 여유 조금 더 */
-}
 
-/* 아이콘 내부 SVG도 아이콘 크기에 맞춰 자동 확대 */
-.lx2-hero-page .lx2-card__icon svg{
-  width: calc(var(--card-icon) * 0.56);
-  height: calc(var(--card-icon) * 0.56);
-}
-
-/* (선택) 모바일에서는 너무 커지지 않게 살짝 다운스케일 */
+/* ---------- 7) 모바일 보정(선택) ---------- */
 @media (max-width: 540px){
   .lx2-hero-page{
-    --card-min-h: 78px;
-    --card-icon: 38px;
-    --txt-size: clamp(13.5px, 3.6vw, 16px);
+    --card-min-h: 82px;
+    --card-pad-y: 14px;
+    --card-pad-x: 22px;
+    --txt-size: clamp(14px, 3.6vw, 16px);
+    --cards-col-min: 200px; /* 모바일에서 과도한 최소폭 완화 */
   }
-}
-
-/* 카드(버튼) 실제 크기만 키움 — 아이콘은 그대로 */
-.lx2-hero-page .lx2-card{
-  min-height: 92px;
-  padding: 18px 62px;   /* 세로(Y)=18px, 가로(X)=62px */
-}
-
-/* 카드 간격(gap)도 변수값으로 맞추고 싶다면 */
-.lx2-hero-page .lx2-hero__cards{
-  gap: clamp(14px, 2.2vw, 20px);
 }
 
 
