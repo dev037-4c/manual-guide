@@ -452,6 +452,23 @@ code, pre, kbd, .pretty-code, [data-language] {
   white-space: normal !important;
   overflow-wrap: anywhere !important;
 }
+/* --- 카드 그리드를 파란 박스 안쪽으로 살짝 들여오기 --- */
+.lx2-hero-page .lx2-hero .lx2-hero__cards{
+  /* 2x2 유지 */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  /* 우측 여유공간(세이프 마진) 확보 */
+  max-width: calc(100% - clamp(8px, 2vw, 24px));
+  justify-self: start;     /* 칼럼의 왼쪽에 붙여서 오른쪽에 여백 남김 */
+  min-width: 0;            /* 오버플로 연쇄 방지 */
+  box-sizing: border-box;
+}
+
+/* 긴 제목이 칼럼을 밀어내지 않게 줄바꿈 허용(원하시면 유지) */
+.lx2-hero-page .lx2-hero .lx2-card__text{
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
  
  
  
