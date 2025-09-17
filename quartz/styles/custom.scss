@@ -368,7 +368,7 @@ code, pre, kbd, .pretty-code, [data-language] {
 .lx2-hero__cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: clamp(12px, 2vw, 16px);
+  gap: clamp(10px, 1vw, 10px);
 }
 
 @media (max-width: 540px) {
