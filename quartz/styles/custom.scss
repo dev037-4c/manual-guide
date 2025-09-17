@@ -540,7 +540,10 @@ code, pre, kbd, .pretty-code, [data-language] {
   }
 }
 
-
+/* 카드 안에 붙은 외부링크 아이콘 숨김 */
+.lx2-card .external-icon {
+  display: none !important;
+}
 
 
 
