@@ -511,7 +511,7 @@ code, pre, kbd, .pretty-code, [data-language] {
 /* 카드도 살짝 컴팩트하게(아이콘과 텍스트는 가깝게 유지) */
 .lx2-card {
   min-height: 72px;        /* 84px → 72px */
-  padding: 15px 3px 15px;      /* 14/16 → 12/14 */
+  padding: 15px 3px ;      /* 14/16 → 12/14 */
   gap: 8px;                /* 아이콘-텍스트 거리 촘촘 */
 }
 
@@ -592,12 +592,7 @@ code, pre, kbd, .pretty-code, [data-language] {
   letter-spacing: -0.01em;
 }
  
-/* 3) 카드 더 컴팩트(아이콘-텍스트는 가깝게 유지) */
-.lx2-card{
-  min-height: 68px;            /* 72 → 68 */
-  padding: 11px 14px;
-  gap: 8px;
-}
+
 .lx2-card__icon{ width: 34px; height: 34px; border-radius: 10px; }
 .lx2-card__icon svg{ width: 19px; height: 19px; }
 .lx2-card__text{ gap: 6px; font-size: clamp(13px, 1.02vw, 15px); white-space: nowrap; }
@@ -702,12 +697,7 @@ code, pre, kbd, .pretty-code, [data-language] {
   column-gap: clamp(12px, 2.4vw, 22px);
 }
  
-/* 3) 카드/아이콘 축소 (오버플로 방지) */
-.lx2-card{
-  min-height: 40px;            /* 68→62 */
-  padding: 10px 12px;          /* 살짝 컴팩트 */
-  gap: 8px;
-}
+
 .lx2-card__icon{
   width: 30px; height: 30px;   /* 34→30 */
   border-radius: 9px;
