@@ -483,11 +483,6 @@ code, pre, kbd, .pretty-code, [data-language] {
     /* 값이 클수록 카드 영역이 더 왼쪽으로 들어옵니다 */
     --cards-safe-right: clamp(32px, 5vw, 80px); /* 기존보다 넉넉하게 */
   }
-
-  /* 여백을 더 주고 싶으면 margin-right도 함께 사용 (선택) */
-  .lx2-hero-page .lx2-hero__cards{
-    margin-right: clamp(12px, 2.5vw, 32px);
-  }
 }
 
 
