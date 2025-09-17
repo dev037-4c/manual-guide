@@ -462,6 +462,32 @@ code, pre, kbd, .pretty-code, [data-language] {
   background: color-mix(in oklab, var(--accent) 16%, white);
   outline-color: color-mix(in oklab, var(--accent) 38%, white);
 }
+/* === PATCH: 카드(버튼) 사이즈 업 === */
+.lx2-hero-page{
+  /* 카드 높이/여백/아이콘/글자 크기만 키움 */
+  --card-min-h: 88px;                /* 72 → 88 */
+  --card-pad-y: 16px;                /* 12 → 16 */
+  --card-pad-x: 18px;                /* 14 → 18 */
+  --card-icon: 44px;                 /* 36 → 44 */
+  --txt-size: clamp(14px, 1.15vw, 17px); /* 본문 폰트 살짝 업 */
+  --cards-grid-gap: clamp(14px, 2.2vw, 20px); /* 카드 간격 약간 확대 */
+  --cards-safe-right: clamp(10px, 2.8vw, 30px); /* 오른쪽 경계 여유 조금 더 */
+}
+
+/* 아이콘 내부 SVG도 아이콘 크기에 맞춰 자동 확대 */
+.lx2-hero-page .lx2-card__icon svg{
+  width: calc(var(--card-icon) * 0.56);
+  height: calc(var(--card-icon) * 0.56);
+}
+
+/* (선택) 모바일에서는 너무 커지지 않게 살짝 다운스케일 */
+@media (max-width: 540px){
+  .lx2-hero-page{
+    --card-min-h: 78px;
+    --card-icon: 38px;
+    --txt-size: clamp(13.5px, 3.6vw, 16px);
+  }
+}
 
  
  
