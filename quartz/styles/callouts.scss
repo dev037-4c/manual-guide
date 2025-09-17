@@ -203,7 +203,7 @@
 
 
 /* 다크모드 전용 스타일 */
-body[data-theme="dark"] {
+html[data-theme="dark"] {
   .callout > .callout-content > .callout-content-inner {
     h4 {
       color: white; /* 제목 흰색 */
