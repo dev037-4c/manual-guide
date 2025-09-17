@@ -431,6 +431,27 @@ code, pre, kbd, .pretty-code, [data-language] {
     padding: clamp(18px, 6vh, 48px) clamp(12px, 4vw, 24px);
   }
 }
+
+/* --- FIX: 카드 4개가 히어로 밖으로 튀는 현상 방지 --- */
+
+/* 1) 우측 칼럼이 콘텐츠 때문에 벌어지지 않게 */
+.lx2-hero__inner{
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr) !important;
+}
+
+/* 2) 카드 컨테이너를 칼럼 폭 안에서 2×2로 고정 */
+.lx2-hero__cards{
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  max-width: 100% !important;
+  min-width: 0 !important;   /* overflow 연쇄 차단 */
+}
+
+/* 3) 긴 제목이 칼럼을 밀어내지 않도록(줄바꿈/잘림 중 택1) */
+/* 줄바꿈 허용 */
+.lx2-card__text{
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+}
  
  
  
@@ -602,18 +623,6 @@ code, pre, kbd, .pretty-code, [data-language] {
   font-size: clamp(12.5px, 0.98vw, 14px);
   gap: 6px;
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-}
-.lx2-hero__cards {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); 
-  gap: 14px 18px;                        
-  justify-items: stretch;               
-  align-items: center;
-
-  max-width: 100%;       
-  margin-inline: auto;   
-  min-width: 0;          
-  box-sizing: border-box; 
 }
  
 /* (옵션) 카드 그리드가 폭을 꽉 채우게 미세 조정 */
