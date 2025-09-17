@@ -277,7 +277,6 @@ code, pre, kbd, .pretty-code, [data-language] {
 
 
 /*인덱스 화면*/
-/*인덱스 화면*/
 
 /* =========================================================
    LX2 Hero — Maintainable Single Source of Truth (SOT)
@@ -304,7 +303,7 @@ code, pre, kbd, .pretty-code, [data-language] {
   --card-pad-y: 16px;         /* 12 → 16 */
   --card-pad-x: 18px;         /* 14 → 28 (과도하지 않게) */
   --card-gap: 10px;           /* 아이콘-텍스트 간격 */
-  --card-icon: 36px;          /* 아이콘 크기는 그대로 */
+  --card-icon: 50px;          /* 아이콘 크기는 그대로 */
   --card-icon-radius: 10px;
 
   --cards-grid-gap: clamp(14px, 2vw, 20px);
@@ -398,15 +397,13 @@ code, pre, kbd, .pretty-code, [data-language] {
   min-width: 0;
   box-sizing: border-box;
 }
-@media (max-width: 540px){
+@media (max-width: 450px){
   .lx2-hero__cards{ grid-template-columns: repeat(var(--cards-cols-mobile), 1fr); }
 }
 
 /* 왼쪽 열(1·3번)만 살짝 왼쪽으로 당김 */
-.lx2-hero__cards > .lx2-card:nth-child(odd){
-  margin-left: var(--cards-odd-shift);
-}
-@media (max-width: 540px){
+
+@media (max-width: 450px){
   .lx2-hero__cards > .lx2-card:nth-child(odd){ margin-left: 0; } /* 1열일 때 보정 해제 */
 }
 
@@ -445,7 +442,7 @@ code, pre, kbd, .pretty-code, [data-language] {
 
 /* 텍스트: 줄바꿈 허용 + 수축 방지(글씨 안 사라지게) */
 .lx2-card__text{
-  display:flex; align-items:center; gap: 6px;
+  display:flex; align-items:center; gap: 0px;
   font-size: var(--txt-size);
   line-height: 1.28;
   white-space: normal;          /* nowrap 해제 */
