@@ -465,9 +465,9 @@ code, pre, kbd, .pretty-code, [data-language] {
 /* === PATCH: 카드(버튼) 사이즈 업 === */
 .lx2-hero-page{
   /* 카드 높이/여백/아이콘/글자 크기만 키움 */
-  --card-min-h: 88px;                /* 72 → 88 */
-  --card-pad-y: 16px;                /* 12 → 16 */
-  --card-pad-x: 18px;                /* 14 → 18 */
+  --card-min-h: 92px;                /* 72 → 88 */
+  --card-pad-y: 18px;                /* 12 → 16 */
+  --card-pad-x: 32px;                /* 14 → 18 */
   --card-icon: 44px;                 /* 36 → 44 */
   --txt-size: clamp(14px, 1.15vw, 17px); /* 본문 폰트 살짝 업 */
   --cards-grid-gap: clamp(14px, 2.2vw, 20px); /* 카드 간격 약간 확대 */
