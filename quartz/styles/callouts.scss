@@ -120,12 +120,7 @@
     --border: var(--lightgray);
     --callout-icon: var(--callout-icon-quote);
   }
-/*============*노트 테스트 진행*==============*/
-   &[data-callout="note"] {
-    --color: var(--secondary);
-    --border: var(--lightgray);
-    --callout-icon: var(--callout-icon-quote);
-  }
+
   &.is-collapsed > .callout-title > .fold-callout-icon {
     transform: rotateZ(-90deg);
   }
