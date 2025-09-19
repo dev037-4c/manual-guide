@@ -1,4 +1,5 @@
 ---
+title: LX2
 date: 2025
 > [!NOTE]
     > v2.0.0
