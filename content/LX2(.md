@@ -1,5 +1,8 @@
 ---
 date: 2025
+> [!NOTE]
+    > v2.0.0
+    > Build:2025.09.19
 ---
 
 <section class="lx2-hero">
