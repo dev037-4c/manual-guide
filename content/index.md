@@ -1,5 +1,8 @@
 ---
 title: LX2  v2.0.0.  2025-09-19
+date: 
+version: v2.0.0
+build: 2025.09.19
 ---
 
 <section class="lx2-hero">
