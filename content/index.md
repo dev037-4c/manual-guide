@@ -1,6 +1,6 @@
 ---
-title: LX2  v2.0.0.  2025-09-19
-date: 
+title: LX2V2 매뉴얼 업데이트 2025-09-19
+date:
 version: v2.0.0
 build: 2025.09.19
 ---
