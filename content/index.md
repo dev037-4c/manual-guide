@@ -38,9 +38,9 @@ build: 2025.09.19
         </span>
         <span class="lx2-card__text"><b>LX2 기능<br>가이드 블로그</b></span>
       </a>
-      <a class="lx2-card eff" href="[https://www.instagram.com/4csoft_lx2/">
+      <a class="lx2-card eff" href="https://www.instagram.com/4csoft_lx2/">
 <span class="lx2-card__icon" aria-hidden="true">  
-<svg role="img" viewBox="0 0 24 24" width="28" height="28" xmlns="http://www.w3.org/2000/svg">  
+<svg role="img" viewBox="0 0 24 24" width="28" height="28" xmlns="http://www.w3.org/2000/svg" border-radius="18">  
 <title>Instagram</title>  
 <defs>  
 <linearGradient id="instaGradient" x1="0%" y1="0%" x2="100%" y2="100%">  
