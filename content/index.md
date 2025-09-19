@@ -1,3 +1,7 @@
+---
+date: 2025
+---
+
 <section class="lx2-hero">
   <div class="lx2-hero__inner">
     <div class="lx2-hero__content">
