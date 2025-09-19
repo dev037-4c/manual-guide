@@ -11,7 +11,6 @@ cssclass: lx2-hero-page
 </h1>  
 <p class="lx2-hero__desc" style="color:#fff !important;-webkit-text-fill-color:#fff !important">수많은 기관에 적용되어 운영중인 가장 안정적인<br>통합 교육시스템  
 </p>  
-<p><b></p>
 </div>  
 <div class="lx2-hero__cards">  
 <a class="lx2-card edu" href="https://www.4csoft.com/"> 
