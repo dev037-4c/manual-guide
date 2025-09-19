@@ -37,10 +37,6 @@ cssclass: lx2-hero-page
 </span>
 <span class="lx2-card__text"><b>LX2 체험하기</b></span>
 </a>
-<div style="margin-top:30px; text-align:left; font-size:0.9em; color:gray;">  
-      해당 저작물의 권리는 <strong>포씨소프트(4CSoft)</strong>에 있습니다.<br>  
-      © 4CSoft. All rights reserved.  
-</div>
 </div>
 </div>
 </section>
