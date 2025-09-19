@@ -5,15 +5,11 @@ cssclass: lx2-hero-page
 <section class="lx2-hero">  
 <div class="lx2-hero__inner">  
 <div class="lx2-hero__content">  
-<h1 class="lx2-hero__title" style="color:#fff !important;-webkit-text-fill-color:#fff !important">  
-        통합학습관리시스템   
-<span class="lx2-title-accent" style="color:#fff !important;-webkit-text-fill-color:#fff !important">  
-          LX2  
+<h1 class="lx2-hero__title" style="color:#fff !important;-webkit-text-fill-color:#fff !important">통합학습관리시스템   
+<span class="lx2-title-accent" style="color:#fff !important;-webkit-text-fill-color:#fff !important">LX2  
 </span>  
 </h1>  
-<p class="lx2-hero__desc" style="color:#fff !important;-webkit-text-fill-color:#fff !important">  
-        수많은 기관에 적용되어 운영중인 가장 안정적인<br>  
-        통합 교육시스템  
+<p class="lx2-hero__desc" style="color:#fff !important;-webkit-text-fill-color:#fff !important">수많은 기관에 적용되어 운영중인 가장 안정적인<br>통합 교육시스템  
 </p>  
 </div>  
 <div class="lx2-hero__cards">  
@@ -43,8 +39,6 @@ cssclass: lx2-hero-page
 </a>  
 </div>  
 </div>  
-<div class="lx2-hero__copyright">  
-    해당 저작물의 권리는 <strong>포씨소프트(4CSoft)</strong>에 있습니다.<br>  
-    © 4CSoft. All rights reserved.  
+<div class="lx2-hero__copyright">해당 저작물의 권리는 <strong>포씨소프트(4CSoft)</strong>에 있습니다.<br>© 4CSoft. All rights reserved.  
 </div>  
 </section>
