@@ -640,10 +640,13 @@
 /* (옵션) 카드 그리드가 폭을 꽉 채우게 미세 조정 */
 .lx2-hero__cards{ gap: clamp(10px, 1.8vw, 16px); min-width: 0; }
 
-
-
-
-
+.lx2-hero__copyright {
+  position: absolute;
+  bottom: 20px;   /* 섹션 하단에서 20px 위 */
+  left: 40px;     /* 왼쪽 여백 */
+  font-size: 0.9em;
+  color: gray;
+}
 
 
 
