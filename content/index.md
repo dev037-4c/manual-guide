@@ -1,5 +1,5 @@
 ---
-title: LX2V2 매뉴얼 2025-09-19
+title: LX2 매뉴얼 V2
 date:
 version: v2.0.0
 build: 2025.09.19
@@ -83,6 +83,6 @@ build: 2025.09.19
   </div>
   <div class="lx2-hero__copyright">
     본 저작물의 모든 권리는 <strong>㈜포씨소프트(4CSoft)</strong>에 있습니다.<br>
-    © 4CSoft. All Rights Reserved.
+    © 4CSoft. All Rights Reserved. <br>2025. 09. 22
   </div>
 </section>
