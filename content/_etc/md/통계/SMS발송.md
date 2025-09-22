@@ -1,4 +1,4 @@
-![[content/_etc/md/통계/통계-sms발송.png]]
+![[통계-sms발송.png]]
 
 ***
 
