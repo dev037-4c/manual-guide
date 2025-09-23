@@ -23,7 +23,7 @@ build: 2025.09.19
       <a class="lx2-card edu" href="https://www.4csoft.com/" target="_blank">
         <span class="lx2-card__icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" width="28" height="28" xmlns="http://www.w3.org/2000/svg">
-		  <text x="12" y="16" text-anchor="middle" font-size="6" font-family="Arial, sans-serif" fill="#2D9CDB">4CSoft</text>
+		  <text x="12" y="12" text-anchor="middle" alignment-baseline="middle" font-size="5" font-family="Arial, sans-serif" fill="#2D9CDB">4CSoft</text>
 		</svg>
         </span>
         <span class="lx2-card__text"><b>포씨소프트<br>공식 홈페이지</b></span>
