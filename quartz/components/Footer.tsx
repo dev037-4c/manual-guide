@@ -16,7 +16,7 @@ export default ((opts?: Options) => {
       <footer class={`${displayClass ?? ""}`}>
         <p>
  
-          <a href="https://lx2.kr/xmg/">
+          <a href="https://lx2.kr/campus/login/loginpage.do">
             <img src="/_etc/lx2_logo.png" alt="LX2 로고" height="30" />
           </a>
         </p>

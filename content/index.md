@@ -31,9 +31,9 @@ build: 2025.09.19
       </a>
       <a class="lx2-card tech" href="https://lx2.kr/common/greeting.do">
         <span class="lx2-card__icon" aria-hidden="true">
-          <svg role="img" viewBox="0 0 24 24" width="28" height="28" xmlns="http://www.w3.org/2000/svg">
-            <title>Naver</title>
-            <path d="M3 3h5.5l4.5 7V3H21v18h-5.5l-4.5-7v7H3z" fill="#03C75A"/>
+          <svg viewBox="0 0 24 24" width="28" height="28" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="10" fill="#9B51E0"/>
+            <polygon points="10,8 16,12 10,16" fill="#fff"/>
           </svg>
         </span>
         <span class="lx2-card__text"><b>LX2 체험하기</b></span>
@@ -59,9 +59,9 @@ build: 2025.09.19
 </a>
       <a class="lx2-card sec" href="https://blog.naver.com/lx2-4cosft" target="_blank">
         <span class="lx2-card__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="28" height="28" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="12" cy="12" r="10" fill="#9B51E0"/>
-            <polygon points="10,8 16,12 10,16" fill="#fff"/>
+        <svg role="img" viewBox="0 0 24 24" width="28" height="28" xmlns="http://www.w3.org/2000/svg">
+            <title>Naver</title>
+            <path d="M3 3h5.5l4.5 7V3H21v18h-5.5l-4.5-7v7H3z" fill="#03C75A"/>
           </svg>
         </span>
         <span class="lx2-card__text"><b>LX2 기능<br>가이드 블로그</b></span>
