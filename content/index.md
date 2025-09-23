@@ -29,14 +29,14 @@ build: 2025.09.19
         </span>
         <span class="lx2-card__text"><b>포씨소프트<br>공식 홈페이지</b></span>
       </a>
-      <a class="lx2-card tech" href="https://blog.naver.com/lx2-4cosft">
+      <a class="lx2-card tech" href="https://lx2.kr/common/greeting.do">
         <span class="lx2-card__icon" aria-hidden="true">
           <svg role="img" viewBox="0 0 24 24" width="28" height="28" xmlns="http://www.w3.org/2000/svg">
             <title>Naver</title>
             <path d="M3 3h5.5l4.5 7V3H21v18h-5.5l-4.5-7v7H3z" fill="#03C75A"/>
           </svg>
         </span>
-        <span class="lx2-card__text"><b>LX2 기능<br>가이드 블로그</b></span>
+        <span class="lx2-card__text"><b>LX2 체험하기</b></span>
       </a>
       <a class="lx2-card eff" href="https://www.instagram.com/4csoft_lx2/">
 <span class="lx2-card__icon" aria-hidden="true">  
@@ -57,14 +57,14 @@ build: 2025.09.19
 </span>  
 <span class="lx2-card__text"><b>LX2 공식<br>인스타그램</b></span>  
 </a>
-      <a class="lx2-card sec" href="https://lx2.kr/common/greeting.do" target="_blank">
+      <a class="lx2-card sec" href="https://blog.naver.com/lx2-4cosft" target="_blank">
         <span class="lx2-card__icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" width="28" height="28" xmlns="http://www.w3.org/2000/svg">
             <circle cx="12" cy="12" r="10" fill="#9B51E0"/>
             <polygon points="10,8 16,12 10,16" fill="#fff"/>
           </svg>
         </span>
-        <span class="lx2-card__text"><b>LX2 체험하기</b></span>
+        <span class="lx2-card__text"><b>LX2 기능<br>가이드 블로그</b></span>
       </a>
     </div>
   </div>
@@ -83,6 +83,6 @@ build: 2025.09.19
   </div>
   <div class="lx2-hero__copyright">
     본 저작물의 모든 권리는 <strong>㈜포씨소프트(4CSoft)</strong>에 있습니다.<br>
-    © 4CSoft. All Rights Reserved. <br>2025. 09. 22
+    © 4CSoft. All Rights Reserved. <br><br>2025. 09. 22
   </div>
 </section>
