@@ -21,5 +21,5 @@
 
 > [!tip]- 사용방법
 > - **저장**: 모든 값을 입력 또는 수정한 뒤 **저장 버튼 ①**을 클릭 → 변경 사항이 시스템에 등록된다.
-> - **API 정보 입력**: 화면의 **API 입력 영역 ②**에서 각 서비스(ZOOM, OpenAI, Google, YouTube, Vimeo 등)에 필요한 Key, Client ID, Secret 값을 정확히 입력한다.
+> - **API 정보 입력**: 화면의 **API 입력 영역 ②**에서 각 서비스에 필요한 Key, Client ID, Secret 값을 정확히 입력한다.
 
