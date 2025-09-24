@@ -68,22 +68,28 @@ build: 2025.09.19
       </a>
     </div>
   </div>
+<!-- PDF 다운로드 카드 -->
 <div class="lx2-pdf-card">
-    <a href="/pdfs/LX2_guide.pdf" target="_blank" class="pdf-link">
-      <span class="pdf-icon">
-        <svg viewBox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
-          <rect x="2" y="2" width="20" height="20" rx="3" fill="#FF4B4B"/>
-          <text x="12" y="16" font-size="9" font-family="Arial, sans-serif" fill="#fff" text-anchor="middle" font-weight="bold">
-            PDF
-          </text>
-        </svg>
-      </span>
-      <span class="pdf-text">PDF 다운로드</span>
-      <span class="pdf-version">v2.0.0</span>
-    </a>
-  </div>
-  <div class="lx2-hero__copyright">
+  <a href="게시판-자료실.pdf" download class="pdf-link">
+    <span class="pdf-icon">
+      <svg viewBox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="2" y="2" width="20" height="20" rx="3" fill="#FF4B4B"/>
+        <text x="12" y="16" font-size="9" font-family="Arial, sans-serif" fill="#fff" text-anchor="middle" font-weight="bold">
+          PDF
+        </text>
+      </svg>
+    </span>
+    <span class="pdf-text">PDF 다운로드</span>
+    <span class="pdf-version">v2.0.0</span>
+  </a>
+</div>
+<!-- 저작권 표시 -->
+<footer class="lx2-hero__copyright">
+  <p>
     본 저작물의 모든 권리는 <strong>㈜포씨소프트(4CSoft)</strong>에 있습니다.<br>
-    © 4CSoft. All Rights Reserved. <br><br>2025. 09. 22
-  </div>
+    © 4CSoft. All Rights Reserved.
+  </p>
+  <p class="publish-date">2025. 09. 22</p>
+</footer>
+
 </section>
