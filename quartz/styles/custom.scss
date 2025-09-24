@@ -829,16 +829,3 @@ display: flex;
   .obs-slider{ --h: 320px; --btn-size: 44px; }
 }
 
-/* 읽기모드 버튼 숨기기 */
-button.reademode {
-  display: none !important;
-}
-
-/* 읽기모드 화면 자체를 차단 */
-.markdown-preview-view {
-  display: none !important;
-}
-
-button.darkmode {
-  display: none !important;
-}
