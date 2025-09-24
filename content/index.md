@@ -79,6 +79,7 @@ build: 2025.09.19
         </svg>
       </span>
       <span class="pdf-text">PDF 다운로드</span>
+      <span class="pdf-version">v2.0.0</span>
     </a>
   </div>
   <div class="lx2-hero__copyright">
