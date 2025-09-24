@@ -1,3 +1,3 @@
-/LX2매뉴얼.pdf
+/소스코드 기초 파악.pdf
   Content-Type: application/pdf
-  Content-Disposition: attachment; filename="LX2매뉴얼.pdf"
+  Content-Disposition: attachment; filename="소스코드 기초 파악.pdf"

@@ -70,7 +70,7 @@ build: 2025.09.19
   </div>
 <!-- PDF 다운로드 카드 -->
 <div class="lx2-pdf-card">
-  <a href="LX2매뉴얼.pdf" download class="pdf-link">
+  <a href="소스코드 기초 파악.pdf" download class="pdf-link">
     <span class="pdf-icon">
       <svg viewBox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <rect x="2" y="2" width="20" height="20" rx="3" fill="#FF4B4B"/>
