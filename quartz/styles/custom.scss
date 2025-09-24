@@ -829,3 +829,7 @@ display: flex;
   .obs-slider{ --h: 320px; --btn-size: 44px; }
 }
 
+
+.lx2-card__icon svg { background: none; stroke: none; border: none;}
+
+.lx2-hero__desc svg {display: none;}
