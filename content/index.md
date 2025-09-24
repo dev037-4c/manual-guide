@@ -69,7 +69,7 @@ build: 2025.09.19
     </div>
   </div>
 <div class="lx2-pdf-card">  
-  <a href="LX2관리자매뉴얼.pdf" download class="pdf-link">  
+  <a href="LX2관리자매뉴얼.pdf" download>  
     <span class="pdf-icon">  
       <svg viewBox="0 0 24 24" width="20" height="20" xmlns="[http://www.w3.org/2000/svg"](http://www.w3.org/2000/svg%22 "http://www.w3.org/2000/svg%22") aria-hidden="true">  
         <rect x="2" y="2" width="20" height="20" rx="3" fill="#FF4B4B"/>  
