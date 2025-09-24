@@ -829,7 +829,17 @@ display: flex;
   .obs-slider{ --h: 320px; --btn-size: 44px; }
 }
 
+/* 다크모드 버튼 숨기기 */
+.theme-toggle, .theme-dark, .theme-light {
+  display: none !important;
+}
 
-.lx2-card__icon svg { background: none; stroke: none; border: none;}
+/* 강제로 라이트모드 고정 */
+body {
+  color-scheme: light !important;
+}
 
-.lx2-hero__desc svg {display: none;}
+/* 읽기모드 숨기기 */
+.markdown-preview-view {
+  display: none !important;
+}
