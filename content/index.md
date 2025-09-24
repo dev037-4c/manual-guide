@@ -15,15 +15,16 @@ build: 2025.09.19
         </span>
       </h1>
       <p class="lx2-hero__desc" style="color:#fff !important;-webkit-text-fill-color:#fff !important">
-        수많은 기관에 적용되어 운영중인 가장 안정적인<br>
+        수많은 기관에 적용되어 운영 중인 가장 안정적인<br>
         통합 교육시스템
       </p>
     </div>
     <div class="lx2-hero__cards">
       <a class="lx2-card edu" href="https://www.4csoft.com/" target="_blank">
         <span class="lx2-card__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="28" height="28" xmlns="http://www.w3.org/2000/svg">
-		  <text x="12" y="12" text-anchor="middle" alignment-baseline="middle" font-size="5" font-family="Arial, sans-serif" fill="#2D9CDB">4CSoft</text>
+          <svg viewBox="0 0 24 24" width="48" height="48" xmlns="http://www.w3.org/2000/svg">
+		  <circle cx="12" cy="12" r="10" fill="none" stroke="#2D9CDB" stroke-width="2"/>
+		  <text x="12" y="12" text-anchor="middle" dominant-baseline="middle" font-size="8" font-family="Arial, sans-serif" fill="#2D9CDB">4C</text>
 		</svg>
         </span>
         <span class="lx2-card__text"><b>포씨소프트<br>공식 홈페이지</b></span>
