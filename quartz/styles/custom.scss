@@ -829,17 +829,12 @@ display: flex;
   .obs-slider{ --h: 320px; --btn-size: 44px; }
 }
 
-/* 다크모드 버튼 숨기기 */
-.theme-toggle, .theme-dark, .theme-light {
+/* 읽기모드 버튼 숨기기 */
+button.reademode {
   display: none !important;
 }
 
-/* 강제로 라이트모드 고정 */
-body {
-  color-scheme: light !important;
-}
-
-/* 읽기모드 숨기기 */
+/* 읽기모드 화면 자체를 차단 */
 .markdown-preview-view {
   display: none !important;
 }
