@@ -29,7 +29,7 @@ build: 2025.09.19
         </span>
         <span class="lx2-card__text"><b>포씨소프트<br>공식 홈페이지</b></span>
       </a>
-      <a class="lx2-card tech" href="https://lx2.kr/common/greeting.do">
+      <a class="lx2-card tech" href="https://lx2.kr/common/greeting.do" target="_blank">
         <span class="lx2-card__icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" width="28" height="28" xmlns="http://www.w3.org/2000/svg">
             <circle cx="12" cy="12" r="10" fill="#9B51E0"/>
@@ -38,7 +38,7 @@ build: 2025.09.19
         </span>
         <span class="lx2-card__text"><b>LX2 체험하기</b></span>
       </a>
-      <a class="lx2-card eff" href="https://www.instagram.com/4csoft_lx2/">
+      <a class="lx2-card eff" href="https://www.instagram.com/4csoft_lx2/" target="_blank">
 <span class="lx2-card__icon" aria-hidden="true">  
 <svg role="img" viewBox="0 0 24 24" width="28" height="28" xmlns="http://www.w3.org/2000/svg" border-radius="18">  
 <title>Instagram</title>  
