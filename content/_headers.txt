@@ -1,3 +1,3 @@
-/*.pdf
+/LX2매뉴얼.pdf
   Content-Type: application/pdf
-  Content-Disposition: attachment; filename="LX2관리자매뉴얼.pdf"
+  Content-Disposition: attachment; filename="LX2매뉴얼.pdf"
