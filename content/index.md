@@ -1,5 +1,5 @@
 ---
-title: LX2 매뉴얼 V2
+title: LX2 매뉴얼
 date:
 version: v2.0.0
 build: 2025.09.19
