@@ -30,21 +30,41 @@ html, body, .page, #quartz-body { overflow-x: hidden !important; }
   box-shadow: 0 8px 24px rgba(16,24,40,.06);
 }
 
-/* ===== 모바일 전용 (화면이 768px 이하일 때) ===== */
+/* ===== 모바일 일반형 (화면이 768px 이하일 때) ===== */
 @media (max-width: 768px) {
   .sidebar.left {
-    margin-top: 10px; /* 위 여백 줄이기 */
+    margin-top: 8px;
+    padding-top: 0 !important;
   }
 
   .sidebar.left .explorer {
-    width: 100%;          /* 가로로 꽉 차도록 */
-    max-width: none;      /* 고정 너비 해제 */
-    border-radius: 12px;  /* 모바일에서는 모서리 조금 줄임 */
-    padding: 12px;        /* 패딩 여유 */
+    width: 100% !important;
+    max-width: none !important;
+    padding: 12px !important;
+    border-radius: 12px;
+    font-size: 15px;
     box-sizing: border-box;
+    box-shadow: none;
+  }
+
+  .sidebar.left .explorer .explorer-content li > a {
+    padding: 10px !important;
+    min-height: 38px;
+    font-size: 15px;
+    line-height: 1.3;
+  }
+
+  .sidebar.left .explorer .folder-container {
+    padding: 8px 10px;
+    gap: 8px;
+  }
+
+  .sidebar.left .explorer .explorer-content {
+    max-height: 75vh;
+    overflow-y: auto !important;
+    padding-right: 8px;
   }
 }
-
  
 /* 헤더: 카드/아이콘/토글 제거 + 제목 교체 */
 :root { --explorer-label: "메뉴"; }  /* ← 여기만 바꾸면 제목 변경 */
@@ -66,7 +86,6 @@ html, body, .page, #quartz-body { overflow-x: hidden !important; }
   content: var(--explorer-label); position:absolute; inset:0;
   color:var(--x-text); font-weight:800; letter-spacing:-.01em;
 }
- 
  
 /* 들여쓰기/마커 완전 제거 */
 .sidebar.left .explorer .explorer-content ul,
@@ -98,11 +117,11 @@ html, body, .page, #quartz-body { overflow-x: hidden !important; }
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding: 6px 10px;       /* 세로 padding 줄이기 */
+  padding: 6px 10px;
   margin: 2px 0;
-  min-height: 32px;        /* 박스 고정 높이 (짧게) */
-  line-height: 1.2;        /* 텍스트 줄 높이 줄이기 */
-  border-radius: 6px;      /* 둥글기 조금만 */
+  min-height: 32px;
+  line-height: 1.2;
+  border-radius: 6px;
   transition: background .15s ease, color .15s ease;
 }
  
@@ -110,7 +129,7 @@ html, body, .page, #quartz-body { overflow-x: hidden !important; }
 .sidebar.left .explorer .explorer-content li > a.active {
   background: var(--x-active);
   color: var(--x-accent) !important;
-  border-radius: 6px;      /* 둥글둥글 → 살짝 네모 */
+  border-radius: 6px;
   box-shadow: inset 0 0 0 2px var(--x-accent);
   font-weight: 700;
 }
@@ -118,7 +137,7 @@ html, body, .page, #quartz-body { overflow-x: hidden !important; }
   content:none; position:absolute; left:6px; top:22%; bottom:22%; width:3px; border-radius:2px; background:var(--x-accent);
 }
  
-/* 모바일: 원본 드로어 토글 동작 유지(위치/transform 건드리지 않음) */
+/* 모바일 스크롤 */
 @media (max-width: 900px){
   .sidebar.left .explorer .explorer-content{
     overflow-y:auto !important; overflow-x:clip !important; padding-right:12px;
@@ -149,69 +168,53 @@ html, body, .page, #quartz-body { overflow-x: hidden !important; }
 .sidebar.left .explorer .explorer-content::-webkit-scrollbar-corner{ background:transparent; }
  
 /* === FIX: 변수 통일(—exp-* -> —x-*) & 다크모드 강제 === */
- 
-/* 0) 라벨(제목) 색이 안 바뀌던 원인 제거: exp -> x */
 .sidebar.left .explorer :is(.desktop-explorer,.mobile-explorer) h2::after{
-  color: var(--x-text) !important;   /* 이전: var(--exp-text, #0f1116) */
+  color: var(--x-text) !important;
 }
- 
-/* 1) 기본 색상도 변수로 강제 */
 .sidebar.left .explorer{
   background: var(--x-bg) !important;
   color: var(--x-text) !important;
   border-color: var(--x-border) !important;
 }
- 
-/* 2) hover/active도 모두 x-변수 사용 */
 .sidebar.left .explorer .folder-container:hover,
 .sidebar.left .explorer .explorer-content li > a:hover{
   background: var(--x-hover) !important;
 }
 .sidebar.left .explorer .explorer-content li > a.active{
   background: var(--x-active) !important;
-  color: var(--x-accent) !important; /* 이전에 고정색(#2563eb) 쓰지 않기 */
+  color: var(--x-accent) !important;
   box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--x-accent) 36%, transparent) !important;
 }
 .sidebar.left .explorer .explorer-content li > a.active::before{
   background: var(--x-accent) !important;
 }
- 
-/* 3) 다크모드 셀렉터를 폭넓게(어디에 달려 있어도 적용) */
+
+/* 다크모드 전체 */
 html[data-theme="dark"] .sidebar.left .explorer,
 body[data-theme="dark"] .sidebar.left .explorer,
 :root[data-theme="dark"] .sidebar.left .explorer{
-  background: var(--x-bg) !important;   /* #0f131a */
-  color: var(--x-text) !important;      /* #eef2f6 */
-  border-color: var(--x-border) !important; /* #2a3240 */
+  background: var(--x-bg) !important;
+  color: var(--x-text) !important;
+  border-color: var(--x-border) !important;
   box-shadow: 0 12px 30px rgba(0,0,0,.55) !important;
 }
-html[data-theme="dark"] .sidebar.left .explorer .explorer-content,
-body[data-theme="dark"] .sidebar.left .explorer .explorer-content,
-:root[data-theme="dark"] .sidebar.left .explorer .explorer-content{
-  border-top-color: var(--x-sep) !important; /* #1c2432 */
+html[data-theme="dark"] .sidebar.left .explorer .explorer-content{
+  border-top-color: var(--x-sep) !important;
 }
 html[data-theme="dark"] .sidebar.left .explorer .folder-container:hover,
-body[data-theme="dark"] .sidebar.left .explorer .folder-container:hover,
-:root[data-theme="dark"] .sidebar.left .explorer .folder-container:hover,
-html[data-theme="dark"] .sidebar.left .explorer .explorer-content li > a:hover,
-body[data-theme="dark"] .sidebar.left .explorer .explorer-content li > a:hover,
-:root[data-theme="dark"] .sidebar.left .explorer .explorer-content li > a:hover{
-  background: var(--x-hover) !important; /* #162031 */
+html[data-theme="dark"] .sidebar.left .explorer .explorer-content li > a:hover{
+  background: var(--x-hover) !important;
 }
-html[data-theme="dark"] .sidebar.left .explorer .explorer-content li > a.active,
-body[data-theme="dark"] .sidebar.left .explorer .explorer-content li > a.active,
-:root[data-theme="dark"] .sidebar.left .explorer .explorer-content li > a.active{
-  background: var(--x-active) !important; /* #182642 */
-  color: var(--x-accent) !important;      /* #60a5fa */
+html[data-theme="dark"] .sidebar.left .explorer .explorer-content li > a.active{
+  background: var(--x-active) !important;
+  color: var(--x-accent) !important;
   box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--x-accent) 40%, transparent) !important;
 }
-html[data-theme="dark"] .sidebar.left .explorer .explorer-content li > a.active::before,
-body[data-theme="dark"] .sidebar.left .explorer .explorer-content li > a.active::before,
-:root[data-theme="dark"] .sidebar.left .explorer .explorer-content li > a.active::before{
+html[data-theme="dark"] .sidebar.left .explorer .explorer-content li > a.active::before{
   background: var(--x-accent) !important;
 }
  
-/* 4) 수평 스크롤 재차단(혹시 다시 생기면…) */
+/* 수평 스크롤 차단 */
 .sidebar.left,
 .sidebar.left .explorer,
 .sidebar.left .explorer .explorer-content{
@@ -220,74 +223,34 @@ body[data-theme="dark"] .sidebar.left .explorer .explorer-content li > a.active:
 }
 .sidebar.left .explorer .explorer-content::-webkit-scrollbar:horizontal{ height:0 !important; }
  
-/* 5) 다크 전용 스크롤바(쨍하지 않게) */
-html[data-theme="dark"] .sidebar.left .explorer .explorer-content,
-body[data-theme="dark"] .sidebar.left .explorer .explorer-content,
-:root[data-theme="dark"] .sidebar.left .explorer .explorer-content{
+/* 다크모드 스크롤바 */
+html[data-theme="dark"] .sidebar.left .explorer .explorer-content{
   scrollbar-width: thin;
   scrollbar-color: color-mix(in srgb, var(--x-text) 45%, transparent) transparent;
 }
-html[data-theme="dark"] .sidebar.left .explorer .explorer-content::-webkit-scrollbar-thumb,
-body[data-theme="dark"] .sidebar.left .explorer .explorer-content::-webkit-scrollbar-thumb,
-:root[data-theme="dark"] .sidebar.left .explorer .explorer-content::-webkit-scrollbar-thumb{
+html[data-theme="dark"] .sidebar.left .explorer .explorer-content::-webkit-scrollbar-thumb{
   border-radius: 999px;
   border: 3px solid transparent;
   background-clip: padding-box;
   background-color: color-mix(in srgb, var(--x-text) 45%, transparent);
 }
-html[data-theme="dark"] .sidebar.left .explorer .explorer-content:hover::-webkit-scrollbar-thumb,
-body[data-theme="dark"] .sidebar.left .explorer .explorer-content:hover::-webkit-scrollbar-thumb,
-:root[data-theme="dark"] .sidebar.left .explorer .explorer-content:hover::-webkit-scrollbar-thumb{
+html[data-theme="dark"] .sidebar.left .explorer .explorer-content:hover::-webkit-scrollbar-thumb{
   background-color: color-mix(in srgb, var(--x-text) 65%, transparent);
 }
  
 /* 사이드바랑 본문 정렬 맞추기 */
 .sidebar.left {
-  padding-top: 24px !important;   /* 카드 위쪽 여백만큼 맞춰줌 */
+  padding-top: 24px !important;
 }
- 
 .page main.content {
-  margin-top: 24px !important;       /* 불필요한 위쪽 여백 제거 */
+  margin-top: 24px !important;
 }
 
 .sidebar.left .explorer .folder-outer{
-  display:grid; grid-template-rows:0fr; overflow:hidden; /* 접힘 상태에서 밖으로 안 새게 */
+  display:grid; grid-template-rows:0fr; overflow:hidden;
 }
-.sidebar.left .explorer .folder-outer.open{ grid-template-rows:1fr; } /* 펼침 */
+.sidebar.left .explorer .folder-outer.open{ grid-template-rows:1fr; }
 .sidebar.left .explorer .folder-outer > ul{
-  margin-block: 0;            /* ← 기본 ul 상하 1em 마진 제거(병합 차단 핵심) */
-  min-height: 0;              /* 0fr 계산 시 내부 높이 0 허용 */
-}
-/* ===== 초소형 모바일 전용 (화면이 480px 이하일 때) ===== */
-@media (max-width: 480px) {
-  .sidebar.left {
-    margin-top: 0;          /* 헤더 바로 밑에 붙도록 */
-    padding-top: 0 !important;
-  }
-
-  .sidebar.left .explorer {
-    width: 100% !important;   /* 가로 꽉 채우기 */
-    padding: 8px !important;  /* 패딩 최소화 */
-    border-radius: 8px;       /* 둥근 모서리 줄이기 */
-    font-size: 14px;          /* 글자 크기 축소 */
-    box-shadow: none !important; /* 그림자 제거로 단순화 */
-  }
-
-  .sidebar.left .explorer .explorer-content li > a {
-    padding: 8px !important;   /* 터치하기 적당한 크기 */
-    min-height: 36px;          /* 버튼 높이 확보 */
-    font-size: 14px;           /* 글자 크기 줄이기 */
-  }
-
-  .sidebar.left .explorer .folder-container {
-    padding: 6px 8px;          /* 모바일에 맞는 여백 */
-    gap: 6px;                  /* 아이콘과 텍스트 간격 줄임 */
-  }
-
-  /* 스크롤 영역도 화면에 맞게 */
-  .sidebar.left .explorer .explorer-content {
-    max-height: 70vh;          /* 화면 높이의 70%까지만 */
-    overflow-y: auto !important;
-    padding-right: 8px;
-  }
+  margin-block: 0;
+  min-height: 0;
 }
