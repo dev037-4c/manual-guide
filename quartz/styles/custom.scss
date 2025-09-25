@@ -1,49 +1,6 @@
-@use "./base.scss";
-
-/* _etc 폴더 숨기기 */
-.explorer .folder-container[data-folderpath="_etc/index"] { display: none !important; }
-.explorer .content li:has(> a[data-for^="_etc/"]) { display: none !important; }
-.explorer a[href^="../_etc/"], .explorer a[href*="/_etc/"] { display: none !important; }
-
-/* ==== Neo Icon Cards (contrast tuned + blue hover) ==== */
-:root {
-  --neo-bg:#fff; --neo-text:#0e1116; --neo-muted:#5f6b7a;
-  --neo-border:#e6e8ee; --neo-ring:rgba(59,130,246,.12);
-  --neo-shadow:0 8px 24px rgba(0,0,0,.06);
-  --neo-shadow-hover:0 14px 42px rgba(0,0,0,.12);
-  --neo-r:20px; --neo-gap:18px;
-  --neo-icon-bg:linear-gradient(180deg,#f7f9ff,#f2f6ff);
-  --neo-icon-stroke:#375ef6;
-  --neo-blue:#3b82f6;
-}
-[data-theme="dark"] {
-  --neo-bg:#0f131a; --neo-text:#f4f6fb; --neo-muted:#c0c7d1;
-  --neo-border:#2a3240; --neo-ring:rgba(96,165,250,.18);
-  --neo-shadow:0 12px 30px rgba(0,0,0,.55);
-  --neo-shadow-hover:0 18px 50px rgba(0,0,0,.65);
-  --neo-icon-bg:linear-gradient(180deg,#1a2130,#121722);
-  --neo-icon-stroke:#9ec3ff; --neo-blue:#60a5fa;
-}
-
-/* 컨테이너 */
-.neo-cards {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:26px;
-}
-.neo-card {
-  background:var(--neo-bg); color:var(--neo-text);
-  border:1px solid var(--neo-border);
-  border-radius:var(--neo-r);
-  box-shadow:var(--neo-shadow);
-  padding:22px;
-  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-}
-.neo-card:hover { transform:translateY(-3px); box-shadow:var(--neo-shadow-hover); border-color:transparent; }
-
 /* ===== Hero Wrapper ===== */
 .lx2-hero {
-  --wrap: 1200px;
+  --wrap: 1200px; /* PC에서 최대 폭 고정 */
   --pad-x: clamp(16px, 4vw, 48px);
   --pad-y: clamp(24px, 8vh, 80px);
   --radius: 24px;
@@ -52,8 +9,9 @@
   display: grid;
   place-items: center;
 
-  width: min(92vw, var(--wrap));
-  margin: 0 auto;
+  width: 100%;
+  max-width: var(--wrap);   /* 💡 PC 전체화면에서도 폭 제한 */
+  margin: 0 auto;          /* 💡 항상 중앙 정렬 */
   padding: var(--pad-y) var(--pad-x);
   min-height: min(82dvh, 820px);
 
@@ -72,12 +30,12 @@
   width: 100%;
   display: grid;
   align-items: center;
-  grid-template-columns: 1.15fr 1fr;
-  column-gap: clamp(20px, 5vw, 48px);
+  grid-template-columns: 1.2fr 1fr;  /* 💡 PC에서는 2열 균형 */
+  column-gap: clamp(20px, 4vw, 48px);
 }
 @media (max-width: 980px) {
   .lx2-hero__inner {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr;  /* 💡 모바일에서는 1열 */
     row-gap: 28px;
     text-align: center;
   }
@@ -86,22 +44,24 @@
 /* ===== Title & Description ===== */
 .lx2-hero__title {
   margin: 0 0 .25em;
-  font-size: clamp(26px, 4.2vw, 60px);
+  font-size: clamp(28px, 3.8vw, 60px); /* 💡 큰 화면에서도 지나치게 커지지 않음 */
   line-height: 1.1;
   letter-spacing: -.02em;
 }
 .lx2-title-accent { display:block; font-size:1.2em; margin-top:.2em; }
+
 .lx2-hero__desc {
   margin: 0 0 1.2em;
-  font-size: clamp(15px, 1.6vw, 18px);
+  font-size: clamp(16px, 1.5vw, 20px); /* 💡 PC에서 가독성 좋은 크기 */
   opacity: .9;
+  max-width: 700px; /* 💡 너무 길어지지 않게 */
 }
 
 /* ===== Card Grid ===== */
 .lx2-hero__cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: clamp(10px, 2vw, 20px);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* 💡 PC에서는 3~4열 */
+  gap: clamp(16px, 2vw, 24px);
   align-items: stretch;
 }
 @media (max-width: 540px) {
@@ -113,29 +73,30 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: clamp(12px, 2.5vw, 18px);
+  padding: clamp(14px, 2.5vw, 20px);
   border-radius: 18px;
   background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
   border: 1px solid rgba(255,255,255,.14);
   color: #fff;
   text-decoration: none;
   box-shadow: 0 6px 18px rgba(0,0,0,.25);
-  min-height: 72px;
+  min-height: 80px; /* 💡 PC에서 높이 균형 */
   transition: transform .15s ease, border-color .15s ease, background .15s ease;
 }
 .lx2-card:hover { transform: translateY(-2px); border-color: rgba(255,255,255,.28); background: rgba(255,255,255,.08); }
 
 .lx2-card__icon {
-  flex: 0 0 clamp(32px, 5vw, 40px);
-  height: clamp(32px, 5vw, 40px);
+  flex: 0 0 clamp(36px, 4vw, 44px);
+  height: clamp(36px, 4vw, 44px);
   display: grid;
   place-items: center;
   border-radius: 10px;
   background: rgba(255,255,255,0.1);
 }
-.lx2-card__icon svg { width: clamp(18px, 3.2vw, 22px); height: clamp(18px, 3.2vw, 22px); }
+.lx2-card__icon svg { width: clamp(20px, 2.8vw, 24px); height: clamp(20px, 2.8vw, 24px); }
+
 .lx2-card__text {
-  font-size: clamp(13px, 1.2vw, 16px);
+  font-size: clamp(14px, 1.1vw, 16px);
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 
@@ -145,12 +106,12 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 8px 12px;
+  padding: 8px 14px;
   border-radius: 10px;
   background: rgba(255, 75, 75, 0.15);
   border: 1px solid rgba(255, 75, 75, 0.5);
   color: #fff;
-  font-size: clamp(11px, 1.2vw, 13px);
+  font-size: clamp(12px, 1vw, 14px);
   font-weight: 600;
   text-decoration: none;
   transition: all 0.2s ease;
@@ -158,21 +119,11 @@
 .pdf-link:hover { background: rgba(255, 75, 75, 0.25); border-color: rgba(255, 75, 75, 0.7); transform: translateY(-2px); }
 
 .lx2-hero__copyright {
-  margin-top: 16px;
-  font-size: clamp(11px, 1vw, 13px);
+  margin-top: 20px;
+  font-size: clamp(12px, 0.9vw, 14px);
   color: #bbb;
   text-align: center;
+  max-width: 900px; /* 💡 한 줄 길이 제한 */
+  margin-left: auto;
+  margin-right: auto;
 }
-
-/* ===== Slider 반응형 ===== */
-.obs-slider{ max-width: 850px; margin:24px auto; border-radius:14px; overflow:hidden; }
-@media (max-width: 720px){
-  .obs-slider{ max-width:100%; }
-}
-
-/* ===== Explorer: _etc 폴더/파일 숨김 ===== */
-.sidebar.left .explorer li:has(> .folder-container[data-folderpath^="_etc"]) { display:none !important; }
-.sidebar.left .explorer a[href*="/_etc/"] { display:none !important; }
-
-/* Darkmode 아이콘 숨김 */
-.darkmode, .dayIcon, .nightIcon { display: none; }
