@@ -214,10 +214,10 @@
 
 /* ===== Hero Wrapper ===== */
 .lx2-hero {
-  --wrap: 1100px;
+  --wrap: 1200px;
   --pad-x: clamp(16px, 4vw, 48px);
   --pad-y: clamp(24px, 8vh, 80px);
-  --radius: 24px;
+  --radius: 20px;
 
   position: relative;
   display: grid;
