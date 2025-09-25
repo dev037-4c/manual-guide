@@ -15,14 +15,36 @@
 /* 가로 스크롤 전역 차단 */
 html, body, .page, #quartz-body { overflow-x: hidden !important; }
  
-/* 패널 */
-.sidebar.left { overflow: visible !important; margin-top: 90px;}
-.sidebar.left .explorer{
-  background:var(--x-bg); color:var(--x-text);
-  border:1px solid var(--x-border); border-radius:18px;
-  padding:10px; box-shadow:0 8px 24px rgba(16,24,40,.06);
-  padding-left: 20px;
+/* 패널 (기본) */
+.sidebar.left { 
+  overflow: visible !important; 
+  margin-top: 90px;
 }
+
+.sidebar.left .explorer {
+  background: var(--x-bg); 
+  color: var(--x-text);
+  border: 1px solid var(--x-border); 
+  border-radius: 18px;
+  padding: 10px 20px;
+  box-shadow: 0 8px 24px rgba(16,24,40,.06);
+}
+
+/* ===== 모바일 전용 (화면이 768px 이하일 때) ===== */
+@media (max-width: 768px) {
+  .sidebar.left {
+    margin-top: 10px; /* 위 여백 줄이기 */
+  }
+
+  .sidebar.left .explorer {
+    width: 100%;          /* 가로로 꽉 차도록 */
+    max-width: none;      /* 고정 너비 해제 */
+    border-radius: 12px;  /* 모바일에서는 모서리 조금 줄임 */
+    padding: 12px;        /* 패딩 여유 */
+    box-sizing: border-box;
+  }
+}
+
  
 /* 헤더: 카드/아이콘/토글 제거 + 제목 교체 */
 :root { --explorer-label: "메뉴"; }  /* ← 여기만 바꾸면 제목 변경 */
