@@ -290,20 +290,27 @@
   background: rgba(255, 255, 255, .06);
 }
 
-/* ===== Right: 2×2 Card Grid (PC/태블릿) ===== */
+/* ===== Right: 카드 Grid (PC 기본 2열) ===== */
 .lx2-hero__cards {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* PC 기본 2열 */
+  grid-template-columns: 1fr 1fr;   /* PC: 가로 2열 */
   gap: clamp(10px, 1vw, 10px);
 }
 
-/* ===== 모바일: 2개씩 자동 줄바꿈 ===== */
+/* ===== 모바일: 세로 1열 ===== */
 @media (max-width: 540px) {
   .lx2-hero__cards {
-    grid-template-columns: repeat(2, 1fr); /* 한 줄에 2개 */
-    gap: 8px;                              /* 모바일에서는 간격 조금 줄임 */
+    display: grid;                  /* grid 유지 */
+    grid-template-columns: 1fr;     /* 세로 한 줄 */
+    gap: 12px;                      /* 카드 간격 */
+  }
+
+  .lx2-card {
+    min-width: auto;                /* 모바일에서는 가변 너비 */
+    width: 100%;                    /* 화면 가득 차도록 */
   }
 }
+
 
 
 /* ===== Card ===== */
