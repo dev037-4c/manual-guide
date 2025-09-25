@@ -841,6 +841,108 @@ display: flex;
   font-weight: bold;
   color: #888;
 }
+/* ===== Hero 기본 ===== */
+.lx2-hero {
+  background: linear-gradient(180deg,#0a2a6b,#061a44);
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.lx2-hero__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.lx2-hero__title {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+}
+
+.lx2-hero__desc {
+  font-size: 1.2rem;
+  margin-bottom: 32px;
+}
+
+/* ===== 카드 그리드 ===== */
+.lx2-hero__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.lx2-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 16px;
+  background: #fff;
+  color: #0e1116;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.lx2-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.lx2-card__icon {
+  margin-bottom: 12px;
+}
+
+.lx2-card__text {
+  font-size: 1rem;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* ===== PDF 다운로드 카드 ===== */
+.lx2-pdf-card {
+  margin: 20px auto;
+}
+
+.pdf-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border-radius: 8px;
+  background: #ff4b4b;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.pdf-link:hover {
+  background: #e04343;
+}
+
+/* ===== 저작권 ===== */
+.lx2-hero__copyright {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #ddd;
+}
+
+/* ===== 모바일 대응 ===== */
+@media (max-width: 768px) {
+  .lx2-hero__title {
+    font-size: 1.8rem;
+  }
+
+  .lx2-hero__desc {
+    font-size: 1rem;
+  }
+
+  .lx2-card {
+    padding: 16px;
+  }
+}
 
 
 .darkmode {display: none;}
