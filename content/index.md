@@ -4,8 +4,7 @@ date:
 version: v2.0.0
 build: 2025.09.19
 ---
-<!-- 햄버거 버튼 (모바일 전용) -->
-<button class="hamburger" id="hamburgerBtn">☰</button>
+
 
 <!-- 오버레이 -->
 <div class="menu-overlay" id="menuOverlay"></div>
