@@ -15,14 +15,52 @@
 /* 가로 스크롤 전역 차단 */
 html, body, .page, #quartz-body { overflow-x: hidden !important; }
  
-/* 패널 */
-.sidebar.left { overflow: visible !important; margin-top: 90px;}
-.sidebar.left .explorer{
-  background:var(--x-bg); color:var(--x-text);
-  border:1px solid var(--x-border); border-radius:18px;
-  padding:10px; box-shadow:0 8px 24px rgba(16,24,40,.06);
-  padding-left: 20px;
+/* ===== 기본: 세로 패널 (PC/태블릿) ===== */
+.sidebar.left { 
+  overflow: visible !important; 
+  margin-top: 90px;
 }
+
+.sidebar.left .explorer {
+  background: var(--x-bg);
+  color: var(--x-text);
+  border: 1px solid var(--x-border);
+  border-radius: 18px;
+  padding: 10px 20px;
+  box-shadow: 0 8px 24px rgba(16,24,40,.06);
+}
+
+/* ===== 모바일: 가로 패널 (Navbar 스타일) ===== */
+@media (max-width: 768px) {
+  .sidebar.left {
+    position: fixed;        /* 화면 상단 고정 */
+    top: 0;
+    left: 0;
+    width: 100%;            /* 전체 가로 차지 */
+    margin: 0;
+    z-index: 1000;
+  }
+
+  .sidebar.left .explorer {
+    display: flex;          /* 가로 정렬 */
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+    overflow-x: auto;       /* 항목이 많으면 가로 스크롤 */
+    white-space: nowrap;    /* 줄바꿈 방지 */
+    border-radius: 0;       /* 네모진 navbar 느낌 */
+    border-left: none;
+    border-right: none;
+    padding: 10px 12px;
+  }
+
+  /* 본문이 navbar에 가리지 않도록 */
+  body {
+    padding-top: 70px;      /* explorer 높이만큼 여백 */
+  }
+}
+
  
 /* 헤더: 카드/아이콘/토글 제거 + 제목 교체 */
 :root { --explorer-label: "메뉴"; }  /* ← 여기만 바꾸면 제목 변경 */
