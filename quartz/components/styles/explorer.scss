@@ -30,6 +30,38 @@ html, body, .page, #quartz-body { overflow-x: hidden !important; }
   box-shadow: 0 8px 24px rgba(16,24,40,.06);
 }
 
+/* ===== 모바일: 가로 패널 (Navbar 형태) ===== */
+@media (max-width: 768px) {
+  .sidebar.left {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;             /* 화면 가로 전체 */
+    margin-top: 0;
+    z-index: 1000;
+  }
+
+  .sidebar.left .explorer {
+    display: flex;           /* 가로 배치 */
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+    overflow-x: auto;        /* 메뉴가 넘치면 좌우 스크롤 */
+    white-space: nowrap;     /* 줄바꿈 방지 */
+    border-radius: 0;        /* navbar처럼 직선 */
+    border-left: none;
+    border-right: none;
+    padding: 10px 12px;
+  }
+
+  /* 본문이 navbar에 가려지지 않도록 */
+  body {
+    padding-top: 70px;       /* explorer 높이만큼 여백 */
+  }
+}
+
+
 /* ===== 모바일: 가로 패널 (Navbar 스타일) ===== */
 @media (max-width: 768px) {
   .sidebar.left {
