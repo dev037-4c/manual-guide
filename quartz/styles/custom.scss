@@ -238,41 +238,38 @@
   overflow: clip;
 }
 
-/* ===== Left/Right Columns ===== */
+/* ===== Left/Right Columns (PC 기본 2열) ===== */
 .lx2-hero__inner {
   width: 100%;
   display: grid;
-  align-items: start;
-  grid-template-columns: 1.15fr 1fr;  /* PC: 좌우 2열 */
+  align-items: center;
+  grid-template-columns: 1.15fr 1fr;   /* PC: 좌/우 2열 */
   column-gap: clamp(20px, 5vw, 48px);
 }
 
-/* ===== 모바일: 세로 정렬 ===== */
+/* ===== 태블릿 이하: 가로로 유연하게 ===== */
 @media (max-width: 980px) {
   .lx2-hero__inner {
-    grid-template-columns: 1fr;   /* 세로 1열 */
-    grid-template-rows: auto auto;
-    row-gap: 28px;
+    display: flex;             /* grid → flex 전환 */
+    flex-direction: row;       /* 가로 정렬 */
+    flex-wrap: wrap;           /* 줄어들면 자동 줄바꿈 */
+    gap: 20px;                 /* 요소 간격 */
+    justify-content: center;   /* 중앙 정렬 */
+    align-items: flex-start;
+  }
+  
+  .lx2-hero__content,
+  .lx2-hero__cards {
+    flex: 1 1 100%;            /* 작은 화면에서 100% 차지 */
+    min-width: 280px;          /* 카드나 콘텐츠 최소 너비 */
   }
 }
-/* ===== 화면이 줄어들면 세로 배치 ===== */
-@media (max-width: 980px) {
+
+/* ===== 모바일: 세로로만 쌓이도록 ===== */
+@media (max-width: 540px) {
   .lx2-hero__inner {
-    grid-template-columns: 1fr;   /* 세로 1열 */
-    grid-template-rows: auto auto;
-    row-gap: 28px;
-  }
-
-  /* 왼쪽(콘텐츠) → 위쪽 */
-  .lx2-hero__content {
-    order: 1;
-    text-align: center;           /* 모바일에서는 중앙 정렬 */
-  }
-
-  /* 오른쪽(카드) → 아래쪽 */
-  .lx2-hero__cards {
-    order: 2;
-    justify-content: center;      /* 카드도 중앙 정렬 */
+    flex-direction: column;    /* 세로 배치 */
+    gap: 28px;
   }
 }
 
@@ -313,28 +310,18 @@
   background: rgba(255, 255, 255, .06);
 }
 
-/* ===== Right: 카드 Grid ===== */
+/* ===== Right: 2×2 Card Grid ===== */
 .lx2-hero__cards {
   display: grid;
-  grid-template-columns: 1fr 1fr;   /* PC/태블릿: 가로 2열 */
+  grid-template-columns: 1fr 1fr;
   gap: clamp(10px, 1vw, 10px);
 }
 
-/* ===== 모바일: 세로 1열 ===== */
 @media (max-width: 540px) {
   .lx2-hero__cards {
-    grid-template-columns: 1fr;     /* 모바일: 세로 한 줄 */
-    gap: 12px;
-  }
-
-  .lx2-card {
-    width: 100%;                    /* 카드가 화면 전체 차지 */
-    min-width: auto;
+    grid-template-columns: 1fr;
   }
 }
-
-
-
 
 /* ===== Card ===== */
 .lx2-card {
@@ -343,7 +330,7 @@
   display: flex;
   align-items: center;
   gap: 10px; /* 아이콘-텍스트 촘촘하게 */
-  padding: 14px 10px;
+  padding: 14px 16px;
   border-radius: 18px;
 
   background: linear-gradient(180deg, rgba(255, 255, 255, .07), rgba(255, 255, 255, .03));
@@ -860,23 +847,6 @@ display: flex;
 /* 반응형 */
 @media (max-width: 720px){
   .obs-slider{ --h: 320px; --btn-size: 44px; }
-}
-
-@media all and (max-width: 1024px){
-	//브라우저 창 width가 1024px보다 작아지는 순간부터 적용
-	//태블릿
-}
-@media all and (max-width: 768px){
-	//브라우저 창 width가 768px보다 작아지는 순간부터 적용
-	//모바일
-}
-@media all and (min-width: 768px){
-	//브라우저 창 width가 768px보다 커지는 순간부터 적용
-	//태블릿
-}
-@media all and (min-width: 1024px){
-	//브라우저 창 width가 1024px보다 커지는 순간부터 적용
-	//데스크탑
 }
 
 
