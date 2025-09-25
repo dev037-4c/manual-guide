@@ -311,9 +311,6 @@
 
 /* ===== Card ===== */
 .lx2-card {
-  flex: 0 0 auto;                 /* 카드 크기 고정 */
-  min-width: 200px;               /* 카드 최소 너비 */
-  scroll-snap-align: start;       /* 스크롤 시 카드 단위로 맞춤 */
   --accent: #8ab6ff; /* default */
 
   display: flex;
