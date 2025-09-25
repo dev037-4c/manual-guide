@@ -910,3 +910,43 @@ code, pre, kbd, .pretty-code, [data-language] {
     overflow: hidden;
   }
 }
+
+@media (max-width: 768px) {
+  /* 사이드바: 항상 화면 위로 올라오게 */
+  .sidebar.left {
+    position: fixed !important;
+    top: 0; left: 0;
+    width: 240px;
+    height: 100vh;              /* 세로 모드 전체 높이 */
+    background: var(--neo-bg, #111);
+    z-index: 2000 !important;   /* Hero, Slider 등보다 항상 위 */
+    transform: translateX(-100%);
+    transition: transform .3s ease;
+    box-shadow: 2px 0 10px rgba(0,0,0,.3);
+    overflow-y: auto;           /* 스크롤 가능 */
+  }
+  .sidebar.left.open {
+    transform: translateX(0);
+  }
+
+  /* 햄버거 버튼도 항상 위에 고정 */
+  .menu-toggle {
+    position: fixed;
+    top: 12px; left: 12px;
+    width: 32px; height: 24px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    cursor: pointer;
+    z-index: 3000;              /* 사이드바보다도 위 */
+  }
+  .menu-toggle span {
+    display: block;
+    height: 3px;
+    background: var(--neo-text, #fff);
+    border-radius: 2px;
+  }
+
+  /* 메뉴 열렸을 때 뒤 배경 스크롤 방지 */
+  body.sidebar-open {
+    overflow: hidden;
+  }
+}
