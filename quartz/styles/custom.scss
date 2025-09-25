@@ -251,6 +251,8 @@
 
 @media (max-width: 980px) {
   .lx2-hero__inner {
+    display: inline-flex;
+  justify-content: center;
     grid-template-columns: 1fr;
     row-gap: 28px;
   }
@@ -258,11 +260,15 @@
 
 /* ===== Left: Title/Desc/CTA ===== */
 .lx2-hero__content {
+  display: inline-flex;
+  justify-content: center;
   color: #fff;
   text-align: left;
 }
 
 .lx2-hero__title {
+  display: inline-flex;
+  justify-content: center;
   margin: 0 0 .25em;
   font-size: clamp(32px, 4.4vw, 60px);
   line-height: 1.05;
@@ -270,6 +276,8 @@
 }
 
 .lx2-hero__desc {
+  display: inline-flex;
+  justify-content: center;
   margin: 0 0 1.1em;
   font-size: clamp(15px, 1.4vw, 18px);
   opacity: .9;
