@@ -291,29 +291,20 @@
 }
 
 /* ===== Right: 2×2 Card Grid (PC/태블릿) ===== */
-  .lx2-hero__cards {
+.lx2-hero__cards {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr; /* PC 기본 2열 */
   gap: clamp(10px, 1vw, 10px);
 }
 
-/* ===== 모바일: 가로 스크롤 카드 리스트 ===== */
-  @media (max-width: 540px) {
+/* ===== 모바일: 2개씩 자동 줄바꿈 ===== */
+@media (max-width: 540px) {
   .lx2-hero__cards {
-    display: flex;                  /* grid → flex */
-    flex-direction: row;            /* 가로 정렬 */
-    flex-wrap: nowrap;              /* 줄바꿈 없이 한 줄 */
-    overflow-x: auto;               /* 넘치면 가로 스크롤 */
-    gap: 12px;
-    padding-bottom: 10px;           /* 스크롤바와 간격 */
-    -webkit-overflow-scrolling: touch; /* iOS 부드러운 스크롤 */
-  }
-   .lx2-card {
-    flex: 0 0 auto;                 /* 크기 고정 */
-    min-width: 200px;               /* 모바일 카드 최소 너비 */
-    scroll-snap-align: start;       /* 스크롤할 때 카드 단위로 맞춤 */
+    grid-template-columns: repeat(2, 1fr); /* 한 줄에 2개 */
+    gap: 8px;                              /* 모바일에서는 간격 조금 줄임 */
   }
 }
+
 
 /* ===== Card ===== */
 .lx2-card {
