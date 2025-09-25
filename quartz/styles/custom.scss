@@ -825,10 +825,24 @@ display: flex;
 }
  
 /* 반응형 */
-@media (max-width: 720px){
-  .obs-slider{ --h: 320px; --btn-size: 44px; }
+@media (max-width: 1024px) {
+  .lx2-hero {
+    padding: 30px 15px;
+  }
 }
 
+@media (max-width: 600px) {
+  .lx2-hero__desc {
+    margin-bottom: 24px;
+  }
+  .lx2-card {
+    padding: 14px;
+  }
+  .lx2-card__icon svg {
+    width: 24px;
+    height: 24px;
+  }
+}
 
 
 .lx2-card__icon svg { background: none; stroke: none; border: none;}
@@ -935,24 +949,7 @@ display: flex;
 }
 
 /* ===== 반응형 세부 조정 ===== */
-@media (max-width: 1024px) {
-  .lx2-hero {
-    padding: 30px 15px;
-  }
-}
 
-@media (max-width: 600px) {
-  .lx2-hero__desc {
-    margin-bottom: 24px;
-  }
-  .lx2-card {
-    padding: 14px;
-  }
-  .lx2-card__icon svg {
-    width: 24px;
-    height: 24px;
-  }
-}
 
 
 .darkmode {display: none;}
