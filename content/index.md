@@ -4,6 +4,22 @@ date:
 version: v2.0.0
 build: 2025.09.19
 ---
+<!-- 햄버거 버튼 (모바일 전용) -->
+<button class="hamburger" id="hamburgerBtn">☰</button>
+
+<!-- 오버레이 -->
+<div class="menu-overlay" id="menuOverlay"></div>
+
+<!-- 사이드 메뉴 -->
+<aside class="sidebar left" id="sidebarMenu">
+  <div class="explorer">
+    <ul>
+      <li><a href="#">메뉴 1</a></li>
+      <li><a href="#">메뉴 2</a></li>
+      <li><a href="#">메뉴 3</a></li>
+    </ul>
+  </div>
+</aside>
 
 <section class="lx2-hero">
   <div class="lx2-hero__inner">
