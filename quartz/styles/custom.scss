@@ -240,6 +240,8 @@
 
 /* ===== Left/Right Columns ===== */
 .lx2-hero__inner {
+  display: inline-flex;
+  justify-content: center;
   width: 100%;
   display: grid;
   align-items: center;
