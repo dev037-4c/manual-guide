@@ -241,7 +241,6 @@
 /* ===== Left/Right Columns ===== */
 .lx2-hero__inner {
   display: inline-flex;
-  justify-content: center;
   width: 100%;
   display: grid;
   align-items: center;
@@ -252,7 +251,6 @@
 @media (max-width: 980px) {
   .lx2-hero__inner {
     display: inline-flex;
-  justify-content: center;
     grid-template-columns: 1fr;
     row-gap: 28px;
   }
@@ -276,8 +274,6 @@
 }
 
 .lx2-hero__desc {
-  display: inline-flex;
-  justify-content: center;
   margin: 0 0 1.1em;
   font-size: clamp(15px, 1.4vw, 18px);
   opacity: .9;
@@ -302,6 +298,8 @@
 
 /* ===== Right: 2×2 Card Grid ===== */
 .lx2-hero__cards {
+  display: inline-flex;
+  justify-content: center;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: clamp(10px, 1vw, 10px);
