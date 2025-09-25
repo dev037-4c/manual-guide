@@ -324,29 +324,140 @@
  
 /* ===== Hero Wrapper ===== */
 .lx2-hero {
-  --wrap: 1200px;
-  --pad-x: clamp(16px, 4vw, 48px);
-  --pad-y: clamp(24px, 8vh, 80px);
-  --radius: 24px;
- 
-  position: relative;
+  --wrap-fixed: 787px;
+  width: min(100%, var(--wrap-fixed));
+  margin: 0 auto;
+  padding: 40px 24px;
+  border-radius: 24px;
+  background: linear-gradient(180deg, #0a2a6b, #061a44);
+  color: #fff;
+  box-shadow: 0 12px 36px rgba(0,0,0,.28);
+}
+
+.lx2-hero__inner {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 24px;
+  align-items: center;
+}
+
+.lx2-hero__title {
+  font-size: clamp(28px, 3.9vw, 54px);
+  font-weight: 700;
+  margin: 0 0 .3em 0;
+}
+
+.lx2-title-accent {
+  display: block;
+  margin-top: .2em;
+  font-size: 1.25em;
+}
+
+.lx2-hero__desc {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+/* 카드 그리드 */
+.lx2-hero__cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.lx2-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.2);
+  color: #fff;
+  text-decoration: none;
+  transition: transform .15s ease, background .15s ease;
+}
+
+.lx2-card:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,.2);
+}
+
+.lx2-card__icon {
+  flex: 0 0 36px;
+  height: 36px;
   display: grid;
   place-items: center;
- 
-  width: min(92vw, var(--wrap));
-  margin: 0 auto;
-  padding: var(--pad-y) var(--pad-x);
-  min-height: min(82dvh, 820px);
- 
-  background:
-    radial-gradient(1200px 1200px at 70% 62%, rgba(255, 255, 255, .06) 0%, transparent 60%),
-    radial-gradient(900px 900px at 70% 62%, rgba(255, 255, 255, .04) 0%, transparent 60%),
-    linear-gradient(180deg, #0a2a6b, #061a44);
- 
-  border-radius: var(--radius);
-  box-shadow: 0 12px 36px rgba(0, 0, 0, .28);
-  overflow: clip;
+  border-radius: 8px;
+  background: rgba(255,255,255,.2);
 }
+
+.lx2-card__icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+}
+
+.lx2-card__text {
+  font-size: 14px;
+  font-weight: 600;
+  white-space: normal; /* 모바일에서 줄바꿈 허용 */
+  line-height: 1.3;
+}
+
+/* PDF 카드 */
+.lx2-pdf-card {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.pdf-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #ff4b4b;
+  font-weight: bold;
+}
+
+/* 카피라이트 */
+.lx2-hero__copyright {
+  margin-top: 20px;
+  font-size: 0.85rem;
+  text-align: center;
+  opacity: 0.8;
+}
+
+/* ===== 반응형 ===== */
+@media (max-width: 980px) {
+  .lx2-hero__inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .lx2-hero__cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 540px) {
+  .lx2-hero__cards {
+    grid-template-columns: 1fr;
+  }
+
+  .lx2-card {
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .lx2-card__icon {
+    margin-bottom: 6px;
+  }
+}
+
  
 /* ===== Left/Right Columns ===== */
 .lx2-hero__inner {
