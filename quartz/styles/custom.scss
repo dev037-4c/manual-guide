@@ -290,16 +290,28 @@
   background: rgba(255, 255, 255, .06);
 }
 
-/* ===== Right: 2×2 Card Grid ===== */
-.lx2-hero__cards {
+/* ===== Right: 2×2 Card Grid (PC/태블릿) ===== */
+  .lx2-hero__cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: clamp(10px, 1vw, 10px);
 }
 
-@media (max-width: 540px) {
+/* ===== 모바일: 가로 스크롤 카드 리스트 ===== */
+  @media (max-width: 540px) {
   .lx2-hero__cards {
-    grid-template-columns: 1fr;
+    display: flex;                  /* grid → flex */
+    flex-direction: row;            /* 가로 정렬 */
+    flex-wrap: nowrap;              /* 줄바꿈 없이 한 줄 */
+    overflow-x: auto;               /* 넘치면 가로 스크롤 */
+    gap: 12px;
+    padding-bottom: 10px;           /* 스크롤바와 간격 */
+    -webkit-overflow-scrolling: touch; /* iOS 부드러운 스크롤 */
+  }
+   .lx2-card {
+    flex: 0 0 auto;                 /* 크기 고정 */
+    min-width: 200px;               /* 모바일 카드 최소 너비 */
+    scroll-snap-align: start;       /* 스크롤할 때 카드 단위로 맞춤 */
   }
 }
 
