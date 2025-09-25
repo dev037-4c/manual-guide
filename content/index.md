@@ -71,7 +71,6 @@ build: 2025.09.19
   </div>
 <div class="lx2-pdf-card">
     <a href="./_etc/LX2관리자매뉴얼 1.pdf" download class="pdf-link">
-
       <span class="pdf-icon">
         <svg viewBox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
           <rect x="2" y="2" width="20" height="20" rx="3" fill="#FF4B4B"/>
