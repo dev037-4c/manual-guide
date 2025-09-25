@@ -764,19 +764,86 @@ code, pre, kbd, .pretty-code, [data-language] {
 }
 
 
-/* ===== 모바일 최적화 (≤768px) ===== */
+/* ===== 모바일 전용 강제 스타일 ===== */
 @media (max-width: 768px) {
 
-  /* 1. 사이드바(메뉴바) */
+  /* === Hero === */
+  .lx2-hero {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto;
+    padding: 20px 14px;
+    border-radius: 0;
+  }
+
+  .lx2-hero__inner {
+    display: grid;
+    grid-template-columns: 1fr !important;
+    text-align: center;
+    row-gap: 20px;
+  }
+
+  .lx2-hero__title {
+    font-size: 22px !important;
+    line-height: 1.3;
+  }
+  .lx2-title-accent {
+    display: block;
+    margin-top: .2em;
+    font-size: 1.2em;
+  }
+
+  /* === Cards === */
+  .lx2-hero__cards {
+    display: grid;
+    grid-template-columns: 1fr !important;
+    gap: 12px;
+  }
+
+  .lx2-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    min-height: 64px;
+    padding: 10px 12px;
+  }
+
+  .lx2-card__icon {
+    width: 28px; height: 28px;
+  }
+  .lx2-card__icon svg {
+    width: 16px; height: 16px;
+  }
+  .lx2-card__text {
+    font-size: 13px;
+  }
+
+  /* === Slider === */
+  .obs-slider {
+    width: 100% !important;
+    max-width: 100% !important;
+    border-radius: 10px;
+    margin: 16px auto;
+  }
+  .obs-slider .nav {
+    width: 30px; height: 30px;
+  }
+  .obs-slider .dots {
+    bottom: 8px;
+    gap: 6px;
+  }
+
+  /* === Sidebar (탐색기 메뉴) === */
   .sidebar.left {
     position: fixed;
     top: 0; left: 0;
-    width: 220px; height: 100%;
-    background: var(--neo-bg);
+    width: 240px; height: 100%;
+    background: var(--neo-bg, #111);
     z-index: 1000;
     transform: translateX(-100%);
-    transition: transform 0.3s ease;
-    box-shadow: 2px 0 10px rgba(0,0,0,.2);
+    transition: transform .3s ease;
+    box-shadow: 2px 0 10px rgba(0,0,0,.3);
   }
   .sidebar.left.open { transform: translateX(0); }
 
@@ -785,64 +852,61 @@ code, pre, kbd, .pretty-code, [data-language] {
     position: fixed;
     top: 14px; left: 14px;
     width: 32px; height: 24px;
-    display: flex; flex-direction: column; justify-content: space-between;
-    cursor: pointer; z-index: 1101;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 1100;
   }
   .menu-toggle span {
-    display: block; height: 3px;
-    background: var(--neo-text);
+    display: block;
+    height: 3px;
+    background: var(--neo-text, #fff);
     border-radius: 2px;
   }
 
-  /* 2. Hero (인덱스 상단) */
-  .lx2-hero {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 60px auto 0;          /* 상단 메뉴바 공간 확보 */
-    padding: 20px 16px;
-    min-height: auto;
+  /* 본문은 메뉴가 열릴 때 살짝 밀려나게 */
+  body.sidebar-open {
+    overflow: hidden; /* 뒷배경 스크롤 방지 */
   }
-  .lx2-hero__inner {
-    grid-template-columns: 1fr;
-    row-gap: 20px;
-    text-align: center;
+}
+
+@media (max-width: 768px) {
+  /* 사이드바 (기본 접힘 상태) */
+  .sidebar.left {
+    position: fixed;
+    top: 0; left: 0;
+    width: 240px; height: 100%;
+    background: var(--neo-bg, #111);
+    z-index: 1000;
+    transform: translateX(-100%);
+    transition: transform .3s ease;
+    box-shadow: 2px 0 10px rgba(0,0,0,.3);
   }
-  .lx2-hero__title {
-    font-size: clamp(22px, 6vw, 32px);
-    line-height: 1.2;
+  .sidebar.left.open { transform: translateX(0); }
+
+  /* 햄버거 버튼 */
+  .menu-toggle {
+    position: fixed;
+    top: 12px;   /* 최상단 */
+    left: 12px;  /* 좌측 고정 */
+    width: 32px;
+    height: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 2000; /* 사이드바보다 위 */
   }
-  .lx2-title-accent {
-    font-size: 1.2em;
-  }
-  .lx2-hero__cards {
-    grid-template-columns: 1fr;
-    gap: 12px;
+  .menu-toggle span {
+    display: block;
+    height: 3px;
+    background: var(--neo-text, #fff);
+    border-radius: 2px;
   }
 
-  /* 카드 축소 */
-  .lx2-card {
-    min-height: 64px;
-    padding: 10px 12px;
-  }
-  .lx2-card__icon {
-    width: 28px; height: 28px;
-  }
-  .lx2-card__icon svg {
-    width: 16px; height: 16px;
-  }
-
-  /* 3. 슬라이더 */
-  .obs-slider {
-    max-width: 100%;
-    margin: 16px auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 14px rgba(0,0,0,.15);
-  }
-  .obs-slider .nav {
-    --btn-size: 36px;
-  }
-  .obs-slider .dots {
-    bottom: 8px;
-    gap: 6px;
+  /* 본문 스크롤 방지 */
+  body.sidebar-open {
+    overflow: hidden;
   }
 }
