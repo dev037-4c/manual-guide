@@ -625,7 +625,7 @@
  
 
 .lx2-card__icon{
-  width: 30px; height: 30px;   /* 34→30 */
+  width: 10px; height: 30px;   /* 34→30 */
   border-radius: 9px;
 }
 .lx2-card__icon svg{
@@ -981,7 +981,7 @@ body.menu-open{
 }
 
 /* ===== FIX @ ≤ 820px: 고정폭 해제 + 줄바꿈 허용 + 최소폭 제거 ===== */
-@media (max-width: 700px){
+@media (max-width: 820px){
   .lx2-hero{
     width: 100% !important;
     max-width: 100% !important;
