@@ -893,3 +893,76 @@ display: flex;
     display: none !important;
   }
 }
+
+
+/* ===== Drawer Overlay & Responsive Reaction ===== */
+
+/* 오버레이 */
+#menuOverlay{
+  position: fixed; inset: 0;
+  background: rgba(15, 18, 24, .36);
+  opacity: 0; pointer-events: none;
+  transition: opacity .24s ease;
+  z-index: 998; /* 드로어 바로 아래 */
+}
+.menu-open #menuOverlay{
+  opacity: 1; pointer-events: auto;
+}
+
+/* 드로어(좌측 사이드바)를 화면 위로 겹치기 */
+.sidebar.left{
+  position: fixed;
+  top: 0; left: 0;
+  height: 100dvh; /* 모바일 브라우저 대응 */
+  width: min(86vw, 320px);       /* 모바일 기본 너비 */
+  max-width: 90vw;
+  z-index: 999;                  /* 최상단에 겹치도록 */
+  transform: translateX(-100%);  /* 기본: 화면 밖 */
+  transition: transform .28s ease;
+  will-change: transform;
+  /* 원하는 배경/그림자 */
+  background: var(--x-bg, #fff);
+  box-shadow: 0 10px 30px rgba(0,0,0,.18);
+}
+
+/* 열렸을 때 드로어 보이기 */
+.menu-open .sidebar.left{
+  transform: translateX(0);
+}
+
+/* 본문(센터 영역)을 메뉴에 "반응"하게: 살짝 이동 + 축소 */
+#quartz-body, .page, main{
+  transition: transform .28s ease, filter .28s ease;
+  will-change: transform, filter;
+}
+@media (max-width: 980px){
+  .menu-open #quartz-body,
+  .menu-open .page,
+  .menu-open main{
+    /* 드로어가 겹치지만, 사용자 피드백을 위해 가벼운 반응 효과 */
+    transform: translateX(calc(min(var(--drawer-w, 280px), 86vw) * 0.06)) scale(0.985);
+    filter: saturate(0.96);
+  }
+}
+
+/* 스크롤 막힘 시 레이아웃 점프 방지(옵션) */
+body.menu-open{
+  position: relative;
+  width: 100%;
+}
+
+/* 데스크톱(981px 이상)에서는 오버레이/겹침 효과 해제하고 기본 레이아웃 사용 */
+@media (min-width: 981px){
+  #menuOverlay{ display: none !important; }
+  .sidebar.left{
+    position: static;
+    height: auto;
+    width: auto;
+    transform: none !important;
+    box-shadow: none;
+  }
+  #quartz-body, .page, main{
+    transform: none !important;
+    filter: none !important;
+  }
+}

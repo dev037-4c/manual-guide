@@ -22,14 +22,21 @@ build: 2025.09.19
 
   if (!btn || !drawer) return
 
-  // 오버레이가 없으면 생성(예비)
+  // 오버레이가 없으면 생성
   if (!overlay) {
     overlay = document.createElement('div')
     overlay.id = 'menuOverlay'
     document.body.appendChild(overlay)
   }
 
+  // 현재 드로어 너비를 CSS 변수로 반영 (반응형 대응)
+  const setDrawerWidthVar = () => {
+    const w = Math.round(drawer.getBoundingClientRect().width || 280)
+    document.documentElement.style.setProperty('--drawer-w', w + 'px')
+  }
+
   const open = () => {
+    setDrawerWidthVar()
     body.classList.add('menu-open')
     btn.classList.add('is-active')
     btn.setAttribute('aria-expanded', 'true')
@@ -60,8 +67,14 @@ build: 2025.09.19
   const mq = window.matchMedia('(min-width: 981px)')
   const onChange = () => { if (mq.matches) close() }
   mq.addEventListener ? mq.addEventListener('change', onChange) : mq.addListener(onChange)
+
+  // 열림 상태에서 리사이즈 시 드로어 폭 갱신
+  window.addEventListener('resize', () => {
+    if (body.classList.contains('menu-open')) setDrawerWidthVar()
+  })
 })();
 </script>
+
 
 
 <section class="lx2-hero">
