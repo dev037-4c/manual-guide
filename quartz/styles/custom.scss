@@ -846,3 +846,50 @@ display: flex;
 .dayIcon { display: none;}
 
 .nightIcon { display: none;}
+
+/* ===== 모바일에서 그래프 전부 숨김 ===== */
+@media (max-width: 980px){
+  /* Quartz/Obsidian에서 흔한 그래프 컨테이너들 */
+  .graph,
+  .graph-view,
+  .graph-container,
+  .local-graph,
+  .global-graph,
+  #graph,
+  #graph-container,
+  .graph-controls,
+  .graph-panel,
+  .sidebar.right .graph,
+  .right-sidebar .graph {
+    display: none !important;
+  }
+
+  /* 레이아웃에 남는 여백 제거 */
+  .graph,
+  .graph-view,
+  .graph-container,
+  #graph,
+  #graph-container {
+    height: 0 !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
+
+/* ===== 모바일에서 백링크 숨김 ===== */
+@media (max-width: 980px){
+  /* Quartz Backlinks 컴포넌트 일반 케이스 */
+  .backlinks { 
+    display: none !important; 
+  }
+
+  /* 우측 사이드바/본문 하단 등 다양한 마크업 대비한 보강 셀렉터 */
+  .sidebar.right .backlinks,
+  .page .content .backlinks,
+  .content .backlinks,
+  section.backlinks,
+  [data-component="Backlinks"] {
+    display: none !important;
+  }
+}
