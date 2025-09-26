@@ -11,6 +11,20 @@ build: 2025.09.19
   <span class="bars"><span></span></span>
 </button>
 
+<!-- 오버레이 (이미 CSS가 준비되어 있어요) -->
+<div id="menuOverlay" aria-hidden="true"></div>
+
+<!-- 햄버거 버튼 -->
+<button
+  class="lx2-hamburger"
+  aria-label="메뉴 열기"
+  aria-controls="quartz-sidebar-left"
+  aria-expanded="false"
+>
+  <span class="bars" aria-hidden="true">
+    <span></span>
+  </span>
+</button>
 
 
 <script>
