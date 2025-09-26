@@ -131,7 +131,7 @@
 /* 모바일 */
 @media (max-width:900px){
   .neo-cards{ gap:20px; }
-  .neo-card{ padding:18px; }
+  .neo-card{ padding:50px; }
   .neo-icon{ width:52px; height:52px; }
 }
  
@@ -625,7 +625,7 @@
  
 
 .lx2-card__icon{
-  width: 10px; height: 30px;   /* 34→30 */
+  width: 30px; height: 30px;   /* 34→30 */
   border-radius: 9px;
 }
 .lx2-card__icon svg{
