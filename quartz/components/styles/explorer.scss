@@ -10,7 +10,11 @@
   --lx2-drawer-w: min(86vw, 360px);
   --lx2-drawer-z: 1000;
   --lx2-hamburger-z: 1100;
+
+  /* 사이드바 제목 */
+  --explorer-label: "메뉴";
 }
+
 [data-theme="dark"]{
   --x-bg:#0f131a; --x-text:#eef2f6;
   --x-border:#2a3240; --x-sep:#1c2432;
@@ -21,7 +25,7 @@
 html, body, .page, #quartz-body { overflow-x: hidden !important; }
 
 /* 패널 */
-.sidebar.left { overflow: visible !important; margin-top: 90px;}
+.sidebar.left { overflow: visible !important; margin-top: 90px; }
 .sidebar.left .explorer{
   background:var(--x-bg); color:var(--x-text);
   border:1px solid var(--x-border); border-radius:18px;
@@ -30,7 +34,6 @@ html, body, .page, #quartz-body { overflow-x: hidden !important; }
 }
 
 /* 헤더: 카드/아이콘/토글 제거 + 제목 교체 */
-:root { --explorer-label: "메뉴"; }  /* ← 여기만 바꾸면 제목 변경 */
 .sidebar.left:has(.explorer) { padding-top: 0 !important; }
 .sidebar.left .explorer :where(h1,h2,h3){
   margin:0 !important; padding:0 !important; background:transparent !important; box-shadow:none !important;
@@ -66,9 +69,14 @@ html, body, .page, #quartz-body { overflow-x: hidden !important; }
 .sidebar.left .explorer .folder-icon{
   width:18px; height:18px; color:#6b7280; transition:transform .25s ease, color .15s ease; flex-shrink:0;
 }
-.sidebar.left .explorer .folder-outer{ display:grid; grid-template-rows:0fr; transition:grid-template-rows .25s ease; overflow:hidden; }
+.sidebar.left .explorer .folder-outer{
+  display:grid; grid-template-rows:0fr; transition:grid-template-rows .25s ease; overflow:hidden;
+}
 .sidebar.left .explorer .folder-outer.open{ grid-template-rows:1fr; }
-.sidebar.left .explorer .folder-outer > ul{ margin-left:8px; padding-left:12px; border-left:1px solid var(--x-border); margin-block:0; min-height:0; }
+.sidebar.left .explorer .folder-outer > ul{
+  margin-left:8px; padding-left:12px; border-left:1px solid var(--x-border);
+  margin-block:0; min-height:0;
+}
 
 /* 파일 링크(흐릿 제거 포함) */
 .sidebar.left .explorer a{
@@ -94,14 +102,7 @@ html, body, .page, #quartz-body { overflow-x: hidden !important; }
   content:none; position:absolute; left:6px; top:22%; bottom:22%; width:3px; border-radius:2px; background:var(--x-accent);
 }
 
-/* 모바일: 원본 드로어 토글 동작 유지(위치/transform 건드리지 않음) */
-@media (max-width: 900px){
-  .sidebar.left .explorer .explorer-content{
-    overflow-y:auto !important; overflow-x:clip !important; padding-right:12px;
-  }
-}
-
-/* 슬림 스크롤바 (Explorer 전용) */
+/* 데스크톱/태블릿: 스크롤 스타일 */
 .sidebar.left .explorer .explorer-content{
   scrollbar-width: thin;
   scrollbar-color: color-mix(in srgb, var(--x-text) 30%, transparent) transparent;
@@ -124,7 +125,7 @@ html, body, .page, #quartz-body { overflow-x: hidden !important; }
 }
 .sidebar.left .explorer .explorer-content::-webkit-scrollbar-corner{ background:transparent; }
 
-/* === FIX: 변수 통일 & 다크모드 강제 === */
+/* === 변수 통일 & 다크모드 강제 === */
 .sidebar.left .explorer :is(.desktop-explorer,.mobile-explorer) h2::after{
   color: var(--x-text) !important;
 }
@@ -145,6 +146,8 @@ html, body, .page, #quartz-body { overflow-x: hidden !important; }
 .sidebar.left .explorer .explorer-content li > a.active::before{
   background: var(--x-accent) !important;
 }
+
+/* 다크 모드 */
 html[data-theme="dark"] .sidebar.left .explorer,
 body[data-theme="dark"] .sidebar.left .explorer,
 :root[data-theme="dark"] .sidebar.left .explorer{
@@ -209,7 +212,7 @@ body[data-theme="dark"] .sidebar.left .explorer .explorer-content:hover::-webkit
   background-color: color-mix(in srgb, var(--x-text) 65%, transparent);
 }
 
-/* 사이드바랑 본문 정렬 맞추기 */
+/* 사이드바와 본문 정렬 */
 .sidebar.left { padding-top: 24px !important; }
 .page main.content { margin-top: 24px !important; }
 
@@ -256,10 +259,12 @@ body[data-theme="dark"] .sidebar.left .explorer .explorer-content:hover::-webkit
   z-index: calc(var(--lx2-drawer-z) - 1);
 }
 
-/* 드로어(모바일에서만 좌측 오프캔버스) */
+/* ===== 모바일: 드로어 좌우 슬라이드, 내부는 단일 스크롤 ===== */
 @media (max-width: 980px){
-  .lx2-hamburger{ display: inline-flex; } /* 모바일에서만 노출 */
+  /* 햄버거 버튼 표시 */
+  .lx2-hamburger{ display: inline-flex; }
 
+  /* 드로어: 하나의 스크롤 컨테이너 */
   .sidebar.left{
     position: fixed;
     top: 0; left: 0;
@@ -267,29 +272,42 @@ body[data-theme="dark"] .sidebar.left .explorer .explorer-content:hover::-webkit
     width: var(--lx2-drawer-w);
     margin-top: 0 !important;
     padding: 16px !important;
+
     transform: translateX(-104%);
     transition: transform .24s ease;
     z-index: var(--lx2-drawer-z);
     box-shadow: 0 20px 48px rgba(16,24,40,.18);
     border-right: 1px solid var(--x-border);
     background: var(--x-bg);
+
+    overflow-y: auto !important;   /* 단일 스크롤 */
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch;
   }
 
-  /* 본문은 그대로, 드로어만 슬라이드 */
+  /* 열렸을 때 */
   body.menu-open .sidebar.left{ transform: translateX(0); }
   body.menu-open #menuOverlay{ opacity: 1; pointer-events: auto; }
 
-  /* 드로어 안 스크롤 최적화 */
+  /* 내부는 한 덩어리: 분할/내부 스크롤 제거 */
   .sidebar.left .explorer{
-    height: 100%;
-    display: flex; flex-direction: column;
+    height: auto !important;
+    display: block !important;      /* flex 해제 */
   }
   .sidebar.left .explorer .explorer-content{
-    flex: 1 1 auto; overflow-y: auto !important; padding-right: 8px;
+    overflow: visible !important;   /* 내부 스크롤 제거 */
+    max-height: none !important;
+    padding-right: 0 !important;
+    border-top: 0 !important;
+  }
+
+  /* 헤더/타이틀 고정 해제 */
+  .sidebar.left .explorer :where(h1,h2,h3){
+    position: static !important;
   }
 }
 
-/* 다크모드 햄버거/오버레이 색감 조정 */
+/* 다크모드 햄버거/오버레이 색감 */
 html[data-theme="dark"] .lx2-hamburger,
 body[data-theme="dark"] .lx2-hamburger{
   background: var(--x-bg); color: var(--x-text); border-color: var(--x-border);
