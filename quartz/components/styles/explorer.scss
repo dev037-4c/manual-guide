@@ -99,13 +99,6 @@ html, body, .page, #quartz-body { overflow-x: hidden !important; }
   content:none; position:absolute; left:6px; top:22%; bottom:22%; width:3px; border-radius:2px; background:var(--x-accent);
 }
  
-/* 모바일: 원본 드로어 토글 동작 유지(위치/transform 건드리지 않음) */
-@media (max-width: 900px){
-  .sidebar.left .explorer .explorer-content{
-    overflow-y:auto !important; overflow-x:clip !important; padding-right:12px;
-  }
-}
- 
 /* 슬림 스크롤바 (Explorer 전용) */
 .sidebar.left .explorer .explorer-content{
   scrollbar-width: thin;
@@ -191,52 +184,94 @@ body[data-theme="dark"] .sidebar.left .explorer .explorer-content li > a.active:
 :root[data-theme="dark"] .sidebar.left .explorer .explorer-content li > a.active::before{
   background: var(--x-accent) !important;
 }
- 
-/* 4) 수평 스크롤 재차단(혹시 다시 생기면…) */
-.sidebar.left,
-.sidebar.left .explorer,
-.sidebar.left .explorer .explorer-content{
-  max-width: 100% !important;
-  overflow-x: hidden !important;
+
+
+// --- 햄버거 메뉴 및 모바일 사이드바 로직 추가 ---
+
+/* 햄버거 메뉴 버튼 기본 스타일 (데스크톱에서는 숨김) */
+.hamburger-menu-wrapper {
+  display: none;
 }
-.sidebar.left .explorer .explorer-content::-webkit-scrollbar:horizontal{ height:0 !important; }
- 
-/* 5) 다크 전용 스크롤바(쨍하지 않게) */
-html[data-theme="dark"] .sidebar.left .explorer .explorer-content,
-body[data-theme="dark"] .sidebar.left .explorer .explorer-content,
-:root[data-theme="dark"] .sidebar.left .explorer .explorer-content{
-  scrollbar-width: thin;
-  scrollbar-color: color-mix(in srgb, var(--x-text) 45%, transparent) transparent;
+
+#sidebar-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1001;
+  width: 40px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0;
+  transition: all 0.3s ease;
 }
-html[data-theme="dark"] .sidebar.left .explorer .explorer-content::-webkit-scrollbar-thumb,
-body[data-theme="dark"] .sidebar.left .explorer .explorer-content::-webkit-scrollbar-thumb,
-:root[data-theme="dark"] .sidebar.left .explorer .explorer-content::-webkit-scrollbar-thumb{
+#sidebar-toggle .bar {
+  display: block;
+  width: 100%;
+  height: 4px;
+  background: var(--x-text);
   border-radius: 999px;
-  border: 3px solid transparent;
-  background-clip: padding-box;
-  background-color: color-mix(in srgb, var(--x-text) 45%, transparent);
-}
-html[data-theme="dark"] .sidebar.left .explorer .explorer-content:hover::-webkit-scrollbar-thumb,
-body[data-theme="dark"] .sidebar.left .explorer .explorer-content:hover::-webkit-scrollbar-thumb,
-:root[data-theme="dark"] .sidebar.left .explorer .explorer-content:hover::-webkit-scrollbar-thumb{
-  background-color: color-mix(in srgb, var(--x-text) 65%, transparent);
-}
- 
-/* 사이드바랑 본문 정렬 맞추기 */
-.sidebar.left {
-  padding-top: 24px !important;   /* 카드 위쪽 여백만큼 맞춰줌 */
-}
- 
-.page main.content {
-  margin-top: 24px !important;       /* 불필요한 위쪽 여백 제거 */
+  transition: all 0.3s ease;
 }
 
-.sidebar.left .explorer .folder-outer{
-  display:grid; grid-template-rows:0fr; overflow:hidden; /* 접힘 상태에서 밖으로 안 새게 */
-}
-.sidebar.left .explorer .folder-outer.open{ grid-template-rows:1fr; } /* 펼침 */
-.sidebar.left .explorer .folder-outer > ul{
-  margin-block: 0;            /* ← 기본 ul 상하 1em 마진 제거(병합 차단 핵심) */
-  min-height: 0;              /* 0fr 계산 시 내부 높이 0 허용 */
-}
+/* 모바일 화면 (900px 이하)에 대한 반응형 스타일 */
+@media (max-width: 900px) {
+  /* 모바일에서만 햄버거 버튼 보이기 */
+  .hamburger-menu-wrapper {
+    display: block;
+  }
 
+  /* 사이드바 기본적으로 화면 밖으로 숨김 */
+  .sidebar.left {
+    position: fixed;
+    top: 0;
+    left: -280px; /* 패널 너비만큼 숨김 */
+    width: 280px;
+    height: 100%;
+    z-index: 1000;
+    transition: left 0.3s ease;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    margin-top: 0; // 모바일에서는 상단 여백 제거
+  }
+  
+  /* 사이드바가 열렸을 때 (open 클래스 추가 시) */
+  .sidebar.left.open {
+    left: 0;
+  }
+
+  /* 햄버거 메뉴 아이콘을 X자로 변형 */
+  .sidebar.left.open #sidebar-toggle .bar:nth-child(1) {
+    transform: translateY(11px) rotate(45deg);
+  }
+  .sidebar.left.open #sidebar-toggle .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .sidebar.left.open #sidebar-toggle .bar:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg);
+  }
+
+  /* 햄버거 버튼 위치 조정 (사이드바 열렸을 때) */
+  .sidebar.left.open ~ .hamburger-menu-wrapper #sidebar-toggle {
+    left: 240px;
+  }
+
+  /* 모바일에서 메뉴 타이틀 재설정 */
+  .sidebar.left .explorer :is(.desktop-explorer, .mobile-explorer) h2::after {
+    display: none; // 사용자 정의 제목 숨김
+  }
+
+  /* 모바일에서 explorer 스타일 조정 */
+  .sidebar.left .explorer{
+    border-radius: 0;
+    box-shadow: none;
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+  }
+}
