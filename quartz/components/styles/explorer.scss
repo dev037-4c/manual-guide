@@ -236,3 +236,83 @@ body[data-theme="dark"] .sidebar.left .explorer .explorer-content:hover::-webkit
   margin-block: 0;            /* ← 기본 ul 상하 1em 마진 제거(병합 차단 핵심) */
   min-height: 0;              /* 0fr 계산 시 내부 높이 0 허용 */
 }
+/* ===== 햄버거 버튼 ===== */
+.lx2-hamburger{
+  position: fixed; z-index: 1100; top: 16px; left: 16px;
+  width: 42px; height: 42px; border-radius: 12px;
+  display: grid; place-items: center;
+  background: var(--x-bg); color: var(--x-text);
+  border: 1px solid var(--x-border);
+  box-shadow: 0 8px 24px rgba(16,24,40,.06);
+  cursor: pointer; transition: transform .2s ease, box-shadow .2s ease;
+}
+.lx2-hamburger:active{ transform: scale(.98); }
+.lx2-hamburger .bars{
+  position: relative; width: 20px; height: 2px; background: currentColor; border-radius: 2px;
+}
+.lx2-hamburger .bars::before,
+.lx2-hamburger .bars::after{
+  content:""; position: absolute; left: 0; right: 0; height: 2px; background: currentColor; border-radius: 2px;
+}
+.lx2-hamburger .bars::before{ top: -6px; }
+.lx2-hamburger .bars::after { top:  6px; }
+/* X 아이콘 전환 */
+.lx2-hamburger.is-active .bars{ background: transparent; }
+.lx2-hamburger.is-active .bars::before{ transform: translateY(6px) rotate(45deg); }
+.lx2-hamburger.is-active .bars::after { transform: translateY(-6px) rotate(-45deg); }
+.lx2-hamburger .bars,
+.lx2-hamburger .bars::before,
+.lx2-hamburger .bars::after{ transition: transform .25s ease, background .25s ease; }
+
+/* ===== 오버레이 ===== */
+.menu-overlay{
+  position: fixed; inset: 0; z-index: 1090; background: rgba(15,17,22,.45);
+  opacity: 0; pointer-events: none; transition: opacity .2s ease;
+}
+.menu-open .menu-overlay{ opacity: 1; pointer-events: auto; }
+.menu-open .menu-overlay[hidden]{ display: block !important; } /* hidden 무시 */
+
+/* ===== 모바일 오프캔버스(≤900px) ===== */
+@media (max-width: 900px){
+  /* 기본 사이드바는 화면 밖에 숨김 */
+  .sidebar.left{
+    position: fixed;
+    top: 0; left: 0; bottom: 0;
+    width: min(88vw, 360px);
+    margin: 0 !important;
+    z-index: 1110;
+    transform: translateX(-100%);
+    transition: transform .28s ease;
+    /* 기존 카드 스타일 유지 */
+  }
+  /* 열림 상태 */
+  .menu-open .sidebar.left{ transform: translateX(0); }
+
+  /* 본문 스크롤 잠금 */
+  .menu-open, .menu-open body{ overflow: hidden !important; }
+
+  /* 탐색기 영역 세로 정렬·스크롤 */
+  .sidebar.left .explorer{
+    height: 100%;
+    display: flex; flex-direction: column;
+  }
+  .sidebar.left .explorer .explorer-content{
+    flex: 1 1 auto;
+    display: flex; flex-direction: column;
+    overflow-y: auto !important;
+    gap: 2px;
+    padding-right: 8px;
+  }
+  /* 리스트를 확실히 세로 정렬 */
+  .sidebar.left .explorer .explorer-content > ul{
+    display: flex; flex-direction: column; gap: 2px;
+  }
+}
+
+/* 데스크톱(>900px)에서는 버튼 위치만 보정(원하면 감추기 가능) */
+@media (min-width: 901px){
+  .lx2-hamburger{ top: 20px; left: 20px; }
+  /* 필요하면 버튼 숨김
+  .lx2-hamburger{ display: none; }
+  */
+}
