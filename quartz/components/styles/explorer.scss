@@ -1,3 +1,313 @@
+@use "../../styles/variables.scss" as *;
+
+:root{
+  --x-row: 44px; --x-visible: 6;                    /* 보이는 줄 수 */
+  --x-bg:#fff; --x-text:#0f1116;
+  --x-border:#e7eaf2; --x-sep:#eef1f6;
+  --x-hover:#f5f7fe; --x-active:#eaf1ff; --x-accent:#2563eb;
+}
+[data-theme="dark"]{
+  --x-bg:#0f131a; --x-text:#eef2f6;
+  --x-border:#2a3240; --x-sep:#1c2432;
+  --x-hover:#162031; --x-active:#182642; --x-accent:#60a5fa;
+}
+
+/* 가로 스크롤 전역 차단 */
+html, body, .page, #quartz-body { overflow-x: hidden !important; }
+
+/* 패널 */
+.sidebar.left { overflow: visible !important; margin-top: 90px;}
+.sidebar.left .explorer{
+  background:var(--x-bg); color:var(--x-text);
+  border:1px solid var(--x-border); border-radius:18px;
+  padding:10px; box-shadow:0 8px 24px rgba(16,24,40,.06);
+  padding-left: 20px;
+}
+
+/* 헤더: 카드/아이콘/토글 제거 + 제목 교체 */
+:root { --explorer-label: "메뉴"; }  /* ← 여기만 바꾸면 제목 변경 */
+.sidebar.left:has(.explorer) { padding-top: 0 !important; }
+.sidebar.left .explorer :where(h1,h2,h3){
+  margin:0 !important; padding:0 !important; background:transparent !important; box-shadow:none !important;
+}
+.sidebar.left .explorer .fold,
+.sidebar.left .explorer :is(.desktop-explorer,.mobile-explorer) svg,
+.sidebar.left .explorer .lucide-chevron-down { display:none !important; }
+
+/* ✅ 수정: 컨테이너는 클릭 가능, 제목만 비활성 */
+.sidebar.left .explorer :is(.desktop-explorer,.mobile-explorer){
+  background:transparent !important; border:0 !important; padding:0 !important;
+  cursor:auto !important; pointer-events:auto !important; color:var(--x-text) !important;
+}
+.sidebar.left .explorer :is(.desktop-explorer,.mobile-explorer) h2{
+  position:relative; color:transparent !important;
+  cursor:default !important; pointer-events:none !important;
+}
+.sidebar.left .explorer :is(.desktop-explorer,.mobile-explorer) h2::after{
+  content: var(--explorer-label); position:absolute; inset:0;
+  color:var(--x-text); font-weight:800; letter-spacing:-.01em;
+}
+
+/* 들여쓰기/마커 완전 제거 */
+.sidebar.left .explorer .explorer-content ul,
+.sidebar.left .explorer .explorer-content li{
+  list-style:none !important; padding-inline-start:0 !important; margin-inline-start:0 !important;
+}
+.sidebar.left .explorer .explorer-content li::marker{ content:"" !important; font-size:0 !important; }
+.sidebar.left .explorer .explorer-content li{ display:block; }
+
+/* 폴더/트리 */
+.sidebar.left .explorer .folder-container{
+  display:flex; align-items:center; gap:8px; padding:8px 10px; border-radius:12px; user-select:none;
+}
+.sidebar.left .explorer .folder-container:hover{ background:var(--x-hover); }
+.sidebar.left .explorer .folder-icon{
+  width:18px; height:18px; color:#6b7280; transition:transform .25s ease, color .15s ease; flex-shrink:0;
+}
+.sidebar.left .explorer .folder-outer{ display:grid; grid-template-rows:0fr; transition:grid-template-rows .25s ease; overflow:hidden; }
+.sidebar.left .explorer .folder-outer.open{ grid-template-rows:1fr; }
+.sidebar.left .explorer .folder-outer > ul{ margin-left:8px; padding-left:12px; border-left:1px solid var(--x-border); margin-block:0; min-height:0; }
+
+/* 파일 링크(흐릿 제거 포함) */
+.sidebar.left .explorer a{
+  text-decoration:none !important; background:transparent !important; box-shadow:none !important;
+  border:0 !important; filter:none !important; opacity:1 !important; color:inherit !important;
+}
+.sidebar.left .explorer .explorer-content li > a {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 6px 10px;
+  margin: 2px 0;
+  min-height: 32px;
+  line-height: 1.2;
+  border-radius: 6px;
+  transition: background .15s ease, color .15s ease;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+/* 활성화 상태 (파란박스) */
+.sidebar.left .explorer .explorer-content li > a.active {
+  background: var(--x-active);
+  color: var(--x-accent) !important;
+  border-radius: 6px;
+  box-shadow: inset 0 0 0 2px var(--x-accent);
+  font-weight: 700;
+}
+.sidebar.left .explorer .explorer-content li > a.active::before{
+  content:none; position:absolute; left:6px; top:22%; bottom:22%; width:3px; border-radius:2px; background:var(--x-accent);
+}
+
+/* 모바일: 원본 드로어 토글 동작 유지 */
+@media (max-width: 900px){
+  .sidebar.left .explorer .explorer-content{
+    overflow-y:auto !important; overflow-x:clip !important; padding-right:12px;
+  }
+}
+
+/* 슬림 스크롤바 (Explorer 전용) */
+.sidebar.left .explorer .explorer-content{
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--x-text) 30%, transparent) transparent;
+}
+.sidebar.left .explorer .explorer-content::-webkit-scrollbar{ width:10px; }
+.sidebar.left .explorer .explorer-content:hover::-webkit-scrollbar{ width:12px; }
+.sidebar.left .explorer .explorer-content::-webkit-scrollbar-track{
+  background:transparent; margin:6px 0;
+}
+.sidebar.left .explorer .explorer-content::-webkit-scrollbar-thumb{
+  border-radius:999px; border:3px solid transparent; background-clip:padding-box;
+  background-color: color-mix(in srgb, var(--x-text) 28%, transparent);
+  transition: background-color .15s ease, border-color .15s ease;
+}
+.sidebar.left .explorer .explorer-content:hover::-webkit-scrollbar-thumb{
+  background-color: color-mix(in srgb, var(--x-text) 40%, transparent);
+}
+.sidebar.left .explorer .explorer-content::-webkit-scrollbar-thumb:active{
+  background-color: color-mix(in srgb, var(--x-accent) 70%, transparent);
+}
+.sidebar.left .explorer .explorer-content::-webkit-scrollbar-corner{ background:transparent; }
+
+/* === FIX: 변수 통일 & 다크모드 강제 === */
+
+/* 라벨(제목) 색 강제 */
+.sidebar.left .explorer :is(.desktop-explorer,.mobile-explorer) h2::after{
+  color: var(--x-text) !important;
+}
+
+/* 기본 색상 변수 강제 */
+.sidebar.left .explorer{
+  background: var(--x-bg) !important;
+  color: var(--x-text) !important;
+  border-color: var(--x-border) !important;
+}
+
+/* hover/active 변수 일원화 */
+.sidebar.left .explorer .folder-container:hover,
+.sidebar.left .explorer .explorer-content li > a:hover{
+  background: var(--x-hover) !important;
+}
+.sidebar.left .explorer .explorer-content li > a.active{
+  background: var(--x-active) !important;
+  color: var(--x-accent) !important;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--x-accent) 36%, transparent) !important;
+}
+.sidebar.left .explorer .explorer-content li > a.active::before{
+  background: var(--x-accent) !important;
+}
+
+/* 다크모드 폭넓은 셀렉터 */
+html[data-theme="dark"] .sidebar.left .explorer,
+body[data-theme="dark"] .sidebar.left .explorer,
+:root[data-theme="dark"] .sidebar.left .explorer{
+  background: var(--x-bg) !important;
+  color: var(--x-text) !important;
+  border-color: var(--x-border) !important;
+  box-shadow: 0 12px 30px rgba(0,0,0,.55) !important;
+}
+html[data-theme="dark"] .sidebar.left .explorer .explorer-content,
+body[data-theme="dark"] .sidebar.left .explorer .explorer-content,
+:root[data-theme="dark"] .sidebar.left .explorer .explorer-content{
+  border-top-color: var(--x-sep) !important;
+}
+html[data-theme="dark"] .sidebar.left .explorer .folder-container:hover,
+body[data-theme="dark"] .sidebar.left .explorer .folder-container:hover,
+:root[data-theme="dark"] .sidebar.left .explorer .folder-container:hover,
+html[data-theme="dark"] .sidebar.left .explorer .explorer-content li > a:hover,
+body[data-theme="dark"] .sidebar.left .explorer .explorer-content li > a:hover,
+:root[data-theme="dark"] .sidebar.left .explorer .explorer-content li > a:hover{
+  background: var(--x-hover) !important;
+}
+html[data-theme="dark"] .sidebar.left .explorer .explorer-content li > a.active,
+body[data-theme="dark"] .sidebar.left .explorer .explorer-content li > a.active,
+:root[data-theme="dark"] .sidebar.left .explorer .explorer-content li > a.active{
+  background: var(--x-active) !important;
+  color: var(--x-accent) !important;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--x-accent) 40%, transparent) !important;
+}
+html[data-theme="dark"] .sidebar.left .explorer .explorer-content li > a.active::before,
+body[data-theme="dark"] .sidebar.left .explorer .explorer-content li > a.active::before,
+:root[data-theme="dark"] .sidebar.left .explorer .explorer-content li > a.active::before{
+  background: var(--x-accent) !important;
+}
+
+/* 수평 스크롤 재차단 */
+.sidebar.left,
+.sidebar.left .explorer,
+.sidebar.left .explorer .explorer-content{
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+.sidebar.left .explorer .explorer-content::-webkit-scrollbar:horizontal{ height:0 !important; }
+
+/* 다크 전용 스크롤바 */
+html[data-theme="dark"] .sidebar.left .explorer .explorer-content,
+body[data-theme="dark"] .sidebar.left .explorer .explorer-content,
+:root[data-theme="dark"] .sidebar.left .explorer .explorer-content{
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--x-text) 45%, transparent) transparent;
+}
+html[data-theme="dark"] .sidebar.left .explorer .explorer-content::-webkit-scrollbar-thumb,
+body[data-theme="dark"] .sidebar.left .explorer .explorer-content::-webkit-scrollbar-thumb,
+:root[data-theme="dark"] .sidebar.left .explorer .explorer-content::-webkit-scrollbar-thumb{
+  border-radius: 999px;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  background-color: color-mix(in srgb, var(--x-text) 45%, transparent);
+}
+html[data-theme="dark"] .sidebar.left .explorer .explorer-content:hover::-webkit-scrollbar-thumb,
+body[data-theme="dark"] .sidebar.left .explorer .explorer-content:hover::-webkit-scrollbar-thumb,
+:root[data-theme="dark"] .sidebar.left .explorer .explorer-content:hover::-webkit-scrollbar-thumb{
+  background-color: color-mix(in srgb, var(--x-text) 65%, transparent);
+}
+
+/* 사이드바/본문 정렬 */
+.sidebar.left { padding-top: 24px !important; }
+.page main.content { margin-top: 24px !important; }
+
+/* ================================
+   ▼▼ 모바일 햄버거 & 오프캔버스 드로어 ▼▼
+   ================================ */
+
+/* 햄버거 버튼 */
+.lx2-hamburger{
+  position: fixed;
+  top: max(12px, env(safe-area-inset-top));
+  left: max(12px, env(safe-area-inset-left));
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  border: 1px solid var(--x-border);
+  background: var(--x-bg);
+  box-shadow: 0 8px 24px rgba(16,24,40,.08);
+  display: grid; place-items: center;
+  z-index: 1001 !important; /* 드로어(1000) 위 */
+  cursor: pointer;
+}
+
+/* 햄버거 아이콘 */
+.lx2-hamburger .bars,
+.lx2-hamburger .bars::before,
+.lx2-hamburger .bars::after{
+  content: ""; display: block;
+  width: 22px; height: 2px; border-radius: 2px;
+  background: var(--x-text);
+  transition: transform .25s ease, opacity .2s ease;
+}
+.lx2-hamburger .bars{ position: relative; }
+.lx2-hamburger .bars::before{ position: absolute; top: -6px; }
+.lx2-hamburger .bars::after{ position: absolute; top: 6px; }
+
+/* 오버레이: 기본 숨김, 열릴 때 표시 */
+.menu-overlay{
+  position: fixed; inset: 0;
+  background: rgba(15,17,22,.48);
+  backdrop-filter: saturate(140%) blur(1.5px);
+  z-index: 1000;
+  display: none;
+}
+
+/* 모바일에서 오프캔버스 적용 */
+@media (max-width: 980px){
+  .sidebar.left{
+    position: fixed; top: 0; left: 0;
+    width: min(86vw, 320px);
+    height: 100dvh;
+    margin-top: 0 !important;
+    padding: 14px;
+    transform: translateX(-110%);
+    transition: transform .28s ease;
+    z-index: 1000 !important;
+    box-shadow: 0 24px 64px rgba(0,0,0,.24) !important;
+    border-right: 1px solid var(--x-border);
+    background: var(--x-bg);
+  }
+
+  .sidebar.left .explorer{
+    height: 100%;
+    display: flex; flex-direction: column;
+  }
+  .sidebar.left .explorer .explorer-content{
+    flex: 1 1 auto; min-height: 0;
+    overflow-y: auto !important;
+  }
+
+  body.menu-open .sidebar.left{ transform: translateX(0); }
+  body.menu-open{ overflow: hidden; } /* 배경 스크롤 잠금 */
+  body.menu-open .menu-overlay{ display: block; }
+
+  /* 열린 상태의 햄버거(X) */
+  body.menu-open .lx2-hamburger .bars{ background: transparent; }
+  body.menu-open .lx2-hamburger .bars::before{ transform: translateY(6px) rotate(45deg); }
+  body.menu-open .lx2-hamburger .bars::after{ transform: translateY(-6px) rotate(-45deg); }
+}
+
+/* 데스크톱에서는 햄버거/오버레이 숨김 */
+@media (min-width: 981px){
+  .lx2-hamburger{ display: none; }
+  .menu-overlay{ display: none !important; }
+}
+
+
 /* === (1) 사이드바: 모든 해상도에서 오버레이 드로어로 고정 === */
 .sidebar.left{
   position: fixed;
