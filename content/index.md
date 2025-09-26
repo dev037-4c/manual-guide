@@ -6,21 +6,14 @@ build: 2025.09.19
 ---
 
 
-
-
-
-
 <!-- 햄버거 버튼 -->
-<button
-  class="lx2-hamburger"
-  aria-label="메뉴 열기"
-  aria-controls="quartz-sidebar-left"
-  aria-expanded="false"
->
-  <span class="bars" aria-hidden="true">
-    <span></span>
-  </span>
+<button class="lx2-hamburger" aria-label="메뉴 열기" aria-controls="quartz-sidebar-left" aria-expanded="false">
+  <span class="bars"><span></span></span>
 </button>
+
+
+
+
 
 
 <script>
