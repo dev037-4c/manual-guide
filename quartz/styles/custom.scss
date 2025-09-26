@@ -966,3 +966,71 @@ body.menu-open{
     filter: none !important;
   }
 }
+
+/* ===== FIX @ ≤ 900px: 2열 → 1열 전환을 확실히 ===== */
+@media (max-width: 900px){
+  .lx2-hero__inner{
+    grid-template-columns: 1fr !important;
+    row-gap: 18px !important;
+  }
+  .lx2-hero__cards{
+    grid-template-columns: 1fr !important;
+    min-width: 0 !important;
+  }
+}
+
+/* ===== FIX @ ≤ 820px: 강제 축소 + 줄바꿈 허용 + 최소폭 제거 ===== */
+@media (max-width: 820px){
+  /* 히어로 박스: 고정폭 변수 무력화 */
+  .lx2-hero{
+    width: 100% !important;
+    max-width: 100% !important;
+    --wrap: 100% !important;
+    --wrap-fixed: auto !important;
+    padding: clamp(16px, 5vh, 32px) clamp(12px, 4vw, 22px) !important;
+    min-height: clamp(300px, 52dvh, 520px) !important;
+  }
+
+  /* 내부 그리드: 간격 더 줄이기 */
+  .lx2-hero__inner{
+    column-gap: 14px !important;
+  }
+
+  /* 카드 그리드/카드: 최소 폭 제한 해제 */
+  .lx2-hero__cards{ gap: 10px !important; min-width: 0 !important; }
+  .lx2-card{
+    min-height: 64px !important;
+    padding: 12px 14px !important;
+    width: 100% !important;
+  }
+
+  /* 텍스트 줄바꿈 허용(핵심) */
+  .lx2-card__text{
+    white-space: normal !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    line-height: 1.2 !important;
+    gap: 6px !important;
+    font-size: 14px !important;
+  }
+
+  /* 아이콘도 소형화 */
+  .lx2-card__icon{ width: 30px !important; height: 30px !important; }
+  .lx2-card__icon svg{ width: 18px !important; height: 18px !important; }
+
+  /* 제목/설명 축소 */
+  .lx2-hero__title{ font-size: clamp(24px, 4.4vw, 36px) !important; }
+  .lx2-hero__desc{ font-size: 14px !important; }
+
+  /* 사이드바 드로어: 뷰포트 기준으로 안전폭 */
+  .sidebar.left{
+    width: clamp(260px, 84vw, 340px) !important;
+    max-width: 84vw !important;
+  }
+}
+
+/* ===== FIX @ ≤ 540px: 초소형 기기 안전장치 ===== */
+@media (max-width: 540px){
+  .lx2-hero__title{ font-size: clamp(22px, 6vw, 30px) !important; }
+  .lx2-card{ min-height: 58px !important; }
+}
