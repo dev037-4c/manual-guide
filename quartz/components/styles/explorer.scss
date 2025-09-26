@@ -270,7 +270,7 @@ body[data-theme="dark"] .sidebar.left .explorer .explorer-content:hover::-webkit
   opacity: 0; pointer-events: none; transition: opacity .2s ease;
 }
 .menu-open .menu-overlay{ opacity: 1; pointer-events: auto; }
-.menu-open .menu-overlay[hidden]{ display: block !important; } /* hidden 무시 */
+
 
 /* ===== 모바일 오프캔버스(≤900px) ===== */
 @media (max-width: 900px){
