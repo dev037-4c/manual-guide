@@ -65,20 +65,7 @@ html, body, .page, #quartz-body { overflow-x: hidden !important; }
 
 /* =========================
    2) 모바일: 가로 스크롤 카드형
-========================= */
-@media (max-width: 900px){
-  .sidebar.left{
-    width: 100%;
-    max-width: 100%;
-    margin-top: 8px;
-    padding-top: 8px !important;
-    position: sticky; top: 0; z-index: 30; /* 필요 없으면 제거 */
-  }
 
-  .sidebar.left .explorer{
-    border-radius: 14px;
-    padding: 8px 10px;
-  }
 
   /* 1레벨 항목 가로 정렬 + 스크롤 */
   .sidebar.left .explorer .explorer-content{
