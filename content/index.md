@@ -11,8 +11,7 @@ build: 2025.09.19
   <span class="bars"><span></span></span>
 </button>
 
-<!-- 오버레이 -->
-<div class="menu-overlay" id="menuOverlay" hidden></div>
+
 
 
 
