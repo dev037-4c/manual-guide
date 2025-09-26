@@ -9,7 +9,7 @@ build: 2025.09.19
   <div class="lx2-hero__inner">
     <div class="lx2-hero__content">
       <h1 class="lx2-hero__title" style="color:#fff !important;-webkit-text-fill-color:#fff !important">
-        통합학습관리<br>시스템<br> 
+        통합학습관리시스템<br> 
         <span class="lx2-title-accent" style="color:#fff !important;-webkit-text-fill-color:#fff !important">
           LX2
         </span>
@@ -24,7 +24,7 @@ build: 2025.09.19
         <span class="lx2-card__icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" width="48" height="48" xmlns="http://www.w3.org/2000/svg">
 		  <circle cx="12" cy="12" r="10" fill="none" stroke="#2D9CDB" stroke-width="2"/>
-		  <text x="12" y="12" text-anchor="middle" dominant-baseline="middle" font-size="8" font-family="Arial, sans-serif" style="color:#fff !important;-webkit-text-fill-color:#fff !important">4C</text>
+		  <text x="12" y="12" text-anchor="middle" dominant-baseline="middle" font-size="8" font-family="Arial, sans-serif" fill="#2D9CDB">4C</text>
 		</svg>
         </span>
         <span class="lx2-card__text"><b>포씨소프트<br>공식 홈페이지</b></span>
@@ -70,7 +70,7 @@ build: 2025.09.19
   </div>
 <!-- PDF 다운로드 카드 -->
 <div class="lx2-pdf-card">
-  <a href="./_etc/LX2-manual.pdf" download class="pdf-link">
+  <a href="./_etc/LX2매뉴얼.pdf" download class="pdf-link">
     <span class="pdf-icon">
       <svg viewBox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <rect x="2" y="2" width="20" height="20" rx="3" fill="#FF4B4B"/>

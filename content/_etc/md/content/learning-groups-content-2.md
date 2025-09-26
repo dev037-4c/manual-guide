@@ -1,1 +1,0 @@
-![[learning-groups-content-3.gif]]

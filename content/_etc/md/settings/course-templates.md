@@ -1,1 +1,0 @@
-![[exams-papers-new-registration_coursestemplates.png]]

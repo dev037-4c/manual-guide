@@ -1,1 +1,0 @@
-![[학습-content-상세-마커settings.gif]]

@@ -1,1 +1,0 @@
-![[settings-certificates-preview.gif]]
