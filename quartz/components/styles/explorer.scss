@@ -15,14 +15,75 @@
 /* 가로 스크롤 전역 차단 */
 html, body, .page, #quartz-body { overflow-x: hidden !important; }
  
-/* 패널 */
-.sidebar.left { overflow: visible !important; margin-top: 90px;}
-.sidebar.left .explorer{
-  background:var(--x-bg); color:var(--x-text);
-  border:1px solid var(--x-border); border-radius:18px;
-  padding:10px; box-shadow:0 8px 24px rgba(16,24,40,.06);
-  padding-left: 20px;
+/* === 유연한 기본값으로 보정(데스크톱 중심) === */
+.sidebar.left { 
+  /* 고정값 대신 clamp로 부드럽게 */
+  margin-top: clamp(56px, 7vw, 90px);
 }
+.sidebar.left .explorer{
+  /* 패딩/라운드도 화면에 따라 자연스레 줄이기 */
+  padding: clamp(8px, 1.6vw, 12px) clamp(12px, 2.2vw, 20px);
+  border-radius: clamp(12px, 2vw, 18px);
+  /* 큰 화면에서만 그림자 진하게 */
+  box-shadow: 0 8px 24px rgba(16,24,40,.06);
+}
+
+/* 긴 파일명 줄바꿈/말줄임 처리(가로 넘침 방지) */
+.sidebar.left .explorer .explorer-content li,
+.sidebar.left .explorer .explorer-content a{
+  min-width: 0;           /* flex/shrink 시 필수 */
+}
+.sidebar.left .explorer .explorer-content a{
+  display: block;
+  white-space: nowrap;    /* 한 줄 표시 */
+  overflow: hidden;
+  text-overflow: ellipsis;/* 말줄임 */
+  font-size: clamp(13px, 1.8vw, 15px);
+  line-height: 1.25;
+}
+
+/* === 모바일(≤900px)에서 더 촘촘하게 === */
+@media (max-width: 900px){
+  .sidebar.left{
+    /* 뷰포트 폭에 맞춰 전폭 사용 */
+    width: 100%;
+    margin-top: clamp(48px, 6vw, 64px);
+    padding-inline: 0;     /* 좌우 여백 제거로 공간 확보 */
+  }
+
+  .sidebar.left .explorer{
+    /* 모바일에서는 카드가 너무 커 보이지 않게 */
+    padding: clamp(8px, 2.5vw, 12px) clamp(10px, 3vw, 14px);
+    border-radius: clamp(10px, 2.4vw, 14px);
+    box-shadow: 0 6px 18px rgba(16,24,40,.08);
+  }
+
+  /* 내부 리스트는 세로 스크롤, 가로 스크롤 차단 */
+  .sidebar.left .explorer .explorer-content{
+    max-height: calc(100dvh - 140px); /* 헤더·여백 감안 */
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    padding-right: 8px;               /* 스크롤바 여백 */
+  }
+
+  /* 터치 타겟 간격 살짝 조정 */
+  .sidebar.left .explorer .explorer-content li > a{
+    padding: 8px 10px;
+    border-radius: 8px;
+  }
+}
+
+/* === 초소형(≤480px) 추가 미세 조정 === */
+@media (max-width: 480px){
+  .sidebar.left .explorer .explorer-content a{
+    font-size: clamp(12px, 3.4vw, 14px);
+  }
+  .sidebar.left .explorer{
+    padding: 8px 10px;
+    border-radius: 10px;
+  }
+}
+
  
 /* 헤더: 카드/아이콘/토글 제거 + 제목 교체 */
 :root { --explorer-label: "메뉴"; }  /* ← 여기만 바꾸면 제목 변경 */
@@ -270,7 +331,7 @@ body[data-theme="dark"] .sidebar.left .explorer .explorer-content:hover::-webkit
   opacity: 0; pointer-events: none; transition: opacity .2s ease;
 }
 .menu-open .menu-overlay{ opacity: 1; pointer-events: auto; }
-
+.menu-open .menu-overlay[hidden]{ display: block !important; } /* hidden 무시 */
 
 /* ===== 모바일 오프캔버스(≤900px) ===== */
 @media (max-width: 900px){
