@@ -1,0 +1,1 @@
+![[learning-groups-content수-미리보기.gif]]
