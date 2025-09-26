@@ -39,9 +39,6 @@ html, body, .page, #quartz-body { overflow-x: hidden !important; }
 }
 .sidebar.left .explorer :is(.desktop-explorer,.mobile-explorer) h2{
   position:relative; color:transparent !important;
-
-
-  
 }
 .sidebar.left .explorer :is(.desktop-explorer,.mobile-explorer) h2::after{
   content: var(--explorer-label); position:absolute; inset:0;
