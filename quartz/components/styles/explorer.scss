@@ -33,12 +33,15 @@ html, body, .page, #quartz-body { overflow-x: hidden !important; }
 .sidebar.left .explorer .fold,
 .sidebar.left .explorer :is(.desktop-explorer,.mobile-explorer) svg,
 .sidebar.left .explorer .lucide-chevron-down { display:none !important; }
+
+/* ✅ 수정: 컨테이너는 클릭 가능, 제목만 비활성 */
 .sidebar.left .explorer :is(.desktop-explorer,.mobile-explorer){
   background:transparent !important; border:0 !important; padding:0 !important;
-  cursor:default !important; pointer-events:none; color:var(--x-text) !important;
+  cursor:auto !important; pointer-events:auto !important; color:var(--x-text) !important;
 }
 .sidebar.left .explorer :is(.desktop-explorer,.mobile-explorer) h2{
   position:relative; color:transparent !important;
+  cursor:default !important; pointer-events:none !important;
 }
 .sidebar.left .explorer :is(.desktop-explorer,.mobile-explorer) h2::after{
   content: var(--explorer-label); position:absolute; inset:0;
@@ -61,10 +64,9 @@ html, body, .page, #quartz-body { overflow-x: hidden !important; }
 .sidebar.left .explorer .folder-icon{
   width:18px; height:18px; color:#6b7280; transition:transform .25s ease, color .15s ease; flex-shrink:0;
 }
-/* (기존 회전 로직 유지: li:has(>.folder-outer:not(.open)) ... ) */
-.sidebar.left .explorer .folder-outer{ display:grid; grid-template-rows:0fr; transition:grid-template-rows .25s ease; }
+.sidebar.left .explorer .folder-outer{ display:grid; grid-template-rows:0fr; transition:grid-template-rows .25s ease; overflow:hidden; }
 .sidebar.left .explorer .folder-outer.open{ grid-template-rows:1fr; }
-.sidebar.left .explorer .folder-outer > ul{ margin-left:8px; padding-left:12px; border-left:1px solid var(--x-border); }
+.sidebar.left .explorer .folder-outer > ul{ margin-left:8px; padding-left:12px; border-left:1px solid var(--x-border); margin-block:0; min-height:0; }
 
 /* 파일 링크(흐릿 제거 포함) */
 .sidebar.left .explorer a{
@@ -75,19 +77,20 @@ html, body, .page, #quartz-body { overflow-x: hidden !important; }
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding: 6px 10px;       /* 세로 padding 줄이기 */
+  padding: 6px 10px;
   margin: 2px 0;
-  min-height: 32px;        /* 박스 고정 높이 (짧게) */
-  line-height: 1.2;        /* 텍스트 줄 높이 줄이기 */
-  border-radius: 6px;      /* 둥글기 조금만 */
+  min-height: 32px;
+  line-height: 1.2;
+  border-radius: 6px;
   transition: background .15s ease, color .15s ease;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 /* 활성화 상태 (파란박스) */
 .sidebar.left .explorer .explorer-content li > a.active {
   background: var(--x-active);
   color: var(--x-accent) !important;
-  border-radius: 6px;      /* 둥글둥글 → 살짝 네모 */
+  border-radius: 6px;
   box-shadow: inset 0 0 0 2px var(--x-accent);
   font-weight: 700;
 }
@@ -95,7 +98,7 @@ html, body, .page, #quartz-body { overflow-x: hidden !important; }
   content:none; position:absolute; left:6px; top:22%; bottom:22%; width:3px; border-radius:2px; background:var(--x-accent);
 }
 
-/* 모바일: 원본 드로어 토글 동작 유지(위치/transform 건드리지 않음) */
+/* 모바일: 원본 드로어 토글 동작 유지 */
 @media (max-width: 900px){
   .sidebar.left .explorer .explorer-content{
     overflow-y:auto !important; overflow-x:clip !important; padding-right:12px;
@@ -125,47 +128,47 @@ html, body, .page, #quartz-body { overflow-x: hidden !important; }
 }
 .sidebar.left .explorer .explorer-content::-webkit-scrollbar-corner{ background:transparent; }
 
-/* === FIX: 변수 통일(—exp-* -> —x-*) & 다크모드 강제 === */
+/* === FIX: 변수 통일 & 다크모드 강제 === */
 
-/* 0) 라벨(제목) 색이 안 바뀌던 원인 제거: exp -> x */
+/* 라벨(제목) 색 강제 */
 .sidebar.left .explorer :is(.desktop-explorer,.mobile-explorer) h2::after{
-  color: var(--x-text) !important;   /* 이전: var(--exp-text, #0f1116) */
+  color: var(--x-text) !important;
 }
 
-/* 1) 기본 색상도 변수로 강제 */
+/* 기본 색상 변수 강제 */
 .sidebar.left .explorer{
   background: var(--x-bg) !important;
   color: var(--x-text) !important;
   border-color: var(--x-border) !important;
 }
 
-/* 2) hover/active도 모두 x-변수 사용 */
+/* hover/active 변수 일원화 */
 .sidebar.left .explorer .folder-container:hover,
 .sidebar.left .explorer .explorer-content li > a:hover{
   background: var(--x-hover) !important;
 }
 .sidebar.left .explorer .explorer-content li > a.active{
   background: var(--x-active) !important;
-  color: var(--x-accent) !important; /* 이전에 고정색(#2563eb) 쓰지 않기 */
+  color: var(--x-accent) !important;
   box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--x-accent) 36%, transparent) !important;
 }
 .sidebar.left .explorer .explorer-content li > a.active::before{
   background: var(--x-accent) !important;
 }
 
-/* 3) 다크모드 셀렉터를 폭넓게(어디에 달려 있어도 적용) */
+/* 다크모드 폭넓은 셀렉터 */
 html[data-theme="dark"] .sidebar.left .explorer,
 body[data-theme="dark"] .sidebar.left .explorer,
 :root[data-theme="dark"] .sidebar.left .explorer{
-  background: var(--x-bg) !important;   /* #0f131a */
-  color: var(--x-text) !important;      /* #eef2f6 */
-  border-color: var(--x-border) !important; /* #2a3240 */
+  background: var(--x-bg) !important;
+  color: var(--x-text) !important;
+  border-color: var(--x-border) !important;
   box-shadow: 0 12px 30px rgba(0,0,0,.55) !important;
 }
 html[data-theme="dark"] .sidebar.left .explorer .explorer-content,
 body[data-theme="dark"] .sidebar.left .explorer .explorer-content,
 :root[data-theme="dark"] .sidebar.left .explorer .explorer-content{
-  border-top-color: var(--x-sep) !important; /* #1c2432 */
+  border-top-color: var(--x-sep) !important;
 }
 html[data-theme="dark"] .sidebar.left .explorer .folder-container:hover,
 body[data-theme="dark"] .sidebar.left .explorer .folder-container:hover,
@@ -173,13 +176,13 @@ body[data-theme="dark"] .sidebar.left .explorer .folder-container:hover,
 html[data-theme="dark"] .sidebar.left .explorer .explorer-content li > a:hover,
 body[data-theme="dark"] .sidebar.left .explorer .explorer-content li > a:hover,
 :root[data-theme="dark"] .sidebar.left .explorer .explorer-content li > a:hover{
-  background: var(--x-hover) !important; /* #162031 */
+  background: var(--x-hover) !important;
 }
 html[data-theme="dark"] .sidebar.left .explorer .explorer-content li > a.active,
 body[data-theme="dark"] .sidebar.left .explorer .explorer-content li > a.active,
 :root[data-theme="dark"] .sidebar.left .explorer .explorer-content li > a.active{
-  background: var(--x-active) !important; /* #182642 */
-  color: var(--x-accent) !important;      /* #60a5fa */
+  background: var(--x-active) !important;
+  color: var(--x-accent) !important;
   box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--x-accent) 40%, transparent) !important;
 }
 html[data-theme="dark"] .sidebar.left .explorer .explorer-content li > a.active::before,
@@ -188,7 +191,7 @@ body[data-theme="dark"] .sidebar.left .explorer .explorer-content li > a.active:
   background: var(--x-accent) !important;
 }
 
-/* 4) 수평 스크롤 재차단(혹시 다시 생기면…) */
+/* 수평 스크롤 재차단 */
 .sidebar.left,
 .sidebar.left .explorer,
 .sidebar.left .explorer .explorer-content{
@@ -197,7 +200,7 @@ body[data-theme="dark"] .sidebar.left .explorer .explorer-content li > a.active:
 }
 .sidebar.left .explorer .explorer-content::-webkit-scrollbar:horizontal{ height:0 !important; }
 
-/* 5) 다크 전용 스크롤바(쨍하지 않게) */
+/* 다크 전용 스크롤바 */
 html[data-theme="dark"] .sidebar.left .explorer .explorer-content,
 body[data-theme="dark"] .sidebar.left .explorer .explorer-content,
 :root[data-theme="dark"] .sidebar.left .explorer .explorer-content{
@@ -218,26 +221,12 @@ body[data-theme="dark"] .sidebar.left .explorer .explorer-content:hover::-webkit
   background-color: color-mix(in srgb, var(--x-text) 65%, transparent);
 }
 
-/* 사이드바랑 본문 정렬 맞추기 */
-.sidebar.left {
-  padding-top: 24px !important;   /* 카드 위쪽 여백만큼 맞춰줌 */
-}
-
-.page main.content {
-  margin-top: 24px !important;       /* 불필요한 위쪽 여백 제거 */
-}
-
-.sidebar.left .explorer .folder-outer{
-  display:grid; grid-template-rows:0fr; overflow:hidden; /* 접힘 상태에서 밖으로 안 새게 */
-}
-.sidebar.left .explorer .folder-outer.open{ grid-template-rows:1fr; } /* 펼침 */
-.sidebar.left .explorer .folder-outer > ul{
-  margin-block: 0;            /* ← 기본 ul 상하 1em 마진 제거(병합 차단 핵심) */
-  min-height: 0;              /* 0fr 계산 시 내부 높이 0 허용 */
-}
+/* 사이드바/본문 정렬 */
+.sidebar.left { padding-top: 24px !important; }
+.page main.content { margin-top: 24px !important; }
 
 /* ================================
-   ▼▼ 모바일 햄버거 & 오프캔버스 드로어 추가 ▼▼
+   ▼▼ 모바일 햄버거 & 오프캔버스 드로어 ▼▼
    ================================ */
 
 /* 햄버거 버튼 */
@@ -251,7 +240,7 @@ body[data-theme="dark"] .sidebar.left .explorer .explorer-content:hover::-webkit
   background: var(--x-bg);
   box-shadow: 0 8px 24px rgba(16,24,40,.08);
   display: grid; place-items: center;
-  z-index: 1001; /* 드로어(1000) 위 */
+  z-index: 1001 !important; /* 드로어(1000) 위 */
   cursor: pointer;
 }
 
@@ -268,12 +257,13 @@ body[data-theme="dark"] .sidebar.left .explorer .explorer-content:hover::-webkit
 .lx2-hamburger .bars::before{ position: absolute; top: -6px; }
 .lx2-hamburger .bars::after{ position: absolute; top: 6px; }
 
-/* 오버레이 */
+/* 오버레이: 기본 숨김, 열릴 때 표시 */
 .menu-overlay{
   position: fixed; inset: 0;
   background: rgba(15,17,22,.48);
   backdrop-filter: saturate(140%) blur(1.5px);
   z-index: 1000;
+  display: none;
 }
 
 /* 모바일에서 오프캔버스 적용 */
@@ -286,7 +276,7 @@ body[data-theme="dark"] .sidebar.left .explorer .explorer-content:hover::-webkit
     padding: 14px;
     transform: translateX(-110%);
     transition: transform .28s ease;
-    z-index: 1000;
+    z-index: 1000 !important;
     box-shadow: 0 24px 64px rgba(0,0,0,.24) !important;
     border-right: 1px solid var(--x-border);
     background: var(--x-bg);
@@ -301,26 +291,14 @@ body[data-theme="dark"] .sidebar.left .explorer .explorer-content:hover::-webkit
     overflow-y: auto !important;
   }
 
-  body.menu-open .sidebar.left{
-    transform: translateX(0);
-  }
-  body.menu-open{
-    overflow: hidden; /* 배경 스크롤 잠금 */
-  }
-  body.menu-open .menu-overlay{
-    display: block;
-  }
+  body.menu-open .sidebar.left{ transform: translateX(0); }
+  body.menu-open{ overflow: hidden; } /* 배경 스크롤 잠금 */
+  body.menu-open .menu-overlay{ display: block; }
 
   /* 열린 상태의 햄버거(X) */
-  body.menu-open .lx2-hamburger .bars{
-    background: transparent;
-  }
-  body.menu-open .lx2-hamburger .bars::before{
-    transform: translateY(6px) rotate(45deg);
-  }
-  body.menu-open .lx2-hamburger .bars::after{
-    transform: translateY(-6px) rotate(-45deg);
-  }
+  body.menu-open .lx2-hamburger .bars{ background: transparent; }
+  body.menu-open .lx2-hamburger .bars::before{ transform: translateY(6px) rotate(45deg); }
+  body.menu-open .lx2-hamburger .bars::after{ transform: translateY(-6px) rotate(-45deg); }
 }
 
 /* 데스크톱에서는 햄버거/오버레이 숨김 */
