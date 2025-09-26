@@ -6,12 +6,52 @@ build: 2025.09.19
 ---
 
 
-<!-- 오버레이 -->
-
-<!-- 햄버거 메뉴 버튼 -->
+<!-- 햄버거 버튼 -->
 <button class="lx2-hamburger" aria-label="메뉴 열기" aria-controls="quartz-sidebar-left" aria-expanded="false">
   <span class="bars"><span></span></span>
 </button>
+
+<!-- 오버레이 -->
+<div class="menu-overlay" id="menuOverlay" hidden></div>
+
+<script>
+(() => {
+  const body    = document.body;
+  const btn     = document.querySelector('.lx2-hamburger');
+  const drawer  = document.querySelector('.sidebar.left');
+  let overlay   = document.getElementById('menuOverlay');
+
+  if (!btn || !drawer) return;
+
+  const open = () => {
+    body.classList.add('menu-open');
+    btn.setAttribute('aria-expanded', 'true');
+    overlay.hidden = false;
+  };
+
+  const close = () => {
+    body.classList.remove('menu-open');
+    btn.setAttribute('aria-expanded', 'false');
+    overlay.hidden = true;
+  };
+
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    body.classList.contains('menu-open') ? close() : open();
+  });
+
+  overlay.addEventListener('click', close);
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') close();
+  });
+
+  // 메뉴 링크 클릭 시 자동 닫힘 (모바일 UX)
+  drawer.addEventListener('click', (e) => {
+    const a = e.target.closest('a');
+    if (a) close();
+  });
+})();
+</script>
 
 
 <script>
