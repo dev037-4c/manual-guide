@@ -1,1 +1,0 @@
-![[learning-groups-content수-일괄등록.gif]]

@@ -1,1 +1,0 @@
-![[메뉴-settings.png]]

@@ -1,1 +1,0 @@
-![[surveys-forms_미리보기.gif]]

@@ -1,1 +1,0 @@
-![[surveys-questions-일괄등록.png]]

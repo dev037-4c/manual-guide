@@ -1,1 +1,0 @@
-![[exams-papers-미리보기.gif]]

@@ -1,1 +1,0 @@
-![[surveys-questions-미리보기.gif]]
