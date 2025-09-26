@@ -15,18 +15,6 @@ build: 2025.09.19
   <span class="bars" aria-hidden="true"><span></span></span>
 </button>
 
-<div class="hamburger-menu-wrapper mobile-only">
-  <button id="sidebar-toggle" aria-label="메뉴 열기/닫기">
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
-  </button>
-</div>
-
-<!-- 기존 사이드바 코드 -->
-<div class="sidebar left">
-  ...
-</div>
 
 
 
