@@ -5,6 +5,7 @@ version: v2.0.0
 build: 2025.09.19
 ---
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- 오버레이 -->
 <div class="menu-overlay" id="menuOverlay" hidden></div>

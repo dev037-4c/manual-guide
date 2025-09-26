@@ -239,3 +239,32 @@ body[data-theme="dark"] .sidebar.left .explorer .explorer-content:hover::-webkit
   margin-block: 0;            /* ← 기본 ul 상하 1em 마진 제거(병합 차단 핵심) */
   min-height: 0;              /* 0fr 계산 시 내부 높이 0 허용 */
 }
+
+/* 기본 스타일 (모바일 우선) */
+body {
+  font-size: 16px;
+}
+.container {
+  width: 100%;
+}
+
+/* 태블릿 (화면 너비가 768px 이상일 때 적용) */
+@media screen and (min-width: 768px) {
+  body {
+    font-size: 18px;
+  }
+  .container {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+/* 데스크톱 (화면 너비가 1200px 이상일 때 적용) */
+@media screen and (min-width: 1200px) {
+  body {
+    font-size: 20px;
+  }
+  .container {
+    width: 1000px;
+  }
+}
