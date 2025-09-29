@@ -9,14 +9,13 @@ build: 2025.09.19
   <div class="lx2-hero__inner">
     <div class="lx2-hero__content">
       <h1 class="lx2-hero__title" style="color:#fff !important;-webkit-text-fill-color:#fff !important">
-        통합학습관리<br>시스템<br> 
+        통합학습관리시스템<br> 
         <span class="lx2-title-accent" style="color:#fff !important;-webkit-text-fill-color:#fff !important">
           LX2
         </span>
       </h1>
       <p class="lx2-hero__desc" style="color:#fff !important;-webkit-text-fill-color:#fff !important">
-        수많은 기관에 적용되어 운영 중인 가장 안정적인<br>
-        통합 교육시스템
+        수많은 기관에 적용되어 운영 중인 가장 안정적인 통합 교육시스템
       </p>
     </div>
     
@@ -35,5 +34,5 @@ build: 2025.09.19
     <span class="pdf-version">v2.0.0</span>
   </a>
 </div>
-<div class="lx2-hero__copyright"> 본 저작물의 모든 권리는 <strong>㈜포씨소프트(4CSoft)</strong>에 있습니다.<br> © 4CSoft. All Rights Reserved. <br><br>2025. 09. 22 </div>
+<div class="lx2-hero__copyright">2025. 09. 22 </div>
 </section>
