@@ -640,10 +640,10 @@
 /* (옵션) 카드 그리드가 폭을 꽉 채우게 미세 조정 */
 .lx2-hero__cards {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(12px, 2vw, 16px);
-  row-gap: clamp(12px, 2vw, 16px);
-  column-gap: clamp(12px, 2vw, 16px);
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;              /* 가로/세로 간격 동일하게 */
+  justify-items: center;  /* 카드 내용 가로 중앙 정렬 */
+  align-items: center;    /* 카드 내용 세로 중앙 정렬 */
 }
 
 .lx2-hero__copyright {
@@ -852,7 +852,6 @@ display: flex;
 .dayIcon { display: none;}
 
 .nightIcon { display: none;}
-
 
 
 
