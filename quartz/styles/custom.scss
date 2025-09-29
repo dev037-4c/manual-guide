@@ -848,3 +848,45 @@ display: flex;
 .nightIcon { display: none;}
 
 .lx2-hero__inner{ grid-template-columns: none !important;}
+
+
+/* 다크모드 관련 모든 스타일 제거 */
+[data-theme="dark"] {
+  /* 다크모드 스타일 무시 */
+}
+ 
+/* 라이트모드 강제 적용 */
+:root {
+  --light: #ffffff;
+  --dark: #2d3748;
+  --gray: #718096;
+  --lightgray: #f7fafc;
+  --darkgray: #4a5568;
+  --secondary: #3182ce;
+  --tertiary: #2b6cb0;
+  --highlight: #e6fffa;
+  --textHighlight: #fef5e7;
+}
+ 
+/* 다크모드 완전 차단 */
+html, body {
+  background-color: #ffffff !important;
+  color: #4a5568 !important;
+}
+ 
+/* 모든 다크모드 셀렉터 무시 */
+[data-theme="dark"],
+html[data-theme="dark"],
+body[data-theme="dark"] {
+  background-color: #ffffff !important;
+  color: #4a5568 !important;
+}
+ 
+/* 다크모드 관련 모든 요소 숨김 */
+.darkmode,
+.dayIcon,
+.nightIcon {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
