@@ -638,7 +638,13 @@
 }
  
 /* (옵션) 카드 그리드가 폭을 꽉 채우게 미세 조정 */
-.lx2-hero__cards{ gap: clamp(10px, 1vw, 10px); min-width: 0; }
+.lx2-hero__cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(12px, 2vw, 16px);
+  row-gap: clamp(12px, 2vw, 16px);
+  column-gap: clamp(12px, 2vw, 16px);
+}
 
 .lx2-hero__copyright {
   position: absolute;
