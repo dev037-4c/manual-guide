@@ -890,3 +890,8 @@ body[data-theme="dark"] {
   visibility: hidden !important;
   opacity: 0 !important;
 }
+.darkmode {
+  .dayIcon, .nightIcon {
+    /* 다크모드 완전 비활성화 */
+  }
+}
