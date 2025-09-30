@@ -5,90 +5,11 @@ version: v2.0.0
 build: 2025.09.19
 ---
 
-
-
-<!-- 오버레이 -->
-<div class="menu-overlay" id="menuOverlay" hidden></div>
-
-<!-- 햄버거 버튼 -->
-<button class="lx2-hamburger" aria-label="메뉴 열기" aria-controls="quartz-sidebar-left" aria-expanded="false">
-  <span class="bars" aria-hidden="true"><span></span></span>
-</button>
-
-
-
-
-
-
-<script>
-(() => {
-  const body = document.body
-  const btn  = document.querySelector('.lx2-hamburger')
-  const drawer = document.querySelector('.sidebar.left')        // 좌측 메뉴 컨테이너
-  let overlay = document.getElementById('menuOverlay')          // 이미 있으므로 재사용
-
-  if (!btn || !drawer) return
-
-  // 오버레이가 없으면 생성
-  if (!overlay) {
-    overlay = document.createElement('div')
-    overlay.id = 'menuOverlay'
-    document.body.appendChild(overlay)
-  }
-
-  // 현재 드로어 너비를 CSS 변수로 반영 (반응형 대응)
-  const setDrawerWidthVar = () => {
-    const w = Math.round(drawer.getBoundingClientRect().width || 280)
-    document.documentElement.style.setProperty('--drawer-w', w + 'px')
-  }
-
-  const open = () => {
-    setDrawerWidthVar()
-    body.classList.add('menu-open')
-    btn.classList.add('is-active')
-    btn.setAttribute('aria-expanded', 'true')
-    body.style.overflow = 'hidden' // 배경 스크롤 잠금
-  }
-  const close = () => {
-    body.classList.remove('menu-open')
-    btn.classList.remove('is-active')
-    btn.setAttribute('aria-expanded', 'false')
-    body.style.overflow = ''
-  }
-  const toggle = () => (body.classList.contains('menu-open') ? close() : open())
-
-  // 클릭으로 열고/닫기
-  btn.addEventListener('click', toggle)
-  overlay.addEventListener('click', close)
-
-  // ESC로 닫기
-  window.addEventListener('keydown', (e) => { if (e.key === 'Escape') close() })
-
-  // 드로어 내부 링크 클릭 시 자동 닫기
-  drawer.addEventListener('click', (e) => {
-    const a = e.target.closest('a')
-    if (a) close()
-  })
-
-  // PC 폭으로 돌아오면 상태 초기화
-  const mq = window.matchMedia('(min-width: 981px)')
-  const onChange = () => { if (mq.matches) close() }
-  mq.addEventListener ? mq.addEventListener('change', onChange) : mq.addListener(onChange)
-
-  // 열림 상태에서 리사이즈 시 드로어 폭 갱신
-  window.addEventListener('resize', () => {
-    if (body.classList.contains('menu-open')) setDrawerWidthVar()
-  })
-})();
-</script>
-
-
-
 <section class="lx2-hero">
   <div class="lx2-hero__inner">
     <div class="lx2-hero__content">
       <h1 class="lx2-hero__title" style="color:#fff !important;-webkit-text-fill-color:#fff !important">
-        통합학습관리시스템<br> 
+        통합학습관리<br> 
         <span class="lx2-title-accent" style="color:#fff !important;-webkit-text-fill-color:#fff !important">
           LX2
         </span>
@@ -115,7 +36,7 @@ build: 2025.09.19
             <polygon points="10,8 16,12 10,16" fill="#fff"/>
           </svg>
         </span>
-        <span class="lx2-card__text"><b>LX2 체험하기</b></span>
+        <span class="lx2-card__text"><b>LX2 체</b></span>
       </a>
       <a class="lx2-card eff" href="https://www.instagram.com/4csoft_lx2/" target="_blank">
 <span class="lx2-card__icon" aria-hidden="true">  
@@ -162,8 +83,7 @@ build: 2025.09.19
     </a>
   </div>
   <div class="lx2-hero__copyright">
-    본 저작물의 모든 권리는 <strong>㈜포씨소프트(4CSoft)</strong>에 있습니다.<br>
+    본 저작물의 모든 권리는 ㈜포씨소프트(4CSoft)에 있습니다.<br>
     © 4CSoft. All Rights Reserved. <br><br>2025. 09. 22
   </div>
 </section>
-

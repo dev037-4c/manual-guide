@@ -22,8 +22,8 @@ export default {
       quote: "인용",
     },
     backlinks: {
-      title: "백링크",
-      noBacklinksFound: "백링크가 없습니다.",
+      title: "목록",
+      noBacklinksFound: "목록이 없습니다.",
     },
     themeToggle: {
       lightMode: "라이트 모드",
@@ -33,13 +33,13 @@ export default {
       title: "리더 모드",
     },
     explorer: {
-      title: "탐색기",
+      title: "메뉴",
     },
     footer: {
       createdWith: "Created with",
     },
     graph: {
-      title: "그래프 뷰",
+      title: "관계도",
     },
     recentNotes: {
       title: "최근 게시글",
@@ -57,7 +57,7 @@ export default {
       title: "목차",
     },
     contentMeta: {
-      readingTime: ({ minutes }) => `${minutes} min read`,
+      readingTime: ({ minutes }) => `${minutes}분 전에 읽음`,
     },
   },
   pages: {
