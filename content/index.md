@@ -23,7 +23,7 @@ build: 2025.09.19
     <div class="lx2-hero__cards">
       <a class="lx2-card edu" href="https://www.4csoft.com/" target="_blank">
         <span class="lx2-card__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="48" height="48" xmlns="http://www.w3.org/2000/svg">
+          <svg viewBox="0 0 24 24" width="28" height="28" xmlns="http://www.w3.org/2000/svg">
 		  <circle cx="12" cy="12" r="10" fill="none" stroke="#2D9CDB" stroke-width="2"/>
 		  <text x="12" y="12" text-anchor="middle" dominant-baseline="middle" font-size="8" font-family="Arial, sans-serif" fill="#2D9CDB">4C</text>
 		</svg>

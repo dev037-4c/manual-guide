@@ -372,14 +372,15 @@
 
 /* ===== Right: 2×2 Card Grid ===== */
 .lx2-hero__cards {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   grid-template-columns: 1fr 1fr;
   gap: clamp(10px, 1vw, 10px);
 }
 
 @media (max-width: 540px) {
   .lx2-hero__cards {
-    grid-template-columns: 1fr;
+    grid-template-columns: 2fr;
   }
 }
 
@@ -389,8 +390,8 @@
 
   display: flex;
   align-items: center;
-  gap: 10px; /* 아이콘-텍스트 촘촘하게 */
-  padding: 14px 16px;
+  gap: clamp(8px, 2vw, 20px) !important;   /* 간격도 반응형 */
+  padding: clamp(12px, 2vw, 20px) clamp(8px, 1.5vw, 16px) !important;  /* 통일된 패딩 */
   border-radius: 18px;
 
   background: linear-gradient(180deg, rgba(255, 255, 255, .07), rgba(255, 255, 255, .03));
@@ -398,7 +399,9 @@
   color: #fff;
   text-decoration: none;
   box-shadow: 0 8px 20px rgba(0, 0, 0, .25);
-  min-height: 84px;
+  min-height: 72px !important;        /* 84px → 72px, 모든 카드 통일 */
+  width: 100% !important;  /* 모든 카드가 동일한 너비 */
+  box-sizing: border-box !important;  /* 패딩 포함한 크기 계산 */
 
   transition: transform .12s ease, border-color .12s ease, background .12s ease;
 }
@@ -514,12 +517,7 @@
   line-height: 1;
 }
 
-/* 카드도 살짝 컴팩트하게(아이콘과 텍스트는 가깝게 유지) */
-.lx2-card {
-  min-height: 72px;        /* 84px → 72px */
-  padding: 15px 3px ;      /* 14/16 → 12/14 */
-  gap: 8px;                /* 아이콘-텍스트 거리 촘촘 */
-}
+/* 중복 제거 - 위의 .lx2-card 스타일과 통합됨 */
 
 .lx2-card__icon {
   width: 36px;
@@ -603,6 +601,11 @@
 .lx2-card__icon svg{ width: 19px; height: 19px; }
 .lx2-card__text{ gap: 6px; font-size: clamp(13px, 1.02vw, 15px); white-space: nowrap; }
  
+@media(max-width: 800px) {
+  .lx2-card__icon{
+    margin-left: 0;
+  }
+}
 /* 4) 모바일에서 여백 더 절약 */
 @media (max-width: 980px){
   .lx2-hero{
@@ -681,7 +684,7 @@
 .lx2-hero__cards{
   min-width: 0;            /* grid overflow 방지 */
 }
-.lx2-card{ width: 100%; }  /* 카드 내부 내용이 길어도 줄바꿈 없이 엘립시스 유지 */
+/* 중복 제거 - 위의 .lx2-card 스타일과 통합됨 */
 .lx2-card__text{ white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
  
 /* === PATCH v5: Hero 폭 787px 고정 + 아이콘 살짝 축소 === */
@@ -727,18 +730,30 @@
     max-width: 200px;
   }
   
+.lx2-hero__cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* PC에서는 두 줄 */
+  gap: 12px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* 중복 제거 - 위의 .lx2-card 스타일과 통합됨 */
+
+/* 모바일 최적화 (600px 이하) */
+@media (max-width: 600px) {
   .lx2-hero__cards {
-    grid-template-columns: 1fr;
-    gap: 12px;
-    max-width: 300px;
-    margin: 0 auto;
+    grid-template-columns: repeat(2, 1fr); /* 가로 2개씩 */
+    max-width: 100%; /* 화면 가득 차도록 */
   }
-  
+
   .lx2-card {
-    min-height: 60px;
-    padding: 12px 16px;
-    gap: 10px;
+    min-height: 60px !important; /* 통일된 최소 높이 */
+    padding: 10px 12px !important;    /* 내부 여백 줄이기 */
+    font-size: 14px;  /* 글씨 크기 살짝 축소 */
   }
+}
+
   
   .lx2-card__icon {
     width: 36px;
@@ -772,15 +787,11 @@
     font-size: clamp(12px, 3vw, 14px);
   }
   
-  .lx2-hero__cards {
-    gap: 10px;
-    max-width: 280px;
-  }
   
   .lx2-card {
-    min-height: 56px;
-    padding: 10px 14px;
-    gap: 8px;
+    min-height: 56px !important; /* 작은 화면에서 더 컴팩트 */
+    padding: 8px 10px !important; /* 더 작은 패딩 */
+    gap: 6px !important; /* 더 작은 간격 */
   }
   
   .lx2-card__icon {
@@ -818,7 +829,17 @@
 }
  
 /* (옵션) 카드 그리드가 폭을 꽉 채우게 미세 조정 */
-.lx2-hero__cards{ gap: clamp(10px, 1vw, 10px); min-width: 0; }
+.lx2-hero__cards{ 
+  grid-template-columns: repeat(2, 1fr);
+  place-items: center;
+  gap: 16px;
+  display: grid;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* 중복 제거 - 위의 480px 미디어 쿼리와 통합됨 */
+
 
 .lx2-hero__copyright {
   position: absolute;
@@ -1544,3 +1565,12 @@
     display: contents;
   }
 }
+
+@media(max-width: 800px) {
+  .article-title{
+    text-align: center;
+  }
+}
+
+
+/* 중복 제거 - 위의 480px 미디어 쿼리와 통합됨 */
