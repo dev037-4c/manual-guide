@@ -301,7 +301,7 @@
 
   position: relative;
   display: grid;
-  place-items: center;
+ 
 
   width: min(92vw, var(--wrap));
   margin: 0 auto;
@@ -348,7 +348,7 @@
 }
 
 .lx2-hero__desc {
-  margin: 0 0 1.1em;
+  margin: auto !important;
   font-size: clamp(15px, 1.4vw, 18px);
   opacity: .9;
 }
@@ -822,7 +822,6 @@
 
 .lx2-hero__copyright {
   position: absolute;
-  display: contents;
   bottom: 20px;   /* 섹션 하단에서 20px 위 */
   left: 40px;     /* 왼쪽 여백 */
   font-size: 0.9em;
@@ -1539,3 +1538,9 @@
   margin-top: -40px !important;
   padding: 0 !important;
 }}
+
+@media(max-width: 800px) {
+  .lx2-hero__copyright{
+    display: contents;
+  }
+}
