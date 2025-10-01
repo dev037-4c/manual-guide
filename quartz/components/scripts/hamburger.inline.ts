@@ -1,126 +1,124 @@
-// 햄버거 메뉴 스크립트
-export default function hamburgerScript() {
-  const hamburgerToggle = document.querySelector('.hamburger-toggle') as HTMLButtonElement
-  const mobileMenuContainer = document.querySelector('.mobile-menu-container') as HTMLElement
-  const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay') as HTMLElement
-  const body = document.body
-
-  if (!hamburgerToggle || !mobileMenuContainer || !mobileMenuOverlay) {
-    return
-  }
-
+// 햄버거 메뉴 기능
+document.addEventListener('DOMContentLoaded', function() {
+  const toggle = document.getElementById('hamburger-toggle') as HTMLButtonElement
+  const overlay = document.getElementById('hamburger-overlay') as HTMLElement
+  const nav = document.getElementById('hamburger-nav') as HTMLElement
+  const close = document.getElementById('hamburger-close') as HTMLButtonElement
+  const menuItems = document.querySelectorAll('.hamburger-menu-item') as NodeListOf<HTMLAnchorElement>
+  
+  if (!toggle || !overlay || !nav) return
+  
+  // 현재 페이지 URL 가져오기
+  const currentPath = window.location.pathname
+  
+  // 현재 페이지 메뉴 아이템 활성화
+  menuItems.forEach(item => {
+    if (item.getAttribute('href') === currentPath || 
+        (currentPath === '/' && item.getAttribute('href') === '/') ||
+        (currentPath !== '/' && item.getAttribute('href')?.includes(currentPath.replace('/', '')))) {
+      item.classList.add('active')
+    }
+  })
+  
   // 메뉴 열기
   function openMenu() {
-    body.classList.add('menu-open')
-    hamburgerToggle?.setAttribute('aria-expanded', 'true')
-    mobileMenuContainer?.setAttribute('aria-hidden', 'false')
+    toggle.classList.add('active')
+    overlay.classList.add('active')
+    toggle.setAttribute('aria-expanded', 'true')
+    document.body.style.overflow = 'hidden'
     
-    // 스크롤 방지
-    body.style.overflow = 'hidden'
+    // 포커스 트랩 설정
+    const focusableElements = nav.querySelectorAll(
+      'a[href], button, [tabindex]:not([tabindex="-1"])'
+    ) as NodeListOf<HTMLElement>
     
-    // 애니메이션 완료 후 포커스 설정
-    setTimeout(() => {
-      const firstButton = mobileMenuContainer?.querySelector('.mobile-menu-button') as HTMLElement
-      if (firstButton) {
-        firstButton.focus()
-      }
-    }, 400)
+    if (focusableElements.length > 0) {
+      focusableElements[0].focus()
+    }
   }
-
+  
   // 메뉴 닫기
   function closeMenu() {
-    body.classList.remove('menu-open')
-    hamburgerToggle?.setAttribute('aria-expanded', 'false')
-    mobileMenuContainer?.setAttribute('aria-hidden', 'true')
-    
-    // 스크롤 복원
-    body.style.overflow = ''
-    
-    // 햄버거 버튼으로 포커스 복원
-    setTimeout(() => {
-      hamburgerToggle?.focus()
-    }, 400)
+    toggle.classList.remove('active')
+    overlay.classList.remove('active')
+    toggle.setAttribute('aria-expanded', 'false')
+    document.body.style.overflow = ''
+    toggle.focus()
   }
-
-  // 햄버거 버튼 클릭 이벤트
-  hamburgerToggle.addEventListener('click', () => {
-    const isOpen = body.classList.contains('menu-open')
-    if (isOpen) {
+  
+  // 토글 버튼 클릭
+  toggle.addEventListener('click', function(e) {
+    e.preventDefault()
+    e.stopPropagation()
+    
+    if (toggle.classList.contains('active')) {
       closeMenu()
     } else {
       openMenu()
     }
   })
-
-  // 오버레이 클릭으로 메뉴 닫기
-  mobileMenuOverlay.addEventListener('click', closeMenu)
-
-  // 키보드 네비게이션
-  document.addEventListener('keydown', (e) => {
-    if (body.classList.contains('menu-open')) {
-      if (e.key === 'Escape') {
-        closeMenu()
-      } else if (e.key === 'Tab') {
-        // 메뉴 내에서 탭 순환
-        const focusableElements = mobileMenuContainer?.querySelectorAll(
-          'button, input, [tabindex]:not([tabindex="-1"])'
-        ) as NodeListOf<HTMLElement>
-        
-        if (focusableElements && focusableElements.length > 0) {
-          const firstElement = focusableElements[0]
-          const lastElement = focusableElements[focusableElements.length - 1]
-          
-          if (e.shiftKey && document.activeElement === firstElement) {
-            e.preventDefault()
-            lastElement.focus()
-          } else if (!e.shiftKey && document.activeElement === lastElement) {
-            e.preventDefault()
-            firstElement.focus()
-          }
-        }
-      }
-    }
-  })
-
-  // 윈도우 리사이즈 시 메뉴 닫기
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 800 && body.classList.contains('menu-open')) {
+  
+  // 닫기 버튼 클릭
+  if (close) {
+    close.addEventListener('click', function(e) {
+      e.preventDefault()
+      e.stopPropagation()
+      closeMenu()
+    })
+  }
+  
+  // 오버레이 클릭으로 닫기
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) {
       closeMenu()
     }
   })
-
-  // 메뉴 버튼 클릭 피드백 함수
-  function addClickFeedback(button: HTMLElement) {
-    button.classList.add('clicked')
-    setTimeout(() => {
-      button.classList.remove('clicked')
-    }, 200)
-  }
-
-  // 메뉴 버튼들에 클릭 이벤트 추가
-  const menuButtons = document.querySelectorAll('.mobile-menu-button')
-  menuButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      addClickFeedback(button as HTMLElement)
+  
+  // ESC 키로 닫기
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && overlay.classList.contains('active')) {
+      closeMenu()
+    }
+  })
+  
+  // 메뉴 아이템 클릭 시 닫기
+  menuItems.forEach(item => {
+    item.addEventListener('click', function() {
+      // 같은 페이지 링크가 아닌 경우에만 닫기
+      if (item.getAttribute('href') !== currentPath) {
+        setTimeout(closeMenu, 150) // 약간의 지연으로 부드러운 전환
+      }
     })
   })
-
-  // 팝업 열기 함수들을 전역으로 등록
-  ;(window as any).openExplorerPopup = () => {
-    const explorerPopup = document.querySelector('.mobile-popup[data-type="explorer"]') as HTMLElement
-    if (explorerPopup) {
-      explorerPopup.classList.add('open')
-      explorerPopup.setAttribute('aria-hidden', 'false')
-      document.body.style.overflow = 'hidden'
+  
+  // 윈도우 리사이즈 시 메뉴 닫기
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 768 && overlay.classList.contains('active')) {
+      closeMenu()
     }
-  }
-
-  ;(window as any).openGraphPopup = () => {
-    const graphPopup = document.querySelector('.mobile-popup[data-type="graph"]') as HTMLElement
-    if (graphPopup) {
-      graphPopup.classList.add('open')
-      graphPopup.setAttribute('aria-hidden', 'false')
-      document.body.style.overflow = 'hidden'
+  })
+  
+  // 터치 제스처 지원 (스와이프로 닫기)
+  let startX = 0
+  let startY = 0
+  
+  nav.addEventListener('touchstart', function(e) {
+    startX = e.touches[0].clientX
+    startY = e.touches[0].clientY
+  })
+  
+  nav.addEventListener('touchmove', function(e) {
+    if (!overlay.classList.contains('active')) return
+    
+    const currentX = e.touches[0].clientX
+    const currentY = e.touches[0].clientY
+    const diffX = startX - currentX
+    const diffY = startY - currentY
+    
+    // 수평 스와이프가 수직 스와이프보다 클 때만 닫기
+    if (Math.abs(diffX) > Math.abs(diffY) && diffX > 50) {
+      closeMenu()
     }
-  }
-}
+  })
+})
+

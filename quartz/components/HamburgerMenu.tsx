@@ -1,77 +1,66 @@
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
-import style from "./styles/hamburger.scss"
-import script from "./scripts/hamburger.inline"
 
-export default (() => {
-  const HamburgerMenu: QuartzComponent = ({ displayClass }: QuartzComponentProps) => {
+interface Options {
+  title: string
+}
+
+const defaultOptions: Options = {
+  title: "메뉴",
+}
+
+export default ((opts?: Partial<Options>) => {
+  const options = { ...defaultOptions, ...opts }
+  
+  const HamburgerMenu: QuartzComponent = ({ fileData, cfg }: QuartzComponentProps) => {
     return (
-      <div class={`hamburger-menu ${displayClass ?? ""}`}>
-        {/* 햄버거 토글 버튼 */}
+      <div class="hamburger-menu-container">
         <button 
-          class="hamburger-toggle"
-          aria-label="메뉴 열기"
+          class="hamburger-menu-toggle" 
+          id="hamburger-toggle"
+          aria-label="메뉴 열기/닫기"
           aria-expanded="false"
         >
           <span class="hamburger-line"></span>
           <span class="hamburger-line"></span>
           <span class="hamburger-line"></span>
         </button>
-
-        {/* 모바일 메뉴 오버레이 */}
-        <div class="mobile-menu-overlay" aria-hidden="true"></div>
-
-        {/* 모바일 메뉴 컨테이너 */}
-        <div class="mobile-menu-container" aria-hidden="true">
-          <div class="mobile-menu-content">
-            {/* 상단 컨트롤 (검색, 다크모드, 리더모드) */}
-            <div class="mobile-menu-top-controls">
-              <div class="mobile-search-container">
-                <div class="search">
-                  <input 
-                    type="text" 
-                    placeholder="검색..." 
-                    aria-label="검색"
-                  />
-                </div>
-              </div>
-              
-              <div class="mobile-control-buttons">
-                <button class="mobile-control-btn" aria-label="다크모드 토글">
-                  <span>🌙</span>
-                </button>
-                <button class="mobile-control-btn" aria-label="리더모드 토글">
-                  <span>📖</span>
-                </button>
-              </div>
-            </div>
-
-            {/* 네비게이션 버튼들 */}
-            <div class="mobile-menu-navigation">
+        
+        <div class="hamburger-menu-overlay" id="hamburger-overlay">
+          <nav class="hamburger-menu-nav" id="hamburger-nav">
+            <div class="hamburger-menu-header">
+              <h2>{options.title}</h2>
               <button 
-                class="mobile-menu-button"
-                onClick={() => (window as any).openExplorerPopup?.()}
-                aria-label="목록 팝업 열기"
+                class="hamburger-menu-close" 
+                id="hamburger-close"
+                aria-label="메뉴 닫기"
               >
-                <span class="button-icon">📁</span>
-                <span class="button-text">파일 목록 보기</span>
-              </button>
-              
-              <button 
-                class="mobile-menu-button"
-                onClick={() => (window as any).openGraphPopup?.()}
-                aria-label="관계도 팝업 열기"
-              >
-                <span class="button-icon">🕸️</span>
-                <span class="button-text">관계도 보기</span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
               </button>
             </div>
-          </div>
+            
+            <div class="hamburger-menu-content">
+              <ul class="hamburger-menu-list">
+                <li><a href="/" class="hamburger-menu-item">홈</a></li>
+                <li><a href="/1.-회원" class="hamburger-menu-item">회원</a></li>
+                <li><a href="/2.-과정" class="hamburger-menu-item">과정</a></li>
+                <li><a href="/3.-콘텐츠" class="hamburger-menu-item">콘텐츠</a></li>
+                <li><a href="/4.-사이트" class="hamburger-menu-item">사이트</a></li>
+                <li><a href="/5.-서비스" class="hamburger-menu-item">서비스</a></li>
+                <li><a href="/6.-시설" class="hamburger-menu-item">시설</a></li>
+                <li><a href="/7.-주문결제" class="hamburger-menu-item">주문결제</a></li>
+                <li><a href="/8.-통계" class="hamburger-menu-item">통계</a></li>
+                <li><a href="/9.-설정" class="hamburger-menu-item">설정</a></li>
+                <li><a href="/10.-시스템" class="hamburger-menu-item">시스템</a></li>
+              </ul>
+            </div>
+          </nav>
         </div>
       </div>
     )
   }
 
-  HamburgerMenu.css = style
-  HamburgerMenu.afterDOMLoaded = script as any
   return HamburgerMenu
 }) satisfies QuartzComponentConstructor
+

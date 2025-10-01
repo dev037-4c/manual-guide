@@ -1,15 +1,16 @@
 ---
-title: LX2 매뉴얼 V21`11
+title: LX2 매뉴얼 V2
 date:
 version: v2.0.0
 build: 2025.09.19
 ---
 
+<div class="lx2-hero-page">
 <section class="lx2-hero">
   <div class="lx2-hero__inner">
     <div class="lx2-hero__content">
       <h1 class="lx2-hero__title" style="color:#fff !important;-webkit-text-fill-color:#fff !important">
-        통합학습관리<br> 
+        통합학습관리시스템<br> 
         <span class="lx2-title-accent" style="color:#fff !important;-webkit-text-fill-color:#fff !important">
           LX2
         </span>
@@ -36,7 +37,7 @@ build: 2025.09.19
             <polygon points="10,8 16,12 10,16" fill="#fff"/>
           </svg>
         </span>
-        <span class="lx2-card__text"><b>LX2 체</b></span>
+        <span class="lx2-card__text"><b>LX2 체험하기</b></span>
       </a>
       <a class="lx2-card eff" href="https://www.instagram.com/4csoft_lx2/" target="_blank">
 <span class="lx2-card__icon" aria-hidden="true">  
@@ -87,3 +88,4 @@ build: 2025.09.19
     © 4CSoft. All Rights Reserved. <br><br>2025. 09. 22
   </div>
 </section>
+</div>

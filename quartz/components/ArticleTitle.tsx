@@ -14,14 +14,6 @@ ArticleTitle.css = `
 .article-title {
   margin: 2rem 0 0 0;
 }
-
-/* 모바일에서 제목 가운데 정렬 */
-@media (max-width: 800px) {
-  .article-title {
-    text-align: center;
-    margin: 1rem 0 0 0;
-  }
-}
 `
 
 export default (() => ArticleTitle) satisfies QuartzComponentConstructor
