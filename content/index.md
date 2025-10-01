@@ -37,7 +37,7 @@ build: 2025.09.19
             <polygon points="10,8 16,12 10,16" fill="#fff"/>
           </svg>
         </span>
-        <span class="lx2-card__text"><b>LX2 체험하기</b></span>
+        <span class="lx2-card__text"><b>LX2<br>체험하기</b></span>
       </a>
       <a class="lx2-card eff" href="https://www.instagram.com/4csoft_lx2/" target="_blank">
 <span class="lx2-card__icon" aria-hidden="true">  
