@@ -760,15 +760,19 @@
 @media (max-width: 820px) {
   .lx2-hero {
     width: auto !important;
-    min-height: clamp(280px, 45dvh, 480px);
+    min-height: clamp(320px, 50dvh, 520px); /* 높이 증가로 PDF 버튼 공간 확보 */
     padding: clamp(12px, 4vh, 32px) clamp(12px, 3vw, 20px);
     margin-top: clamp(20px, 4vh, 40px);
+    position: relative; /* PDF 버튼 절대 위치를 위한 기준점 */
   }
   
   .lx2-hero__inner {
-    grid-template-columns: 1fr;
-    row-gap: 20px;
-    column-gap: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
   }
   
   .lx2-hero__title {
@@ -790,43 +794,70 @@
     max-width: 200px;
   }
   
-.lx2-hero__cards {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* PC에서는 두 줄 */
-  gap: 12px;
-  max-width: 600px;
-  margin: 0 auto;
+  .lx2-hero__cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2x2 그리드 유지 */
+    gap: 12px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 10px; /* 좌우 여백 추가 */
+  }
+  
+  /* PDF 버튼을 카드 아래로 이동 */
+  .lx2-pdf-card {
+    position: static !important; /* 절대 위치 해제 */
+    margin: 20px auto 0 auto; /* 상단 마진 추가, 중앙 정렬 */
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    order: 10; /* 가장 마지막에 배치 */
+  }
 }
 
 /* 중복 제거 - 위의 .lx2-card 스타일과 통합됨 */
 
 /* 모바일 최적화 (600px 이하) */
 @media (max-width: 600px) {
+  .lx2-hero {
+    min-height: clamp(360px, 55dvh, 560px); /* 높이 더 증가 */
+    padding-bottom: clamp(20px, 6vh, 40px); /* 하단 패딩 증가 */
+  }
+  
   .lx2-hero__cards {
-    grid-template-columns: repeat(2, 1fr); /* 가로 2개씩 */
-    max-width: 100%; /* 화면 가득 차도록 */
+    grid-template-columns: repeat(2, 1fr); /* 가로 2개씩 유지 */
+    gap: 10px; /* 간격 줄임 */
+    max-width: 100%;
+    padding: 0 5px; /* 좌우 패딩 줄임 */
   }
 
   .lx2-card {
-    min-height: 60px !important; /* 통일된 최소 높이 */
-    padding: 10px 12px !important;    /* 내부 여백 줄이기 */
-    font-size: 14px;  /* 글씨 크기 살짝 축소 */
+    min-height: 65px !important; /* 최소 높이 증가로 텍스트 공간 확보 */
+    padding: 8px 10px !important; /* 패딩 조정 */
+    font-size: 13px; /* 글씨 크기 조정 */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px !important;
   }
-}
-
-  
-  /* 중복 제거됨 - 위의 .lx2-card__icon 스타일과 통합됨 */
   
   .lx2-card__text {
-    font-size: clamp(13px, 2.2vw, 15px);
-    gap: 4px;
+    font-size: clamp(12px, 2.8vw, 14px);
+    line-height: 1.2;
+    white-space: normal; /* 줄바꿈 허용 */
+    overflow: visible;
+    text-overflow: initial;
+  }
+  
+  .lx2-pdf-card {
+    margin-top: 25px; /* 카드와 더 많은 간격 */
   }
 }
 
 @media (max-width: 480px) {
   .lx2-hero {
-    min-height: clamp(240px, 40dvh, 400px);
+    min-height: clamp(380px, 60dvh, 480px); /* 높이 대폭 증가 */
     padding: clamp(10px, 3vh, 24px) clamp(10px, 2vw, 16px);
+    padding-bottom: clamp(25px, 8vh, 50px); /* 하단 패딩 대폭 증가 */
     margin-top: clamp(16px, 3vh, 32px);
   }
   
@@ -836,19 +867,52 @@
   
   .lx2-hero__desc {
     font-size: clamp(12px, 3vw, 14px);
+    margin-bottom: 2em; /* 설명과 카드 사이 간격 증가 */
   }
   
+  .lx2-hero__cards {
+    grid-template-columns: repeat(2, 1fr); /* 2x2 그리드 유지 */
+    gap: 8px; /* 간격 더 줄임 */
+    max-width: 100%;
+    padding: 0 3px; /* 최소 패딩 */
+  }
   
   .lx2-card {
-    min-height: 56px !important; /* 작은 화면에서 더 컴팩트 */
-    padding: 8px 10px !important; /* 더 작은 패딩 */
-    gap: 6px !important; /* 더 작은 간격 */
+    min-height: 70px !important; /* 높이 더 증가로 텍스트 여유 공간 확보 */
+    padding: 6px 8px !important; /* 패딩 최소화 */
+    gap: 6px !important;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
   }
   
-  /* 중복 제거됨 - 위의 .lx2-card__icon 스타일과 통합됨 */
+  .lx2-card__icon {
+    width: 28px !important;
+    height: 28px !important;
+    flex-shrink: 0;
+  }
+  
+  .lx2-card__icon svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
   
   .lx2-card__text {
-    font-size: clamp(12px, 2.5vw, 14px);
+    font-size: clamp(11px, 3vw, 13px);
+    line-height: 1.1;
+    white-space: normal; /* 줄바꿈 허용 */
+    overflow: visible;
+    text-overflow: initial;
+    flex: 1;
+  }
+  
+  .lx2-pdf-card {
+    margin-top: 30px; /* 카드와 더 많은 간격 */
+  }
+  
+  .lx2-pdf-card .pdf-link {
+    padding: 6px 12px;
+    font-size: 12px;
   }
 }
  
@@ -1613,4 +1677,16 @@
 /* 중복 제거 - 위의 480px 미디어 쿼리와 통합됨 */
 
 
-.internal{display: none;}
+/* .internal{display: none;} */ /* 링크 숨김 해제 */
+
+@media(max-width: 480px) {
+  .lx2-hero__copyright{
+    display: none;
+  }
+}
+
+@media(max-width: 480px) {
+  .lx2-pdf-card .pdf-link{
+    height: 12px;
+  }
+}
