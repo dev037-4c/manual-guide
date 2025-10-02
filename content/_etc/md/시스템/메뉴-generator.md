@@ -1,4 +1,21 @@
-![[메뉴-generator.png]]
+<div class="obs-slider">  
+<input type="radio" name="obslide" id="os-s1" checked>  
+<input type="radio" name="obslide" id="os-s2">    
+<div class="viewport">  
+<div class="track">  
+<figure class="panel"><img src="메뉴-generator2.png" alt="Slide 1"></figure>  
+<figure class="panel"><img src="메뉴-generator1.png" alt="Slide 2"></figure> 
+</div>  
+<label for="os-s3" class="nav prev for-1" aria-label="Prev">&#8249;</label>  
+<label for="os-s2" class="nav next for-1" aria-label="Next">&#8250;</label>  
+<label for="os-s1" class="nav prev for-2" aria-label="Prev">&#8249;</label>  
+<label for="os-s3" class="nav next for-2" aria-label="Next">&#8250;</label>  
+<div class="dots">  
+<label for="os-s1" aria-label="Go to slide 1"></label>  
+<label for="os-s2" aria-label="Go to slide 2"></label>  
+</div>  
+</div>  
+</div>
 
 ---
 

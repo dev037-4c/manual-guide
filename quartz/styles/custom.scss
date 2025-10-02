@@ -895,6 +895,23 @@ body[data-theme="dark"] {
   visibility: hidden !important;
   opacity: 0 !important;
 }
+
+body[data-slug="index"],
+body[data-slug="/"] { /* 혹시 환경에 따라 루트가 '/'로 붙는 경우 대비 */
+  /* Quartz 기본 Backlinks 컴포넌트 */
+  .backlinks { display: none !important; }
+ 
+  /* 테마/버전별 변형 이름까지 함께 차단(안전망) */
+  section.backlinks,
+  .right-sidebar .backlinks,
+  [data-component="Backlinks"],
+  .page-footer .backlinks,
+  .content .backlinks,
+  .backlinks-container {
+    display: none !important;
+  }
+}
+
 .darkmode {
   .dayIcon, .nightIcon {
     /* 다크모드 완전 비활성화 */
