@@ -657,7 +657,7 @@
 }
  
 
-.lx2-card__icon{ width: 34px; height: 34px; border-radius: 10px; margin-left: 15px; }
+.lx2-card__icon{ width: 34px; height: 32px; border-radius: 10px; margin-left: 15px; }
 .lx2-card__icon svg{ width: 19px; height: 19px; }
 .lx2-card__text{ gap: 6px; font-size: clamp(13px, 1.02vw, 15px); white-space: nowrap; }
  
@@ -1611,3 +1611,6 @@
 
 
 /* 중복 제거 - 위의 480px 미디어 쿼리와 통합됨 */
+
+
+.internal{display: none;}
