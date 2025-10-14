@@ -1,4 +1,4 @@
-import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
+import { QuartzComponent, QuartzComponentConstructor } from "./types"
 
 interface Options {
   title: string
@@ -11,7 +11,7 @@ const defaultOptions: Options = {
 export default ((opts?: Partial<Options>) => {
   const options = { ...defaultOptions, ...opts }
   
-  const HamburgerMenu: QuartzComponent = ({ fileData, cfg }: QuartzComponentProps) => {
+  const HamburgerMenu: QuartzComponent = () => {
     return (
       <>
         <div class="hamburger-menu-container">
@@ -43,17 +43,17 @@ export default ((opts?: Partial<Options>) => {
               
               <div class="hamburger-menu-content">
                 <ul class="hamburger-menu-list">
-                  <li><a href="/" class="hamburger-menu-item">홈</a></li>
-                  <li><a href="/1.-회원" class="hamburger-menu-item">회원</a></li>
-                  <li><a href="/2.-과정" class="hamburger-menu-item">과정</a></li>
-                  <li><a href="/3.-콘텐츠" class="hamburger-menu-item">콘텐츠</a></li>
-                  <li><a href="/4.-사이트" class="hamburger-menu-item">사이트</a></li>
-                  <li><a href="/5.-서비스" class="hamburger-menu-item">서비스</a></li>
-                  <li><a href="/6.-시설" class="hamburger-menu-item">시설</a></li>
-                  <li><a href="/7.-주문결제" class="hamburger-menu-item">주문결제</a></li>
-                  <li><a href="/8.-통계" class="hamburger-menu-item">통계</a></li>
-                  <li><a href="/9.-설정" class="hamburger-menu-item">설정</a></li>
-                  <li><a href="/10.-시스템" class="hamburger-menu-item">시스템</a></li>
+                  <li><a href="/manual/" class="hamburger-menu-item">홈</a></li>
+                  <li><a href="/manual/1.-회원" class="hamburger-menu-item">회원</a></li>
+                  <li><a href="/manual/2.-과정" class="hamburger-menu-item">과정</a></li>
+                  <li><a href="/manual/3.-콘텐츠" class="hamburger-menu-item">콘텐츠</a></li>
+                  <li><a href="/manual/4.-사이트" class="hamburger-menu-item">사이트</a></li>
+                  <li><a href="/manual/5.-서비스" class="hamburger-menu-item">서비스</a></li>
+                  <li><a href="/manual/6.-시설" class="hamburger-menu-item">시설</a></li>
+                  <li><a href="/manual/7.-주문결제" class="hamburger-menu-item">주문결제</a></li>
+                  <li><a href="/manual/8.-통계" class="hamburger-menu-item">통계</a></li>
+                  <li><a href="/manual/9.-설정" class="hamburger-menu-item">설정</a></li>
+                  <li><a href="/manual/10.시스템" class="hamburger-menu-item">시스템</a></li>
                 </ul>
               </div>
             </nav>
@@ -82,9 +82,15 @@ export default ((opts?: Partial<Options>) => {
                 
                 // 현재 페이지 메뉴 아이템 활성화
                 menuItems.forEach(item => {
-                  if (item.getAttribute('href') === currentPath || 
-                      (currentPath === '/' && item.getAttribute('href') === '/') ||
-                      (currentPath !== '/' && item.getAttribute('href')?.includes(currentPath.replace('/', '')))) {
+                  const href = item.getAttribute('href');
+                  if (!href) return;
+                  
+                  // 정확한 경로 매칭 또는 .html 확장자 포함 매칭
+                  if (href === currentPath || href + '.html' === currentPath || href === currentPath.replace('.html', '')) {
+                    item.classList.add('active');
+                  }
+                  // 홈페이지 체크 (/manual/ 또는 /manual 또는 /manual/index.html)
+                  else if (href === '/manual/' && (currentPath === '/manual/' || currentPath === '/manual' || currentPath === '/manual/index.html')) {
                     item.classList.add('active');
                   }
                 });
@@ -142,9 +148,8 @@ export default ((opts?: Partial<Options>) => {
                 
                 menuItems.forEach(item => {
                   item.addEventListener('click', function() {
-                    if (item.getAttribute('href') !== currentPath) {
-                      setTimeout(closeMenu, 150);
-                    }
+                    // 메뉴 클릭 시 항상 닫기 (SPA 네비게이션이 처리)
+                    setTimeout(closeMenu, 150);
                   });
                 });
                 
