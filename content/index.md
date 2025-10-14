@@ -19,7 +19,6 @@ build: 2025.09.19
         통합 교육시스템
       </p>
     </div>
-  <!-- PDF 다운로드 카드 -->
   <div class="lx2-pdf-card">
     <a href="./_etc/LX2매뉴얼.pdf" download class="pdf-link">
       <span class="pdf-icon">
