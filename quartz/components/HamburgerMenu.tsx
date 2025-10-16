@@ -43,17 +43,17 @@ export default ((opts?: Partial<Options>) => {
               
               <div class="hamburger-menu-content">
                 <ul class="hamburger-menu-list">
-                  <li><a href="/manual/" class="hamburger-menu-item">홈</a></li>
-                  <li><a href="/manual/1.-회원" class="hamburger-menu-item">회원</a></li>
-                  <li><a href="/manual/2.-과정" class="hamburger-menu-item">과정</a></li>
-                  <li><a href="/manual/3.-콘텐츠" class="hamburger-menu-item">콘텐츠</a></li>
-                  <li><a href="/manual/4.-사이트" class="hamburger-menu-item">사이트</a></li>
-                  <li><a href="/manual/5.-서비스" class="hamburger-menu-item">서비스</a></li>
-                  <li><a href="/manual/6.-시설" class="hamburger-menu-item">시설</a></li>
-                  <li><a href="/manual/7.-주문결제" class="hamburger-menu-item">주문결제</a></li>
-                  <li><a href="/manual/8.-통계" class="hamburger-menu-item">통계</a></li>
-                  <li><a href="/manual/9.-설정" class="hamburger-menu-item">설정</a></li>
-                  <li><a href="/manual/10.시스템" class="hamburger-menu-item">시스템</a></li>
+                  <li><a href="/manual2/" class="hamburger-menu-item">홈</a></li>
+                  <li><a href="/manual2/1.-회원" class="hamburger-menu-item">회원</a></li>
+                  <li><a href="/manual2/2.-과정" class="hamburger-menu-item">과정</a></li>
+                  <li><a href="/manual2/3.-콘텐츠" class="hamburger-menu-item">콘텐츠</a></li>
+                  <li><a href="/manual2/4.-사이트" class="hamburger-menu-item">사이트</a></li>
+                  <li><a href="/manual2/5.-서비스" class="hamburger-menu-item">서비스</a></li>
+                  <li><a href="/manual2/6.-시설" class="hamburger-menu-item">시설</a></li>
+                  <li><a href="/manual2/7.-주문결제" class="hamburger-menu-item">주문결제</a></li>
+                  <li><a href="/manual2/8.-통계" class="hamburger-menu-item">통계</a></li>
+                  <li><a href="/manual2/9.-설정" class="hamburger-menu-item">설정</a></li>
+                  <li><a href="/manual2/10.시스템" class="hamburger-menu-item">시스템</a></li>
                 </ul>
               </div>
             </nav>
