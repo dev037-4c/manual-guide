@@ -28,7 +28,7 @@ build: 2025.09.19
 		  <text x="12" y="12" text-anchor="middle" dominant-baseline="middle" font-size="8" font-family="Arial, sans-serif" fill="#2D9CDB">4C</text>
 		</svg>
         </span>
-        <span class="lx2-card__text"><b>포씨소프트<br>공식 홈페이지</b></span>
+        <span class="lx2-card__text"><b>포씨소프트<br>홈페이지</b></span>
       </a>
       <a class="lx2-card tech" href="https://lx2.kr/common/greeting.do" target="_blank">
         <span class="lx2-card__icon" aria-hidden="true">
@@ -38,6 +38,15 @@ build: 2025.09.19
           </svg>
         </span>
         <span class="lx2-card__text"><b>LX2<br>체험하기</b></span>
+      </a>
+      <a class="lx2-card sec" href="https://blog.naver.com/lx2-4cosft" target="_blank">
+        <span class="lx2-card__icon" aria-hidden="true">
+        <svg role="img" viewBox="0 0 24 24" width="28" height="28" xmlns="http://www.w3.org/2000/svg">
+            <title>Naver</title>
+            <path d="M3 3h5.5l4.5 7V3H21v18h-5.5l-4.5-7v7H3z" fill="#03C75A"/>
+          </svg>
+        </span>
+        <span class="lx2-card__text"><b>기능 가이드<br>블로그</b></span>
       </a>
       <a class="lx2-card eff" href="https://www.instagram.com/4csoft_lx2/" target="_blank">
 <span class="lx2-card__icon" aria-hidden="true">  
@@ -56,17 +65,8 @@ build: 2025.09.19
 <circle cx="17.5" cy="6.5" r="1.5" fill="url(#instaGradient)"/>  
 </svg>  
 </span>  
-<span class="lx2-card__text"><b>LX2 공식<br>인스타그램</b></span>  
+<span class="lx2-card__text"><b>인스타그램</b></span>  
 </a>
-      <a class="lx2-card sec" href="https://blog.naver.com/lx2-4cosft" target="_blank">
-        <span class="lx2-card__icon" aria-hidden="true">
-        <svg role="img" viewBox="0 0 24 24" width="28" height="28" xmlns="http://www.w3.org/2000/svg">
-            <title>Naver</title>
-            <path d="M3 3h5.5l4.5 7V3H21v18h-5.5l-4.5-7v7H3z" fill="#03C75A"/>
-          </svg>
-        </span>
-        <span class="lx2-card__text"><b>LX2 기능<br>가이드 블로그</b></span>
-      </a>
     </div>
   </div>
 <div class="lx2-pdf-card">
